@@ -8,6 +8,12 @@
 </p>
 
 
+## Reflective Planes
+<p float="left">
+  <img src="Images/cube_reflection.gif" width="400" />
+</p>
+
+
 ```py
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
