@@ -1,3 +1,4 @@
+import numpy as np
 
 def plot_axis(ax):
     """
@@ -37,7 +38,7 @@ def plot_axis(ax):
 def cuboid(ax,h,w,d):
     """
     """
-    
+
     plot_axis(ax)
     for i in [-h/2,h/2]:
         for j in [-w/2,w/2]:
@@ -57,3 +58,31 @@ def inversion(ax,h,w,d):
     ax.plot([-h,h],[-w,w],[-d,d],c='k',linestyle='--')
     ax.text(h+pos,w+pos,d+pos,r"$(x,y,z)$")
     ax.text(-h-pos,-w-pos,-d-pos,r"$-(x,y,z)$")
+
+def reflection(ax,h,w,d):
+    """
+    """
+    plot_axis(ax)
+    #cube(ax,7,7,7)
+
+    pos = 1
+    ax.plot([h,h],[w,w],[-d,d],c='k',linestyle='--')
+    ax.text(h+pos,w+pos,d+pos,r"$(x,y,z)$")
+    ax.text(h-pos,w-pos,-d-pos,r"$-(x,y,z)$")
+
+
+    h = h+3
+    w= w+3
+    x = np.arange(-h,h,1)
+    y = np.arange(-w,w,1)
+
+    x,y = np.meshgrid(x,y)
+
+    z =  np.zeros(x.shape)
+    ax.plot_surface(x,y,z,alpha=0.5)
+
+def rotation(ax,h,w,d):
+    """
+    """
+    plot_axis(ax)
+    pass

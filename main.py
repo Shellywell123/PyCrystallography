@@ -19,8 +19,16 @@ def make_gif():
         fig = plt.figure(0,figsize=[8,8])
         azim = (360/num_of_frames)*frame
         ax = fig.add_subplot(111,projection='3d',azim=azim,elev=30)
+
         #inversion
         #inversion(ax,7,7,7)
+
+        #reflection  
+        #reflection(ax,7,7,7)
+
+        #rotation
+        rotation(ax,7,7,7)
+
         #cube
         # cuboid(ax,5,5,5)
 
@@ -28,7 +36,9 @@ def make_gif():
         # cuboid(ax,5,5,10)
 
         # #coboid1
-        cuboid(ax,5,10,5)
+        # cuboid(ax,5,10,5)
+
+
 
         if frame <= 8:
             frame = '0'+str(frame+1)
@@ -44,18 +54,18 @@ def make_gif():
     images = []
     for filename in os.listdir('Images/frames/'):
         images.append(imageio.imread('Images/frames/'+filename))
-    imageio.mimsave('Images/cuboid1.gif', images)
+    imageio.mimsave('Images/rotation.gif', images)
     print('gif made')
 
 ################################################################################
 
 
 
-#fig = plt.figure(0,figsize=[8,8])
+# fig = plt.figure(0,figsize=[8,8])
 # ax = fig.add_subplot(111,projection='3d')
 
-# inversion(ax,7,7,7)
+# reflection(ax,7,7,7)
 
 # plt.show()
-
+# # 
 make_gif()
