@@ -2,9 +2,9 @@
 
 ## Inversion Reflection Rotation
 <p float="left">
-  <img src="Images/inversion.gif" width="290" />
-  <img src="Images/reflection.gif" width="290" />
-  <img src="Images/rotation.gif" width="290" />
+  <img src="Images/inversion.gif" width="400" />
+  <img src="Images/reflection.gif" width="400" />
+  <img src="Images/rotation.gif" width="400" />
 </p>
 
 
