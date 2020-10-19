@@ -1,5 +1,12 @@
 # PyCrystallography
 
+<p float="left">
+  <img src="Images/inversion.gif" width="400" />
+  <img src="Images/reflection.gif" width="400" />
+  <img src="Images/rotation.gif" width="400" />
+</p>
+
+
 ```py
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
