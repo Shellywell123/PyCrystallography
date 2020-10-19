@@ -35,8 +35,11 @@ def make_gif():
         # cuboid
         # cuboid(ax,5,5,10)
 
-        # #coboid1
-        # cuboid(ax,5,10,5)
+        #coboid1
+        cuboid(ax,5,10,5)
+
+        # #cuboid2
+        # cuboid(ax,10,5,5)
 
 
 
@@ -54,7 +57,7 @@ def make_gif():
     images = []
     for filename in os.listdir('Images/frames/'):
         images.append(imageio.imread('Images/frames/'+filename))
-    imageio.mimsave('Images/rotation.gif', images)
+    imageio.mimsave('Images/cuboid1.gif', images)
     print('gif made')
 
 ################################################################################
