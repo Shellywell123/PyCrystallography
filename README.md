@@ -5,7 +5,7 @@
 def BCC(ax):
 ```
 ```py
-def FCC(ax)
+def FCC(ax):
 ```
 <p float="left">
   <img src="Images/BCC.gif" width="400" />
@@ -16,7 +16,7 @@ def FCC(ax)
 def NaCl(ax):
 ```
 ```py
-def Diamond(ax)
+def Diamond(ax):
 ```
 <p float="left">
   <img src="Images/NaCl.gif" width="400" />
@@ -24,15 +24,24 @@ def Diamond(ax)
 </p>
 
 
-## Inversion Reflection Rotation
+## Inversion & Reflection
+```py
+def inversion(ax,h,w,d):
+```
+```py
+def reflection(ax,h,w,d):
+```
 <p float="left">
   <img src="Images/inversion.gif" width="400" />
   <img src="Images/reflection.gif" width="400" />
-  <img src="Images/rotation.gif" width="400" />
 </p>
 
 
-## Reflective Planes
+### Reflective Planes
+```py
+
+def cube_reflection(ax,h,w,d):
+```
 <p float="left">
   <img src="Images/cube_reflection.gif" width="400" />
 </p>

@@ -117,3 +117,82 @@ def Diamond(ax):
 
     ax.plot([h/4,0],[h/4,0],[-h/4,-h/2],c='k')
     ax.plot([h/4,0],[-h/4,0],[h/4,h/2],c='k')
+
+def inversion(ax,h,w,d):
+    """
+    """
+    plot_axis(ax)
+    #cube(ax,7,7,7)
+
+    pos = 1
+    ax.plot([-h,h],[-w,w],[-d,d],c='k',linestyle='--')
+    ax.text(h+pos,w+pos,d+pos,r"$(x,y,z)$")
+    ax.text(-h-pos,-w-pos,-d-pos,r"$-(x,y,z)$")
+
+def reflection(ax,h,w,d):
+    """
+    """
+    plot_axis(ax)
+    #cube(ax,7,7,7)
+
+    pos = 1
+    ax.plot([h,h],[w,w],[-d,d],c='k',linestyle='--')
+    ax.text(h+pos,w+pos,d+pos,r"$(x,y,z)$")
+    ax.text(h-pos,w-pos,-d-pos,r"$-(x,y,z)$")
+
+    h = h+3
+    w= w+3
+    plane(ax,h,w,d,plane_axis='z')
+
+def plane(ax,h,w,d,plane_axis):
+    """
+    """
+    if plane_axis =='x':
+
+        z = np.arange(-h,h,0.5)
+        y = np.arange(-w,w,0.5)
+
+        z,y = np.meshgrid(z,y)
+
+        x =  np.zeros(z.shape)
+        ax.plot_surface(x,y,z,alpha=0.5)
+
+    if plane_axis =='y':
+  
+        x = np.arange(-h,h,0.5)
+        z = np.arange(-w,w,0.5)
+
+        x,z = np.meshgrid(x,z)
+
+        y =  np.zeros(x.shape)
+        ax.plot_surface(x,y,z,alpha=0.5)
+
+    if plane_axis =='z':
+
+        x = np.arange(-h,h,0.5)
+        y = np.arange(-w,w,0.5)
+
+        x,y = np.meshgrid(x,y)
+
+        z =  np.zeros(x.shape)
+        ax.plot_surface(x,y,z,alpha=0.5)
+
+
+def rotation(ax,h,w,d):
+    """
+    """
+    plot_axis(ax)
+    pass
+
+def cube_reflection(ax,h,w,d):
+    """
+    """
+    plot_axis(ax)
+    from PyShapes import cuboid
+    cuboid(ax,h,w,d)
+    h=h/2
+    w=w/2
+    d=d/2
+    plane(ax,h,w,d,'x')
+    plane(ax,h,w,d,'y')
+    plane(ax,h,w,d,'z')
