@@ -21,7 +21,6 @@
   <img src="Images/cube_reflection.gif" width="400" />
 </p>
 
-
 ## Shapes
 ```py
 import matplotlib.pyplot as plt
@@ -37,6 +36,9 @@ cuboid(ax,5,5,5)
 plt.show()
 ```
 ### Cuboids
+```py
+def cuboid(ax,h,w,d):
+```
 <p float="left">
   <img src="Images/cube.gif" width="400" />
   <img src="Images/cuboid.gif" width="400" />
@@ -45,6 +47,9 @@ plt.show()
 </p>
 
 ### Pyramids
+```py
+def pryamid(ax,h,num_of_side):
+```
 <p float="left">
   <img src="Images/triangular_pyramid.gif" width="400" />
   <img src="Images/square_pyramid.gif" width="400" />
@@ -52,10 +57,21 @@ plt.show()
   <img src="Images/decagon_pyramid.gif" width="400" />
 </p>
 
-### Spintops
+### Bipyramids
+```py
+def bipryamid(ax,h,num_of_side):
+```
 <p float="left">
   <img src="Images/spintop3.gif" width="400" />
   <img src="Images/spintop4.gif" width="400" />
   <img src="Images/spintop5.gif" width="400" />
   <img src="Images/spintop10.gif" width="400" />
+</p>
+
+### Tetrakis
+```py
+def tetrakis(ax,h,dh):
+```
+<p float="left">
+  <img src="Images/tetrakis.gif" width="400" />
 </p>

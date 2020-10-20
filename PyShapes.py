@@ -13,7 +13,7 @@ def plot_axis(ax,max_lim=10):
     min_lim = -max_lim
     ax.auto_scale_xyz([min_lim, max_lim],
                 [min_lim, max_lim], 
-                [0, 2*max_lim])   
+                [min_lim, max_lim])   
 
     #make axes at orgin
     #plt.axes(False)
@@ -45,7 +45,23 @@ def cuboid(ax,h,w,d):
                 ax.plot([-i,i],[j,j],[k,k],c='k')
                 ax.plot([i,i],[-j,j],[k,k],c='k')
                 ax.plot([i,i],[j,j],[-k,k],c='k')
-    
+
+def tetrakis(ax,h,dh):
+    """
+    """
+    plot_axis(ax,max_lim=h+dh)
+    for i in [-1,1]:
+        for j in [-1,1]:
+            for k in [-1,1]:
+                ax.plot([-i*h/2,i*h/2],[j*h/2,j*h/2],[k*h/2,k*h/2],c='k')
+                ax.plot([i*h/2,i*h/2],[-j*h/2,j*h/2],[k*h/2,k*h/2],c='k')
+                ax.plot([i*h/2,i*h/2],[j*h/2,j*h/2],[-k*h/2,k*h/2],c='k')
+
+
+                ax.plot([i*h/2,i*(h/2+dh)] ,[j*h/2,0],[k*h/2,0],c='k')
+                ax.plot([i*h/2,0] ,[j*h/2,j*(h/2+dh)],[k*h/2,0],c='k')
+                ax.plot([i*h/2,0] ,[j*h/2,0],[k*h/2,k*(h/2+dh)],c='k')
+
 def pryamid(ax,h,num_of_side):
     """
     """
@@ -63,7 +79,7 @@ def pryamid(ax,h,num_of_side):
         ax.plot([0,x] ,[0,y],[h/2,-h/2],c='k')
         ax.plot([x,x_next] ,[y,y_next],[-h/2,-h/2],c='k')
 
-def spintop(ax,h,num_of_side):
+def bipryamid(ax,h,num_of_side):
     """
     """
     plot_axis(ax)
