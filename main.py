@@ -5,6 +5,7 @@ import os
 from mpl_toolkits.mplot3d import Axes3D
 import numpy as np
 from PyShapes import *
+from PyCrystallography import *
 
 ################################################################################
 
@@ -48,10 +49,10 @@ def make_gif():
       #  pryamid(ax,7,10)
 
         #spintop
-        spintop(ax,7,10)
+        #spintop(ax,7,10)
 
-
-
+        #NaCl
+        NaCl(ax)
         if frame <= 8:
             frame = '0'+str(frame+1)
         else:
@@ -66,7 +67,7 @@ def make_gif():
     images = []
     for filename in os.listdir('Images/frames/'):
         images.append(imageio.imread('Images/frames/'+filename))
-    imageio.mimsave('Images/spintop10.gif', images)
+    imageio.mimsave('Images/NaCl.gif', images)
     print('gif made')
 
 ################################################################################
@@ -75,8 +76,7 @@ def make_gif():
 
 # fig = plt.figure(0,figsize=[8,8])
 # ax = fig.add_subplot(111,projection='3d')
-
-# tetrahedron(ax,7,3)
+# NaCl(ax)
 # plt.show()
 
 make_gif()

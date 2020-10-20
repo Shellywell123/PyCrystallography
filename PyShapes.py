@@ -1,6 +1,6 @@
 import numpy as np
 
-def plot_axis(ax):
+def plot_axis(ax,max_lim=10):
     """
     """
     ax.set_facecolor('white')
@@ -10,7 +10,6 @@ def plot_axis(ax):
 
     ax.grid(False)
 
-    max_lim = 10
     min_lim = -max_lim
     ax.auto_scale_xyz([min_lim, max_lim],
                 [min_lim, max_lim], 

@@ -1,5 +1,11 @@
 # PyCrystallography
 
+## Atomic Structures
+<p float="left">
+  <img src="Images/NaCl.gif" width="400" />
+</p>
+
+
 ## Inversion Reflection Rotation
 <p float="left">
   <img src="Images/inversion.gif" width="400" />
