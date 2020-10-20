@@ -58,7 +58,7 @@ def make_gif():
        # FCC(ax)
 
         #bcc
-        BCC(ax)
+        #BCC(ax)
 
         #tetrakis
         tetrakis(ax,3,1)
