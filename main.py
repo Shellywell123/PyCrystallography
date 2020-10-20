@@ -45,7 +45,10 @@ def make_gif():
         #cube_reflection(ax,7,7,7)
 
         #pramid
-        pryamid(ax,7,10)
+      #  pryamid(ax,7,10)
+
+        #spintop
+        spintop(ax,7,10)
 
 
 
@@ -63,7 +66,7 @@ def make_gif():
     images = []
     for filename in os.listdir('Images/frames/'):
         images.append(imageio.imread('Images/frames/'+filename))
-    imageio.mimsave('Images/decagon_pyramid.gif', images)
+    imageio.mimsave('Images/spintop10.gif', images)
     print('gif made')
 
 ################################################################################
