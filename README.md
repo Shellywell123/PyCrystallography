@@ -5,6 +5,7 @@
   <img src="Images/BCC.gif" width="400" />
   <img src="Images/FCC.gif" width="400" />
   <img src="Images/NaCl.gif" width="400" />
+  <img src="Images/diamond.gif" width="400" />
 </p>
 
 

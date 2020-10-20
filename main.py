@@ -61,7 +61,10 @@ def make_gif():
         #BCC(ax)
 
         #tetrakis
-        tetrakis(ax,3,1)
+        #tetrakis(ax,3,1)
+
+        #diamons
+        Diamond(ax)
 
         if frame <= 8:
             frame = '0'+str(frame+1)
@@ -77,7 +80,7 @@ def make_gif():
     images = []
     for filename in os.listdir('Images/frames/'):
         images.append(imageio.imread('Images/frames/'+filename))
-    imageio.mimsave('Images/tetrakis.gif', images)
+    imageio.mimsave('Images/diamond.gif', images)
     print('gif made')
 
 ################################################################################
@@ -86,7 +89,7 @@ def make_gif():
 
 # fig = plt.figure(0,figsize=[8,8])
 # ax = fig.add_subplot(111,projection='3d')
-# tetrakis(ax,3,1)
+# Diamond(ax)
 # plt.show()
 
 make_gif()
