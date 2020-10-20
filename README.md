@@ -38,6 +38,6 @@ plt.show()
 <p float="left">
   <img src="Images/triangular_pyramid.gif" width="400" />
   <img src="Images/square_pyramid.gif" width="400" />
-  <img src="Images/pentgon_pyramid.gif" width="400" />
+  <img src="Images/pentagon_pyramid.gif" width="400" />
   <img src="Images/decagon_pyramid.gif" width="400" />
 </p>
