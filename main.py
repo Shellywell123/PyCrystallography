@@ -42,7 +42,10 @@ def make_gif():
         # cuboid(ax,10,5,5)
 
         #cube_reflection
-        cube_reflection(ax,7,7,7)
+        #cube_reflection(ax,7,7,7)
+
+        #pramid
+        pryamid(ax,7,10)
 
 
 
@@ -60,7 +63,7 @@ def make_gif():
     images = []
     for filename in os.listdir('Images/frames/'):
         images.append(imageio.imread('Images/frames/'+filename))
-    imageio.mimsave('Images/cube_reflection.gif', images)
+    imageio.mimsave('Images/decagon_pyramid.gif', images)
     print('gif made')
 
 ################################################################################
@@ -70,8 +73,7 @@ def make_gif():
 # fig = plt.figure(0,figsize=[8,8])
 # ax = fig.add_subplot(111,projection='3d')
 
-# cube_reflection(ax,7,7,7)
-
+# tetrahedron(ax,7,3)
 # plt.show()
-# 
+
 make_gif()

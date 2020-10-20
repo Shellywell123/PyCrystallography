@@ -14,6 +14,7 @@
 </p>
 
 
+## Shapes
 ```py
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
@@ -34,3 +35,9 @@ plt.show()
   <img src="Images/cuboid2.gif" width="400" />
 </p>
 
+<p float="left">
+  <img src="Images/triangular_pyramid.gif" width="400" />
+  <img src="Images/square_pyramid.gif" width="400" />
+  <img src="Images/pentgon_pyramid.gif" width="400" />
+  <img src="Images/decagon_pyramid.gif" width="400" />
+</p>
