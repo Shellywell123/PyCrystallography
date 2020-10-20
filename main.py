@@ -51,8 +51,15 @@ def make_gif():
         #spintop
         #spintop(ax,7,10)
 
-        #NaCl
-        NaCl(ax)
+        # #NaCl
+        # NaCl(ax)
+
+        #fcc
+       # FCC(ax)
+
+        #bcc
+        BCC(ax)
+
         if frame <= 8:
             frame = '0'+str(frame+1)
         else:
@@ -67,7 +74,7 @@ def make_gif():
     images = []
     for filename in os.listdir('Images/frames/'):
         images.append(imageio.imread('Images/frames/'+filename))
-    imageio.mimsave('Images/NaCl.gif', images)
+    imageio.mimsave('Images/BCC.gif', images)
     print('gif made')
 
 ################################################################################
