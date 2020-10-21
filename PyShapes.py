@@ -40,7 +40,7 @@ def cuboid(ax,h,w,d):
     will plot a cuboid of given height, width and depth in x,y, and z
     """
 
-    plot_axis(ax)
+    plot_axis(ax,max_lim=1.1*max(h,w,d))
     for i in [-h/2,h/2]:
         for j in [-w/2,w/2]:
             for k in [-d/2,d/2]:
@@ -52,7 +52,7 @@ def tetrakis(ax,h,dh):
     """
     will plot a tetrakis
     """
-    plot_axis(ax,max_lim=h+dh)
+    plot_axis(ax,max_lim=h)
     for i in [-1,1]:
         for j in [-1,1]:
             for k in [-1,1]:
@@ -65,11 +65,11 @@ def tetrakis(ax,h,dh):
                 ax.plot([i*h/2,0] ,[j*h/2,j*(h/2+dh)],[k*h/2,0],c='k')
                 ax.plot([i*h/2,0] ,[j*h/2,0],[k*h/2,k*(h/2+dh)],c='k')
 
-def pryamid(ax,h,num_of_side):
+def pyramid(ax,h,num_of_side):
     """
     will plot a pyramid with num of sides -1
     """
-    plot_axis(ax)
+    plot_axis(ax,max_lim=1.1*h)
 
     for n in range(0,num_of_side):
         theta      = (2*n/num_of_side)*np.pi
@@ -83,11 +83,11 @@ def pryamid(ax,h,num_of_side):
         ax.plot([0,x] ,[0,y],[h/2,-h/2],c='k')
         ax.plot([x,x_next] ,[y,y_next],[-h/2,-h/2],c='k')
 
-def bipryamid(ax,h,num_of_side):
+def bipyramid(ax,h,num_of_side):
     """
     will plot a bipyramid with number of sides /2
     """
-    plot_axis(ax)
+    plot_axis(ax,max_lim=1.1*h)
     for n in range(0,num_of_side):
         theta      = (2*n/num_of_side)*np.pi
         theta_next = (2*(n+1)/num_of_side)*np.pi

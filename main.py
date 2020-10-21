@@ -30,26 +30,17 @@ def make_gif():
         #rotation
         # rotation(ax,7,7,7)
 
-        #cube
-        # cuboid(ax,5,5,5)
-
         # cuboid
-        # cuboid(ax,5,5,10)
-
-        # #coboid1
-        # cuboid(ax,5,10,5)
-
-        # #cuboid2
-        # cuboid(ax,10,5,5)
+        #cuboid(ax,5,5,10)
 
         #cube_reflection
         #cube_reflection(ax,7,7,7)
 
         #pramid
-      #  pryamid(ax,7,10)
+        #pyramid(ax,7,10)
 
         #spintop
-        #spintop(ax,7,10)
+        #bipyramid(ax,7,10)
 
         # #NaCl
         # NaCl(ax)
@@ -61,7 +52,7 @@ def make_gif():
         #BCC(ax)
 
         #tetrakis
-        #tetrakis(ax,3,1)
+        tetrakis(ax,3,1)
 
         #diamons
         #Diamond(ax)
@@ -70,7 +61,7 @@ def make_gif():
         #test_sphere(ax)
 
         #prism
-        prism(ax,2,4)
+        #prism(ax,2,4)
 
         if frame <= 8:
             frame = '0'+str(frame+1)
@@ -86,7 +77,7 @@ def make_gif():
     images = []
     for filename in os.listdir('Images/frames/'):
         images.append(imageio.imread('Images/frames/'+filename))
-    imageio.mimsave('Images/prism4.gif', images)
+    imageio.mimsave('Images/tetrakis.gif', images)
     print('gif made')
 
 ################################################################################
