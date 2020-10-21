@@ -1,6 +1,7 @@
 from PyShapes import plot_axis
 def BCC(ax):
     """
+    plot the body centered cubic primitive cell
     """
 
     h =2
@@ -21,6 +22,7 @@ def BCC(ax):
 
 def FCC(ax):
     """
+    plots the face centred cubic primitive cell
     """
 
     h =2
@@ -43,6 +45,7 @@ def FCC(ax):
                 ax.scatter([i,i],[0,0],[0,0],c=COL,s=SIZ)
 def NaCl(ax):
     """
+    plots the nacl atom structure
     """
 
     h =2
@@ -67,6 +70,7 @@ def NaCl(ax):
     
 def Diamond(ax):
     """
+    plots the diamond atom structure
     """
     h =2
     w =2
@@ -120,6 +124,7 @@ def Diamond(ax):
 
 def inversion(ax,h,w,d):
     """
+    plots an annotated points being inversed through the orgin
     """
     plot_axis(ax)
     #cube(ax,7,7,7)
@@ -131,9 +136,9 @@ def inversion(ax,h,w,d):
 
 def reflection(ax,h,w,d):
     """
+    plots a annotated point being mirrored in a plotted plane
     """
     plot_axis(ax)
-    #cube(ax,7,7,7)
 
     pos = 1
     ax.plot([h,h],[w,w],[-d,d],c='k',linestyle='--')
@@ -146,6 +151,7 @@ def reflection(ax,h,w,d):
 
 def plane(ax,h,w,d,plane_axis):
     """
+    plots a plane in x,y or z
     """
     if plane_axis =='x':
 
@@ -186,6 +192,7 @@ def rotation(ax,h,w,d):
 
 def cube_reflection(ax,h,w,d):
     """
+    cube with some internal refelctive planes plotted
     """
     plot_axis(ax)
     from PyShapes import cuboid
@@ -199,6 +206,7 @@ def cube_reflection(ax,h,w,d):
 
 def test_sphere(ax):
     """
+    test cube face normals to points on a sphere
     """
     plot_axis(ax)
     from PyShapes import cuboid
@@ -221,6 +229,8 @@ def test_sphere(ax):
 
 def Stereographic_projection(ax):
     """
+    takes x,y,z coords that all lie on the surface of a 
+    sphere and outputs a 2d stereograph
     """
     x,y,z,r =test_sphere(ax)
 

@@ -2,6 +2,7 @@ import numpy as np
 
 def plot_axis(ax,max_lim=10):
     """
+    will clear all amtplotlib axis defaults and draw custom axis centered at 000
     """
     ax.set_facecolor('white')
     ax.w_xaxis.set_pane_color((1.0, 1.0, 1.0, 1.0))
@@ -36,6 +37,7 @@ def plot_axis(ax,max_lim=10):
 
 def cuboid(ax,h,w,d):
     """
+    will plot a cuboid of given height, width and depth in x,y, and z
     """
 
     plot_axis(ax)
@@ -48,6 +50,7 @@ def cuboid(ax,h,w,d):
 
 def tetrakis(ax,h,dh):
     """
+    will plot a tetrakis
     """
     plot_axis(ax,max_lim=h+dh)
     for i in [-1,1]:
@@ -64,6 +67,7 @@ def tetrakis(ax,h,dh):
 
 def pryamid(ax,h,num_of_side):
     """
+    will plot a pyramid with num of sides -1
     """
     plot_axis(ax)
 
@@ -81,6 +85,7 @@ def pryamid(ax,h,num_of_side):
 
 def bipryamid(ax,h,num_of_side):
     """
+    will plot a bipyramid with number of sides /2
     """
     plot_axis(ax)
     for n in range(0,num_of_side):

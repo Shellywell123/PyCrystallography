@@ -11,7 +11,7 @@ from PyCrystallography import *
 
 def make_gif():
     """
-    generates screenshots of the program across a 28 days and then compiles them into a gif
+    generates screenshots of the program and then compiles them into a gif
     """
     # every day date in a 28 cycle in 1 day incriments
     num_of_frames = 36
