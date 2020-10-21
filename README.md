@@ -124,6 +124,7 @@ def biprismid(ax,h,num_of_side):
   <img src="Images/biprismid5.gif" width="400" />
   <img src="Images/biprismid10.gif" width="400" />
 </p>
+
 ### Tetrakis
 ```py
 def tetrakis(ax,h,dh):
