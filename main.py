@@ -64,7 +64,10 @@ def make_gif():
         #tetrakis(ax,3,1)
 
         #diamons
-        Diamond(ax)
+        #Diamond(ax)
+
+        #test
+        test_sphere(ax)
 
         if frame <= 8:
             frame = '0'+str(frame+1)
@@ -80,16 +83,15 @@ def make_gif():
     images = []
     for filename in os.listdir('Images/frames/'):
         images.append(imageio.imread('Images/frames/'+filename))
-    imageio.mimsave('Images/diamond.gif', images)
+    imageio.mimsave('Images/face_normals_cube.gif', images)
     print('gif made')
 
 ################################################################################
 
 
 
-# fig = plt.figure(0,figsize=[8,8])
-# ax = fig.add_subplot(111,projection='3d')
-# Diamond(ax)
-# plt.show()
+fig = plt.figure(0,figsize=[8,8])
+ax = fig.add_subplot(111,projection='3d')
+Stereographic_projection(ax)
 
-make_gif()
+#make_gif()

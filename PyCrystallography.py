@@ -196,3 +196,59 @@ def cube_reflection(ax,h,w,d):
     plane(ax,h,w,d,'x')
     plane(ax,h,w,d,'y')
     plane(ax,h,w,d,'z')
+
+def test_sphere(ax):
+    """
+    """
+    plot_axis(ax)
+    from PyShapes import cuboid
+    cuboid(ax,3,3,3)
+    x = [0,0,5,-5,0,0]
+    y = [0,0,0,0,5,-5]
+    z = [5,-5,0,0,0,0]
+    ax.scatter(x,y,z,c='red')
+
+    ax.plot([2,5],[0,0],[0,0],linestyle='--',c='k')
+    ax.plot([0,0],[2,5],[0,0],linestyle='--',c='k')
+    ax.plot([0,0],[0,0],[2,5],linestyle='--',c='k')
+    ax.plot([-2,-5],[0,0],[0,0],linestyle='--',c='k')
+    ax.plot([0,0],[-2,-5],[0,0],linestyle='--',c='k')
+    ax.plot([0,0],[0,0],[-2,-5],linestyle='--',c='k')
+
+    r = 5
+
+    return x,y,z,r
+
+def Stereographic_projection(ax):
+    """
+    """
+    x,y,z,r =test_sphere(ax)
+
+    x_ = []
+    y_ = []
+
+    import numpy as np
+
+    import matplotlib.pyplot as plt
+
+  
+
+    plt.figure()
+
+    for i in range(0,len(x)):
+        x_.append(x[i]/(1-z[i]))
+        y_.append(y[i]/(1-z[i]))
+
+        if z[i] > 0:
+            plt.scatter(x_[i],y_[i],marker='2',label='N',c='k',s=50)
+        else:
+            plt.scatter(x_[i],y_[i],marker='1',label='S',c='k',s=50)
+
+    theta = np.linspace(0,2*np.pi,100)
+    xc = (r+1)*np.cos(theta)
+    yc = (r+1)*np.sin(theta)
+    plt.legend(loc=1)
+    plt.plot(xc,yc,alpha=0.5,c='k')
+    plt.axis('off')
+    plt.savefig('stereographic_projection_cube.png')
+    plt.show()
