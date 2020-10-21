@@ -67,7 +67,10 @@ def make_gif():
         #Diamond(ax)
 
         #test
-        test_sphere(ax)
+        #test_sphere(ax)
+
+        #prism
+        prism(ax,2,4)
 
         if frame <= 8:
             frame = '0'+str(frame+1)
@@ -83,15 +86,16 @@ def make_gif():
     images = []
     for filename in os.listdir('Images/frames/'):
         images.append(imageio.imread('Images/frames/'+filename))
-    imageio.mimsave('Images/face_normals_cube.gif', images)
+    imageio.mimsave('Images/prism4.gif', images)
     print('gif made')
 
 ################################################################################
 
 
 
-fig = plt.figure(0,figsize=[8,8])
-ax = fig.add_subplot(111,projection='3d')
-Stereographic_projection(ax)
+# fig = plt.figure(0,figsize=[8,8])
+# ax = fig.add_subplot(111,projection='3d')
+# prism(ax,2,3)
+# plt.show()
 
-#make_gif()
+make_gif()

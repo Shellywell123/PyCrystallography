@@ -103,6 +103,18 @@ def bipryamid(ax,h,num_of_side):
   <img src="Images/spintop10.gif" width="400" />
 </p>
 
+### Prisms
+```py
+def prism(ax,h,num_of_side):
+```
+<p float="left">
+  <img src="Images/prism3.gif" width="400" />
+  <img src="Images/prism4.gif" width="400" />
+  <img src="Images/prism5.gif" width="400" />
+  <img src="Images/prism10.gif" width="400" />
+</p>
+
+
 ### Tetrakis
 ```py
 def tetrakis(ax,h,dh):
