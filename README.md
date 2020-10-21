@@ -53,7 +53,7 @@ def Stereographic_Projection(ax):
 ```
 <p float="left">
   <img src="Images/face_normals_cube.gif" width="400" />
-  <img src="Images/stereographic_projection_cube.gif" width="400" />
+  <img src="Images/stereographic_projection_cube.png" width="400" />
 </p>
 
 ## Shapes
