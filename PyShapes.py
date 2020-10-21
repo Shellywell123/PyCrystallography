@@ -118,3 +118,24 @@ def prism(ax,h,num_of_side):
         ax.plot([x,x] ,[y,y],[h/2,-h/2],c='k')
         ax.plot([x,x_next] ,[y,y_next],[h/2,h/2],c='k')
         ax.plot([x,x_next] ,[y,y_next],[-h/2,-h/2],c='k')
+
+def biprismid(ax,h,dh,num_of_side):
+    """
+    will plot a bi-prism-id with number of sides /2
+    """
+    plot_axis(ax,max_lim=1.1*h)
+    for n in range(0,num_of_side):
+        theta      = (2*n/num_of_side)*np.pi
+        theta_next = (2*(n+1)/num_of_side)*np.pi
+        x = h*np.cos(theta)
+        y = h*np.sin(theta)
+
+        x_next = h*np.cos(theta_next)
+        y_next = h*np.sin(theta_next)
+
+
+        ax.plot([0,x] ,[0,y],[h/2+dh,0],c='k')
+        ax.plot([x,x] ,[y,y],[h/2,-h/2],c='k')
+        ax.plot([x,x_next] ,[y,y_next],[h/2,h/2],c='k')
+        ax.plot([x,x_next] ,[y,y_next],[-h/2,-h/2],c='k')
+        ax.plot([0,x] ,[0,y],[-h/2-dh,0],c='k')

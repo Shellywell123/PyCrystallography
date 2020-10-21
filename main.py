@@ -52,7 +52,7 @@ def make_gif():
         #BCC(ax)
 
         #tetrakis
-        tetrakis(ax,3,1)
+        #tetrakis(ax,3,1)
 
         #diamons
         #Diamond(ax)
@@ -62,6 +62,9 @@ def make_gif():
 
         #prism
         #prism(ax,2,4)
+
+        #bopysmid
+        biprismid(ax,2,1,10)
 
         if frame <= 8:
             frame = '0'+str(frame+1)
@@ -77,7 +80,7 @@ def make_gif():
     images = []
     for filename in os.listdir('Images/frames/'):
         images.append(imageio.imread('Images/frames/'+filename))
-    imageio.mimsave('Images/tetrakis.gif', images)
+    imageio.mimsave('Images/biprismid10.gif', images)
     print('gif made')
 
 ################################################################################

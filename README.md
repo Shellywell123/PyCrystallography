@@ -114,7 +114,16 @@ def prism(ax,h,num_of_side):
   <img src="Images/prism10.gif" width="400" />
 </p>
 
-
+### Biprismid (not sure what its proper name is)
+```py
+def biprismid(ax,h,num_of_side):
+```
+<p float="left">
+  <img src="Images/biprismid3.gif" width="400" />
+  <img src="Images/biprismid4.gif" width="400" />
+  <img src="Images/biprismid5.gif" width="400" />
+  <img src="Images/biprismid10.gif" width="400" />
+</p>
 ### Tetrakis
 ```py
 def tetrakis(ax,h,dh):
