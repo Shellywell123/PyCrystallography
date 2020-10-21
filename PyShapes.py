@@ -134,8 +134,8 @@ def biprismid(ax,h,dh,num_of_side):
         y_next = h*np.sin(theta_next)
 
 
-        ax.plot([0,x] ,[0,y],[h/2+dh,0],c='k')
+        ax.plot([0,x] ,[0,y],[h/2+dh,h/2],c='k')
         ax.plot([x,x] ,[y,y],[h/2,-h/2],c='k')
         ax.plot([x,x_next] ,[y,y_next],[h/2,h/2],c='k')
         ax.plot([x,x_next] ,[y,y_next],[-h/2,-h/2],c='k')
-        ax.plot([0,x] ,[0,y],[-h/2-dh,0],c='k')
+        ax.plot([0,x] ,[0,y],[-h/2-dh,-h/2],c='k')

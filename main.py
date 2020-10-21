@@ -64,7 +64,7 @@ def make_gif():
         #prism(ax,2,4)
 
         #bopysmid
-        biprismid(ax,2,1,10)
+        biprismid(ax,2,1,3)
 
         if frame <= 8:
             frame = '0'+str(frame+1)
@@ -80,7 +80,7 @@ def make_gif():
     images = []
     for filename in os.listdir('Images/frames/'):
         images.append(imageio.imread('Images/frames/'+filename))
-    imageio.mimsave('Images/biprismid10.gif', images)
+    imageio.mimsave('Images/biprismid3.gif', images)
     print('gif made')
 
 ################################################################################
