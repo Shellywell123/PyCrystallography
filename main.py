@@ -21,11 +21,11 @@ def make_gif():
         azim = (360/num_of_frames)*frame
         ax = fig.add_subplot(111,projection='3d',azim=azim,elev=30)
 
-        #inversion
-        #inversion(ax,7,7,7)
+        # inversion
+        # inversion(ax,7,7,7)
 
         #reflection  
-        #reflection(ax,7,7,7)
+        # reflection(ax,7,7,7)
 
         #rotation
         # rotation(ax,7,7,7)
@@ -33,8 +33,8 @@ def make_gif():
         # cuboid
         #cuboid(ax,5,5,10)
 
-        #cube_reflection
-        #cube_reflection(ax,7,7,7)
+        # cube_reflection
+        # cube_reflection(ax,7,7,7)
 
         #pramid
         #pyramid(ax,7,10)
@@ -43,19 +43,19 @@ def make_gif():
         #bipyramid(ax,7,10)
 
         # #NaCl
-        # NaCl(ax)
+        NaCl(ax)
 
         #fcc
        # FCC(ax)
 
-        #bcc
-        #BCC(ax)
+     #   bcc
+     #   BCC(ax)
 
         #tetrakis
         #tetrakis(ax,3,1)
 
         #diamons
-        #Diamond(ax)
+        #Diamond(ax)#
 
         #test
         #test_sphere(ax)
@@ -64,7 +64,7 @@ def make_gif():
         #prism(ax,2,4)
 
         #bopysmid
-        biprismid(ax,2,1,3)
+        #biprismid(ax,2,1,3)
 
         if frame <= 8:
             frame = '0'+str(frame+1)
@@ -80,7 +80,7 @@ def make_gif():
     images = []
     for filename in os.listdir('Images/frames/'):
         images.append(imageio.imread('Images/frames/'+filename))
-    imageio.mimsave('Images/biprismid3.gif', images)
+    imageio.mimsave('Images/NaCl.gif', images)
     print('gif made')
 
 ################################################################################
@@ -89,7 +89,7 @@ def make_gif():
 
 # fig = plt.figure(0,figsize=[8,8])
 # ax = fig.add_subplot(111,projection='3d')
-# prism(ax,2,3)
+# reflection(ax,2,2,2)
 # plt.show()
 
 make_gif()

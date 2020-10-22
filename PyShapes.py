@@ -17,7 +17,6 @@ def plot_axis(ax,max_lim=10):
                 [min_lim, max_lim])   
 
     #make axes at orgin
-    #plt.axes(False)
     empty_list = [0,0]
     lim_list   = [min_lim,max_lim]
     pos = 0.1*max_lim
@@ -39,8 +38,7 @@ def cuboid(ax,h,w,d):
     """
     will plot a cuboid of given height, width and depth in x,y, and z
     """
-
-    plot_axis(ax,max_lim=1.1*max(h,w,d))
+    plot_axis(ax,max_lim=1*max(h,w,d))
     for i in [-h/2,h/2]:
         for j in [-w/2,w/2]:
             for k in [-d/2,d/2]:

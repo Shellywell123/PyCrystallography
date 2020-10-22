@@ -1,4 +1,6 @@
 from PyShapes import plot_axis
+import numpy as np
+
 def BCC(ax):
     """
     plot the body centered cubic primitive cell
@@ -7,7 +9,7 @@ def BCC(ax):
     h =2
     w =2
     d =2
-    plot_axis(ax,max_lim=3)
+    plot_axis(ax,max_lim=0.5*max(h,w,d))
     for i in [-h/2,h/2]:
         for j in [-w/2,w/2]:
             for k in [-d/2,d/2]:
@@ -19,6 +21,8 @@ def BCC(ax):
                 SIZ =50
 
                 ax.scatter([i,i],[j,j],[k,k],c=COL,s=SIZ)
+    ax.scatter([0,0],[0,0],[0,0],c=COL,s=SIZ)
+
 
 def FCC(ax):
     """
@@ -28,7 +32,7 @@ def FCC(ax):
     h =2
     w =2
     d =2
-    plot_axis(ax,max_lim=3)
+    plot_axis(ax,max_lim=0.5*max(h,w,d))
     for i in [-h/2,h/2]:
         for j in [-w/2,w/2]:
             for k in [-d/2,d/2]:
@@ -51,7 +55,7 @@ def NaCl(ax):
     h =2
     w =2
     d =2
-    plot_axis(ax,max_lim=3)
+    plot_axis(ax,max_lim=0.7*max(h,w,d))
     for i in [-h/2,0,h/2]:
         for j in [-w/2,0,w/2]:
             for k in [-d/2,0,d/2]:
@@ -75,13 +79,10 @@ def Diamond(ax):
     h =2
     w =2
     d =2
-    plot_axis(ax,max_lim=2)
+    plot_axis(ax,max_lim=0.9*max(h,w,d))
     for i in [-h/2,h/2]:
         for j in [-w/2,w/2]:
             for k in [-d/2,d/2]:
-                # ax.plot([-i,i],[j,j],[k,k],c='k',alpha=0.5)
-                # ax.plot([i,i],[-j,j],[k,k],c='k',alpha=0.5)
-                # ax.plot([i,i],[j,j],[-k,k],c='k',alpha=0.5)
 
                 COL ='red'
                 SIZ =50
@@ -122,32 +123,44 @@ def Diamond(ax):
     ax.plot([h/4,0],[h/4,0],[-h/4,-h/2],c='k')
     ax.plot([h/4,0],[-h/4,0],[h/4,h/2],c='k')
 
+def invert(x,y,z,origin=[0,0,0]):
+    """ 
+    inverts a points around n origin
+    """
+    x_inv = -x + origin[0]
+    y_inv = -y + origin[1]
+    z_inv = -z + origin[2]
+    return x_inv, y_inv, z_inv
+
 def inversion(ax,h,w,d):
     """
     plots an annotated points being inversed through the orgin
     """
-    plot_axis(ax)
-    #cube(ax,7,7,7)
+    plot_axis(ax,max_lim=1.1*max(h,w,d))
 
-    pos = 1
-    ax.plot([-h,h],[-w,w],[-d,d],c='k',linestyle='--')
+    pos = .1*max(h,w,d)
+
+    h_inv,w_inv,d_inv = invert(h,w,d)
+    ax.plot([h_inv,h],[w_inv,w],[d_inv,d],c='k',linestyle='--')
     ax.text(h+pos,w+pos,d+pos,r"$(x,y,z)$")
-    ax.text(-h-pos,-w-pos,-d-pos,r"$-(x,y,z)$")
+    ax.text(0,0,0,r"O[0,0]")
+    ax.text(h_inv-pos,w_inv-pos,d_inv-pos,r"$-(x,y,z)$")
 
 def reflection(ax,h,w,d):
     """
     plots a annotated point being mirrored in a plotted plane
     """
-    plot_axis(ax)
+    plot_axis(ax,max_lim=1.1*max(h+3,w+3,d+3))
 
-    pos = 1
+    pos = .1*max(h,w,d)
     ax.plot([h,h],[w,w],[-d,d],c='k',linestyle='--')
     ax.text(h+pos,w+pos,d+pos,r"$(x,y,z)$")
-    ax.text(h-pos,w-pos,-d-pos,r"$-(x,y,z)$")
+    ax.text(h-pos,w-pos,-d-pos,r"$(x',y',z')$")
 
     h = h+3
     w= w+3
     plane(ax,h,w,d,plane_axis='z')
+    ax.text(h,w,0,r'm')
 
 def plane(ax,h,w,d,plane_axis):
     """
@@ -187,22 +200,25 @@ def plane(ax,h,w,d,plane_axis):
 def rotation(ax,h,w,d):
     """
     """
-    plot_axis(ax)
+    plot_axis(ax,max_lim=1.1*max(h,w,d))
     pass
 
 def cube_reflection(ax,h,w,d):
     """
     cube with some internal refelctive planes plotted
     """
-    plot_axis(ax)
+    plot_axis(ax,max_lim=1.1*max(h,w,d))
     from PyShapes import cuboid
     cuboid(ax,h,w,d)
     h=h/2
     w=w/2
     d=d/2
     plane(ax,h,w,d,'x')
+    ax.text(0,w,d,r'm_1')
     plane(ax,h,w,d,'y')
+    ax.text(h,0,d,r'm_2')
     plane(ax,h,w,d,'z')
+    ax.text(h,w,0,r'm_3')
 
 def test_sphere(ax):
     """
@@ -237,7 +253,6 @@ def Stereographic_projection(ax):
     x_ = []
     y_ = []
 
-    import numpy as np
 
     import matplotlib.pyplot as plt
 
@@ -257,6 +272,7 @@ def Stereographic_projection(ax):
     theta = np.linspace(0,2*np.pi,100)
     xc = (r+1)*np.cos(theta)
     yc = (r+1)*np.sin(theta)
+    
     plt.legend(loc=1)
     plt.plot(xc,yc,alpha=0.5,c='k')
     plt.axis('off')
