@@ -265,9 +265,9 @@ def Stereographic_projection(ax):
         y_.append(y[i]/(1-z[i]))
 
         if z[i] > 0:
-            plt.scatter(x_[i],y_[i],marker='2',label='N',c='k',s=200)
+            plt.scatter(x_[i],y_[i],marker='2',label='N',c='blue',s=200)
         else:
-            plt.scatter(x_[i],y_[i],marker='1',label='S',c='k',s=200)
+            plt.scatter(x_[i],y_[i],marker='1',label='S',c='r',s=200)
 
     theta = np.linspace(0,2*np.pi,100)
     xc = (r+1)*np.cos(theta)
