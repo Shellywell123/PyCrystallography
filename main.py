@@ -87,9 +87,8 @@ def make_gif():
 
 
 
-# fig = plt.figure(0,figsize=[8,8])
-# ax = fig.add_subplot(111,projection='3d')
-# reflection(ax,2,2,2)
-# plt.show()
+fig = plt.figure(0,figsize=[8,8])
+ax = fig.add_subplot(111,projection='3d')
+Stereographic_projection(ax)
 
-make_gif()
+#make_gif()

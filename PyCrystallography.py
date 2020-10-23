@@ -265,16 +265,18 @@ def Stereographic_projection(ax):
         y_.append(y[i]/(1-z[i]))
 
         if z[i] > 0:
-            plt.scatter(x_[i],y_[i],marker='2',label='N',c='k',s=50)
+            plt.scatter(x_[i],y_[i],marker='2',label='N',c='k',s=200)
         else:
-            plt.scatter(x_[i],y_[i],marker='1',label='S',c='k',s=50)
+            plt.scatter(x_[i],y_[i],marker='1',label='S',c='k',s=200)
 
     theta = np.linspace(0,2*np.pi,100)
     xc = (r+1)*np.cos(theta)
     yc = (r+1)*np.sin(theta)
     
     plt.legend(loc=1)
-    plt.plot(xc,yc,alpha=0.5,c='k')
+    plt.plot(xc,yc,c='k')
     plt.axis('off')
+    plt.xlim([-r-1,r+1])
+    plt.ylim([-r-1,r+1])
     plt.savefig('stereographic_projection_cube.png')
     plt.show()
