@@ -1,4 +1,54 @@
 import numpy as np
+from PyCrystallography import plot_axis,make_atom,make_bond,plot_bonds,plot_atoms
+
+def make_atom(x,y,z,siz,col):
+    """
+    creates a dict for an atoms pos in a structure
+    """
+    atom = {'x':   x,
+            'y':   y,
+            'z':   z,
+            'size': siz,
+            'color':col}
+    return atom
+
+def make_bond(x_list,y_list,z_list,siz,col):
+    """
+    creates a dict for an bonds pos in a structure
+    """
+    bond = {'x':   x_list,
+            'y':   y_list,
+            'z':   z_list,
+            'size': siz,
+            'color':col}
+    return bond
+
+def plot_bonds(ax,bonds):
+    """
+    plots all bonds in a struct using matplotlib line
+    """
+
+    for bond in bonds:
+        x1,x2 = bond['x']
+        y1,y2 = bond['y']
+        z1,z2 = bond['z']
+        col   = bond['color']
+        siz   = bond['size']
+        ax.plot([x1,x2],[y1,y2],[z1,z2],linewidth=siz,c=col)
+
+def plot_atoms(ax,atoms):
+    """
+    plots all atoms in a struct using matplotlib scatter
+    """
+
+    for atom in atoms:
+        x1,x2 = atom['x']
+        y1,y2 = atom['y']
+        z1,z2 = atom['z']
+        col   = atom['color']
+        siz   = atom['size']
+        ax.plot([x1,x2],[y1,y2],[z1,z2],linewidth=siz,c=col)
+
 
 def plot_axis(ax,max_lim=10):
     """
@@ -38,35 +88,38 @@ def cuboid(ax,h,w,d):
     """
     will plot a cuboid of given height, width and depth in x,y, and z
     """
+    bonds = []
     plot_axis(ax,max_lim=1*max(h,w,d))
     for i in [-h/2,h/2]:
         for j in [-w/2,w/2]:
             for k in [-d/2,d/2]:
-                ax.plot([-i,i],[j,j],[k,k],c='k')
-                ax.plot([i,i],[-j,j],[k,k],c='k')
-                ax.plot([i,i],[j,j],[-k,k],c='k')
+                bonds.append(make_bond([-i,i],[j,j],[k,k],1,'k'))
+                bonds.append(make_bond([i,i],[-j,j],[k,k],1,'k'))
+                bonds.append(make_bond([i,i],[j,j],[-k,k],1,'k'))
+    plot_bonds(ax,bonds)
 
 def tetrakis(ax,h,dh):
     """
     will plot a tetrakis
     """
+    bonds = []
     plot_axis(ax,max_lim=h)
     for i in [-1,1]:
         for j in [-1,1]:
             for k in [-1,1]:
-                ax.plot([-i*h/2,i*h/2],[j*h/2,j*h/2],[k*h/2,k*h/2],c='k')
-                ax.plot([i*h/2,i*h/2],[-j*h/2,j*h/2],[k*h/2,k*h/2],c='k')
-                ax.plot([i*h/2,i*h/2],[j*h/2,j*h/2],[-k*h/2,k*h/2],c='k')
-
-
-                ax.plot([i*h/2,i*(h/2+dh)] ,[j*h/2,0],[k*h/2,0],c='k')
-                ax.plot([i*h/2,0] ,[j*h/2,j*(h/2+dh)],[k*h/2,0],c='k')
-                ax.plot([i*h/2,0] ,[j*h/2,0],[k*h/2,k*(h/2+dh)],c='k')
+                bonds.append(make_bond([-i*h/2,i*h/2],[j*h/2,j*h/2],[k*h/2,k*h/2],1,'k'))
+                bonds.append(make_bond([i*h/2,i*h/2],[-j*h/2,j*h/2],[k*h/2,k*h/2],1,'k'))
+                bonds.append(make_bond([i*h/2,i*h/2],[j*h/2,j*h/2],[-k*h/2,k*h/2],1,'k'))
+                bonds.append(make_bond([i*h/2,i*(h/2+dh)] ,[j*h/2,0],[k*h/2,0],1,'k'))
+                bonds.append(make_bond([i*h/2,0] ,[j*h/2,j*(h/2+dh)],[k*h/2,0],1,'k'))
+                bonds.append(make_bond([i*h/2,0] ,[j*h/2,0],[k*h/2,k*(h/2+dh)],1,'k'))
+    plot_bonds(ax,bonds)
 
 def pyramid(ax,h,num_of_side):
     """
     will plot a pyramid with num of sides -1
     """
+    bonds = []
     plot_axis(ax,max_lim=1.1*h)
 
     for n in range(0,num_of_side):
@@ -78,13 +131,15 @@ def pyramid(ax,h,num_of_side):
         x_next = h*np.cos(theta_next)
         y_next = h*np.sin(theta_next)
 
-        ax.plot([0,x] ,[0,y],[h/2,-h/2],c='k')
-        ax.plot([x,x_next] ,[y,y_next],[-h/2,-h/2],c='k')
+        bonds.append(make_bond([0,x] ,[0,y],[h/2,-h/2],1,'k'))
+        bonds.append(make_bond([x,x_next] ,[y,y_next],[-h/2,-h/2],1,'k'))
+    plot_bonds(ax,bonds)
 
 def bipyramid(ax,h,num_of_side):
     """
     will plot a bipyramid with number of sides /2
     """
+    bonds = []
     plot_axis(ax,max_lim=1.1*h)
     for n in range(0,num_of_side):
         theta      = (2*n/num_of_side)*np.pi
@@ -95,14 +150,16 @@ def bipyramid(ax,h,num_of_side):
         x_next = h*np.cos(theta_next)
         y_next = h*np.sin(theta_next)
 
-        ax.plot([0,x] ,[0,y],[h/2,0],c='k')
-        ax.plot([x,x_next] ,[y,y_next],[0,0],c='k')
-        ax.plot([0,x] ,[0,y],[-h/2,0],c='k')
+        bonds.append(make_bond([0,x] ,[0,y],[h/2,0],1,'k'))
+        bonds.append(make_bond([x,x_next] ,[y,y_next],[0,0],1,'k'))
+        bonds.append(make_bond([0,x] ,[0,y],[-h/2,0],1,'k'))
+    plot_bonds(ax,bonds)
 
 def prism(ax,h,num_of_side):
     """
     will plot a prism with number of sides /2
     """
+    bonds =[]
     plot_axis(ax,max_lim=1.1*h)
     for n in range(0,num_of_side):
         theta      = (2*n/num_of_side)*np.pi
@@ -113,14 +170,16 @@ def prism(ax,h,num_of_side):
         x_next = h*np.cos(theta_next)
         y_next = h*np.sin(theta_next)
 
-        ax.plot([x,x] ,[y,y],[h/2,-h/2],c='k')
-        ax.plot([x,x_next] ,[y,y_next],[h/2,h/2],c='k')
-        ax.plot([x,x_next] ,[y,y_next],[-h/2,-h/2],c='k')
+        bonds.append(make_bond([x,x] ,[y,y],[h/2,-h/2],1,'k'))
+        bonds.append(make_bond([x,x_next] ,[y,y_next],[h/2,h/2],1,'k'))
+        bonds.append(make_bond([x,x_next] ,[y,y_next],[-h/2,-h/2],1,'k'))
+    plot_bonds(ax,bonds)
 
 def biprismid(ax,h,dh,num_of_side):
     """
     will plot a bi-prism-id with number of sides /2
     """
+    bonds = []
     plot_axis(ax,max_lim=1.1*h)
     for n in range(0,num_of_side):
         theta      = (2*n/num_of_side)*np.pi
@@ -132,8 +191,9 @@ def biprismid(ax,h,dh,num_of_side):
         y_next = h*np.sin(theta_next)
 
 
-        ax.plot([0,x] ,[0,y],[h/2+dh,h/2],c='k')
-        ax.plot([x,x] ,[y,y],[h/2,-h/2],c='k')
-        ax.plot([x,x_next] ,[y,y_next],[h/2,h/2],c='k')
-        ax.plot([x,x_next] ,[y,y_next],[-h/2,-h/2],c='k')
-        ax.plot([0,x] ,[0,y],[-h/2-dh,-h/2],c='k')
+        bonds.append(make_bond([0,x] ,[0,y],[h/2+dh,h/2],1,'k'))
+        bonds.append(make_bond([x,x] ,[y,y],[h/2,-h/2],1,'k'))
+        bonds.append(make_bond([x,x_next] ,[y,y_next],[h/2,h/2],1,'k'))
+        bonds.append(make_bond([x,x_next] ,[y,y_next],[-h/2,-h/2],1,'k'))
+        bonds.append(make_bond([0,x] ,[0,y],[-h/2-dh,-h/2],1,'k'))
+    plot_bonds(ax,bonds)

@@ -9,86 +9,141 @@ from PyCrystallography import *
 
 ################################################################################
 
-def make_gif():
+def make_all_gifs():
     """
     generates screenshots of the program and then compiles them into a gif
     """
-    # every day date in a 28 cycle in 1 day incriments
-    num_of_frames = 36
-    for frame in range(0,num_of_frames+1):
 
-        fig = plt.figure(0,figsize=[8,8])
-        azim = (360/num_of_frames)*frame
-        ax = fig.add_subplot(111,projection='3d',azim=azim,elev=30)
+    objects = [{'function': 'FCC(ax)',
+                'name'    : 'FCC'},
 
-        # inversion
-        # inversion(ax,7,7,7)
+                {'function': 'BCC(ax)',
+                 'name'    : 'BCC'},
 
-        #reflection  
-        # reflection(ax,7,7,7)
+                {'function': 'NaCl(ax)',
+                 'name'    : 'NaCl'},
 
-        #rotation
-        # rotation(ax,7,7,7)
+                {'function': 'Diamond(ax)',
+                'name'     : 'diamond'},
 
-        # cuboid
-        #cuboid(ax,5,5,10)
+                {'function': 'cuboid(ax,5,5,5)',
+                 'name'    : 'cube'},
 
-        # cube_reflection
-        # cube_reflection(ax,7,7,7)
+                {'function': 'cuboid(ax,10,5,5)',
+                 'name'    : 'cuboid_x'},
 
-        #pramid
-        #pyramid(ax,7,10)
+                {'function': 'cuboid(ax,5,10,5)',
+                 'name'    : 'cuboid_y'},
 
-        #spintop
-        #bipyramid(ax,7,10)
+                {'function': 'cuboid(ax,5,5,10)',
+                 'name'    : 'cuboid_z'},
 
-        # #NaCl
-        NaCl(ax)
+                {'function': 'rotation(ax)',
+                 'name'    : 'rotation'},
 
-        #fcc
-       # FCC(ax)
+                {'function': 'inversion(ax)',
+                 'name'    : 'inversion'},
 
-     #   bcc
-     #   BCC(ax)
+                {'function': 'reflection(ax)',
+                 'name'    : 'reflection'},
 
-        #tetrakis
-        #tetrakis(ax,3,1)
+                {'function': 'cube_reflection(ax,7,7,7)',
+                 'name'    : 'cube_reflection'},
 
-        #diamons
-        #Diamond(ax)#
+                {'function': 'pyramid(ax,7,3)',
+                 'name'    : 'pyramid3'},
 
-        #test
-        #test_sphere(ax)
+                {'function': 'pyramid(ax,7,4)',
+                 'name'    : 'pyramid4'},
 
-        #prism
-        #prism(ax,2,4)
+                {'function': 'pyramid(ax,7,5)',
+                 'name'    : 'pyramid5'},
 
-        #bopysmid
-        #biprismid(ax,2,1,3)
+                {'function': 'pyramid(ax,7,10)',
+                 'name'    : 'pyramid10'},
 
-        if frame <= 8:
-            frame = '0'+str(frame+1)
-        else:
-            frame = str(frame+1)
+                {'function': 'bipyramid(ax,7,3)',
+                 'name'    : 'bipyramid3'},
 
-        filename = 'Images/frames/{}_{}.png'.format(frame,num_of_frames)
-        plt.savefig(filename)
-        print(' - Image saved')
+                {'function': 'bipyramid(ax,7,4)',
+                 'name'    : 'bipyramid4'},
 
-    # convert all saved images to a single gif
-    import imageio
-    images = []
-    for filename in os.listdir('Images/frames/'):
-        images.append(imageio.imread('Images/frames/'+filename))
-    imageio.mimsave('Images/NaCl.gif', images)
-    print('gif made')
+                {'function': 'bipyramid(ax,7,5)',
+                 'name'    : 'bipyramid5'},
+
+                {'function': 'bipyramid(ax,7,10)',
+                 'name'    : 'bipyramid10'},
+
+                {'function': 'biprismid(ax,2,1,3)',
+                 'name'    : 'biprismid3'},
+
+                {'function': 'biprismid(ax,2,1,4)',
+                 'name'    : 'biprismid4'},
+
+                {'function': 'biprismid(ax,2,1,5)',
+                 'name'    : 'biprismid5'},
+
+                {'function': 'biprismid(ax,2,1,10)',
+                 'name'    : 'biprismid10'},
+
+                {'function': 'prism(ax,7,3)',
+                 'name'    : 'prism3'},
+
+                {'function': 'prism(ax,7,4)',
+                 'name'    : 'prism4'},
+
+                {'function': 'prism(ax,7,5)',
+                 'name'    : 'prism5'},
+
+                {'function': 'prism(ax,7,10)',
+                 'name'    : 'prism10'},
+
+                {'function': 'tetrakis(ax,3,1)',
+                 'name'    : 'tetrakis'},
+
+                {'function': 'test_sphere(ax)',
+                 'name'    : 'face_normals_cube'}
+                ]
+
+    for object in objects:
+        num_of_frames = 36
+        for frame in range(0,num_of_frames):
+
+            fig = plt.figure(0,figsize=[8,8])
+            azim = (360/num_of_frames)*frame
+            ax = fig.add_subplot(111,projection='3d',azim=azim,elev=30)
+
+
+            ###################################################
+
+            function = object['function']
+            eval(function)
+            name = object['name']
+
+            ####################################################
+
+            if frame <= 8:
+                frame = '0'+str(frame+1)
+            else:
+                frame = str(frame+1)
+
+            filename = 'Images/frames/{}_{}.png'.format(frame,num_of_frames)
+            plt.savefig(filename)
+            print('Frame ({}/{}) Saved.'.format(frame,num_of_frames))
+
+        # convert all saved images to a single gif
+        import imageio
+        images = []
+        for filename in os.listdir('Images/frames/'):
+            images.append(imageio.imread('Images/frames/'+filename))
+        imageio.mimsave('Images/{}.gif'.format(name), images)
+        print('{}.gif made'.format(name))
 
 ################################################################################
 
-
+make_all_gifs()
 
 fig = plt.figure(0,figsize=[8,8])
 ax = fig.add_subplot(111,projection='3d')
 Stereographic_projection(ax)
-
-#make_gif()
+plt.show()

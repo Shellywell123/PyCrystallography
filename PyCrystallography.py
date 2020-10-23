@@ -1,5 +1,87 @@
-from PyShapes import plot_axis
 import numpy as np
+
+def make_atom(x,y,z,siz,col):
+    """
+    creates a dict for an atoms pos in a structure
+    """
+    atom = {'x':   x,
+            'y':   y,
+            'z':   z,
+            'size': siz,
+            'color':col}
+    return atom
+
+def make_bond(x_list,y_list,z_list,siz,col):
+    """
+    creates a dict for an bonds pos in a structure
+    """
+    bond = {'x':   x_list,
+            'y':   y_list,
+            'z':   z_list,
+            'size': siz,
+            'color':col}
+    return bond
+
+def plot_bonds(ax,bonds):
+    """
+    plots all bonds in a struct using matplotlib line
+    """
+
+    for bond in bonds:
+        x1,x2 = bond['x']
+        y1,y2 = bond['y']
+        z1,z2 = bond['z']
+        col   = bond['color']
+        siz   = bond['size']
+        ax.plot([x1,x2],[y1,y2],[z1,z2],linewidth=siz,c=col)
+
+def plot_atoms(ax,atoms):
+    """
+    plots all atoms in a struct using matplotlib scatter
+    """
+
+    for atom in atoms:
+        x   = atom['x']
+        y   = atom['y']
+        z   = atom['z']
+        col = atom['color']
+        siz = atom['size']
+        ax.scatter(x,y,z,s=siz,c=col)
+
+
+def plot_axis(ax,max_lim=10):
+    """
+    will clear all amtplotlib axis defaults and draw custom axis centered at 000
+    """
+    ax.set_facecolor('white')
+    ax.w_xaxis.set_pane_color((1.0, 1.0, 1.0, 1.0))
+    ax.w_yaxis.set_pane_color((1.0, 1.0, 1.0, 1.0))
+    ax.w_zaxis.set_pane_color((1.0, 1.0, 1.0, 1.0))
+
+    ax.grid(False)
+
+    min_lim = -max_lim
+    ax.auto_scale_xyz([min_lim, max_lim],
+                [min_lim, max_lim], 
+                [min_lim, max_lim])   
+
+    #make axes at orgin
+    empty_list = [0,0]
+    lim_list   = [min_lim,max_lim]
+    pos = 0.1*max_lim
+    #x axis
+ #   ax.quiver(max_lim-pos,0,0,1,0,0, length=pos, normalize=True,linewidth=1)
+    ax.plot(lim_list,empty_list,empty_list,linewidth=1,c='r')
+    ax.text(max_lim+pos,0,0,r"$x$",c='r')
+    #y axi
+    #ax.quiver(0,min_lim,0,0,1,0, length=max_lim*2, normalize=True,linewidth=1)
+    ax.text(0,max_lim+pos,0,r"$y$",c='green')
+    ax.plot(empty_list,lim_list,empty_list,linewidth=1,c='green')
+    #z axis
+    #ax.quiver(0,0,min_lim,0,0,1, length=max_lim*2, normalize=True,linewidth=1)
+    ax.text(0,0,max_lim+pos,r"$z$",c='blue')
+    ax.plot(empty_list,empty_list,lim_list,linewidth=1,c='blue')
+    ax.axis('off')
 
 def BCC(ax):
     """
@@ -9,19 +91,23 @@ def BCC(ax):
     h =2
     w =2
     d =2
+    bonds = []
+    atoms = []
     plot_axis(ax,max_lim=0.5*max(h,w,d))
     for i in [-h/2,h/2]:
         for j in [-w/2,w/2]:
             for k in [-d/2,d/2]:
-                ax.plot([-i,i],[j,j],[k,k],c='k',alpha=0.5)
-                ax.plot([i,i],[-j,j],[k,k],c='k',alpha=0.5)
-                ax.plot([i,i],[j,j],[-k,k],c='k',alpha=0.5)
+                bonds.append(make_bond([-i,i],[j,j],[k,k],1,'k'))
+                bonds.append(make_bond([i,i],[-j,j],[k,k],1,'k'))
+                bonds.append(make_bond([i,i],[j,j],[-k,k],1,'k'))
 
                 COL ='red'
                 SIZ =50
 
-                ax.scatter([i,i],[j,j],[k,k],c=COL,s=SIZ)
-    ax.scatter([0,0],[0,0],[0,0],c=COL,s=SIZ)
+                atoms.append(make_atom([i,i],[j,j],[k,k],SIZ,COL))
+    atoms.append(make_atom([0],[0],[0],SIZ,COL))
+    plot_atoms(ax,atoms)
+    plot_bonds(ax,bonds)
 
 
 def FCC(ax):
@@ -32,21 +118,26 @@ def FCC(ax):
     h =2
     w =2
     d =2
+    bonds = []
+    atoms = []
     plot_axis(ax,max_lim=0.5*max(h,w,d))
     for i in [-h/2,h/2]:
         for j in [-w/2,w/2]:
             for k in [-d/2,d/2]:
-                ax.plot([-i,i],[j,j],[k,k],c='k',alpha=0.5)
-                ax.plot([i,i],[-j,j],[k,k],c='k',alpha=0.5)
-                ax.plot([i,i],[j,j],[-k,k],c='k',alpha=0.5)
+                bonds.append(make_bond([-i,i],[j,j],[k,k],1,'k'))
+                bonds.append(make_bond([i,i],[-j,j],[k,k],1,'k'))
+                bonds.append(make_bond([i,i],[j,j],[-k,k],1,'k'))
 
                 COL ='red'
                 SIZ =50
 
-                ax.scatter([i,i],[j,j],[k,k],c=COL,s=SIZ)
-                ax.scatter([0,0],[0,0],[k,k],c=COL,s=SIZ)
-                ax.scatter([0,0],[j,j],[0,0],c=COL,s=SIZ)
-                ax.scatter([i,i],[0,0],[0,0],c=COL,s=SIZ)
+                atoms.append(make_atom([i],[j],[k],SIZ,COL))
+                atoms.append(make_atom([0],[0],[k],SIZ,COL))
+                atoms.append(make_atom([0],[j],[0],SIZ,COL))
+                atoms.append(make_atom([i],[0],[0],SIZ,COL))
+    plot_atoms(ax,atoms)
+    plot_bonds(ax,bonds)
+
 def NaCl(ax):
     """
     plots the nacl atom structure
@@ -55,13 +146,15 @@ def NaCl(ax):
     h =2
     w =2
     d =2
+    bonds = []
+    atoms = []
     plot_axis(ax,max_lim=0.7*max(h,w,d))
     for i in [-h/2,0,h/2]:
         for j in [-w/2,0,w/2]:
             for k in [-d/2,0,d/2]:
-                ax.plot([-i,i],[j,j],[k,k],c='k',alpha=0.5)
-                ax.plot([i,i],[-j,j],[k,k],c='k',alpha=0.5)
-                ax.plot([i,i],[j,j],[-k,k],c='k',alpha=0.5)
+                bonds.append(make_bond([-i,i],[j,j],[k,k],1,'k'))
+                bonds.append(make_bond([i,i],[-j,j],[k,k],1,'k'))
+                bonds.append(make_bond([i,i],[j,j],[-k,k],1,'k'))
 
                 if (abs(i)==abs(j)==abs(k)!=0)or(abs(i)+abs(j)+abs(k)==h/2):
                     COL ='green'
@@ -70,8 +163,11 @@ def NaCl(ax):
                     COL = 'red'
                     SIZ = 20
 
-                ax.scatter([i,i],[j,j],[k,k],c=COL,s=SIZ)
+                atoms.append(make_atom([i],[j],[k],SIZ,COL))
     
+    plot_atoms(ax,atoms)
+    plot_bonds(ax,bonds)
+
 def Diamond(ax):
     """
     plots the diamond atom structure
@@ -79,6 +175,8 @@ def Diamond(ax):
     h =2
     w =2
     d =2
+    bonds = []
+    atoms = []
     plot_axis(ax,max_lim=0.9*max(h,w,d))
     for i in [-h/2,h/2]:
         for j in [-w/2,w/2]:
@@ -87,41 +185,44 @@ def Diamond(ax):
                 COL ='red'
                 SIZ =50
                 if i+j+k==h/2:
-                    ax.scatter([i,i],[j,j],[k,k],c=COL,s=SIZ)
-                ax.scatter([0,0],[0,0],[k,k],c=COL,s=SIZ)
-                ax.scatter([0,0],[j,j],[0,0],c=COL,s=SIZ)
-                ax.scatter([i,i],[0,0],[0,0],c=COL,s=SIZ)
+                    atoms.append(make_atom([i],[j],[k],SIZ,COL))
+                atoms.append(make_atom([0],[0],[k],SIZ,COL))
+                atoms.append(make_atom([0],[j],[0],SIZ,COL))
+                atoms.append(make_atom([i],[0],[0],SIZ,COL))
 
-    ax.scatter([-h/2],[-h/2],[-h/2],c=COL,s=SIZ)
+    atoms.append(make_atom([-h/2],[-h/2],[-h/2],SIZ,COL))
 
-    ax.scatter([-h/4],[-h/4],[-h/4],c=COL,s=SIZ)
-    ax.scatter([h/4],[h/4],[-h/4],c=COL,s=SIZ)
-    ax.scatter([-h/4],[h/4],[h/4],c=COL,s=SIZ)
-    ax.scatter([h/4],[-h/4],[h/4],c=COL,s=SIZ)
+    atoms.append(make_atom([-h/4],[-h/4],[-h/4],SIZ,COL))
+    atoms.append(make_atom([h/4],[h/4],[-h/4],SIZ,COL))
+    atoms.append(make_atom([-h/4],[h/4],[h/4],SIZ,COL))
+    atoms.append(make_atom([h/4],[-h/4],[h/4],SIZ,COL))
 
-    ax.plot([-h/2,-h/4],[-h/2,-h/4],[-h/2,-h/4],c='k')
-    ax.plot([h/2,h/4],[h/2,h/4],[-h/2,-h/4],c='k')
+    bonds.append(make_bond([-h/2,-h/4],[-h/2,-h/4],[-h/2,-h/4],1,'k'))
+    bonds.append(make_bond([h/2,h/4],[h/2,h/4],[-h/2,-h/4],1,'k'))
 
-    ax.plot([-h/2,-h/4],[h/2,h/4],[h/2,h/4],c='k')
-    ax.plot([h/2,h/4],[-h/2,-h/4],[h/2,h/4],c='k')
+    bonds.append(make_bond([-h/2,-h/4],[h/2,h/4],[h/2,h/4],1,'k'))
+    bonds.append(make_bond([h/2,h/4],[-h/2,-h/4],[h/2,h/4],1,'k'))
 
-    ax.plot([-h/2,-h/4],[0,h/4],[0,h/4],c='k')
-    ax.plot([h/2,h/4],[0,-h/4],[0,h/4],c='k')
+    bonds.append(make_bond([-h/2,-h/4],[0,h/4],[0,h/4],1,'k'))
+    bonds.append(make_bond([h/2,h/4],[0,-h/4],[0,h/4],1,'k'))
 
-    ax.plot([0,-h/4],[-h/2,-h/4],[0,-h/4],c='k')
-    ax.plot([0,-h/4],[h/2,h/4],[0,h/4],c='k')
+    bonds.append(make_bond([0,-h/4],[-h/2,-h/4],[0,-h/4],1,'k'))
+    bonds.append(make_bond([0,-h/4],[h/2,h/4],[0,h/4],1,'k'))
 
-    ax.plot([-h/2,-h/4],[0,-h/4],[0,-h/4],c='k')
-    ax.plot([h/2,h/4],[0,h/4],[0,-h/4],c='k')
+    bonds.append(make_bond([-h/2,-h/4],[0,-h/4],[0,-h/4],1,'k'))
+    bonds.append(make_bond([h/2,h/4],[0,h/4],[0,-h/4],1,'k'))
 
-    ax.plot([0,h/4],[-h/2,-h/4],[0,h/4],c='k')
-    ax.plot([0,h/4],[h/2,h/4],[0,-h/4],c='k')
+    bonds.append(make_bond([0,h/4],[-h/2,-h/4],[0,h/4],1,'k'))
+    bonds.append(make_bond([0,h/4],[h/2,h/4],[0,-h/4],1,'k'))
 
-    ax.plot([-h/4,0],[-h/4,0],[-h/4,-h/2],c='k')
-    ax.plot([-h/4,0],[h/4,0],[h/4,h/2],c='k')
+    bonds.append(make_bond([-h/4,0],[-h/4,0],[-h/4,-h/2],1,'k'))
+    bonds.append(make_bond([-h/4,0],[h/4,0],[h/4,h/2],1,'k'))
 
-    ax.plot([h/4,0],[h/4,0],[-h/4,-h/2],c='k')
-    ax.plot([h/4,0],[-h/4,0],[h/4,h/2],c='k')
+    bonds.append(make_bond([h/4,0],[h/4,0],[-h/4,-h/2],1,'k'))
+    bonds.append(make_bond([h/4,0],[-h/4,0],[h/4,h/2],1,'k'))
+
+    plot_atoms(ax,atoms)
+    plot_bonds(ax,bonds)
 
 def invert(x,y,z,origin=[0,0,0]):
     """ 
@@ -137,7 +238,6 @@ def inversion(ax,h,w,d):
     plots an annotated points being inversed through the orgin
     """
     plot_axis(ax,max_lim=1.1*max(h,w,d))
-
     pos = .1*max(h,w,d)
 
     h_inv,w_inv,d_inv = invert(h,w,d)
@@ -248,15 +348,12 @@ def Stereographic_projection(ax):
     takes x,y,z coords that all lie on the surface of a 
     sphere and outputs a 2d stereograph
     """
-    x,y,z,r =test_sphere(ax)
+    x,y,z,r = test_sphere(ax)
 
     x_ = []
     y_ = []
 
-
     import matplotlib.pyplot as plt
-
-  
 
     plt.figure()
 
