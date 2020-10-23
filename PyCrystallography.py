@@ -278,5 +278,5 @@ def Stereographic_projection(ax):
     plt.axis('off')
     plt.xlim([-r-1,r+1])
     plt.ylim([-r-1,r+1])
-    plt.savefig('stereographic_projection_cube.png')
+    plt.savefig('Images/stereographic_projection_cube.png')
     plt.show()
