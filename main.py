@@ -105,7 +105,10 @@ def make_all_gifs():
                  'name'    : 'face_normals_cube'},
 
                 {'function': 'normal_points(ax,pyramid(ax,2,3),2)',
-                 'name'    : 'face_normals_pyramid'}
+                 'name'    : 'face_normals_pyramid'},
+
+                {'function': 'normal_points(ax,prism(ax,2,2,6),2)',
+                 'name'    : 'face_normals_prism'}
                 ]
 
     for object in objects:
@@ -149,8 +152,8 @@ def make_all_gifs():
 fig = plt.figure(0,figsize=[8,8])
 ax = fig.add_subplot(111,projection='3d')
 h,w,d = 2,2,5
-faces = cuboid(ax,2,2,2)
+faces = prism(ax,2,2,6)
 r = max(h,w,d)
 points=normal_points(ax,faces,r)
-Stereographic_projection(ax,points,r,'stereographic_projection_cube')
+Stereographic_projection(ax,points,r,'stereographic_projection_prism')
 plt.show()

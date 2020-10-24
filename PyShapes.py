@@ -97,6 +97,7 @@ def prism(ax,h_z,r_xy,num_of_side):
     will plot a prism of given height, width and depth in x,y, and z
     """
     h = h_z
+    r = r_xy
 
     plot_axis(ax,max_lim=1.5*max(h_z,r_xy))
 
@@ -115,14 +116,14 @@ def prism(ax,h_z,r_xy,num_of_side):
         x_next = (r)*np.cos(theta_next)
         y_next = (r)*np.sin(theta_next)
 
-        side_verts = [x,y,h/2],[x_next,y_next,h/2],[x_next,y_next,-h/2],[x,y,-h/2]
+        side_verts = [x,y,-h/2],[x_next,y_next,-h/2],[x_next,y_next,h/2],[x,y,h/2]
         faces.append(side_verts)
 
         top_verts.append([x,y,h/2])
         bottom_verts.append([x,y,-h/2])
 
     faces.append(top_verts)
-    faces.append(bottom_verts)
+    faces.append(bottom_verts[::-1])
 
     for face in faces:
         plot_face(ax,face)
