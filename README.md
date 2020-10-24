@@ -51,8 +51,8 @@ def cube_reflection(ax,h,w,d):
 
 fig = plt.figure(0,figsize=[8,8])
 ax = fig.add_subplot(111,projection='3d')
-h,w,d = 2,2,5
-faces = cuboid(ax,2,2,2)
+h,w,d = 2,2,2
+faces = cuboid(ax,h,w,d)
 r = max(h,w,d)
 points=normal_points(ax,faces,r)
 Stereographic_projection(ax,points,r)
