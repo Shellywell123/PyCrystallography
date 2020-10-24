@@ -63,6 +63,22 @@ plt.show()
   <img src="Images/stereographic_projection_cube.png" width="400" />
 </p>
 
+```py
+
+fig = plt.figure(0,figsize=[8,8])
+ax = fig.add_subplot(111,projection='3d')
+h,w,d = 2,2,5
+faces = pyramid(ax,2,3)
+r = max(h,w,d)
+points=normal_points(ax,faces,r)
+Stereographic_projection(ax,points,r,'stereographic_projection_pyramid')
+plt.show()
+```
+<p float="left">
+  <img src="Images/face_normals_pyramid.gif" width="400" />
+  <img src="Images/stereographic_projection_pyramid.png" width="400" />
+</p>
+
 ## Shapes
 ```py
 import matplotlib.pyplot as plt

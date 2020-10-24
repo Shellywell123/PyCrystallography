@@ -343,7 +343,7 @@ def test_sphere(ax):
 
     return x,y,z,r
 
-def Stereographic_projection(ax,points,r):
+def Stereographic_projection(ax,points,r,name):
     """
     takes x,y,z coords that all lie on the surface of a 
     sphere and outputs a 2d stereograph
@@ -382,5 +382,5 @@ def Stereographic_projection(ax,points,r):
     plt.axis('off')
     plt.xlim([-r-1,r+1])
     plt.ylim([-r-1,r+1])
-    plt.savefig('Images/stereographic_projection_cube.png')
+    plt.savefig('Images/{}.png'.format(name))
     plt.show()
