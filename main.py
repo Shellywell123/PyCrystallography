@@ -144,13 +144,13 @@ def make_all_gifs():
 
 ################################################################################
 
-make_all_gifs()
+#make_all_gifs()
 
 fig = plt.figure(0,figsize=[8,8])
 ax = fig.add_subplot(111,projection='3d')
 h,w,d = 2,2,5
-faces = pyramid(ax,2,3)
+faces = cuboid(ax,2,2,2)
 r = max(h,w,d)
 points=normal_points(ax,faces,r)
-Stereographic_projection(ax,points,r,'stereographic_projection_pyramid')
+Stereographic_projection(ax,points,r,'stereographic_projection_cube')
 plt.show()
