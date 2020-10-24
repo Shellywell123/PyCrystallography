@@ -101,7 +101,7 @@ def make_all_gifs():
                 {'function': 'tetrakis(ax,3,1)',
                  'name'    : 'tetrakis'},
 
-                {'function': 'test_sphere(ax)',
+                {'function': 'normal_points(ax,cuboid(ax,2,2,2),2)',
                  'name'    : 'face_normals_cube'}
                 ]
 
@@ -145,5 +145,9 @@ make_all_gifs()
 
 fig = plt.figure(0,figsize=[8,8])
 ax = fig.add_subplot(111,projection='3d')
-Stereographic_projection(ax)
+h,w,d = 2,2,5
+faces = cuboid(ax,2,2,2)
+r = max(h,w,d)
+points=normal_points(ax,faces,r)
+Stereographic_projection(ax,points,r)
 plt.show()

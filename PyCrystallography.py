@@ -343,12 +343,20 @@ def test_sphere(ax):
 
     return x,y,z,r
 
-def Stereographic_projection(ax):
+def Stereographic_projection(ax,points,r):
     """
     takes x,y,z coords that all lie on the surface of a 
     sphere and outputs a 2d stereograph
     """
-    x,y,z,r = test_sphere(ax)
+    x = []
+    y = []
+    z = []
+
+    for vert in points:
+        print(vert)
+        x.append(vert[0])
+        y.append(vert[1])
+        z.append(vert[2])
 
     x_ = []
     y_ = []

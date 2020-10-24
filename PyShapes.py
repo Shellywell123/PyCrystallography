@@ -1,102 +1,130 @@
 import numpy as np
 from PyCrystallography import plot_axis,make_atom,make_bond,plot_bonds,plot_atoms
 
-def make_atom(x,y,z,siz,col):
+def normal_points(ax,faces,r):
     """
-    creates a dict for an atoms pos in a structure
-    """
-    atom = {'x':   x,
-            'y':   y,
-            'z':   z,
-            'size': siz,
-            'color':col}
-    return atom
-
-def make_bond(x_list,y_list,z_list,siz,col):
-    """
-    creates a dict for an bonds pos in a structure
-    """
-    bond = {'x':   x_list,
-            'y':   y_list,
-            'z':   z_list,
-            'size': siz,
-            'color':col}
-    return bond
-
-def plot_bonds(ax,bonds):
-    """
-    plots all bonds in a struct using matplotlib line
     """
 
-    for bond in bonds:
-        x1,x2 = bond['x']
-        y1,y2 = bond['y']
-        z1,z2 = bond['z']
-        col   = bond['color']
-        siz   = bond['size']
-        ax.plot([x1,x2],[y1,y2],[z1,z2],linewidth=siz,c=col)
+    sphere_points = []
 
-def plot_atoms(ax,atoms):
+    for face in faces:
+
+
+        points_sum = np.array([0,0,0])
+
+        for vert in face:
+            points_sum = points_sum + vert
+
+        face_centre = points_sum/len(face)
+
+
+        vert1 = face[0]
+        vert2 = face[1]
+        vert3 = face[2]
+
+        vec1 = [vert2[0]-vert1[0],vert2[1]-vert1[1],vert2[2]-vert1[2]]
+        vec2 = [vert3[0]-vert1[0],vert3[1]-vert1[1],vert3[2]-vert1[2]]
+
+        normal = np.cross(vec1,vec2)
+        current_r = np.sqrt(normal[0]**2 + normal[1]**2 + normal[2]**2)
+
+        normal = normal * r/current_r
+
+        sphere_points.append(normal)
+        ax.plot([face_centre[0],normal[0]],[face_centre[1],normal[1]],[face_centre[2],normal[2]],linewidth=3,c='k')
+        ax.scatter(normal[0],normal[1],normal[2],linewidth=3,c='k')
+        
+    return sphere_points
+
+def plot_face(ax,verts):
     """
-    plots all atoms in a struct using matplotlib scatter
     """
 
-    for atom in atoms:
-        x1,x2 = atom['x']
-        y1,y2 = atom['y']
-        z1,z2 = atom['z']
-        col   = atom['color']
-        siz   = atom['size']
-        ax.plot([x1,x2],[y1,y2],[z1,z2],linewidth=siz,c=col)
+    x_list = []
+    y_list = []
+    z_list = []
 
+    for vert in verts:
+        x_list.append(vert[0])
+        y_list.append(vert[1])
+        z_list.append(vert[2])
 
-def plot_axis(ax,max_lim=10):
-    """
-    will clear all amtplotlib axis defaults and draw custom axis centered at 000
-    """
-    ax.set_facecolor('white')
-    ax.w_xaxis.set_pane_color((1.0, 1.0, 1.0, 1.0))
-    ax.w_yaxis.set_pane_color((1.0, 1.0, 1.0, 1.0))
-    ax.w_zaxis.set_pane_color((1.0, 1.0, 1.0, 1.0))
+    verts = [list(zip(x_list,y_list,z_list))]
 
-    ax.grid(False)
-
-    min_lim = -max_lim
-    ax.auto_scale_xyz([min_lim, max_lim],
-                [min_lim, max_lim], 
-                [min_lim, max_lim])   
-
-    #make axes at orgin
-    empty_list = [0,0]
-    lim_list   = [min_lim,max_lim]
-    pos = 0.1*max_lim
-    #x axis
- #   ax.quiver(max_lim-pos,0,0,1,0,0, length=pos, normalize=True,linewidth=1)
-    ax.plot(lim_list,empty_list,empty_list,linewidth=1,c='r')
-    ax.text(max_lim+pos,0,0,r"$x$",c='r')
-    #y axi
-    #ax.quiver(0,min_lim,0,0,1,0, length=max_lim*2, normalize=True,linewidth=1)
-    ax.text(0,max_lim+pos,0,r"$y$",c='green')
-    ax.plot(empty_list,lim_list,empty_list,linewidth=1,c='green')
-    #z axis
-    #ax.quiver(0,0,min_lim,0,0,1, length=max_lim*2, normalize=True,linewidth=1)
-    ax.text(0,0,max_lim+pos,r"$z$",c='blue')
-    ax.plot(empty_list,empty_list,lim_list,linewidth=1,c='blue')
-    ax.axis('off')
+    from mpl_toolkits.mplot3d.art3d import Poly3DCollection
+    ax.add_collection3d(Poly3DCollection(verts,linewidths=1,edgecolor='k',alpha=0.5))
 
 def cuboid(ax,h,w,d):
     """
-    will plot a cuboid of given height, width and depth in x,y, and z
     """
-    bonds = []
-    plot_axis(ax,max_lim=1*max(h,w,d))
-    for i in [-h/2,h/2]:
-        for j in [-w/2,w/2]:
-            for k in [-d/2,d/2]:
-                bonds.append(make_bond([-i,i],[j,j],[k,k],1,'k'))
-                bonds.append(make_bond([i,i],[-j,j],[k,k],1,'k'))
-                bonds.append(make_bond([i,i],[j,j],[-k,k],1,'k'))
-    plot_bonds(ax,bonds)
+    plot_axis(ax,max_lim=1.5*max(h,w,d))
+    faces = []
+
+    #+w
+    side_verts1 = [h/2,w/2,-d/2],[-h/2,w/2,-d/2],[-h/2,w/2,d/2],[h/2,w/2,d/2]
+    faces.append(side_verts1)
+
+    #-w
+    side_verts2 = [h/2,-w/2,d/2],[-h/2,-w/2,d/2],[-h/2,-w/2,-d/2],[h/2,-w/2,-d/2]
+
+    faces.append(side_verts2)
+
+    #+h
+    side_verts3 = [h/2,w/2,d/2],[h/2,-w/2,d/2],[h/2,-w/2,-d/2],[h/2,w/2,-d/2]
+    faces.append(side_verts3)
+
+    #-h
+    side_verts4 = [-h/2,w/2,-d/2],[-h/2,-w/2,-d/2],[-h/2,-w/2,d/2],[-h/2,w/2,d/2]
+    faces.append(side_verts4)
+
+    #+d
+    top_verts = [h/2,w/2,d/2],[-h/2,w/2,d/2],[-h/2,-w/2,d/2],[h/2,-w/2,d/2]
+    faces.append(top_verts)
+
+    #-d
+    bottom_verts = [h/2,-w/2,-d/2],[-h/2,-w/2,-d/2],[-h/2,w/2,-d/2],[h/2,w/2,-d/2]
+
+    faces.append(bottom_verts)
+
+    for face in faces:
+        plot_face(ax,face)
+
+    return faces
+
+
+def prism(ax,h_z,r_xy,num_of_side):
+    """
+    will plot a prism of given height, width and depth in x,y, and z
+    """
+    h = h_z
+
+    plot_axis(ax,max_lim=1.5*max(h_z,r_xy))
+
+
+    top_verts    = []
+    bottom_verts = []
+
+    for n in range(0,num_of_side):
+        theta      = (2*n/num_of_side)*np.pi + np.pi/4
+        theta_next = (2*(n+1)/num_of_side)*np.pi+ np.pi/4
+
+        x = (r)*np.cos(theta)
+        y = (r)*np.sin(theta)
+
+        x_next = (r)*np.cos(theta_next)
+        y_next = (r)*np.sin(theta_next)
+
+        side_verts = [x,y,h/2],[x_next,y_next,h/2],[x_next,y_next,-h/2],[x,y,-h/2]
+        plot_face(ax,side_verts)
+
+        top_verts.append([x,y,h/2])
+        bottom_verts.append([x,y,-h/2])
+
+    plot_face(ax,top_verts)
+    plot_face(ax,bottom_verts)
+
+
+
 
 def tetrakis(ax,h,dh):
     """

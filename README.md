@@ -46,10 +46,17 @@ def cube_reflection(ax,h,w,d):
   <img src="Images/cube_reflection.gif" width="400" />
 </p>
 
-## Stereographic Projection
+## Face normal detection and Stereographic Projection
 ```py
 
-def Stereographic_Projection(ax):
+fig = plt.figure(0,figsize=[8,8])
+ax = fig.add_subplot(111,projection='3d')
+h,w,d = 2,2,5
+faces = cuboid(ax,2,2,2)
+r = max(h,w,d)
+points=normal_points(ax,faces,r)
+Stereographic_projection(ax,points,r)
+plt.show()
 ```
 <p float="left">
   <img src="Images/face_normals_cube.gif" width="400" />
