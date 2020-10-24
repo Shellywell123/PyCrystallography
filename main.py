@@ -141,7 +141,7 @@ def make_all_gifs():
 
 ################################################################################
 
-make_all_gifs()
+#make_all_gifs()
 
 fig = plt.figure(0,figsize=[8,8])
 ax = fig.add_subplot(111,projection='3d')

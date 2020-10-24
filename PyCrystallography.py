@@ -353,7 +353,6 @@ def Stereographic_projection(ax,points,r):
     z = []
 
     for vert in points:
-        print(vert)
         x.append(vert[0])
         y.append(vert[1])
         z.append(vert[2])
@@ -363,7 +362,7 @@ def Stereographic_projection(ax,points,r):
 
     import matplotlib.pyplot as plt
 
-    plt.figure()
+    fig = plt.figure(1,figsize=[8,8])
 
     for i in range(0,len(x)):
         x_.append(x[i]/(1-z[i]))
