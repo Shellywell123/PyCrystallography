@@ -89,10 +89,12 @@ points=normal_points(ax,faces,r)
 Stereographic_projection(ax,points,r,'stereographic_projection_prism')
 plt.show()
 ```
+
 <p float="left">
   <img src="Images/face_normals_prism.gif" width="400" />
   <img src="Images/stereographic_projection_prism.png" width="400" />
 </p>
+
 ## Shapes
 ```py
 import matplotlib.pyplot as plt
