@@ -94,8 +94,8 @@ plt.show()
 fig = plt.figure(0,figsize=[8,8])
 ax = fig.add_subplot(111,projection='3d')
 faces = prism(ax,2,2,6)
-points=normal_points(ax,faces,r)
-Stereographic_projection(ax,points,r,'stereographic_projection_prism')
+points=normal_points(ax,faces,2)
+Stereographic_projection(ax,points,2,'stereographic_projection_prism')
 plt.show()
 ```
 
@@ -107,9 +107,23 @@ plt.show()
 ```py
 fig = plt.figure(0,figsize=[8,8])
 ax = fig.add_subplot(111,projection='3d')
+faces = biprismid(ax,3,1,0.5,5)
+points=normal_points(ax,faces,3)
+Stereographic_projection(ax,points,3,'stereographic_projection_prism')
+plt.show()
+```
+
+<p float="left">
+  <img src="Images/face_normals_biprismid.gif" width="400" />
+  <img src="Images/stereographic_projection_biprismid.png" width="400" />
+</p>
+
+```py
+fig = plt.figure(0,figsize=[8,8])
+ax = fig.add_subplot(111,projection='3d')
 faces = tetrakis(ax,4,1)
 points=normal_points(ax,faces,5)
-Stereographic_projection(ax,points,5,'stereographic_projection_cube')
+Stereographic_projection(ax,points,5,'stereographic_projection_tetrakis')
 plt.show()
 ```
 

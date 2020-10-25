@@ -389,4 +389,4 @@ def Stereographic_projection(ax,points,r,name):
     plt.xlim([-r-1,r+1])
     plt.ylim([-r-1,r+1])
     plt.savefig('Images/{}.png'.format(name))
-    plt.show()
+    #plt.show()

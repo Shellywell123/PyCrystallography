@@ -114,11 +114,7 @@ def make_all_gifs():
                  'name'    : 'face_normals_prism'},
 
                 {'function': 'normal_points(ax,biprismid(ax,3,1,0.5,5),1)',
-                 'name'    : 'face_normals_prism'},
-
-                {'function': 'normal_points(ax,tetrakis(ax,4,1),5)',
-                 'name'    : 'face_normals_tetrakis'}
-
+                 'name'    : 'face_normals_biprismid'}
                 ]
 
     for object in objects:
@@ -128,7 +124,6 @@ def make_all_gifs():
             fig = plt.figure(0,figsize=[8,8])
             azim = (360/num_of_frames)*frame
             ax = fig.add_subplot(111,projection='3d',azim=azim,elev=30)
-
 
             ###################################################
 
@@ -161,7 +156,7 @@ def make_all_gifs():
 
 fig = plt.figure(0,figsize=[8,8])
 ax = fig.add_subplot(111,projection='3d')
-faces = cuboid(ax,2,2,2)
-points=normal_points(ax,faces,2)
-Stereographic_projection(ax,points,2,'stereographic_projection_cube')
+faces = tetrakis(ax,4,1)
+points=normal_points(ax,faces,5)
+Stereographic_projection(ax,points,5,'stereographic_projection_tetrakis')
 plt.show()

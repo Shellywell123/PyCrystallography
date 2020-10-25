@@ -9,7 +9,6 @@ def normal_points(ax,faces,r):
 
     for face in faces:
 
-
         points_sum = np.array([0,0,0])
 
         for vert in face:
@@ -30,9 +29,14 @@ def normal_points(ax,faces,r):
 
         normal = normal * r/current_r
 
+        if face_centre[2] > 0:
+            COL ='blue'
+        else:
+            COL='r'
+
         sphere_points.append(normal)
         ax.plot([face_centre[0],normal[0]],[face_centre[1],normal[1]],[face_centre[2],normal[2]],linewidth=3,c='k')
-        ax.scatter(normal[0],normal[1],normal[2],linewidth=3,c='k')
+        ax.scatter(normal[0],normal[1],normal[2],linewidth=3,c=COL)
 
     return sphere_points
 
