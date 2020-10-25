@@ -64,14 +64,11 @@ plt.show()
 </p>
 
 ```py
-
 fig = plt.figure(0,figsize=[8,8])
 ax = fig.add_subplot(111,projection='3d')
-h,w,d = 2,2,5
-faces = pyramid(ax,2,3)
-r = max(h,w,d)
-points=normal_points(ax,faces,r)
-Stereographic_projection(ax,points,r,'stereographic_projection_pyramid')
+faces = pyramid(ax,1,0.5,3)
+points=normal_points(ax,faces,1)
+Stereographic_projection(ax,points,1,'stereographic_projection_pyramid')
 plt.show()
 ```
 <p float="left">
@@ -82,9 +79,21 @@ plt.show()
 ```py
 fig = plt.figure(0,figsize=[8,8])
 ax = fig.add_subplot(111,projection='3d')
-h,w,d = 2,2,5
+faces = bipyramid(ax,1,0.5,6)
+points=normal_points(ax,faces,1)
+Stereographic_projection(ax,points,2,'stereographic_projection_bipyramid')
+plt.show()
+```
+
+<p float="left">
+  <img src="Images/face_normals_bipyramid.gif" width="400" />
+  <img src="Images/stereographic_projection_bipyramid.png" width="400" />
+</p>
+
+```py
+fig = plt.figure(0,figsize=[8,8])
+ax = fig.add_subplot(111,projection='3d')
 faces = prism(ax,2,2,6)
-r = max(h,w,d)
 points=normal_points(ax,faces,r)
 Stereographic_projection(ax,points,r,'stereographic_projection_prism')
 plt.show()
@@ -93,6 +102,20 @@ plt.show()
 <p float="left">
   <img src="Images/face_normals_prism.gif" width="400" />
   <img src="Images/stereographic_projection_prism.png" width="400" />
+</p>
+
+```py
+fig = plt.figure(0,figsize=[8,8])
+ax = fig.add_subplot(111,projection='3d')
+faces = tetrakis(ax,4,1)
+points=normal_points(ax,faces,5)
+Stereographic_projection(ax,points,5,'stereographic_projection_cube')
+plt.show()
+```
+
+<p float="left">
+  <img src="Images/face_normals_tetrakis.gif" width="400" />
+  <img src="Images/stereographic_projection_tetrakis.png" width="400" />
 </p>
 
 ## Shapes

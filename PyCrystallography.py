@@ -376,8 +376,14 @@ def Stereographic_projection(ax,points,r,name):
     theta = np.linspace(0,2*np.pi,100)
     xc = (r+1)*np.cos(theta)
     yc = (r+1)*np.sin(theta)
-    
-    plt.legend(loc=1)
+
+    ## sort leg
+    north = plt.scatter([],[],marker='2',label='Northern Hemisphere',c='blue',s=200)
+    south = plt.scatter([],[],marker='2',label='Southern Hemisphere',c='r',s=200)
+
+    plt.legend(handles=[north,south],bbox_to_anchor=(0., 1.01, 1., .101), loc='lower left',
+         mode="expand", borderaxespad=0.)
+    plt.tight_layout(pad=0, h_pad=0, w_pad=0,rect=[0,0,0.95,0.95])
     plt.plot(xc,yc,c='k')
     plt.axis('off')
     plt.xlim([-r-1,r+1])

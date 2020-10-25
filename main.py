@@ -38,64 +38,64 @@ def make_all_gifs():
                 {'function': 'cuboid(ax,5,5,10)',
                  'name'    : 'cuboid_z'},
 
-                {'function': 'rotation(ax)',
+                {'function': 'rotation(ax,2,2,2)',
                  'name'    : 'rotation'},
 
-                {'function': 'inversion(ax)',
+                {'function': 'inversion(ax,2,2,2)',
                  'name'    : 'inversion'},
 
-                {'function': 'reflection(ax)',
+                {'function': 'reflection(ax,2,2,2)',
                  'name'    : 'reflection'},
 
                 {'function': 'cube_reflection(ax,7,7,7)',
                  'name'    : 'cube_reflection'},
 
-                {'function': 'pyramid(ax,7,3)',
+                {'function': 'pyramid(ax,1,0.5,3)',
                  'name'    : 'pyramid3'},
 
-                {'function': 'pyramid(ax,7,4)',
+                {'function': 'pyramid(ax,1,0.5,4)',
                  'name'    : 'pyramid4'},
 
-                {'function': 'pyramid(ax,7,5)',
+                {'function': 'pyramid(ax,1,0.5,5)',
                  'name'    : 'pyramid5'},
 
-                {'function': 'pyramid(ax,7,10)',
+                {'function': 'pyramid(ax,1,0.5,10)',
                  'name'    : 'pyramid10'},
 
-                {'function': 'bipyramid(ax,7,3)',
+                {'function': 'bipyramid(ax,1,0.5,3)',
                  'name'    : 'bipyramid3'},
 
-                {'function': 'bipyramid(ax,7,4)',
+                {'function': 'bipyramid(ax,1,0.5,4)',
                  'name'    : 'bipyramid4'},
 
-                {'function': 'bipyramid(ax,7,5)',
+                {'function': 'bipyramid(ax,1,0.5,5)',
                  'name'    : 'bipyramid5'},
 
-                {'function': 'bipyramid(ax,7,10)',
+                {'function': 'bipyramid(ax,1,0.5,10)',
                  'name'    : 'bipyramid10'},
 
-                {'function': 'biprismid(ax,2,1,3)',
+                {'function': 'biprismid(ax,3,1,0.5,3)',
                  'name'    : 'biprismid3'},
 
-                {'function': 'biprismid(ax,2,1,4)',
+                {'function': 'biprismid(ax,3,1,0.5,4)',
                  'name'    : 'biprismid4'},
 
-                {'function': 'biprismid(ax,2,1,5)',
+                {'function': 'biprismid(ax,3,1,0.5,5)',
                  'name'    : 'biprismid5'},
 
-                {'function': 'biprismid(ax,2,1,10)',
+                {'function': 'biprismid(ax,3,1,0.5,10)',
                  'name'    : 'biprismid10'},
 
-                {'function': 'prism(ax,7,3)',
+                {'function': 'prism(ax,2,2,3)',
                  'name'    : 'prism3'},
 
-                {'function': 'prism(ax,7,4)',
+                {'function': 'prism(ax,2,2,4)',
                  'name'    : 'prism4'},
 
-                {'function': 'prism(ax,7,5)',
+                {'function': 'prism(ax,2,2,5)',
                  'name'    : 'prism5'},
 
-                {'function': 'prism(ax,7,10)',
+                {'function': 'prism(ax,2,2,10)',
                  'name'    : 'prism10'},
 
                 {'function': 'tetrakis(ax,3,1)',
@@ -104,11 +104,21 @@ def make_all_gifs():
                 {'function': 'normal_points(ax,cuboid(ax,2,2,2),2)',
                  'name'    : 'face_normals_cube'},
 
-                {'function': 'normal_points(ax,pyramid(ax,2,3),2)',
+                {'function': 'normal_points(ax,pyramid(ax,1,0.5,3),1)',
                  'name'    : 'face_normals_pyramid'},
 
+                {'function': 'normal_points(ax,bipyramid(ax,1,0.5,6),1)',
+                 'name'    : 'face_normals_bipyramid'},
+
                 {'function': 'normal_points(ax,prism(ax,2,2,6),2)',
-                 'name'    : 'face_normals_prism'}
+                 'name'    : 'face_normals_prism'},
+
+                {'function': 'normal_points(ax,biprismid(ax,3,1,0.5,5),1)',
+                 'name'    : 'face_normals_prism'},
+
+                {'function': 'normal_points(ax,tetrakis(ax,4,1),5)',
+                 'name'    : 'face_normals_tetrakis'}
+
                 ]
 
     for object in objects:
@@ -151,9 +161,7 @@ def make_all_gifs():
 
 fig = plt.figure(0,figsize=[8,8])
 ax = fig.add_subplot(111,projection='3d')
-h,w,d = 2,2,5
-faces = prism(ax,2,2,6)
-r = max(h,w,d)
-points=normal_points(ax,faces,r)
-Stereographic_projection(ax,points,r,'stereographic_projection_prism')
+faces = cuboid(ax,2,2,2)
+points=normal_points(ax,faces,2)
+Stereographic_projection(ax,points,2,'stereographic_projection_cube')
 plt.show()

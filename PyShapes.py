@@ -130,26 +130,56 @@ def prism(ax,h_z,r_xy,num_of_side):
 
     return faces
 
-
-
-def tetrakis(ax,h,dh):
+def tetrakis(ax,r,dr):
     """
     will plot a tetrakis
     """
-    bonds = []
-    plot_axis(ax,max_lim=h)
-    for i in [-1,1]:
-        for j in [-1,1]:
-            for k in [-1,1]:
-                bonds.append(make_bond([-i*h/2,i*h/2],[j*h/2,j*h/2],[k*h/2,k*h/2],1,'k'))
-                bonds.append(make_bond([i*h/2,i*h/2],[-j*h/2,j*h/2],[k*h/2,k*h/2],1,'k'))
-                bonds.append(make_bond([i*h/2,i*h/2],[j*h/2,j*h/2],[-k*h/2,k*h/2],1,'k'))
-                bonds.append(make_bond([i*h/2,i*(h/2+dh)] ,[j*h/2,0],[k*h/2,0],1,'k'))
-                bonds.append(make_bond([i*h/2,0] ,[j*h/2,j*(h/2+dh)],[k*h/2,0],1,'k'))
-                bonds.append(make_bond([i*h/2,0] ,[j*h/2,0],[k*h/2,k*(h/2+dh)],1,'k'))
-    plot_bonds(ax,bonds)
+    faces = []
 
-def pyramid(ax,h,num_of_side):
+    top_verts    = []
+    bottom_verts = []
+
+    plot_axis(ax,max_lim=1.1*(r+2*dr))
+    for n in range(0,4):
+        theta      = (2*n/4)*np.pi + np.pi/4
+        theta_next = (2*(n+1)/4)*np.pi+ np.pi/4
+        theta_mid  = (2*(n+0.5)/4)*np.pi+ np.pi/4
+
+        x = (r)*np.cos(theta)
+        y = (r)*np.sin(theta)
+
+        x_mid = (r+dr)*np.cos(theta_mid)
+        y_mid = (r+dr)*np.sin(theta_mid)
+        z_mid = 0
+
+        x_next = (r)*np.cos(theta_next)
+        y_next = (r)*np.sin(theta_next)
+
+        side_verts_top = [0,0,r+dr],[x,y,r],[x_next,y_next,r]
+        faces.append(side_verts_top)
+
+        side_verts_mid_up = [x_mid,y_mid,z_mid],[x_next,y_next,r],[x,y,r]
+
+        faces.append(side_verts_mid_up)
+
+        side_verts_mid_left = [x_mid,y_mid,z_mid],[x,y,r],[x,y,-r]
+        faces.append(side_verts_mid_left)
+
+        side_verts_mid_right = [x_mid,y_mid,z_mid],[x_next,y_next,r],[x_next,y_next,-r]
+        faces.append(side_verts_mid_right)
+
+        side_verts_mid_down = [x,y,-r],[x_next,y_next,-r],[x_mid,y_mid,z_mid]
+        faces.append(side_verts_mid_down)
+
+        side_verts_bottom = [x_next,y_next,-r],[x,y,-r],[0,0,-r-dr]
+        faces.append(side_verts_bottom)
+
+    for face in faces:
+        plot_face(ax,face)
+
+    return faces
+
+def pyramid(ax,h,r,num_of_side):
     """
     will plot a pyramid with num of sides -1
     """
@@ -160,11 +190,11 @@ def pyramid(ax,h,num_of_side):
     for n in range(0,num_of_side):
         theta      = (2*n/num_of_side)*np.pi
         theta_next = (2*(n+1)/num_of_side)*np.pi
-        x = h*np.cos(theta)
-        y = h*np.sin(theta)
+        x = r*np.cos(theta)
+        y = r*np.sin(theta)
 
-        x_next = h*np.cos(theta_next)
-        y_next = h*np.sin(theta_next)
+        x_next = r*np.cos(theta_next)
+        y_next = r*np.sin(theta_next)
 
         side_verts = [0,0,h/2],[x,y,-h/2],[x_next,y_next,-h/2]
         faces.append(side_verts)
@@ -177,65 +207,57 @@ def pyramid(ax,h,num_of_side):
 
     return faces
 
-def bipyramid(ax,h,num_of_side):
+def bipyramid(ax,h,r,num_of_side):
     """
     will plot a bipyramid with number of sides /2
     """
-    bonds = []
-    plot_axis(ax,max_lim=1.1*h)
+    faces = []
+    plot_axis(ax,max_lim=1.1*max(h,r))
     for n in range(0,num_of_side):
         theta      = (2*n/num_of_side)*np.pi
         theta_next = (2*(n+1)/num_of_side)*np.pi
-        x = h*np.cos(theta)
-        y = h*np.sin(theta)
+        x = r*np.cos(theta)
+        y = r*np.sin(theta)
 
-        x_next = h*np.cos(theta_next)
-        y_next = h*np.sin(theta_next)
+        x_next = r*np.cos(theta_next)
+        y_next = r*np.sin(theta_next)
 
-        bonds.append(make_bond([0,x] ,[0,y],[h/2,0],1,'k'))
-        bonds.append(make_bond([x,x_next] ,[y,y_next],[0,0],1,'k'))
-        bonds.append(make_bond([0,x] ,[0,y],[-h/2,0],1,'k'))
-    plot_bonds(ax,bonds)
+        side_verts_top = [0,0,h/2],[x,y,0],[x_next,y_next,0]
+        faces.append(side_verts_top)
 
-# def prism(ax,h,num_of_side):
-#     """
-#     will plot a prism with number of sides /2
-#     """
-#     bonds =[]
-#     plot_axis(ax,max_lim=1.1*h)
-#     for n in range(0,num_of_side):
-#         theta      = (2*n/num_of_side)*np.pi
-#         theta_next = (2*(n+1)/num_of_side)*np.pi
-#         x = h*np.cos(theta)
-#         y = h*np.sin(theta)
+        side_verts_bottom = [x_next,y_next,0],[x,y,0],[0,0,-h/2]
+        faces.append(side_verts_bottom)
 
-#         x_next = h*np.cos(theta_next)
-#         y_next = h*np.sin(theta_next)
+    for face in faces:
+        plot_face(ax,face)
 
-#         bonds.append(make_bond([x,x] ,[y,y],[h/2,-h/2],1,'k'))
-#         bonds.append(make_bond([x,x_next] ,[y,y_next],[h/2,h/2],1,'k'))
-#         bonds.append(make_bond([x,x_next] ,[y,y_next],[-h/2,-h/2],1,'k'))
-#     plot_bonds(ax,bonds)
+    return faces
 
-def biprismid(ax,h,dh,num_of_side):
+def biprismid(ax,h,dh,r,num_of_side):
     """
     will plot a bi-prism-id with number of sides /2
     """
-    bonds = []
-    plot_axis(ax,max_lim=1.1*h)
+    faces = []
+    plot_axis(ax,max_lim=1.1*max(h,r))
     for n in range(0,num_of_side):
         theta      = (2*n/num_of_side)*np.pi
         theta_next = (2*(n+1)/num_of_side)*np.pi
-        x = h*np.cos(theta)
-        y = h*np.sin(theta)
+        x = r*np.cos(theta)
+        y = r*np.sin(theta)
 
-        x_next = h*np.cos(theta_next)
-        y_next = h*np.sin(theta_next)
+        x_next = r*np.cos(theta_next)
+        y_next = r*np.sin(theta_next)
 
+        side_verts_top = [0,0,h/2+dh],[x,y,h/2],[x_next,y_next,h/2]
+        faces.append(side_verts_top)
 
-        bonds.append(make_bond([0,x] ,[0,y],[h/2+dh,h/2],1,'k'))
-        bonds.append(make_bond([x,x] ,[y,y],[h/2,-h/2],1,'k'))
-        bonds.append(make_bond([x,x_next] ,[y,y_next],[h/2,h/2],1,'k'))
-        bonds.append(make_bond([x,x_next] ,[y,y_next],[-h/2,-h/2],1,'k'))
-        bonds.append(make_bond([0,x] ,[0,y],[-h/2-dh,-h/2],1,'k'))
-    plot_bonds(ax,bonds)
+        side_verts_mid = [x,y,-h/2],[x_next,y_next,-h/2],[x_next,y_next,h/2],[x,y,h/2]
+        faces.append(side_verts_mid)
+
+        side_verts_bottom = [x_next,y_next,-h/2],[x,y,-h/2],[0,0,-h/2-dh]
+        faces.append(side_verts_bottom)
+
+    for face in faces:
+        plot_face(ax,face)
+
+    return faces
