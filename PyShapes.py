@@ -25,14 +25,24 @@ def normal_points(ax,faces,r):
         vec2 = [vert3[0]-vert1[0],vert3[1]-vert1[1],vert3[2]-vert1[2]]
 
         normal = np.cross(vec1,vec2)
-        current_r = np.sqrt(normal[0]**2 + normal[1]**2 + normal[2]**2)
-
-        normal = normal * r/current_r
-
+      #  print(normal)
+        
         if face_centre[2] > 0:
             COL ='blue'
         else:
             COL='r'
+
+        # generate projected point on a sphere of radius r
+        normal = face_centre+normal
+
+        # scale to be on sphere
+        current_r = np.sqrt(normal[0]**2 + normal[1]**2 + normal[2]**2)
+       
+        normal = normal * r/current_r
+
+        current_r = np.sqrt(normal[0]**2 + normal[1]**2 + normal[2]**2)
+       # print(current_r)
+
 
         sphere_points.append(normal)
         ax.plot([face_centre[0],normal[0]],[face_centre[1],normal[1]],[face_centre[2],normal[2]],linewidth=3,c='k')

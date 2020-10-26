@@ -363,19 +363,28 @@ def Stereographic_projection(ax,points,r,name):
     import matplotlib.pyplot as plt
 
     fig = plt.figure(1,figsize=[8,8])
+    fig.clear()
 
     for i in range(0,len(x)):
-        x_.append(x[i]/(1-z[i]))
-        y_.append(y[i]/(1-z[i]))
+        # x_.append(x[i]/(r-z[i]))
+        # y_.append(y[i]/(r-z[i]))              
 
         if z[i] > 0:
+            x_.append(x[i]/(r+z[i]))
+            y_.append(y[i]/(r+z[i])) 
+
             plt.scatter(x_[i],y_[i],marker='2',label='N',c='blue',s=200)
         else:
+            x_.append(x[i]/(r-z[i]))
+            y_.append(y[i]/(r-z[i]))
             plt.scatter(x_[i],y_[i],marker='1',label='S',c='r',s=200)
 
     theta = np.linspace(0,2*np.pi,100)
-    xc = (r+1)*np.cos(theta)
-    yc = (r+1)*np.sin(theta)
+
+    r = np.sqrt(max(x_)**2 + max(y_)**2)
+    pos =0.05*r
+    xc = (r+pos)*np.cos(theta)
+    yc = (r+pos)*np.sin(theta)
 
     ## sort leg
     north = plt.scatter([],[],marker='2',label='Northern Hemisphere',c='blue',s=200)
@@ -386,7 +395,8 @@ def Stereographic_projection(ax,points,r,name):
     plt.tight_layout(pad=0, h_pad=0, w_pad=0,rect=[0,0,0.95,0.95])
     plt.plot(xc,yc,c='k')
     plt.axis('off')
-    plt.xlim([-r-1,r+1])
-    plt.ylim([-r-1,r+1])
+
+    plt.xlim([-r-pos,r+pos])
+    plt.ylim([-r-pos,r+pos])
     plt.savefig('Images/{}.png'.format(name))
     #plt.show()
