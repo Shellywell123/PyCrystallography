@@ -121,19 +121,19 @@ def make_all_face_norm_gifs():
 
     objects = [
 
-                {'code'    : 'points = normal_points(ax,cuboid(ax,2,2,2),2)',
-                 'name'    : 'face_normals_cube'},
+                # {'code'    : 'points = normal_points(ax,cuboid(ax,2,2,2),2)',
+                #  'name'    : 'face_normals_cube'},
 
-                {'code'    : 'normal_points(ax,pyramid(ax,1,0.5,3),1)',
-                 'name'    : 'face_normals_pyramid'},
+                # {'code'    : 'normal_points(ax,pyramid(ax,1,0.5,3),1)',
+                #  'name'    : 'face_normals_pyramid'},
 
-                {'code'    : 'normal_points(ax,bipyramid(ax,1,0.5,6),1)',
-                 'name'    : 'face_normals_bipyramid'},
+                # {'code'    : 'normal_points(ax,bipyramid(ax,1,0.5,6),1)',
+                #  'name'    : 'face_normals_bipyramid'},
 
-                {'code'    : 'normal_points(ax,prism(ax,2,2,6),2)',
-                 'name'    : 'face_normals_prism'},
+                # {'code'    : 'normal_points(ax,prism(ax,2,2,6),2)',
+                #  'name'    : 'face_normals_prism'},
 
-                {'code'    : 'normal_points(ax,biprismid(ax,3,1,0.5,5),1)',
+                {'code'    : 'normal_points(ax,biprismid(ax,3,1,0.5,5),3)',
                  'name'    : 'face_normals_biprismid'}
                          ]
 
@@ -239,23 +239,8 @@ def make_all_shape_gifs():
                  'name'    : 'prism10'},
 
                 {'code'    : 'tetrakis(ax,3,1)',
-                 'name'    : 'tetrakis'},
-
-                {'code'    : 'points = normal_points(ax,cuboid(ax,2,2,2),2)',
-                 'name'    : 'face_normals_cube'},
-
-                {'code'    : 'normal_points(ax,pyramid(ax,1,0.5,3),1)',
-                 'name'    : 'face_normals_pyramid'},
-
-                {'code'    : 'normal_points(ax,bipyramid(ax,1,0.5,6),1)',
-                 'name'    : 'face_normals_bipyramid'},
-
-                {'code'    : 'normal_points(ax,prism(ax,2,2,6),2)',
-                 'name'    : 'face_normals_prism'},
-
-                {'code'    : 'normal_points(ax,biprismid(ax,3,1,0.5,5),1)',
-                 'name'    : 'face_normals_biprismid'}
-                         ]
+                 'name'    : 'tetrakis'}
+            ]
 
     for object in objects:
         num_of_frames = 36
@@ -319,13 +304,13 @@ def make_all_stereos():
 #make_all_structure_gifs()
 #make_all_operations_gifs()
 #make_all_shape_gifs()
-#make_all_face_norm_gifs()
-make_all_stereos()
+make_all_face_norm_gifs()
+#make_all_stereos()
 
-# fig = plt.figure(0,figsize=[8,8])
-# ax = fig.add_subplot(111,projection='3d')
-# faces = tetrakis(ax,4,1)
-# #faces=bipyramid(ax,2,2,7)
-# points=normal_points(ax,faces,10)
-# Stereographic_projection(ax,points,10,'stereographic_projection_tetrakis')
-# plt.show()
+fig = plt.figure(0,figsize=[8,8])
+ax = fig.add_subplot(111,projection='3d')
+#faces = tetrakis(ax,4,1)
+faces=biprismid(ax,3,1,0.5,5)
+points=normal_points(ax,faces,10)
+#Stereographic_projection(ax,points,10,'stereographic_projection_tetrakis')
+plt.show()
