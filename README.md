@@ -132,6 +132,7 @@ plt.show()
   <img src="Images/stereographic_projection_tetrakis.png" width="400" />
 </p>
 
+
 ## Shapes
 ```py
 import matplotlib.pyplot as plt

@@ -179,7 +179,7 @@ def tetrakis(ax,r,dr):
         side_verts_mid_left = [x_mid,y_mid,z_mid],[x,y,r],[x,y,-r]
         faces.append(side_verts_mid_left)
 
-        side_verts_mid_right = [x_mid,y_mid,z_mid],[x_next,y_next,r],[x_next,y_next,-r]
+        side_verts_mid_right = [x_next,y_next,-r],[x_next,y_next,r],[x_mid,y_mid,z_mid]
         faces.append(side_verts_mid_right)
 
         side_verts_mid_down = [x,y,-r],[x_next,y_next,-r],[x_mid,y_mid,z_mid]
