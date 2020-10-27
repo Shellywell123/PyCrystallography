@@ -369,7 +369,7 @@ def cube_reflection_diag(ax):
             ax.text(x_,y_,z_,r'$m_{'+str(i)+'}$')
             i = i +1
 
-def Stereographic_projection(ax,points,r,name):
+def Stereographic_projection(points,r,name):
     """
     takes x,y,z coords that all lie on the surface of a 
     sphere and outputs a 2d stereograph
@@ -407,8 +407,8 @@ def Stereographic_projection(ax,points,r,name):
 
     theta = np.linspace(0,2*np.pi,100)
 
-    r = np.sqrt(max(x_)**2 + max(y_)**2)
-    pos =0.05*r
+  #  r = np.sqrt(max(x_)**2 + max(y_)**2)
+    pos =0.15*r
     xc = (r+pos)*np.cos(theta)
     yc = (r+pos)*np.sin(theta)
 
@@ -417,12 +417,14 @@ def Stereographic_projection(ax,points,r,name):
     south = plt.scatter([],[],marker='2',label='Southern Hemisphere',c='r',s=200)
 
     plt.legend(handles=[north,south],bbox_to_anchor=(0., 1.01, 1., .101), loc='lower left',
-         mode="expand", borderaxespad=0.)
-    plt.tight_layout(pad=0, h_pad=0, w_pad=0,rect=[0,0,0.95,0.95])
+         mode="expand")
+    
     plt.plot(xc,yc,c='k')
-    plt.axis('off')
-
     plt.xlim([-r-pos,r+pos])
     plt.ylim([-r-pos,r+pos])
+    plt.tight_layout(pad=0, h_pad=0, w_pad=0,rect=[0,0,0.95,0.95])
+    plt.axis('off')
+
+
     plt.savefig('Images/{}.png'.format(name))
     #plt.show()

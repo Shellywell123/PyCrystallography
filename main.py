@@ -9,6 +9,13 @@ from PyCrystallography import *
 
 ################################################################################
 
+def delete_all_frames():
+    """
+    """
+    os.system('rm Images/frames/*')
+    
+################################################################################
+
 def make_all_structure_gifs():
     """
     generates screenshots of the program and then compiles them into a gif
@@ -291,17 +298,17 @@ def make_all_stereos():
     """
     """
     stereos = [
-                {'code': """points = normal_points(ax,cuboid(ax,2,2,2),2);Stereographic_projection(ax,points,2,'stereographic_projection_cube')"""},
+                {'code': """points = normal_points(ax,cuboid(ax,2,2,2),2);Stereographic_projection(points,2,'stereographic_projection_cube')"""},
        
-                {'code': """points = normal_points(ax,pyramid(ax,1,0.5,3),1);Stereographic_projection(ax,points,1,'stereographic_projection_pyramid')"""},
+                {'code': """points = normal_points(ax,pyramid(ax,1,0.5,3),1);Stereographic_projection(points,1,'stereographic_projection_pyramid')"""},
        
-                {'code': """points = normal_points(ax,bipyramid(ax,1,0.5,6),1);Stereographic_projection(ax,points,2,'stereographic_projection_bipyramid')"""},
+                {'code': """points = normal_points(ax,bipyramid(ax,1,0.5,6),1);Stereographic_projection(points,2,'stereographic_projection_bipyramid')"""},
     
-                {'code': """points = normal_points(ax,prism(ax,2,2,6),2);Stereographic_projection(ax,points,2,'stereographic_projection_prism')"""},
+                {'code': """points = normal_points(ax,prism(ax,2,2,6),2);Stereographic_projection(points,2,'stereographic_projection_prism')"""},
           
-                {'code': """points = normal_points(ax,biprismid(ax,3,1,0.5,5),1);Stereographic_projection(ax,points,2,'stereographic_projection_biprismid')"""},
+                {'code': """points = normal_points(ax,biprismid(ax,3,1,0.5,5),1);Stereographic_projection(points,2,'stereographic_projection_biprismid')"""},
      
-                {'code': """points = normal_points(ax,tetrakis(ax,4,1),10);Stereographic_projection(ax,points,10,'stereographic_projection_tetrakis')"""}
+                {'code': """points = normal_points(ax,tetrakis(ax,4,1),10);Stereographic_projection(points,10,'stereographic_projection_tetrakis')"""}
                   ]
 
     for stereo in stereos:
@@ -313,16 +320,89 @@ def make_all_stereos():
 
 ################################################################################
 
+def make_all_stereo_gifs():
+    """
+    """
+    delete_all_frames()
+    name = 'stereographic_projection_inversion'
+    r=1
+    points = []
+    d_theta = np.pi
+    fig = plt.figure(0,figsize=[8,8])
+    fig.clear()
+    ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
+    points.append([r*np.cos(d_theta),r*np.sin(d_theta),0])
+
+    filename = 'frames/01_2'
+    Stereographic_projection(points,r,filename)
+    print('Frame (01/2) Saved.')
+
+    # # # # # # # # # #
+
+    fig = plt.figure(0,figsize=[8,8])
+    fig.clear()
+    ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
+    x_inv,y_in,z_inv =invert(points[0][0],points[0][1],points[0][2])
+    points.append([x_inv,y_in,z_inv])
+    print(points)
+
+    filename = 'frames/02_2'
+    Stereographic_projection(points,r,filename)
+    print('Frame (02/2) Saved.')
+
+    # convert all saved images to a single gif
+    import imageio
+    images = []
+    for filename in os.listdir('Images/frames/'):
+        images.append(imageio.imread('Images/frames/'+filename))
+    imageio.mimsave('Images/{}.gif'.format(name), images)
+    print('{}.gif made'.format(name))
+
+    #########################################
+    #########################################
+
+    delete_all_frames()
+    name = 'stereographic_projection_rotation'
+    n=10
+    r=1
+    points = []
+    d_theta = 2*np.pi/n
+    for i in range(0,n):
+        fig = plt.figure(0,figsize=[8,8])
+        fig.clear()
+        ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
+        points.append([r*np.cos(d_theta*i),r*np.sin(d_theta*i),0])
+
+        if i <= 8:
+            i = '0'+str(i+1)
+        else:
+            i = str(i+1)
+
+        filename = 'frames/{}_{}'.format(i,n)
+        Stereographic_projection(points,r,filename)
+        print('Frame ({}/{}) Saved.'.format(i,n))
+
+    # convert all saved images to a single gif
+    import imageio
+    images = []
+    for filename in os.listdir('Images/frames/'):
+        images.append(imageio.imread('Images/frames/'+filename))
+    imageio.mimsave('Images/{}.gif'.format(name), images)
+    print('{}.gif made'.format(name))
+
+################################################################################
+
 # make_all_structure_gifs()
-make_all_operations_gifs()
+# make_all_operations_gifs()
 # make_all_shape_gifs()
 # make_all_face_norm_gifs()
 # make_all_stereos()
+make_all_stereo_gifs()
 
 # fig = plt.figure(0,figsize=[8,8])
 # ax = fig.add_subplot(111,projection='3d')
-# faces = tetrakis(ax,4,1)
+# faces = cuboid(ax,2,2,2)
 # #faces=biprismid(ax,3,1,0.5,5)
-# points=normal_points(ax,faces,10)
+# points=normal_points(ax,faces,5)
 # #Stereographic_projection(ax,points,10,'stereographic_projection_tetrakis')
 # plt.show()

@@ -24,7 +24,7 @@ def Diamond(ax):
 </p>
 
 
-## Inversion & Reflection
+## Inversion - Reflection - Rotation
 ```py
 def inversion(ax,h,w,d):
 ```
@@ -35,6 +35,12 @@ def reflection(ax,h,w,d):
   <img src="Images/inversion.gif" width="400" />
   <img src="Images/reflection.gif" width="400" />
 </p>
+
+<p float="left">
+  <img src="Images/stereographic_projection_inversion.gif" width="400" />
+  <img src="Images/stereographic_projection_rotation.gif" width="400" />
+</p>
+
 
 
 ### Reflective Planes
