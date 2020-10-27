@@ -70,14 +70,20 @@ def make_all_operations_gifs():
     """
 
     objects = [
-                {'code'    : 'rotation(ax,2,2,2)',
-                 'name'    : 'rotation'},
+                # {'code'    : 'rotation(ax,2,2,2)',
+                #  'name'    : 'rotation'},
 
-                {'code'    : 'inversion(ax,2,2,2)',
-                 'name'    : 'inversion'},
+                # {'code'    : 'inversion(ax,2,2,2)',
+                #  'name'    : 'inversion'},
 
-                {'code'    : 'reflection(ax,2,2,2)',
-                 'name'    : 'reflection'}
+                # {'code'    : 'reflection(ax,2,2,2)',
+                #  'name'    : 'reflection'},
+
+                # {'code'    : 'cube_reflection(ax)',
+                #  'name'    : 'cube_reflection'},
+
+                {'code'    : 'cube_reflection_diag(ax)',
+                 'name'    : 'cube_reflection_diag'}
                 ]
 
     for object in objects:
@@ -122,20 +128,20 @@ def make_all_face_norm_gifs():
 
     objects = [
 
-                # {'code'    : 'points = normal_points(ax,cuboid(ax,2,2,2),2)',
-                #  'name'    : 'face_normals_cube'},
+                {'code'    : 'points = normal_points(ax,cuboid(ax,2,2,2),2)',
+                 'name'    : 'face_normals_cube'},
 
-                # {'code'    : 'normal_points(ax,pyramid(ax,1,0.5,3),1)',
-                #  'name'    : 'face_normals_pyramid'},
+                {'code'    : 'normal_points(ax,pyramid(ax,1,0.5,3),1)',
+                 'name'    : 'face_normals_pyramid'},
 
-                # {'code'    : 'normal_points(ax,bipyramid(ax,1,0.5,6),1)',
-                #  'name'    : 'face_normals_bipyramid'},
+                {'code'    : 'normal_points(ax,bipyramid(ax,1,0.5,6),1)',
+                 'name'    : 'face_normals_bipyramid'},
 
-                # {'code'    : 'normal_points(ax,prism(ax,2,2,6),2)',
-                #  'name'    : 'face_normals_prism'},
+                {'code'    : 'normal_points(ax,prism(ax,2,2,6),2)',
+                 'name'    : 'face_normals_prism'},
 
-                # {'code'    : 'normal_points(ax,biprismid(ax,3,1,0.5,5),3)',
-                #  'name'    : 'face_normals_biprismid'},
+                {'code'    : 'normal_points(ax,biprismid(ax,3,1,0.5,5),3)',
+                 'name'    : 'face_normals_biprismid'},
 
                 {'code'    : 'normal_points(ax,tetrakis(ax,4,1),10)',
                  'name'    : 'face_normals_tetrakis'}
@@ -285,15 +291,15 @@ def make_all_stereos():
     """
     """
     stereos = [
-                # {'code': """points = normal_points(ax,cuboid(ax,2,2,2),2);Stereographic_projection(ax,points,2,'stereographic_projection_cube')"""},
+                {'code': """points = normal_points(ax,cuboid(ax,2,2,2),2);Stereographic_projection(ax,points,2,'stereographic_projection_cube')"""},
        
-                # {'code': """points = normal_points(ax,pyramid(ax,1,0.5,3),1);Stereographic_projection(ax,points,1,'stereographic_projection_pyramid')"""},
+                {'code': """points = normal_points(ax,pyramid(ax,1,0.5,3),1);Stereographic_projection(ax,points,1,'stereographic_projection_pyramid')"""},
        
-                # {'code': """points = normal_points(ax,bipyramid(ax,1,0.5,6),1);Stereographic_projection(ax,points,2,'stereographic_projection_bipyramid')"""},
+                {'code': """points = normal_points(ax,bipyramid(ax,1,0.5,6),1);Stereographic_projection(ax,points,2,'stereographic_projection_bipyramid')"""},
     
-                # {'code': """points = normal_points(ax,prism(ax,2,2,6),2);Stereographic_projection(ax,points,2,'stereographic_projection_prism')"""},
+                {'code': """points = normal_points(ax,prism(ax,2,2,6),2);Stereographic_projection(ax,points,2,'stereographic_projection_prism')"""},
           
-                # {'code': """points = normal_points(ax,biprismid(ax,3,1,0.5,5),1);Stereographic_projection(ax,points,2,'stereographic_projection_biprismid')"""},
+                {'code': """points = normal_points(ax,biprismid(ax,3,1,0.5,5),1);Stereographic_projection(ax,points,2,'stereographic_projection_biprismid')"""},
      
                 {'code': """points = normal_points(ax,tetrakis(ax,4,1),10);Stereographic_projection(ax,points,10,'stereographic_projection_tetrakis')"""}
                   ]
@@ -308,10 +314,10 @@ def make_all_stereos():
 ################################################################################
 
 # make_all_structure_gifs()
-# make_all_operations_gifs()
+make_all_operations_gifs()
 # make_all_shape_gifs()
-make_all_face_norm_gifs()
-make_all_stereos()
+# make_all_face_norm_gifs()
+# make_all_stereos()
 
 # fig = plt.figure(0,figsize=[8,8])
 # ax = fig.add_subplot(111,projection='3d')

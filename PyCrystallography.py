@@ -268,8 +268,8 @@ def plane(ax,h,w,d,plane_axis):
     """
     if plane_axis =='x':
 
-        z = np.arange(-h,h,0.5)
-        y = np.arange(-w,w,0.5)
+        z = np.arange(-h,h,0.1)
+        y = np.arange(-w,w,0.1)
 
         z,y = np.meshgrid(z,y)
 
@@ -278,8 +278,8 @@ def plane(ax,h,w,d,plane_axis):
 
     if plane_axis =='y':
   
-        x = np.arange(-h,h,0.5)
-        z = np.arange(-w,w,0.5)
+        x = np.arange(-h,h,0.1)
+        z = np.arange(-w,w,0.1)
 
         x,z = np.meshgrid(x,z)
 
@@ -288,8 +288,8 @@ def plane(ax,h,w,d,plane_axis):
 
     if plane_axis =='z':
 
-        x = np.arange(-h,h,0.5)
-        y = np.arange(-w,w,0.5)
+        x = np.arange(-h,h,0.1)
+        y = np.arange(-w,w,0.1)
 
         x,y = np.meshgrid(x,y)
 
@@ -303,45 +303,71 @@ def rotation(ax,h,w,d):
     plot_axis(ax,max_lim=1.1*max(h,w,d))
     pass
 
-def cube_reflection(ax,h,w,d):
+def cube_reflection(ax):
     """
     cube with some internal refelctive planes plotted
     """
-    plot_axis(ax,max_lim=1.1*max(h,w,d))
+    h = 2
+    w = 2
+    d = 2
+
+  #  plot_axis(ax,max_lim=1.1*max(h,w,d))
     from PyShapes import cuboid
-    cuboid(ax,h,w,d)
+    cuboid(ax,h,w,d,alpha=0.1)
     h=h/2
     w=w/2
     d=d/2
     plane(ax,h,w,d,'x')
-    ax.text(0,w,d,r'm_1')
+    ax.text(0,w,d,r'$m_{1}$')
     plane(ax,h,w,d,'y')
-    ax.text(h,0,d,r'm_2')
+    ax.text(h,0,d,r'$m_{2}$')
     plane(ax,h,w,d,'z')
-    ax.text(h,w,0,r'm_3')
+    ax.text(h,w,0,r'$m_{3}$')
 
-def test_sphere(ax):
+def cube_reflection_diag(ax):
     """
-    test cube face normals to points on a sphere
+    cube with some internal refelctive planes plotted
     """
-    plot_axis(ax)
+    h = 2
+    w = 2
+    d = 2
+
+  #  plot_axis(ax,max_lim=1.1*max(h,w,d))
     from PyShapes import cuboid
-    cuboid(ax,3,3,3)
-    x = [0,0,5,-5,0,0]
-    y = [0,0,0,0,5,-5]
-    z = [5,-5,0,0,0,0]
-    ax.scatter(x,y,z,c='red')
+    cuboid(ax,h,w,d,alpha=0.1)
+    h=h/2
+    w=w/2
+    d=d/2
+    
+    # ax.text(h,w,0,r'm_3')
 
-    ax.plot([2,5],[0,0],[0,0],linestyle='--',c='k')
-    ax.plot([0,0],[2,5],[0,0],linestyle='--',c='k')
-    ax.plot([0,0],[0,0],[2,5],linestyle='--',c='k')
-    ax.plot([-2,-5],[0,0],[0,0],linestyle='--',c='k')
-    ax.plot([0,0],[-2,-5],[0,0],linestyle='--',c='k')
-    ax.plot([0,0],[0,0],[-2,-5],linestyle='--',c='k')
+    i = 4
+    for m in [1,-1]:
+        a = np.arange(-h,h,0.1)
+        b = np.arange(-w,w,0.1)
 
-    r = 5
+        a,b = np.meshgrid(a,b)
 
-    return x,y,z,r
+        for axis in ['x','y','z']:
+
+            if axis == 'x':
+                x,x_ = a,h
+                y,y_ = b,0
+                z,z_ = m * x,m*x_
+
+            if axis == 'y':
+                x,x_ = a,0
+                y,y_ = b,w
+                z,z_ = m * y,m*y_
+
+            if axis == 'z':
+                y,y_ = a,w
+                z,z_ = b,d
+                x,x_ = m*z,m*z_
+
+            ax.plot_surface(x,y,z,alpha=0.5)
+            ax.text(x_,y_,z_,r'$m_{'+str(i)+'}$')
+            i = i +1
 
 def Stereographic_projection(ax,points,r,name):
     """

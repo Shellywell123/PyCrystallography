@@ -40,10 +40,15 @@ def reflection(ax,h,w,d):
 ### Reflective Planes
 ```py
 
-def cube_reflection(ax,h,w,d):
+def cube_reflection(ax):
+```
+```py
+
+def cube_reflection_diag(ax):
 ```
 <p float="left">
   <img src="Images/cube_reflection.gif" width="400" />
+  <img src="Images/cube_reflection_diag.gif" width="400" />
 </p>
 
 ## Face normal detection and Stereographic Projection

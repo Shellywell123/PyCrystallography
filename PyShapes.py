@@ -50,7 +50,7 @@ def normal_points(ax,faces,r):
 
     return sphere_points
 
-def plot_face(ax,verts):
+def plot_face(ax,verts,alpha=0.5):
     """
     """
 
@@ -66,9 +66,9 @@ def plot_face(ax,verts):
     verts = [list(zip(x_list,y_list,z_list))]
 
     from mpl_toolkits.mplot3d.art3d import Poly3DCollection
-    ax.add_collection3d(Poly3DCollection(verts,linewidths=1,edgecolor='k',alpha=0.5))
+    ax.add_collection3d(Poly3DCollection(verts,linewidths=1,edgecolor='k',alpha=alpha))
 
-def cuboid(ax,h,w,d):
+def cuboid(ax,h,w,d,alpha=0.5):
     """
     """
     plot_axis(ax,max_lim=1.5*max(h,w,d))
@@ -101,7 +101,7 @@ def cuboid(ax,h,w,d):
     faces.append(bottom_verts)
 
     for face in faces:
-        plot_face(ax,face)
+        plot_face(ax,face,alpha=alpha)
 
     return faces
 
