@@ -53,7 +53,7 @@ def cube_reflection_diag(ax):
 
 ## Face normal detection and Stereographic Projection
 The projections in this package work by projecting points that lie on a sphere on a 2d disc about the equator. Points in the northern hemisphere will be mapped towards the south pole and points in the southern hemisphere will be mapped towards the northpole.
-<p float="left">
+<p float="centre">
   <img src="Images/SP_Diagram.png" width="400" />
 </p>
 ```py
