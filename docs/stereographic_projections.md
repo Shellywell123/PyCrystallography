@@ -31,8 +31,8 @@ Stereographic_projection(ax,points,1,'stereographic_projection_pyramid')
 plt.show()
 ```
 <p float="left">
-  <img src="Images/face_normals_pyramid.gif" width="400" />
-  <img src="Images/stereographic_projection_pyramid.png" width="400" />
+  <img src="../Images/face_normals_pyramid.gif" width="400" />
+  <img src="../Images/stereographic_projection_pyramid.png" width="400" />
 </p>
 
 ```py
@@ -45,8 +45,8 @@ plt.show()
 ```
 
 <p float="left">
-  <img src="Images/face_normals_bipyramid.gif" width="400" />
-  <img src="Images/stereographic_projection_bipyramid.png" width="400" />
+  <img src="../Images/face_normals_bipyramid.gif" width="400" />
+  <img src="../Images/stereographic_projection_bipyramid.png" width="400" />
 </p>
 
 ```py
@@ -59,8 +59,8 @@ plt.show()
 ```
 
 <p float="left">
-  <img src="Images/face_normals_prism.gif" width="400" />
-  <img src="Images/stereographic_projection_prism.png" width="400" />
+  <img src="../Images/face_normals_prism.gif" width="400" />
+  <img src="../Images/stereographic_projection_prism.png" width="400" />
 </p>
 
 ```py
@@ -73,8 +73,8 @@ plt.show()
 ```
 
 <p float="left">
-  <img src="Images/face_normals_biprismid.gif" width="400" />
-  <img src="Images/stereographic_projection_biprismid.png" width="400" />
+  <img src="../Images/face_normals_biprismid.gif" width="400" />
+  <img src="../Images/stereographic_projection_biprismid.png" width="400" />
 </p>
 
 ```py
@@ -87,6 +87,6 @@ plt.show()
 ```
 
 <p float="left">
-  <img src="Images/face_normals_tetrakis.gif" width="400" />
-  <img src="Images/stereographic_projection_tetrakis.png" width="400" />
+  <img src="../Images/face_normals_tetrakis.gif" width="400" />
+  <img src="../Images/stereographic_projection_tetrakis.png" width="400" />
 </p>
