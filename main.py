@@ -13,7 +13,7 @@ def delete_all_frames():
     """
     """
     os.system('rm Images/frames/*')
-    
+
 ################################################################################
 
 def make_all_structure_gifs():
@@ -77,17 +77,17 @@ def make_all_operations_gifs():
     """
 
     objects = [
-                # {'code'    : 'rotation(ax,2,2,2)',
-                #  'name'    : 'rotation'},
+                {'code'    : 'rotation(ax,2,2,2)',
+                 'name'    : 'rotation'},
 
-                # {'code'    : 'inversion(ax,2,2,2)',
-                #  'name'    : 'inversion'},
+                {'code'    : 'inversion(ax,2,2,2)',
+                 'name'    : 'inversion'},
 
-                # {'code'    : 'reflection(ax,2,2,2)',
-                #  'name'    : 'reflection'},
+                {'code'    : 'reflection(ax,2,2,2)',
+                 'name'    : 'reflection'},
 
-                # {'code'    : 'cube_reflection(ax)',
-                #  'name'    : 'cube_reflection'},
+                {'code'    : 'cube_reflection(ax)',
+                 'name'    : 'cube_reflection'},
 
                 {'code'    : 'cube_reflection_diag(ax)',
                  'name'    : 'cube_reflection_diag'}
@@ -308,7 +308,7 @@ def make_all_stereos():
           
                 {'code': """points = normal_points(ax,biprismid(ax,3,1,0.5,5),1);Stereographic_projection(points,2,'stereographic_projection_biprismid')"""},
      
-                {'code': """points = normal_points(ax,tetrakis(ax,4,1),10);Stereographic_projection(points,10,'stereographic_projection_tetrakis')"""}
+                {'code': """points = normal_points(ax,tetrakis(ax,4,1),10);Stereographic_projection(points,4,'stereographic_projection_tetrakis')"""}
                   ]
 
     for stereo in stereos:
@@ -396,8 +396,8 @@ def make_all_stereo_gifs():
 # make_all_operations_gifs()
 # make_all_shape_gifs()
 # make_all_face_norm_gifs()
-# make_all_stereos()
-make_all_stereo_gifs()
+make_all_stereos()
+#make_all_stereo_gifs()
 
 # fig = plt.figure(0,figsize=[8,8])
 # ax = fig.add_subplot(111,projection='3d')
