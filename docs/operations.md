@@ -17,7 +17,6 @@ def reflection(ax,h,w,d):
 </p>
 
 
-
 ### Reflective Planes
 ```py
 

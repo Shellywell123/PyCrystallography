@@ -1,6 +1,8 @@
 # PyCrystallography
 
 ## Atomic Structures
+More info at [Atomic Structures](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/atomic_structures.md)
+
 ```py
 def BCC(ax):
 ```
@@ -24,7 +26,9 @@ def Diamond(ax):
 </p>
 
 
-## Inversion - Reflection - Rotation
+## Operations
+More info at [Operations](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/operations.md)
+
 ```py
 def inversion(ax,h,w,d):
 ```
@@ -35,12 +39,6 @@ def reflection(ax,h,w,d):
   <img src="Images/inversion.gif" width="400" />
   <img src="Images/reflection.gif" width="400" />
 </p>
-
-<p float="left">
-  <img src="Images/stereographic_projection_inversion.gif" width="400" />
-  <img src="Images/stereographic_projection_rotation.gif" width="400" />
-</p>
-
 
 
 ### Reflective Planes
@@ -58,7 +56,7 @@ def cube_reflection_diag(ax):
 </p>
 
 ## Face normal detection and Stereographic Projections
-More info at [Stereographic Projection](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/stereographic_projections.md)
+More info at [Stereographic Projections](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/stereographic_projections.md)
 
 <p float="left">
   <img src="Images/face_normals_tetrakis.gif" width="400" />
@@ -67,7 +65,7 @@ More info at [Stereographic Projection](https://github.com/Shellywell123/PyCryst
 
 
 ## Shapes
-More info at [Stereographic Projection](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/shapes.md)
+More info at [Shapes](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/shapes.md)
 
 <p float="left">
   <img src="Images/cube.gif" width="400" />
