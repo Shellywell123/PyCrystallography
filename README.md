@@ -77,3 +77,6 @@ More info at [Shapes](https://github.com/Shellywell123/PyCrystallography/blob/ma
   <img src="Images/biprismid10.gif" width="400" />
   <img src="Images/tetrakis.gif" width="400" />
 </p>
+
+## Identifying Symmetries
+More info at [symmetries](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/idenitfying_symmetries.md)
