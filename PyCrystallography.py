@@ -4,13 +4,13 @@ import numpy as np
 # symmetry
 #########################################
 
-def identify_fold_symmetry(n_points,s_points):
+def identify_fold_symmetry(n_points,e_points,s_points):
     """
     going to be a function that check the circle of which a point lies  on stereo proj  on to count all other points on that circle and return that as th en fold symm
     if only one point.
     """
     nfold_results = []
-    for points in [n_points,s_points]:
+    for points in [n_points,e_points,s_points]:
         if points == n_points:
             print('\nN-hemi {} points'.format(len(points)))
         else:
@@ -484,6 +484,7 @@ def Stereographic_projection(points,r,name):
     y_ = []
 
     n_points = []
+    e_points = []
     s_points = []
 
     import matplotlib.pyplot as plt
@@ -500,6 +501,11 @@ def Stereographic_projection(points,r,name):
             y_.append(y[i]/(r+z[i])) 
             n_points.append([x_[i],y_[i]])
             plt.scatter(x_[i],y_[i],marker='2',label='N',c='blue',s=200)
+        elif z[i] == 0:
+            x_.append(x[i]/(r+z[i]))
+            y_.append(y[i]/(r+z[i])) 
+            e_points.append([x_[i],y_[i]])
+            plt.scatter(x_[i],y_[i],marker='+',label='E',c='green',s=200)
         else:
             x_.append(x[i]/(r-z[i]))
             y_.append(y[i]/(r-z[i]))
@@ -515,10 +521,11 @@ def Stereographic_projection(points,r,name):
     yc = (r+pos)*np.sin(theta)
 
     ## sort leg
-    north = plt.scatter([],[],marker='2',label='Northern Hemisphere',c='blue',s=200)
-    south = plt.scatter([],[],marker='2',label='Southern Hemisphere',c='r',s=200)
+    north   = plt.scatter([],[],marker='2',label='Northern Hemisphere',c='blue',s=200)
+    equator = plt.scatter([],[],marker='+',label='Equator',c='green',s=200)
+    south   = plt.scatter([],[],marker='2',label='Southern Hemisphere',c='r',s=200)
 
-    plt.legend(handles=[north,south],bbox_to_anchor=(0., 1.01, 1., .101), loc='lower left',
+    plt.legend(handles=[north,equator,south],bbox_to_anchor=(0., 1.01, 1., .101), loc='lower left',
          mode="expand")
     
     plt.plot(xc,yc,c='k')
@@ -529,4 +536,4 @@ def Stereographic_projection(points,r,name):
 
 
     plt.savefig('Images/{}.png'.format(name))
-    return n_points, s_points
+    return n_points, e_points, s_points

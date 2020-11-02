@@ -29,6 +29,8 @@ def normal_points(ax,faces,r):
         
         if face_centre[2] > 0:
             COL ='blue'
+        elif face_centre[2] == 0:
+            COL ='green'
         else:
             COL='r'
 
