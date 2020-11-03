@@ -21,6 +21,7 @@ def BCC(ax):
 </pre>
 </td>
 <td>
+    
 ```py
 def FCC(ax):
 ```
