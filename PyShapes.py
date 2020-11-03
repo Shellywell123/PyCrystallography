@@ -171,23 +171,25 @@ def tetrakis(ax,r,dr):
         x_next = (r)*np.cos(theta_next)
         y_next = (r)*np.sin(theta_next)
 
-        side_verts_top = [0,0,r+dr],[x,y,r],[x_next,y_next,r]
+        h = 2*r*np.sin(np.pi/4)
+
+        side_verts_top = [0,0,h/2+dr],[x,y,h/2],[x_next,y_next,h/2]
         faces.append(side_verts_top)
 
-        side_verts_mid_up = [x_mid,y_mid,z_mid],[x_next,y_next,r],[x,y,r]
+        side_verts_mid_up = [x_mid,y_mid,z_mid],[x_next,y_next,h/2],[x,y,h/2]
 
         faces.append(side_verts_mid_up)
 
-        side_verts_mid_left = [x_mid,y_mid,z_mid],[x,y,r],[x,y,-r]
+        side_verts_mid_left = [x_mid,y_mid,z_mid],[x,y,h/2],[x,y,-h/2]
         faces.append(side_verts_mid_left)
 
-        side_verts_mid_right = [x_next,y_next,-r],[x_next,y_next,r],[x_mid,y_mid,z_mid]
+        side_verts_mid_right = [x_next,y_next,-h/2],[x_next,y_next,h/2],[x_mid,y_mid,z_mid]
         faces.append(side_verts_mid_right)
 
-        side_verts_mid_down = [x,y,-r],[x_next,y_next,-r],[x_mid,y_mid,z_mid]
+        side_verts_mid_down = [x,y,-h/2],[x_next,y_next,-h/2],[x_mid,y_mid,z_mid]
         faces.append(side_verts_mid_down)
 
-        side_verts_bottom = [x_next,y_next,-r],[x,y,-r],[0,0,-r-dr]
+        side_verts_bottom = [x_next,y_next,-h/2],[x,y,-h/2],[0,0,-h/2-dr]
         faces.append(side_verts_bottom)
 
     for face in faces:

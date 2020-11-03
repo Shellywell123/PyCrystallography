@@ -1,5 +1,10 @@
 # Identifying object symmetries
 
+There are 32 point group classifications for symmetries in crystallography. They are classified by:
+ - mirror planes
+ - rotational axes (nfold)
+ - rotoinversion axes
+
 ## n-fold roational symmetry
 
 ```py
