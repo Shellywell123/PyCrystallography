@@ -10,7 +10,6 @@
 <table>
 <tr>
 <td>
-<pre>
 
 ```py
 def BCC(ax):
