@@ -523,7 +523,7 @@ def Stereographic_projection(points,r,name):
     ## sort leg
     north   = plt.scatter([],[],marker='2',label='Northern Hemisphere',c='blue',s=200)
     equator = plt.scatter([],[],marker='+',label='Equator',c='green',s=200)
-    south   = plt.scatter([],[],marker='2',label='Southern Hemisphere',c='r',s=200)
+    south   = plt.scatter([],[],marker='1',label='Southern Hemisphere',c='r',s=200)
 
     plt.legend(handles=[north,equator,south],bbox_to_anchor=(0., 1.01, 1., .101), loc='lower left',
          mode="expand")
