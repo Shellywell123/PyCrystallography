@@ -9,19 +9,17 @@
 
 <table>
 <tr>
-<th>Json 1</th>
-<th>Markdown</th>
-</tr>
-<tr>
 <td>
 <pre>
+
 ```py
 def BCC(ax):
 ```
+
 </pre>
 </td>
 <td>
-    
+
 ```py
 def FCC(ax):
 ```
