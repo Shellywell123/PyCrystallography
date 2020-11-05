@@ -27,12 +27,6 @@ def normal_points(ax,faces,r):
         normal = np.cross(vec1,vec2)
       #  print(normal)
         
-        if face_centre[2] > 0:
-            COL ='blue'
-        elif face_centre[2] == 0:
-            COL ='green'
-        else:
-            COL='r'
 
         # generate projected point on a sphere of radius r
         normal = face_centre+normal
@@ -44,6 +38,13 @@ def normal_points(ax,faces,r):
 
         current_r = np.sqrt(normal[0]**2 + normal[1]**2 + normal[2]**2)
        # print(current_r)
+
+        if normal[2] > 0:
+            COL ='blue'
+        elif normal[2] == 0:
+            COL ='green'
+        else:
+            COL='r'
 
 
         sphere_points.append(normal)

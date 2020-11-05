@@ -1,4 +1,5 @@
 # TODO
+ - fix pyramid southern face norm colouring
  - neaten rotation/inversion gif using stereographs
  - need to add packing 
  - make symmetry classifier

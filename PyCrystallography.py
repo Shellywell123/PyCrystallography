@@ -494,8 +494,7 @@ def Stereographic_projection(points,r,name):
 
     for i in range(0,len(x)):
         # x_.append(x[i]/(r-z[i]))
-        # y_.append(y[i]/(r-z[i]))              
-
+        # y_.append(y[i]/(r-z[i]))  
         if z[i] > 0:
             x_.append(x[i]/(r+z[i]))
             y_.append(y[i]/(r+z[i])) 

@@ -397,6 +397,6 @@ def make_all_stereo_gifs():
 # make_all_structure_gifs()
 # make_all_operations_gifs()
 # make_all_shape_gifs()
-# make_all_face_norm_gifs()
+make_all_face_norm_gifs()
 make_all_stereos()
 # make_all_stereo_gifs()
