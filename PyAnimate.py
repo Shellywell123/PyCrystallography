@@ -6,6 +6,7 @@ from mpl_toolkits.mplot3d import Axes3D
 import numpy as np
 from PyShapes import *
 from PyCrystallography import *
+from PyPacking import *
 
 ################################################################################
 
@@ -392,11 +393,43 @@ def make_all_stereo_gifs():
     imageio.mimsave('Images/{}.gif'.format(name), images)
     print('{}.gif made'.format(name))
 
+
+################################################################################
+
+def make_all_packing_gifs():
+    """
+    """
+
+    #triangle sud div
+    delete_all_frames()
+    name = 'triangle_subdivision'
+    n=7
+    for i in range(0,n):
+        triangle_subdivision(i)
+
+        if i <= 8:
+            i = '0'+str(i+1)
+        else:
+            i = str(i+1)
+
+        filename = 'Images/frames/{}_{}'.format(i,n)
+        plt.savefig(filename)
+        print('Frame ({}/{}) Saved.'.format(i,n))
+
+    # convert all saved images to a single gif
+    import imageio
+    images = []
+    for filename in os.listdir('Images/frames/'):
+        images.append(imageio.imread('Images/frames/'+filename))
+    imageio.mimsave('Images/{}.gif'.format(name), images)
+    print('{}.gif made'.format(name))
+
 ################################################################################
 
 # make_all_structure_gifs()
 # make_all_operations_gifs()
 # make_all_shape_gifs()
-make_all_face_norm_gifs()
-make_all_stereos()
+# make_all_face_norm_gifs()
+# make_all_stereos()
 # make_all_stereo_gifs()
+make_all_packing_gifs()
