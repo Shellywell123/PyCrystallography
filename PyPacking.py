@@ -73,7 +73,8 @@ def triangle_subdivision(n):
                 x_verts,y_verts = triangle[0],triangle[1]
                 n_div(x_verts,y_verts,n-1)
     n_div(x_verts,y_verts, n)
-
+    plt.xlim([-1,1])
+    plt.ylim([-1,1])
    # plt.show()
 
 def pack(num_of_sides):
@@ -127,7 +128,88 @@ def pack(num_of_sides):
         verts_y.append(verts_y[0])
         plt.plot(verts_x,verts_y,c='k')
     plt.grid()
-    plt.show()
+    plt.xlim([-1,1])
+    plt.ylim([-1,1])
+ #   plt.show()
+
+######################################################
+
+def Penrose_Tiling(n):
+    """
+    """
+
+    def subdivide(triangles):
+        """
+        """
+
+        golden_ratio = (1+np.sqrt(5))/2
+
+        col_1st = 'green'
+        col_2nd = 'blue'
+
+        sub_triangles = []
+        for triangle in triangles:
+
+            color = triangle[0]
+
+            A_x = triangle[1][0]
+            A_y = triangle[2][0]
+            B_x = triangle[1][1]
+            B_y = triangle[2][1]
+            C_x = triangle[1][2]
+            C_y = triangle[2][2]
+
+            if color == col_1st:
+                P_x = A_x + (B_x - A_x) / golden_ratio
+                P_y = A_y + (B_y - A_y) / golden_ratio
+
+                sub_triangle_1 = [col_1st, [C_x,P_x,B_x], [C_y,P_y,B_y]]
+                sub_triangle_2 = [col_2nd, [P_x,C_x,A_x], [P_y,C_y,A_y]]
+
+                sub_triangles.append(sub_triangle_1)
+                sub_triangles.append(sub_triangle_2)
+
+            if color == col_2nd:
+                Q_x = B_x + (A_x - B_x) / golden_ratio
+                Q_y = B_y + (A_y - B_y) / golden_ratio
+
+                R_x = B_x + (C_x - B_x) / golden_ratio
+                R_y = B_y + (C_y - B_y) / golden_ratio
+
+                sub_triangle_1 = [col_2nd, [R_x,C_x,A_x], [R_y,C_y,A_y]]
+                sub_triangle_2 = [col_2nd, [Q_x,R_x,B_x], [Q_y,R_y,B_y]]
+                sub_triangle_3 = [col_1st, [R_x,Q_x,A_x], [R_y,Q_y,A_y]]
+
+                sub_triangles.append(sub_triangle_1)
+                sub_triangles.append(sub_triangle_2)
+                sub_triangles.append(sub_triangle_3)
+
+        return sub_triangles
+
+    start_triangles = []
+    for i in range(0,10):
+        start_triangles.append(['green',[0,np.cos(i*np.pi/5),np.cos((i+1)*np.pi/5)],[0,np.sin(i*np.pi/5),np.sin((i+1)*np.pi/5)]])
+
+
+    plt.plot(start_triangles[0][1],start_triangles[0][2],linewidth=0.5,c=start_triangles[0][0])
+
+    # sub_triangles = subdivide([start_triangle])
+    # print(sub_triangles)
+    
+    def peN_div(triangles, n):
+        if n >= 1:
+            sub_triangles = subdivide(triangles)
+            for triangle in sub_triangles:
+                plt.plot(triangle[1],triangle[2],linewidth=0.5,c=triangle[0])
+            peN_div(sub_triangles,n-1)
+
+    peN_div(start_triangles, n)
+
+    plt.xlim([-1,1])
+    plt.ylim([-1,1])
+    #plt.show()
+
 
 #pack(5)
 #triangle_subdivision(3)
+#Penrose_Tiling(3)
