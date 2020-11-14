@@ -27,7 +27,7 @@ def triangle_subdivision(n):
 
     x_verts.append(x_verts[0])
     y_verts.append(y_verts[0])
-    plt.plot(x_verts,y_verts)
+    plt.plot(x_verts,y_verts,linewidth=0.5)
 
     # 
     x_verts = x_verts[:-1]
@@ -47,7 +47,7 @@ def triangle_subdivision(n):
             x_verts_new.append(x_vert_new)
             y_verts_new.append(y_vert_new)
 
-            plt.plot([x,x_vert_new],[y,y_vert_new])
+            plt.plot([x,x_vert_new],[y,y_vert_new],linewidth=0.5)
 
         triangle_1 = [[x_verts[0],x_verts_new[1],x_centre],[y_verts[0],y_verts_new[1],y_centre]]
         triangle_2 = [[x_verts[0],x_verts_new[2],x_centre],[y_verts[0],y_verts_new[2],y_centre]]
@@ -130,4 +130,4 @@ def pack(num_of_sides):
     plt.show()
 
 #pack(5)
-#triangle_subdivision(4)
+#triangle_subdivision(3)
