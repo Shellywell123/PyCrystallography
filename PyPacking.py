@@ -186,7 +186,10 @@ def Penrose_Tiling(n,pattern_name):
 
     if pattern_name == 'sun':
         for i in range(0,10):
-            start_triangles.append(['green',[0,np.cos(i*np.pi/5),np.cos((i+1)*np.pi/5)],[0,np.sin(i*np.pi/5),np.sin((i+1)*np.pi/5)]])
+            if i % 2 == 0:
+                start_triangles.append(['green',[0,np.cos(i*np.pi/5),np.cos((i+1)*np.pi/5)],[0,np.sin(i*np.pi/5),np.sin((i+1)*np.pi/5)]])
+            if i % 2 != 0:
+                start_triangles.append(['green',[0,np.cos((i+1)*np.pi/5),np.cos(i*np.pi/5)],[0,np.sin((i+1)*np.pi/5),np.sin(i*np.pi/5)]])
             plt.plot(start_triangles[i][1],start_triangles[i][2],linewidth=0.5,c=start_triangles[i][0])
 
     if pattern_name == 'star':
