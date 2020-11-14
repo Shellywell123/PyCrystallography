@@ -1,6 +1,16 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
+def plot_triangle(triangle):
+    """
+    plots triangle  = (color,xpoints,ypoints)
+    """
+    col    = triangle[0]
+    x_vals = triangle[1]
+    y_vals = triangle[2]
+
+    plt.fill(x_vals,y_vals,color=col, edgecolor='k', linewidth=0.5)
+
 def triangle_subdivision(n):
     """
     makes a fractal of triangluar subdivisions
@@ -15,7 +25,6 @@ def triangle_subdivision(n):
     x_verts = []
     y_verts = []
 
-
     for i in range(0,100):
 
         theta = i*2*np.pi/3 + np.pi/2
@@ -25,13 +34,9 @@ def triangle_subdivision(n):
         x_verts.append(x)
         y_verts.append(y)
 
-    x_verts.append(x_verts[0])
-    y_verts.append(y_verts[0])
-    plt.plot(x_verts,y_verts,linewidth=0.5)
+    start_triangle = ['red',x_verts,y_verts]
 
-    # 
-    x_verts = x_verts[:-1]
-    y_verts = y_verts[:-1]
+    plot_triangle(start_triangle)
 
     def divide_tri(x_verts,y_verts):
         x_centre = np.mean(x_verts)
@@ -47,30 +52,27 @@ def triangle_subdivision(n):
             x_verts_new.append(x_vert_new)
             y_verts_new.append(y_vert_new)
 
-            plt.plot([x,x_vert_new],[y,y_vert_new],linewidth=0.5)
-
-        triangle_1 = [[x_verts[0],x_verts_new[1],x_centre],[y_verts[0],y_verts_new[1],y_centre]]
-        triangle_2 = [[x_verts[0],x_verts_new[2],x_centre],[y_verts[0],y_verts_new[2],y_centre]]
-        triangle_3 = [[x_verts[1],x_verts_new[0],x_centre],[y_verts[1],y_verts_new[0],y_centre]]
-        triangle_4 = [[x_verts[1],x_verts_new[2],x_centre],[y_verts[1],y_verts_new[2],y_centre]]
-        triangle_5 = [[x_verts[2],x_verts_new[0],x_centre],[y_verts[2],y_verts_new[0],y_centre]]
-        triangle_6 = [[x_verts[2],x_verts_new[1],x_centre],[y_verts[2],y_verts_new[1],y_centre]]
+        triangle_1 = ['green',[x_verts[0],x_verts_new[1],x_centre],[y_verts[0],y_verts_new[1],y_centre]]
+        triangle_2 = ['blue',[x_verts[0],x_verts_new[2],x_centre],[y_verts[0],y_verts_new[2],y_centre]]
+        triangle_3 = ['yellow',[x_verts[1],x_verts_new[0],x_centre],[y_verts[1],y_verts_new[0],y_centre]]
+        triangle_4 = ['orange',[x_verts[1],x_verts_new[2],x_centre],[y_verts[1],y_verts_new[2],y_centre]]
+        triangle_5 = ['purple',[x_verts[2],x_verts_new[0],x_centre],[y_verts[2],y_verts_new[0],y_centre]]
+        triangle_6 = ['brown',[x_verts[2],x_verts_new[1],x_centre],[y_verts[2],y_verts_new[1],y_centre]]
 
         sub_triangles = [triangle_1,triangle_2,triangle_3,triangle_4,triangle_5,triangle_6]
         return sub_triangles
-
-
-
 
     def n_div(x_verts,y_verts, n):
         if n >= 1:
             sub_triangles = divide_tri(x_verts,y_verts)
             for triangle in sub_triangles:
-                x_verts,y_verts = triangle[0],triangle[1]
+                plot_triangle(triangle)
+                x_verts,y_verts = triangle[1],triangle[2]
                 n_div(x_verts,y_verts,n-1)
     n_div(x_verts,y_verts, n)
     plt.xlim([-1,1])
     plt.ylim([-1,1])
+    plt.axis('off')
    # plt.show()
 
 def pack(num_of_sides):
@@ -126,6 +128,7 @@ def pack(num_of_sides):
     plt.grid()
     plt.xlim([-1,1])
     plt.ylim([-1,1])
+    plt.axis('off')
  #   plt.show()
 
 ######################################################
@@ -159,8 +162,8 @@ def Penrose_Tiling(n,pattern_name):
                 P_x = A_x + (B_x - A_x) / golden_ratio
                 P_y = A_y + (B_y - A_y) / golden_ratio
 
-                sub_triangle_1 = [col_1st, [C_x,P_x,B_x], [C_y,P_y,B_y]]
-                sub_triangle_2 = [col_2nd, [P_x,C_x,A_x], [P_y,C_y,A_y]]
+                sub_triangle_1 = [col_1st, (C_x,P_x,B_x), (C_y,P_y,B_y)]
+                sub_triangle_2 = [col_2nd, (P_x,C_x,A_x), (P_y,C_y,A_y)]
 
                 sub_triangles.append(sub_triangle_1)
                 sub_triangles.append(sub_triangle_2)
@@ -172,9 +175,9 @@ def Penrose_Tiling(n,pattern_name):
                 R_x = B_x + (C_x - B_x) / golden_ratio
                 R_y = B_y + (C_y - B_y) / golden_ratio
 
-                sub_triangle_1 = [col_2nd, [R_x,C_x,A_x], [R_y,C_y,A_y]]
-                sub_triangle_2 = [col_2nd, [Q_x,R_x,B_x], [Q_y,R_y,B_y]]
-                sub_triangle_3 = [col_1st, [R_x,Q_x,A_x], [R_y,Q_y,A_y]]
+                sub_triangle_1 = [col_2nd, (R_x,C_x,A_x), (R_y,C_y,A_y)]
+                sub_triangle_2 = [col_2nd, (Q_x,R_x,B_x), (Q_y,R_y,B_y)]
+                sub_triangle_3 = [col_1st, (R_x,Q_x,A_x), (R_y,Q_y,A_y)]
 
                 sub_triangles.append(sub_triangle_1)
                 sub_triangles.append(sub_triangle_2)
@@ -190,7 +193,7 @@ def Penrose_Tiling(n,pattern_name):
                 start_triangles.append(['green',[0,np.cos(i*np.pi/5),np.cos((i+1)*np.pi/5)],[0,np.sin(i*np.pi/5),np.sin((i+1)*np.pi/5)]])
             if i % 2 != 0:
                 start_triangles.append(['green',[0,np.cos((i+1)*np.pi/5),np.cos(i*np.pi/5)],[0,np.sin((i+1)*np.pi/5),np.sin(i*np.pi/5)]])
-            plt.plot(start_triangles[i][1],start_triangles[i][2],linewidth=0.5,c=start_triangles[i][0])
+            plot_triangle(start_triangles[i])
 
     if pattern_name == 'star':
        for i in range(0,10):
@@ -201,28 +204,24 @@ def Penrose_Tiling(n,pattern_name):
             if i % 2 != 0:
                 r = 0.5/np.cos(np.pi/5)
                 start_triangles.append(['blue',[r*np.cos(i*np.pi/5),np.cos((i+1)*np.pi/5),0],[r*np.sin(i*np.pi/5),np.sin((i+1)*np.pi/5),0]])
-
-
-            plt.plot(start_triangles[i][1],start_triangles[i][2],linewidth=0.5,c=start_triangles[i][0])
-
-    # sub_triangles = subdivide([start_triangle])
-    # print(sub_triangles)
+            plot_triangle(start_triangles[i])
     
     def peN_div(triangles, n):
         if n >= 1:
             sub_triangles = subdivide(triangles)
             for triangle in sub_triangles:
-                plt.plot(triangle[1],triangle[2],linewidth=0.5,c=triangle[0])
+                plot_triangle(triangle)
             peN_div(sub_triangles,n-1)
 
     peN_div(start_triangles, n)
 
     plt.xlim([-1,1])
     plt.ylim([-1,1])
+    plt.axis('off')
     #plt.show()
 
 
 #pack(5)
-#triangle_subdivision(3)
-# Penrose_Tiling(0,'star')
+# triangle_subdivision(3)
+# Penrose_Tiling(1,'star')
 # plt.show()
