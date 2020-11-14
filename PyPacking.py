@@ -60,10 +60,6 @@ def triangle_subdivision(n):
         return sub_triangles
 
 
-    # sub_triangles = divide_tri(x_verts,y_verts)
-    # for triangle in sub_triangles:
-    #     x_verts,y_verts = triangle[0],triangle[1]
-    #     divide_tri(x_verts,y_verts)
 
 
     def n_div(x_verts,y_verts, n):
@@ -134,7 +130,7 @@ def pack(num_of_sides):
 
 ######################################################
 
-def Penrose_Tiling(n):
+def Penrose_Tiling(n,pattern_name):
     """
     """
 
@@ -187,11 +183,24 @@ def Penrose_Tiling(n):
         return sub_triangles
 
     start_triangles = []
-    for i in range(0,10):
-        start_triangles.append(['green',[0,np.cos(i*np.pi/5),np.cos((i+1)*np.pi/5)],[0,np.sin(i*np.pi/5),np.sin((i+1)*np.pi/5)]])
+
+    if pattern_name == 'sun':
+        for i in range(0,10):
+            start_triangles.append(['green',[0,np.cos(i*np.pi/5),np.cos((i+1)*np.pi/5)],[0,np.sin(i*np.pi/5),np.sin((i+1)*np.pi/5)]])
+            plt.plot(start_triangles[i][1],start_triangles[i][2],linewidth=0.5,c=start_triangles[i][0])
+
+    if pattern_name == 'star':
+       for i in range(0,10):
+            if i % 2 == 0:
+                r = 0.5/np.cos(np.pi/5)
+                start_triangles.append(['blue',[0,np.cos(i*np.pi/5),r*np.cos((i+1)*np.pi/5)],[0,np.sin(i*np.pi/5),r*np.sin((i+1)*np.pi/5)]])
+
+            if i % 2 != 0:
+                r = 0.5/np.cos(np.pi/5)
+                start_triangles.append(['blue',[0,r*np.cos(i*np.pi/5),np.cos((i+1)*np.pi/5)],[0,r*np.sin(i*np.pi/5),np.sin((i+1)*np.pi/5)]])
 
 
-    plt.plot(start_triangles[0][1],start_triangles[0][2],linewidth=0.5,c=start_triangles[0][0])
+            plt.plot(start_triangles[i][1],start_triangles[i][2],linewidth=0.5,c=start_triangles[i][0])
 
     # sub_triangles = subdivide([start_triangle])
     # print(sub_triangles)
@@ -212,4 +221,5 @@ def Penrose_Tiling(n):
 
 #pack(5)
 #triangle_subdivision(3)
-#Penrose_Tiling(3)
+# Penrose_Tiling(0,'star')
+# plt.show()
