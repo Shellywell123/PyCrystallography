@@ -276,8 +276,54 @@ def Penrose_Tiling(n,pattern_name):
     plt.axis('off')
     #plt.show()
 
+#####################################
+# lattices
+#####################################
 
-# #pack(5)
-# triangle_subdivision(5,'zelda')
+def primitive_cell_2d(cell_type):
+    """
+    """
+    if cell_type == 'rhombus':
+        x_points = [0,1,0.5,1.5]
+        y_points = [0,0,1,1]
+
+    if cell_type == 'square':
+        x_points = [0,1,0,1]
+        y_points = [0,0,1,0]
+
+    primitive_cell_2d =(x_points,y_points)
+    return primitive_cell_2d
+
+def make_lattice(primitive_cell_2d,depth=5):
+    """
+    """
+
+    x_points = primitive_cell_2d[0]
+    y_points = primitive_cell_2d[1]
+
+    vector_A_x = abs(x_points[1] - x_points[0])
+    vector_A_y = abs(y_points[1] - y_points[0])
+
+    vector_B_x = abs(x_points[2] - x_points[0])
+    vector_B_y = abs(y_points[2] - y_points[0])    
+
+    plt.plot((0,vector_A_x),(0,vector_A_y),label='A',c='b')
+    plt.plot((0,vector_B_x),(0,vector_B_y),label='B',c='r')
+
+
+    for i in range(0,depth):
+        for j in range(0,depth):
+        #    plt.scatter(vector_A_x*i,vector_A_y*j,c='k')
+        #    plt.scatter(vector_B_x*i,vector_B_y*j,c='b')
+            plt.scatter((vector_A_x*i+vector_B_x*j),(vector_A_y*i+vector_B_y*j),c='k')
+
+    plt.legend()
+    plt.axis('off')
+
+
+# # #pack(5)
+# triangle_subdivision(10,'zelda')
 # # Penrose_Tiling(1,'star')
+# prim = primitive_cell_2d('square')
+# make_lattice(prim)
 # plt.show()

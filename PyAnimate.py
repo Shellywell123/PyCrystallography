@@ -530,6 +530,59 @@ def make_all_packing_gifs():
     imageio.mimsave('Images/{}.gif'.format(name), images)
     print('{}.gif made'.format(name))
 
+    # square lattice
+    delete_all_frames()
+    name = 'square_lattice'
+    n=7
+    for i in range(0,n):
+        fig = plt.figure(0,figsize=[8,8])
+        fig.clear()
+        prim = primitive_cell_2d('square')
+        make_lattice(prim,depth=i)
+
+        if i <= 8:
+            i = '0'+str(i+1)
+        else:
+            i = str(i+1)
+
+        filename = 'Images/frames/{}_{}'.format(i,n)
+        plt.savefig(filename)
+        print('Frame ({}/{}) Saved.'.format(i,n))
+
+    # convert all saved images to a single gif
+    import imageio
+    images = []
+    for filename in os.listdir('Images/frames/'):
+        images.append(imageio.imread('Images/frames/'+filename))
+    imageio.mimsave('Images/{}.gif'.format(name), images)
+    print('{}.gif made'.format(name))
+
+    # rhombus lattice
+    delete_all_frames()
+    name = 'rhombus_lattice'
+    n=7
+    for i in range(0,n):
+        fig = plt.figure(0,figsize=[8,8])
+        fig.clear()
+        prim = primitive_cell_2d('rhombus')
+        make_lattice(prim,depth=i)
+
+        if i <= 8:
+            i = '0'+str(i+1)
+        else:
+            i = str(i+1)
+
+        filename = 'Images/frames/{}_{}'.format(i,n)
+        plt.savefig(filename)
+        print('Frame ({}/{}) Saved.'.format(i,n))
+
+    # convert all saved images to a single gif
+    import imageio
+    images = []
+    for filename in os.listdir('Images/frames/'):
+        images.append(imageio.imread('Images/frames/'+filename))
+    imageio.mimsave('Images/{}.gif'.format(name), images)
+    print('{}.gif made'.format(name))
 
 ################################################################################
 
