@@ -198,6 +198,9 @@ def BCC(ax):
     plot_atoms(ax,atoms)
     plot_bonds(ax,bonds)
 
+    primitive_cell = (atoms,bonds)
+    return primitive_cell
+
 
 def FCC(ax):
     """
@@ -226,6 +229,9 @@ def FCC(ax):
                 atoms.append(make_atom([i],[0],[0],SIZ,COL))
     plot_atoms(ax,atoms)
     plot_bonds(ax,bonds)
+
+    primitive_cell = (atoms,bonds)
+    return primitive_cell
 
 def NaCl(ax):
     """
@@ -256,6 +262,9 @@ def NaCl(ax):
     
     plot_atoms(ax,atoms)
     plot_bonds(ax,bonds)
+
+    primitive_cell = (atoms,bonds)
+    return primitive_cell
 
 def Diamond(ax):
     """
@@ -312,6 +321,9 @@ def Diamond(ax):
 
     plot_atoms(ax,atoms)
     plot_bonds(ax,bonds)
+
+    primitive_cell = (atoms,bonds)
+    return primitive_cell
 
 #########################################
 # operatoins

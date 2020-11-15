@@ -17,6 +17,34 @@ def delete_all_frames():
 
 ################################################################################
 
+def save_frame(frame,num_of_frames):
+    """
+    """
+    if frame <= 8:
+        frame = '0'+str(frame+1)
+    else:
+        frame = str(frame+1)
+
+    filename = 'Images/frames/{}_{}.png'.format(frame,num_of_frames)
+    plt.savefig(filename)
+    print('Frame ({}/{}) Saved.'.format(frame,num_of_frames))
+    return filename
+
+################################################################################
+
+def frames_to_gif(filename,name):
+    """
+    """
+    # convert all saved images to a single gif
+    import imageio
+    images = []
+    for filename in os.listdir('Images/frames/'):
+        images.append(imageio.imread('Images/frames/'+filename))
+    imageio.mimsave('Images/{}.gif'.format(name), images)
+    print('{}.gif made'.format(name))
+
+################################################################################
+
 def make_all_structure_gifs():
     """
     generates screenshots of the program and then compiles them into a gif
@@ -24,16 +52,16 @@ def make_all_structure_gifs():
 
     objects = [
                 {'code'     : 'FCC(ax)',
-                 'name'     : 'FCC'},
+                 'name'     : 'FCC_unit_cell'},
 
                 {'code'     : 'BCC(ax)',
-                 'name'     : 'BCC'},
+                 'name'     : 'BCC_unit_cell'},
 
                 {'code'     : 'NaCl(ax)',
-                 'name'     : 'NaCl'},
+                 'name'     : 'NaCl_unit_cell'},
 
                 {'code'     : 'Diamond(ax)',
-                 'name'     : 'diamond'}
+                 'name'     : 'diamond_unit_cell'}
                 ]
 
     for object in objects:
@@ -53,22 +81,9 @@ def make_all_structure_gifs():
 
             ####################################################
 
-            if frame <= 8:
-                frame = '0'+str(frame+1)
-            else:
-                frame = str(frame+1)
+            filename = save_frame(frame,num_of_frames)
 
-            filename = 'Images/frames/{}_{}.png'.format(frame,num_of_frames)
-            plt.savefig(filename)
-            print('Frame ({}/{}) Saved.'.format(frame,num_of_frames))
-
-        # convert all saved images to a single gif
-        import imageio
-        images = []
-        for filename in os.listdir('Images/frames/'):
-            images.append(imageio.imread('Images/frames/'+filename))
-        imageio.mimsave('Images/{}.gif'.format(name), images)
-        print('{}.gif made'.format(name))
+        frames_to_gif(filename,name)
 
 ################################################################################
 
@@ -111,22 +126,9 @@ def make_all_operations_gifs():
 
             ####################################################
 
-            if frame <= 8:
-                frame = '0'+str(frame+1)
-            else:
-                frame = str(frame+1)
+            filename = save_frame(frame,num_of_frames)
 
-            filename = 'Images/frames/{}_{}.png'.format(frame,num_of_frames)
-            plt.savefig(filename)
-            print('Frame ({}/{}) Saved.'.format(frame,num_of_frames))
-
-        # convert all saved images to a single gif
-        import imageio
-        images = []
-        for filename in os.listdir('Images/frames/'):
-            images.append(imageio.imread('Images/frames/'+filename))
-        imageio.mimsave('Images/{}.gif'.format(name), images)
-        print('{}.gif made'.format(name))
+        frames_to_gif(filename,name)
 
 ################################################################################
 
@@ -173,22 +175,9 @@ def make_all_face_norm_gifs():
 
             ####################################################
 
-            if frame <= 8:
-                frame = '0'+str(frame+1)
-            else:
-                frame = str(frame+1)
+            filename = save_frame(frame,num_of_frames)
 
-            filename = 'Images/frames/{}_{}.png'.format(frame,num_of_frames)
-            plt.savefig(filename)
-            print('Frame ({}/{}) Saved.'.format(frame,num_of_frames))
-
-        # convert all saved images to a single gif
-        import imageio
-        images = []
-        for filename in os.listdir('Images/frames/'):
-            images.append(imageio.imread('Images/frames/'+filename))
-        imageio.mimsave('Images/{}.gif'.format(name), images)
-        print('{}.gif made'.format(name))
+        frames_to_gif(filename,name)
 
 ################################################################################
 
@@ -278,22 +267,9 @@ def make_all_shape_gifs():
 
             ####################################################
 
-            if frame <= 8:
-                frame = '0'+str(frame+1)
-            else:
-                frame = str(frame+1)
+            filename = save_frame(frame,num_of_frames)
 
-            filename = 'Images/frames/{}_{}.png'.format(frame,num_of_frames)
-            plt.savefig(filename)
-            print('Frame ({}/{}) Saved.'.format(frame,num_of_frames))
-
-        # convert all saved images to a single gif
-        import imageio
-        images = []
-        for filename in os.listdir('Images/frames/'):
-            images.append(imageio.imread('Images/frames/'+filename))
-        imageio.mimsave('Images/{}.gif'.format(name), images)
-        print('{}.gif made'.format(name))
+        frames_to_gif(filename,name)
 
 ################################################################################
 
@@ -353,13 +329,7 @@ def make_all_stereo_gifs():
     Stereographic_projection(points,r,filename)
     print('Frame (02/2) Saved.')
 
-    # convert all saved images to a single gif
-    import imageio
-    images = []
-    for filename in os.listdir('Images/frames/'):
-        images.append(imageio.imread('Images/frames/'+filename))
-    imageio.mimsave('Images/{}.gif'.format(name), images)
-    print('{}.gif made'.format(name))
+    frames_to_gif(filename,name)
 
     #########################################
     #########################################
@@ -376,29 +346,91 @@ def make_all_stereo_gifs():
         ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
         points.append([r*np.cos(d_theta*i),r*np.sin(d_theta*i),0])
 
-        if i <= 8:
-            i = '0'+str(i+1)
-        else:
-            i = str(i+1)
+        filename = save_frame(frame,num_of_frames)
 
-        filename = 'frames/{}_{}'.format(i,n)
-        Stereographic_projection(points,r,filename)
-        print('Frame ({}/{}) Saved.'.format(i,n))
-
-    # convert all saved images to a single gif
-    import imageio
-    images = []
-    for filename in os.listdir('Images/frames/'):
-        images.append(imageio.imread('Images/frames/'+filename))
-    imageio.mimsave('Images/{}.gif'.format(name), images)
-    print('{}.gif made'.format(name))
-
+    frames_to_gif(filename,name)
 
 ################################################################################
 
 def make_all_packing_gifs():
     """
     """
+    # diamond lattice
+    delete_all_frames()
+    name = 'diamond_lattice'
+    n=7
+    for i in range(0,n):
+        fig = plt.figure(0,figsize=[8,8])
+        fig.clear()
+        ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
+        prim = Diamond(ax)
+
+        fig = plt.figure(0,figsize=[8,8])
+        fig.clear()
+        ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
+        make_lattice_3d(ax,prim,depth = i)
+
+        filename = save_frame(frame,num_of_frames)
+
+    frames_to_gif(filename,name)
+
+# bcc lattice
+    delete_all_frames()
+    name = 'BCC_lattice'
+    n=7
+    for i in range(0,n):
+        fig = plt.figure(0,figsize=[8,8])
+        fig.clear()
+        ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
+        prim = BCC(ax)
+
+        fig = plt.figure(0,figsize=[8,8])
+        fig.clear()
+        ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
+        make_lattice_3d(ax,prim,depth = i)
+
+        filename = save_frame(frame,num_of_frames)
+
+    frames_to_gif(filename,name)
+    
+
+# fcc lattice
+    delete_all_frames()
+    name = 'FCC_lattice'
+    n=7
+    for i in range(0,n):
+        fig = plt.figure(0,figsize=[8,8])
+        fig.clear()
+        ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
+        prim = FCC(ax)
+
+        fig = plt.figure(0,figsize=[8,8])
+        fig.clear()
+        ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
+        make_lattice_3d(ax,prim,depth = i)
+
+        filename = save_frame(frame,num_of_frames)
+
+    frames_to_gif(filename,name)
+
+# nacl lattice
+    delete_all_frames()
+    name = 'NaCl_lattice'
+    n=7
+    for i in range(0,n):
+        fig = plt.figure(0,figsize=[8,8])
+        fig.clear()
+        ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
+        prim = NaCl(ax)
+
+        fig = plt.figure(0,figsize=[8,8])
+        fig.clear()
+        ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
+        make_lattice_3d(ax,prim,depth = i)
+
+        filename = save_frame(frame,num_of_frames)
+
+    frames_to_gif(filename,name)
 
     #triangle sud div diag
     delete_all_frames()
@@ -409,22 +441,9 @@ def make_all_packing_gifs():
         fig.clear()
         triangle_subdivision(i,'diag')
 
-        if i <= 8:
-            i = '0'+str(i+1)
-        else:
-            i = str(i+1)
+        filename = save_frame(frame,num_of_frames)
 
-        filename = 'Images/frames/{}_{}'.format(i,n)
-        plt.savefig(filename)
-        print('Frame ({}/{}) Saved.'.format(i,n))
-
-    # convert all saved images to a single gif
-    import imageio
-    images = []
-    for filename in os.listdir('Images/frames/'):
-        images.append(imageio.imread('Images/frames/'+filename))
-    imageio.mimsave('Images/{}.gif'.format(name), images)
-    print('{}.gif made'.format(name))
+    frames_to_gif(filename,name)
 
 #triangle sud div zelda
     delete_all_frames()
@@ -435,22 +454,9 @@ def make_all_packing_gifs():
         fig.clear()
         triangle_subdivision(i,'zelda')
 
-        if i <= 8:
-            i = '0'+str(i+1)
-        else:
-            i = str(i+1)
+        filename = save_frame(frame,num_of_frames)
 
-        filename = 'Images/frames/{}_{}'.format(i,n)
-        plt.savefig(filename)
-        print('Frame ({}/{}) Saved.'.format(i,n))
-
-    # convert all saved images to a single gif
-    import imageio
-    images = []
-    for filename in os.listdir('Images/frames/'):
-        images.append(imageio.imread('Images/frames/'+filename))
-    imageio.mimsave('Images/{}.gif'.format(name), images)
-    print('{}.gif made'.format(name))
+    frames_to_gif(filename,name)
 
 #triangle sud div grid
     delete_all_frames()
@@ -461,22 +467,9 @@ def make_all_packing_gifs():
         fig.clear()
         triangle_subdivision(i,'grid')
 
-        if i <= 8:
-            i = '0'+str(i+1)
-        else:
-            i = str(i+1)
+        filename = save_frame(frame,num_of_frames)
 
-        filename = 'Images/frames/{}_{}'.format(i,n)
-        plt.savefig(filename)
-        print('Frame ({}/{}) Saved.'.format(i,n))
-
-    # convert all saved images to a single gif
-    import imageio
-    images = []
-    for filename in os.listdir('Images/frames/'):
-        images.append(imageio.imread('Images/frames/'+filename))
-    imageio.mimsave('Images/{}.gif'.format(name), images)
-    print('{}.gif made'.format(name))
+    frames_to_gif(filename,name)
 
     # penrose sun gif
     delete_all_frames()
@@ -487,22 +480,9 @@ def make_all_packing_gifs():
         fig.clear()
         Penrose_Tiling(i,'sun')
 
-        if i <= 8:
-            i = '0'+str(i+1)
-        else:
-            i = str(i+1)
+        filename = save_frame(frame,num_of_frames)
 
-        filename = 'Images/frames/{}_{}'.format(i,n)
-        plt.savefig(filename)
-        print('Frame ({}/{}) Saved.'.format(i,n))
-
-    # convert all saved images to a single gif
-    import imageio
-    images = []
-    for filename in os.listdir('Images/frames/'):
-        images.append(imageio.imread('Images/frames/'+filename))
-    imageio.mimsave('Images/{}.gif'.format(name), images)
-    print('{}.gif made'.format(name))
+    frames_to_gif(filename,name)
 
     # penrose star gif
     delete_all_frames()
@@ -513,22 +493,9 @@ def make_all_packing_gifs():
         fig.clear()
         Penrose_Tiling(i,'star')
 
-        if i <= 8:
-            i = '0'+str(i+1)
-        else:
-            i = str(i+1)
+        filename = save_frame(frame,num_of_frames)
 
-        filename = 'Images/frames/{}_{}'.format(i,n)
-        plt.savefig(filename)
-        print('Frame ({}/{}) Saved.'.format(i,n))
-
-    # convert all saved images to a single gif
-    import imageio
-    images = []
-    for filename in os.listdir('Images/frames/'):
-        images.append(imageio.imread('Images/frames/'+filename))
-    imageio.mimsave('Images/{}.gif'.format(name), images)
-    print('{}.gif made'.format(name))
+    frames_to_gif(filename,name)
 
     # square lattice
     delete_all_frames()
@@ -538,24 +505,11 @@ def make_all_packing_gifs():
         fig = plt.figure(0,figsize=[8,8])
         fig.clear()
         prim = primitive_cell_2d('square')
-        make_lattice(prim,depth=i)
+        make_lattice_2d(prim,depth=i)
 
-        if i <= 8:
-            i = '0'+str(i+1)
-        else:
-            i = str(i+1)
+        filename = save_frame(frame,num_of_frames)
 
-        filename = 'Images/frames/{}_{}'.format(i,n)
-        plt.savefig(filename)
-        print('Frame ({}/{}) Saved.'.format(i,n))
-
-    # convert all saved images to a single gif
-    import imageio
-    images = []
-    for filename in os.listdir('Images/frames/'):
-        images.append(imageio.imread('Images/frames/'+filename))
-    imageio.mimsave('Images/{}.gif'.format(name), images)
-    print('{}.gif made'.format(name))
+    frames_to_gif(filename,name)
 
     # rhombus lattice
     delete_all_frames()
@@ -565,31 +519,18 @@ def make_all_packing_gifs():
         fig = plt.figure(0,figsize=[8,8])
         fig.clear()
         prim = primitive_cell_2d('rhombus')
-        make_lattice(prim,depth=i)
+        make_lattice_2d(prim,depth=i)
 
-        if i <= 8:
-            i = '0'+str(i+1)
-        else:
-            i = str(i+1)
+        filename = save_frame(frame,num_of_frames)
 
-        filename = 'Images/frames/{}_{}'.format(i,n)
-        plt.savefig(filename)
-        print('Frame ({}/{}) Saved.'.format(i,n))
-
-    # convert all saved images to a single gif
-    import imageio
-    images = []
-    for filename in os.listdir('Images/frames/'):
-        images.append(imageio.imread('Images/frames/'+filename))
-    imageio.mimsave('Images/{}.gif'.format(name), images)
-    print('{}.gif made'.format(name))
+    frames_to_gif(filename,name)
 
 ################################################################################
 
-# make_all_structure_gifs()
+make_all_structure_gifs()
 # make_all_operations_gifs()
 # make_all_shape_gifs()
 # make_all_face_norm_gifs()
 # make_all_stereos()
 # make_all_stereo_gifs()
-make_all_packing_gifs()
+# make_all_packing_gifs()
