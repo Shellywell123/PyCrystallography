@@ -7,12 +7,16 @@ triangle_subdivision(n,'diag')
 ```
 
 ```py
+triangle_subdivision(n,'grid')
+```
+
+```py
 triangle_subdivision(n,'zelda')
 ```
 
-
 <p float="left">
   <img src="../Images/triangle_subdivision_diag.gif" width="400" />
+  <img src="../Images/triangle_subdivision_grid.gif" width="400" />
   <img src="../Images/triangle_subdivision_zelda.gif" width="400" />
 </p>
 

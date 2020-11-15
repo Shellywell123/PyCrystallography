@@ -80,6 +80,30 @@ def triangle_subdivision(n,pattern_name):
         y_verts_new.append((y_verts[0]+y_verts[2])/2)
 
         triangle_1 = ['green', [x_verts[0],x_verts_new[0],x_verts_new[2]],[y_verts[0],y_verts_new[0],y_verts_new[2]]]
+        triangle_2 = ['yellow',[x_verts_new[0],x_verts[1],x_verts_new[1]],[y_verts_new[0],y_verts[1],y_verts_new[1]]]
+        triangle_3 = ['blue',  [x_verts_new[1],x_verts[2],x_verts_new[2]],[y_verts_new[1],y_verts[2],y_verts_new[2]]]
+
+        sub_triangles = [triangle_1,triangle_2,triangle_3]
+        return sub_triangles
+
+    def divide_tri_grid(x_verts,y_verts):
+        x_centre = np.mean(x_verts)
+        y_centre = np.mean(y_verts)
+     
+        x_verts_new = []
+        y_verts_new = []
+
+
+        x_verts_new.append((x_verts[0]+x_verts[1])/2)
+        y_verts_new.append((y_verts[0]+y_verts[1])/2)
+
+        x_verts_new.append((x_verts[1]+x_verts[2])/2)
+        y_verts_new.append((y_verts[1]+y_verts[2])/2)
+
+        x_verts_new.append((x_verts[0]+x_verts[2])/2)
+        y_verts_new.append((y_verts[0]+y_verts[2])/2)
+
+        triangle_1 = ['green', [x_verts[0],x_verts_new[0],x_verts_new[2]],[y_verts[0],y_verts_new[0],y_verts_new[2]]]
         triangle_2 = ['red',   [x_verts_new[0],x_verts_new[1],x_verts_new[2]],[y_verts_new[0],y_verts_new[1],y_verts_new[2]]]
         triangle_3 = ['yellow',[x_verts_new[0],x_verts[1],x_verts_new[1]],[y_verts_new[0],y_verts[1],y_verts_new[1]]]
         triangle_4 = ['blue',  [x_verts_new[1],x_verts[2],x_verts_new[2]],[y_verts_new[1],y_verts[2],y_verts_new[2]]]
@@ -92,6 +116,8 @@ def triangle_subdivision(n,pattern_name):
             if pattern_name == 'zelda':
                 sub_triangles = divide_tri_zelda(x_verts,y_verts)
             if pattern_name == 'diag':
+                sub_triangles = divide_tri_diag(x_verts,y_verts)
+            if pattern_name == 'grid':
                 sub_triangles = divide_tri_diag(x_verts,y_verts)
             for triangle in sub_triangles:
                 plot_triangle(triangle)
@@ -252,6 +278,6 @@ def Penrose_Tiling(n,pattern_name):
 
 
 # #pack(5)
-# #triangle_subdivision(5,'zelda')
+triangle_subdivision(5,'zelda')
 # Penrose_Tiling(1,'star')
-# plt.show()
+plt.show()
