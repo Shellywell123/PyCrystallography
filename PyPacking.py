@@ -11,7 +11,7 @@ def plot_triangle(triangle):
 
     plt.fill(x_vals,y_vals,color=col, edgecolor='k', linewidth=0.5)
 
-def triangle_subdivision(n):
+def triangle_subdivision(n,pattern_name):
     """
     makes a fractal of triangluar subdivisions
     with n deep divisions
@@ -38,7 +38,7 @@ def triangle_subdivision(n):
 
     plot_triangle(start_triangle)
 
-    def divide_tri(x_verts,y_verts):
+    def divide_tri_diag(x_verts,y_verts):
         x_centre = np.mean(x_verts)
         y_centre = np.mean(y_verts)
      
@@ -62,9 +62,37 @@ def triangle_subdivision(n):
         sub_triangles = [triangle_1,triangle_2,triangle_3,triangle_4,triangle_5,triangle_6]
         return sub_triangles
 
+    def divide_tri_zelda(x_verts,y_verts):
+        x_centre = np.mean(x_verts)
+        y_centre = np.mean(y_verts)
+     
+        x_verts_new = []
+        y_verts_new = []
+
+
+        x_verts_new.append((x_verts[0]+x_verts[1])/2)
+        y_verts_new.append((y_verts[0]+y_verts[1])/2)
+
+        x_verts_new.append((x_verts[1]+x_verts[2])/2)
+        y_verts_new.append((y_verts[1]+y_verts[2])/2)
+
+        x_verts_new.append((x_verts[0]+x_verts[2])/2)
+        y_verts_new.append((y_verts[0]+y_verts[2])/2)
+
+        triangle_1 = ['green', [x_verts[0],x_verts_new[0],x_verts_new[2]],[y_verts[0],y_verts_new[0],y_verts_new[2]]]
+        triangle_2 = ['red',   [x_verts_new[0],x_verts_new[1],x_verts_new[2]],[y_verts_new[0],y_verts_new[1],y_verts_new[2]]]
+        triangle_3 = ['yellow',[x_verts_new[0],x_verts[1],x_verts_new[1]],[y_verts_new[0],y_verts[1],y_verts_new[1]]]
+        triangle_4 = ['blue',  [x_verts_new[1],x_verts[2],x_verts_new[2]],[y_verts_new[1],y_verts[2],y_verts_new[2]]]
+
+        sub_triangles = [triangle_1,triangle_2,triangle_3,triangle_4]
+        return sub_triangles
+
     def n_div(x_verts,y_verts, n):
         if n >= 1:
-            sub_triangles = divide_tri(x_verts,y_verts)
+            if pattern_name == 'zelda':
+                sub_triangles = divide_tri_zelda(x_verts,y_verts)
+            if pattern_name == 'diag':
+                sub_triangles = divide_tri_diag(x_verts,y_verts)
             for triangle in sub_triangles:
                 plot_triangle(triangle)
                 x_verts,y_verts = triangle[1],triangle[2]
@@ -221,7 +249,7 @@ def Penrose_Tiling(n,pattern_name):
     #plt.show()
 
 
-#pack(5)
-# triangle_subdivision(3)
-# Penrose_Tiling(1,'star')
+# #pack(5)
+# #triangle_subdivision(5,'zelda')
+# # Penrose_Tiling(1,'star')
 # plt.show()

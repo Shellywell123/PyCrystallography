@@ -400,14 +400,14 @@ def make_all_packing_gifs():
     """
     """
 
-    #triangle sud div
+    #triangle sud div diag
     delete_all_frames()
-    name = 'triangle_subdivision'
+    name = 'triangle_subdivision_diag'
     n=7
     for i in range(0,n):
         fig = plt.figure(0,figsize=[8,8])
         fig.clear()
-        triangle_subdivision(i)
+        triangle_subdivision(i,'diag')
 
         if i <= 8:
             i = '0'+str(i+1)
@@ -425,6 +425,33 @@ def make_all_packing_gifs():
         images.append(imageio.imread('Images/frames/'+filename))
     imageio.mimsave('Images/{}.gif'.format(name), images)
     print('{}.gif made'.format(name))
+
+#triangle sud div zelda
+    delete_all_frames()
+    name = 'triangle_subdivision_zelda'
+    n=7
+    for i in range(0,n):
+        fig = plt.figure(0,figsize=[8,8])
+        fig.clear()
+        triangle_subdivision(i,'zelda')
+
+        if i <= 8:
+            i = '0'+str(i+1)
+        else:
+            i = str(i+1)
+
+        filename = 'Images/frames/{}_{}'.format(i,n)
+        plt.savefig(filename)
+        print('Frame ({}/{}) Saved.'.format(i,n))
+
+    # convert all saved images to a single gif
+    import imageio
+    images = []
+    for filename in os.listdir('Images/frames/'):
+        images.append(imageio.imread('Images/frames/'+filename))
+    imageio.mimsave('Images/{}.gif'.format(name), images)
+    print('{}.gif made'.format(name))
+
 
     # penrose sun gif
     delete_all_frames()
