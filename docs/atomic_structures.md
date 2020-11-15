@@ -51,7 +51,7 @@ plt.show()
 ```
 <p float="left">
   <img src="../Images/BCC_unit_cell.gif" width="400" />
-  <img src="../Images/BCC_latttice.gif" width="400" />
+  <img src="../Images/BCC_lattice.gif" width="400" />
 </p>
 
 ```py
