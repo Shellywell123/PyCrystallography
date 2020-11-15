@@ -278,6 +278,6 @@ def Penrose_Tiling(n,pattern_name):
 
 
 # #pack(5)
-triangle_subdivision(5,'zelda')
-# Penrose_Tiling(1,'star')
-plt.show()
+# triangle_subdivision(5,'zelda')
+# # Penrose_Tiling(1,'star')
+# plt.show()
