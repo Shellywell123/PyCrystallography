@@ -22,27 +22,11 @@ plt.show()
 
 ### unit cells
 
-```py
-fig = plt.figure(0,figsize=[8,8])
-ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
-from PyCrystallography import Diamond
-prim = Diamond(ax)
-
-fig = plt.figure(1,figsize=[8,8])
-ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
-make_lattice_3d(ax,prim)
-plt.show()
-```
-<p float="left">
-  <img src="../Images/diamond_unit_cell.gif" width="400" />
-  <img src="../Images/diamond_lattice.gif" width="400" />
-</p>
 
 ```py
 fig = plt.figure(0,figsize=[8,8])
 ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
-from PyCrystallography import Diamond
-prim = Diamond(ax)
+prim = BCC(ax)
 
 fig = plt.figure(1,figsize=[8,8])
 ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
@@ -57,8 +41,23 @@ plt.show()
 ```py
 fig = plt.figure(0,figsize=[8,8])
 ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
-from PyCrystallography import Diamond
-prim = Diamond(ax)
+prim = FCC(ax)
+
+fig = plt.figure(1,figsize=[8,8])
+ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
+make_lattice_3d(ax,prim)
+plt.show()
+```
+
+<p float="left">
+  <img src="../Images/FCC_unit_cell.gif" width="400" />
+  <img src="../Images/FCC_lattice.gif" width="400" />
+</p>
+
+```py
+fig = plt.figure(0,figsize=[8,8])
+ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
+prim = NaCl(ax)
 
 fig = plt.figure(1,figsize=[8,8])
 ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
@@ -71,20 +70,22 @@ plt.show()
   <img src="../Images/NaCl_lattice.gif" width="400" />
 </p>
 
+
+
 ```py
 fig = plt.figure(0,figsize=[8,8])
 ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
-from PyCrystallography import Diamond
 prim = Diamond(ax)
 
 fig = plt.figure(1,figsize=[8,8])
 ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
 make_lattice_3d(ax,prim)
 plt.show()
+
 ```
 <p float="left">
-  <img src="../Images/NaCl.gif" width="400" />
-  <img src="../Images/diamond.gif" width="400" />
+  <img src="../Images/diamond_unit_cell.gif" width="400" />
+  <img src="../Images/diamond_lattice.gif" width="400" />
 </p>
 
 # Packings
