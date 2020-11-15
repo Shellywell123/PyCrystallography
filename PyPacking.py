@@ -118,7 +118,7 @@ def triangle_subdivision(n,pattern_name):
             if pattern_name == 'diag':
                 sub_triangles = divide_tri_diag(x_verts,y_verts)
             if pattern_name == 'grid':
-                sub_triangles = divide_tri_diag(x_verts,y_verts)
+                sub_triangles = divide_tri_grid(x_verts,y_verts)
             for triangle in sub_triangles:
                 plot_triangle(triangle)
                 x_verts,y_verts = triangle[1],triangle[2]
