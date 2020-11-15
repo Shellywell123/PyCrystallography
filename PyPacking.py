@@ -221,18 +221,20 @@ def Penrose_Tiling(n,pattern_name):
                 start_triangles.append(['green',[0,np.cos(i*np.pi/5),np.cos((i+1)*np.pi/5)],[0,np.sin(i*np.pi/5),np.sin((i+1)*np.pi/5)]])
             if i % 2 != 0:
                 start_triangles.append(['green',[0,np.cos((i+1)*np.pi/5),np.cos(i*np.pi/5)],[0,np.sin((i+1)*np.pi/5),np.sin(i*np.pi/5)]])
-            plot_triangle(start_triangles[i])
 
     if pattern_name == 'star':
-       for i in range(0,10):
+        rot = np.pi/10
+        for i in range(0,10):
             if i % 2 == 0:
                 r = 0.5/np.cos(np.pi/5)
-                start_triangles.append(['blue',[r*np.cos((i+1)*np.pi/5),0,np.cos(i*np.pi/5),],[r*np.sin((i+1)*np.pi/5),0,np.sin(i*np.pi/5),]])
+                start_triangles.append(['blue',[r*np.cos((i+1)*np.pi/5+rot),0,np.cos(i*np.pi/5+rot),],[r*np.sin((i+1)*np.pi/5+rot),0,np.sin(i*np.pi/5+rot),]])
 
             if i % 2 != 0:
                 r = 0.5/np.cos(np.pi/5)
-                start_triangles.append(['blue',[r*np.cos(i*np.pi/5),np.cos((i+1)*np.pi/5),0],[r*np.sin(i*np.pi/5),np.sin((i+1)*np.pi/5),0]])
-            plot_triangle(start_triangles[i])
+                start_triangles.append(['blue',[r*np.cos(i*np.pi/5+rot),np.cos((i+1)*np.pi/5+rot),0],[r*np.sin(i*np.pi/5+rot),np.sin((i+1)*np.pi/5+rot),0]])
+
+    for triangle in start_triangles:
+        plot_triangle(triangle)
     
     def peN_div(triangles, n):
         if n >= 1:
@@ -251,5 +253,5 @@ def Penrose_Tiling(n,pattern_name):
 
 # #pack(5)
 # #triangle_subdivision(5,'zelda')
-# # Penrose_Tiling(1,'star')
+# Penrose_Tiling(1,'star')
 # plt.show()
