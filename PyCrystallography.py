@@ -408,6 +408,67 @@ def rotation(ax,h,w,d):
     plot_axis(ax,max_lim=1.1*max(h,w,d))
     pass
 
+def miller_indicies(ax,index):
+    """
+    """
+    import matplotlib.pyplot as plt
+    h = 1
+    w = 1
+    d = 1
+
+    a = np.arange(-h,h,0.1)
+    b = np.arange(-w,w,0.1)
+
+    a,b = np.meshgrid(a,b)
+
+    m =-1
+
+    if index == '<100>':
+        y = a
+        z = b
+        x = np.full(a.shape,1)
+
+    if index == '<010>':
+        x = a
+        z = b
+        y = np.full(a.shape,1)
+  
+    if index == '<001>':
+        x = a
+        y = b
+        z = np.full(a.shape,1)
+        
+    if index == '<110>':
+        y = a
+        z = b
+        x = m * y
+
+    if index == '<101>':
+        x = a
+        y = b
+        z = m * x
+
+    if index == '<011>':
+        x = a
+        y = b
+        z = m * y
+
+    if index == '<111>':
+        pass
+
+    #fig =plt.figure()
+    ax.set_title(index)
+    #from PyShapes import cuboid
+    #cuboid(ax,h,w,d,alpha=0.1)
+    ax.plot_surface(x,y,z,alpha=0.5)
+
+    ax.plot([-1, 1],[-1,-1],[-1,-1],c='r',label='V1')
+    ax.plot([-1,-1],[-1, 1],[-1,-1],c='b',label='V2')
+    ax.plot([-1,-1],[-1,-1],[-1, 1],c='g',label='V3')
+    plt.legend()
+    plt.axis('off')
+  #  plt.show()
+
 def cube_reflection(ax):
     """
     cube with some internal refelctive planes plotted
@@ -548,3 +609,11 @@ def Stereographic_projection(points,r,name):
 
     plt.savefig('Images/{}.png'.format(name))
     return n_points, e_points, s_points
+
+
+# import matplotlib.pyplot as plt
+# fig = plt.figure(0,figsize=[8,8])
+# azim = 30
+# ax = fig.add_subplot(111,projection='3d',azim=azim,elev=30)
+# miller_indicies(ax,'<001>')
+# plt.show()

@@ -25,8 +25,8 @@ def BCC(ax):
 def FCC(ax):
 ```
 <p float="left">
-  <img src="Images/BCC.gif" width="400" />
-  <img src="Images/FCC.gif" width="400" />
+  <img src="Images/BCC_unit_cell.gif" width="400" />
+  <img src="Images/FCC_unit_cell.gif" width="400" />
 </p>
 
 ```py
@@ -36,8 +36,8 @@ def NaCl(ax):
 def Diamond(ax):
 ```
 <p float="left">
-  <img src="Images/NaCl.gif" width="400" />
-  <img src="Images/diamond.gif" width="400" />
+  <img src="Images/NaCl_unit_cell.gif" width="400" />
+  <img src="Images/diamond_unit_cell.gif" width="400" />
 </p>
 
 

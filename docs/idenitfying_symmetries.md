@@ -24,3 +24,15 @@ identify_fold_symmetry(northern_points,southern_points)
 ```bash
 NFOLD =  5
 ```
+
+## Miller Indicies
+
+<p float="left">
+  <img src="../Images/miller_100.gif" width="400" />
+  <img src="../Images/miller_010.gif" width="400" />
+  <img src="../Images/miller_001.gif" width="400" />
+  <img src="../Images/miller_110.gif" width="400" />
+  <img src="../Images/miller_101.gif" width="400" />
+  <img src="../Images/miller_011.gif" width="400" />
+  <img src="../Images/miller_111.gif" width="400" />
+</p>

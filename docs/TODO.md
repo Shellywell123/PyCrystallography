@@ -1,7 +1,7 @@
 # TODO
- - fix pyramid southern face norm colouring
+ - make miller 111
+ - neaten gifs
  - neaten rotation/inversion gif using stereographs
- - need to add packing 
  - make symmetry classifier
  - make nice documentaion
  - make pip package

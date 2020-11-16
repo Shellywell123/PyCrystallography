@@ -527,10 +527,34 @@ def make_all_packing_gifs():
 
 ################################################################################
 
-make_all_structure_gifs()
+def make_all_miller_gifs():
+    """
+    """
+    indexs = ['<100>','<010>','<001>','<110>','<101>','<011>','<111>']
+    for index in indexs:
+        delete_all_frames()
+        name = 'miller_'+index[1:-1]
+
+        num_of_frames = 36
+        for frame in range(0,num_of_frames):
+
+            fig = plt.figure(0,figsize=[8,8])
+            azim = (360/num_of_frames)*frame
+            ax = fig.add_subplot(111,projection='3d',azim=azim,elev=30)
+
+            miller_indicies(ax,index)
+
+            filename = save_frame(frame,num_of_frames)
+
+        frames_to_gif(filename,name)
+
+
+################################################################################
+#make_all_structure_gifs()
 # make_all_operations_gifs()
 # make_all_shape_gifs()
 # make_all_face_norm_gifs()
 # make_all_stereos()
 # make_all_stereo_gifs()
 # make_all_packing_gifs()
+make_all_miller_gifs()
