@@ -8,6 +8,8 @@ from PyShapes import *
 from PyCrystallography import *
 from PyPacking import *
 
+###############################################################################
+# gif making functions
 ################################################################################
 
 def delete_all_frames():
@@ -73,11 +75,27 @@ def objects_to_spin_gif(objects):
 
 ################################################################################
 
-def increaseing_n_gif(code,n):
+def objects_to_n_gif(objects,n_max):
     """
     """
-    pass
+    for object in objects:
+        delete_all_frames()
+        
+        code = object['code']
+        name = object['name']
 
+        for n in range(0,n_max):
+            fig = plt.figure(0,figsize=[8,8])
+            fig.clear()
+
+            exec(code)
+
+            filename = save_frame(n,n_max)
+
+        frames_to_gif(filename,name)
+
+################################################################################
+# code to gifs
 ################################################################################
 
 def make_all_structure_gifs():
@@ -109,14 +127,14 @@ def make_all_operations_gifs():
     """
 
     objects = [
-                # {'code'    : 'rotation(ax,2,2,2)',
-                #  'name'    : 'rotation'},
+                {'code'    : 'rotation(ax,2,2,2)',
+                 'name'    : 'rotation'},
 
-                # {'code'    : 'inversion(ax,2,2,2)',
-                #  'name'    : 'inversion'},
+                {'code'    : 'inversion(ax,2,2,2)',
+                 'name'    : 'inversion'},
 
-                # {'code'    : 'reflection(ax,2,2,2)',
-                #  'name'    : 'reflection'},
+                {'code'    : 'reflection(ax,2,2,2)',
+                 'name'    : 'reflection'},
 
                 {'code'    : 'cube_reflection(ax)',
                  'name'    : 'cube_reflection'},
@@ -314,174 +332,43 @@ def make_all_stereo_gifs():
 def make_all_packing_gifs():
     """
     """
-    # # diamond lattice
-    # delete_all_frames()
-    # name = 'diamond_lattice'
-    # n=7
-    # for i in range(0,n):
-    #     fig = plt.figure(0,figsize=[8,8])
-    #     fig.clear()
-    #     ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
-    #     prim = Diamond(ax)
 
-    #     fig = plt.figure(0,figsize=[8,8])
-    #     fig.clear()
-    #     ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
-    #     make_lattice_3d(ax,prim,depth = i)
+    objects = [
+                {'code'    : 'ax = fig.add_subplot(111,projection="3d",azim=30,elev=30);prim = Diamond(ax);fig = plt.figure(0,figsize=[8,8]);fig.clear();ax = fig.add_subplot(111,projection="3d",azim=30,elev=30);make_lattice_3d(ax,prim,depth = n)',
+                 'name'    : 'diamond_lattice'},
 
-    #     filename = save_frame(i,n)
+                {'code'    : 'ax = fig.add_subplot(111,projection="3d",azim=30,elev=30);prim = BCC(ax);fig = plt.figure(0,figsize=[8,8]);fig.clear();ax = fig.add_subplot(111,projection="3d",azim=30,elev=30);make_lattice_3d(ax,prim,depth = n)',
+                 'name'    : 'BCC_lattice'},
 
-    # frames_to_gif(filename,name)
+                {'code'    : 'ax = fig.add_subplot(111,projection="3d",azim=30,elev=30);prim = FCC(ax);fig = plt.figure(0,figsize=[8,8]);fig.clear();ax = fig.add_subplot(111,projection="3d",azim=30,elev=30);make_lattice_3d(ax,prim,depth = n)',
+                 'name'    : 'FCC_lattice'},
 
-    # # bcc lattice
-    # delete_all_frames()
-    # name = 'BCC_lattice'
-    # n=7
-    # for i in range(0,n):
-    #     fig = plt.figure(0,figsize=[8,8])
-    #     fig.clear()
-    #     ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
-    #     prim = BCC(ax)
+                {'code'    : 'ax = fig.add_subplot(111,projection="3d",azim=30,elev=30);prim = NaCl(ax);fig = plt.figure(0,figsize=[8,8]);fig.clear();ax = fig.add_subplot(111,projection="3d",azim=30,elev=30);make_lattice_3d(ax,prim,depth = n)',
+                 'name'    : 'NaCl_lattice'},
 
-    #     fig = plt.figure(0,figsize=[8,8])
-    #     fig.clear()
-    #     ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
-    #     make_lattice_3d(ax,prim,depth = i)
+                {'code'    : 'triangle_subdivision(n,"diag")',
+                 'name'    : 'triangle_subdivision_diag'},
 
-    #     filename = save_frame(i,n)
+                {'code'    : 'triangle_subdivision(n,"zelda")',
+                 'name'    : 'triangle_subdivision_zelda'},
 
-    # frames_to_gif(filename,name)
-    
+                {'code'    : 'triangle_subdivision(n."grid")',
+                 'name'    : 'triangle_subdivision_grid'},
 
-    # # fcc lattice
-    # delete_all_frames()
-    # name = 'FCC_lattice'
-    # n=7
-    # for i in range(0,n):
-    #     fig = plt.figure(0,figsize=[8,8])
-    #     fig.clear()
-    #     ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
-    #     prim = FCC(ax)
+                {'code'    : 'Penrose_Tiling(n,"sun")',
+                 'name'    : 'penrose_tiling_sun'},
 
-    #     fig = plt.figure(0,figsize=[8,8])
-    #     fig.clear()
-    #     ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
-    #     make_lattice_3d(ax,prim,depth = i)
+                {'code'    : 'Penrose_Tiling(n,"star")',
+                 'name'    : 'penrose_tiling_star'},
 
-    #     filename = save_frame(i,n)
+                {'code'    : 'prim = primitive_cell_2d("square");make_lattice_2d(prim,depth=n)',
+                 'name'    : 'square_lattice'},
 
-    # frames_to_gif(filename,name)
+                {'code'    : 'prim = primitive_cell_2d("rhombus");make_lattice_2d(prim,depth=n)',
+                 'name'    : 'rhombus_lattice'}
+                ]
 
-    # # nacl lattice
-    # delete_all_frames()
-    # name = 'NaCl_lattice'
-    # n=7
-    # for i in range(0,n):
-    #     fig = plt.figure(0,figsize=[8,8])
-    #     fig.clear()
-    #     ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
-    #     prim = NaCl(ax)
-
-    #     fig = plt.figure(0,figsize=[8,8])
-    #     fig.clear()
-    #     ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
-    #     make_lattice_3d(ax,prim,depth = i)
-
-    #     filename = save_frame(i,n)
-
-    # frames_to_gif(filename,name)
-
-    # #triangle sud div diag
-    # delete_all_frames()
-    # name = 'triangle_subdivision_diag'
-    # n=7
-    # for i in range(0,n):
-    #     fig = plt.figure(0,figsize=[8,8])
-    #     fig.clear()
-    #     triangle_subdivision(i,'diag')
-
-    #     filename = save_frame(i,n)
-
-    # frames_to_gif(filename,name)
-
-    # #triangle sud div zelda
-    # delete_all_frames()
-    # name = 'triangle_subdivision_zelda'
-    # n=7
-    # for i in range(0,n):
-    #     fig = plt.figure(0,figsize=[8,8])
-    #     fig.clear()
-    #     triangle_subdivision(i,'zelda')
-
-    #     filename = save_frame(i,n)
-
-    # frames_to_gif(filename,name)
-
-    # #triangle sud div grid
-    # delete_all_frames()
-    # name = 'triangle_subdivision_grid'
-    # n=7
-    # for i in range(0,n):
-    #     fig = plt.figure(0,figsize=[8,8])
-    #     fig.clear()
-    #     triangle_subdivision(i,'grid')
-
-    #     filename = save_frame(i,n)
-
-    # frames_to_gif(filename,name)
-
-    # # penrose sun gif
-    # delete_all_frames()
-    # name = 'penrose_tiling_sun'
-    # n=7
-    # for i in range(0,n):
-    #     fig = plt.figure(0,figsize=[8,8])
-    #     fig.clear()
-    #     Penrose_Tiling(i,'sun')
-
-    #     filename = save_frame(i,n)
-
-    # frames_to_gif(filename,name)
-
-    # # penrose star gif
-    # delete_all_frames()
-    # name = 'penrose_tiling_star'
-    # n=7
-    # for i in range(0,n):
-    #     fig = plt.figure(0,figsize=[8,8])
-    #     fig.clear()
-    #     Penrose_Tiling(i,'star')
-
-    #     filename = save_frame(i,n)
-
-    # frames_to_gif(filename,name)
-
-    # square lattice
-    delete_all_frames()
-    name = 'square_lattice'
-    n=7
-    for i in range(0,n):
-        fig = plt.figure(0,figsize=[8,8])
-        fig.clear()
-        prim = primitive_cell_2d('square')
-        make_lattice_2d(prim,depth=i)
-        filename = save_frame(i,n)
-
-    frames_to_gif(filename,name)
-
-    # rhombus lattice
-    delete_all_frames()
-    name = 'rhombus_lattice'
-    n=7
-    for i in range(0,n):
-        fig = plt.figure(0,figsize=[8,8])
-        fig.clear()
-        prim = primitive_cell_2d('rhombus')
-        make_lattice_2d(prim,depth=i)
-
-        filename = save_frame(i,n)
-
-    frames_to_gif(filename,name)
+    objects_to_n_gif(objects,7)
 
 ################################################################################
 
@@ -514,25 +401,6 @@ def make_all_miller_gifs():
 
     objects_to_spin_gif(objects)
 
-    # indexs = ['<100>','<010>','<001>','<110>','<101>','<011>','<111>']
-    # for index in indexs:
-    #     delete_all_frames()
-    #     name = 'miller_'+index[1:-1]
-
-    #     num_of_frames = 36
-    #     for frame in range(0,num_of_frames):
-
-    #         fig = plt.figure(0,figsize=[8,8])
-    #         azim = (360/num_of_frames)*frame
-    #         ax = fig.add_subplot(111,projection='3d',azim=azim,elev=30)
-
-    #         miller_indicies(ax,index)
-
-    #         filename = save_frame(frame,num_of_frames)
-
-    #     frames_to_gif(filename,name)
-
-
 ################################################################################
 
 # make_all_structure_gifs()
@@ -542,4 +410,4 @@ def make_all_miller_gifs():
 # make_all_stereos()
 # make_all_stereo_gifs()
 make_all_packing_gifs()
-#make_all_miller_gifs()
+# make_all_miller_gifs()

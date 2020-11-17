@@ -1,5 +1,4 @@
 # TODO
- - make miller 111
  - neaten gifs
  - neaten rotation/inversion gif using stereographs
  - make symmetry classifier

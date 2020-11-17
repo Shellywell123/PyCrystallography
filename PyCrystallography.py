@@ -409,62 +409,40 @@ def rotation(ax,h,w,d):
 def miller_indicies(ax,index):
     """
     """
-    import matplotlib.pyplot as plt
-    h = 1
-    w = 1
-    d = 1
-
-    a = np.arange(-h,h,0.01)
-    b = np.arange(-w,w,0.01)
-
-    a,b = np.meshgrid(a,b)
-
-    m =-1
 
     if index == '<100>':
-        y = a
-        z = b
-        x = np.full(a.shape,1)
+        verts = [[1,-1,-1],[1,1,-1],[1,1,1],[1,-1,1]]
 
     if index == '<010>':
-        x = a
-        z = b
-        y = np.full(a.shape,1)
+        verts = [[-1,1,-1],[1,1,-1],[1,1,1],[-1,1,1]]
   
     if index == '<001>':
-        x = a
-        y = b
-        z = np.full(a.shape,1)
+        verts = [[-1,-1,1],[1,-1,1],[1,1,1],[-1,1,1]]
         
     if index == '<110>':
-        y = a
-        z = b
-        x = m * y
+        verts = [[-1,1,1],[1,-1,1],[1,-1,-1],[-1,1,-1]]
 
     if index == '<101>':
-        x = a
-        y = b
-        z = m * x
+        verts = [[-1,-1,1],[-1,1,1],[1,1,-1],[1,-1,-1]]
 
     if index == '<011>':
-        x = a
-        y = b
-        z = m * y
+        verts = [[-1,-1,1],[-1,1,1],[1,1,-1],[1,-1,-1]]
 
     if index == '<111>':
-        pass
+        verts = [[0,0,1],[0,1,0],[1,0,0]]
 
-    #ax.set_title(index)
     from PyShapes import cuboid
     cuboid(ax,2,2,2,alpha=0.01,show_axis=False)
     ax.plot([-1, 1],[-1,-1],[-1,-1],c='r',label='V1',linewidth=5)
     ax.plot([-1,-1],[-1, 1],[-1,-1],c='b',label='V2',linewidth=5)
     ax.plot([-1,-1],[-1,-1],[-1, 1],c='g',label='V3',linewidth=5)
 
-    ax.plot_surface(x,y,z,alpha=0.5,color='pink')
+    from PyShapes import plot_face
+    plot_face(ax,verts,color='pink')
     ax.plot([],[],[],c='pink',label=index)
-    plt.legend()
-    plt.axis('off')
+
+    ax.legend()
+    ax.axis('off')
 
 def cube_reflection(ax):
     """

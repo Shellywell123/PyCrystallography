@@ -3,7 +3,7 @@
 
 ## Miller Indices
 
-The miller indices are used to denote the planes in crstallography in a crystal lattice.
+The miller indices are used to denote the planes in crystal lattices.
 
 <p float="left">
   <img src="../Images/miller_100.gif" width="400" />
@@ -32,6 +32,7 @@ def cube_reflection_diag(ax):
 
 ## Lattices
 
+Lattices are used as a way to map the structure of crystals.
 ```py
 prim = primitive_cell_2d('square')
 make_lattice(prim)
@@ -50,6 +51,8 @@ plt.show()
 </p>
 
 ### unit cells
+
+A lattice is made up of cells, the most important being primitive unit cells.
 
 ```py
 fig = plt.figure(0,figsize=[8,8])
