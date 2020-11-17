@@ -25,7 +25,9 @@ identify_fold_symmetry(northern_points,southern_points)
 NFOLD =  5
 ```
 
-## Miller Indicies
+#Miller Indices
+
+The miller indices are used to denote the planes in crstallography in a crystal lattice.
 
 <p float="left">
   <img src="../Images/miller_100.gif" width="400" />

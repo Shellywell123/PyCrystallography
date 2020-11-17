@@ -1,5 +1,34 @@
 
-# Atomic Structures
+# Atomic Structures of crystals
+
+## Miller Indices
+
+The miller indices are used to denote the planes in crstallography in a crystal lattice.
+
+<p float="left">
+  <img src="../Images/miller_100.gif" width="400" />
+  <img src="../Images/miller_010.gif" width="400" />
+  <img src="../Images/miller_001.gif" width="400" />
+  <img src="../Images/miller_110.gif" width="400" />
+  <img src="../Images/miller_101.gif" width="400" />
+  <img src="../Images/miller_011.gif" width="400" />
+  <img src="../Images/miller_111.gif" width="400" />
+</p>
+
+
+## Planes of reflections in a Cube
+```py
+
+def cube_reflection(ax):
+```
+```py
+
+def cube_reflection_diag(ax):
+```
+<p float="left">
+  <img src="../Images/cube_reflection.gif" width="400" />
+  <img src="../Images/cube_reflection_diag.gif" width="400" />
+</p>
 
 ## Lattices
 
@@ -21,7 +50,6 @@ plt.show()
 </p>
 
 ### unit cells
-
 
 ```py
 fig = plt.figure(0,figsize=[8,8])
@@ -69,7 +97,6 @@ plt.show()
   <img src="../Images/NaCl_unit_cell.gif" width="400" />
   <img src="../Images/NaCl_lattice.gif" width="400" />
 </p>
-
 
 
 ```py

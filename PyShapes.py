@@ -27,7 +27,6 @@ def normal_points(ax,faces,r):
         normal = np.cross(vec1,vec2)
       #  print(normal)
         
-
         # generate projected point on a sphere of radius r
         normal = face_centre+normal
 
@@ -45,7 +44,6 @@ def normal_points(ax,faces,r):
             COL ='green'
         else:
             COL='r'
-
 
         sphere_points.append(normal)
         ax.plot([face_centre[0],normal[0]],[face_centre[1],normal[1]],[face_centre[2],normal[2]],linewidth=3,c='k')
@@ -71,10 +69,11 @@ def plot_face(ax,verts,alpha=0.5):
     from mpl_toolkits.mplot3d.art3d import Poly3DCollection
     ax.add_collection3d(Poly3DCollection(verts,linewidths=1,edgecolor='k',alpha=alpha))
 
-def cuboid(ax,h,w,d,alpha=0.5):
+def cuboid(ax,h,w,d,alpha=0.5,show_axis=True):
     """
     """
-    plot_axis(ax,max_lim=1.5*max(h,w,d))
+    if show_axis == True:
+        plot_axis(ax,max_lim=1.5*max(h,w,d))
     faces = []
 
     #+w

@@ -127,7 +127,6 @@ def triangle_subdivision(n,pattern_name):
     plt.xlim([-1,1])
     plt.ylim([-1,1])
     plt.axis('off')
-   # plt.show()
 
 def pack(num_of_sides):
     """
@@ -183,7 +182,6 @@ def pack(num_of_sides):
     plt.xlim([-1,1])
     plt.ylim([-1,1])
     plt.axis('off')
- #   plt.show()
 
 ######################################################
 
@@ -274,7 +272,6 @@ def Penrose_Tiling(n,pattern_name):
     plt.xlim([-1,1])
     plt.ylim([-1,1])
     plt.axis('off')
-    #plt.show()
 
 #####################################
 # lattices
@@ -309,12 +306,11 @@ def make_lattice_2d(primitive_cell_2d,depth=5):
     plt.plot((0,vector_A_x),(0,vector_A_y),label='A',c='b')
     plt.plot((0,vector_B_x),(0,vector_B_y),label='B',c='r')
 
-
     for i in range(0,depth):
         for j in range(0,depth):
             plt.scatter((vector_A_x*i+vector_B_x*j),(vector_A_y*i+vector_B_y*j),c='k')
 
-    plt.legend()
+    plt.legend(loc='top right')
     plt.axis('off')
 
 def make_lattice_3d(ax,primitive_cell_3d,depth=2):

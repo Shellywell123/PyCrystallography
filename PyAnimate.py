@@ -40,8 +40,43 @@ def frames_to_gif(filename,name):
     images = []
     for filename in os.listdir('Images/frames/'):
         images.append(imageio.imread('Images/frames/'+filename))
-    imageio.mimsave('Images/{}.gif'.format(name), images)
+    imageio.mimsave('Images/{}.gif'.format(name), images) 
     print('{}.gif made'.format(name))
+
+################################################################################
+
+def objects_to_spin_gif(objects):
+    """
+    """
+
+    for object in objects:
+        delete_all_frames()
+        num_of_frames = 36
+        for frame in range(0,num_of_frames):
+
+            fig = plt.figure(0,figsize=[8,8])
+            azim = (360/num_of_frames)*frame
+            ax = fig.add_subplot(111,projection='3d',azim=azim,elev=30)
+
+            ###################################################
+
+            code = object['code']
+            exec(code)
+            name = object['name']
+
+            ####################################################
+
+            filename = save_frame(frame,num_of_frames)
+
+        frames_to_gif(filename,name)
+
+
+################################################################################
+
+def increaseing_n_gif(code,n):
+    """
+    """
+    pass
 
 ################################################################################
 
@@ -64,26 +99,7 @@ def make_all_structure_gifs():
                  'name'     : 'diamond_unit_cell'}
                 ]
 
-    for object in objects:
-        delete_all_frames()
-        num_of_frames = 36
-        for frame in range(0,num_of_frames):
-
-            fig = plt.figure(0,figsize=[8,8])
-            azim = (360/num_of_frames)*frame
-            ax = fig.add_subplot(111,projection='3d',azim=azim,elev=30)
-
-            ###################################################
-
-            code = object['code']
-            exec(code)
-            name = object['name']
-
-            ####################################################
-
-            filename = save_frame(frame,num_of_frames)
-
-        frames_to_gif(filename,name)
+    objects_to_spin_gif(objects)
 
 ################################################################################
 
@@ -109,26 +125,7 @@ def make_all_operations_gifs():
                  'name'    : 'cube_reflection_diag'}
                 ]
 
-    for object in objects:
-        delete_all_frames()
-        num_of_frames = 36
-        for frame in range(0,num_of_frames):
-
-            fig = plt.figure(0,figsize=[8,8])
-            azim = (360/num_of_frames)*frame
-            ax = fig.add_subplot(111,projection='3d',azim=azim,elev=30)
-
-            ###################################################
-
-            code = object['code']
-            exec(code)
-            name = object['name']
-
-            ####################################################
-
-            filename = save_frame(frame,num_of_frames)
-
-        frames_to_gif(filename,name)
+    objects_to_spin_gif(objects)
 
 ################################################################################
 
@@ -158,26 +155,7 @@ def make_all_face_norm_gifs():
                  'name'    : 'face_normals_tetrakis'}
                          ]
 
-    for object in objects:
-        delete_all_frames()
-        num_of_frames = 36
-        for frame in range(0,num_of_frames):
-
-            fig = plt.figure(0,figsize=[8,8])
-            azim = (360/num_of_frames)*frame
-            ax = fig.add_subplot(111,projection='3d',azim=azim,elev=30)
-
-            ###################################################
-
-            code = object['code']
-            exec(code)
-            name = object['name']
-
-            ####################################################
-
-            filename = save_frame(frame,num_of_frames)
-
-        frames_to_gif(filename,name)
+    objects_to_spin_gif(objects)
 
 ################################################################################
 
@@ -250,26 +228,7 @@ def make_all_shape_gifs():
                  'name'    : 'tetrakis'}
             ]
 
-    for object in objects:
-        delete_all_frames()
-        num_of_frames = 36
-        for frame in range(0,num_of_frames):
-
-            fig = plt.figure(0,figsize=[8,8])
-            azim = (360/num_of_frames)*frame
-            ax = fig.add_subplot(111,projection='3d',azim=azim,elev=30)
-
-            ###################################################
-
-            code = object['code']
-            exec(code)
-            name = object['name']
-
-            ####################################################
-
-            filename = save_frame(frame,num_of_frames)
-
-        frames_to_gif(filename,name)
+    objects_to_spin_gif(objects)
 
 ################################################################################
 
@@ -355,147 +314,147 @@ def make_all_stereo_gifs():
 def make_all_packing_gifs():
     """
     """
-    # diamond lattice
-    delete_all_frames()
-    name = 'diamond_lattice'
-    n=7
-    for i in range(0,n):
-        fig = plt.figure(0,figsize=[8,8])
-        fig.clear()
-        ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
-        prim = Diamond(ax)
+    # # diamond lattice
+    # delete_all_frames()
+    # name = 'diamond_lattice'
+    # n=7
+    # for i in range(0,n):
+    #     fig = plt.figure(0,figsize=[8,8])
+    #     fig.clear()
+    #     ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
+    #     prim = Diamond(ax)
 
-        fig = plt.figure(0,figsize=[8,8])
-        fig.clear()
-        ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
-        make_lattice_3d(ax,prim,depth = i)
+    #     fig = plt.figure(0,figsize=[8,8])
+    #     fig.clear()
+    #     ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
+    #     make_lattice_3d(ax,prim,depth = i)
 
-        filename = save_frame(frame,num_of_frames)
+    #     filename = save_frame(frame,num_of_frames)
 
-    frames_to_gif(filename,name)
+    # frames_to_gif(filename,name)
 
-# bcc lattice
-    delete_all_frames()
-    name = 'BCC_lattice'
-    n=7
-    for i in range(0,n):
-        fig = plt.figure(0,figsize=[8,8])
-        fig.clear()
-        ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
-        prim = BCC(ax)
+    # # bcc lattice
+    # delete_all_frames()
+    # name = 'BCC_lattice'
+    # n=7
+    # for i in range(0,n):
+    #     fig = plt.figure(0,figsize=[8,8])
+    #     fig.clear()
+    #     ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
+    #     prim = BCC(ax)
 
-        fig = plt.figure(0,figsize=[8,8])
-        fig.clear()
-        ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
-        make_lattice_3d(ax,prim,depth = i)
+    #     fig = plt.figure(0,figsize=[8,8])
+    #     fig.clear()
+    #     ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
+    #     make_lattice_3d(ax,prim,depth = i)
 
-        filename = save_frame(frame,num_of_frames)
+    #     filename = save_frame(frame,num_of_frames)
 
-    frames_to_gif(filename,name)
+    # frames_to_gif(filename,name)
     
 
-# fcc lattice
-    delete_all_frames()
-    name = 'FCC_lattice'
-    n=7
-    for i in range(0,n):
-        fig = plt.figure(0,figsize=[8,8])
-        fig.clear()
-        ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
-        prim = FCC(ax)
+    # # fcc lattice
+    # delete_all_frames()
+    # name = 'FCC_lattice'
+    # n=7
+    # for i in range(0,n):
+    #     fig = plt.figure(0,figsize=[8,8])
+    #     fig.clear()
+    #     ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
+    #     prim = FCC(ax)
 
-        fig = plt.figure(0,figsize=[8,8])
-        fig.clear()
-        ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
-        make_lattice_3d(ax,prim,depth = i)
+    #     fig = plt.figure(0,figsize=[8,8])
+    #     fig.clear()
+    #     ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
+    #     make_lattice_3d(ax,prim,depth = i)
 
-        filename = save_frame(frame,num_of_frames)
+    #     filename = save_frame(frame,num_of_frames)
 
-    frames_to_gif(filename,name)
+    # frames_to_gif(filename,name)
 
-# nacl lattice
-    delete_all_frames()
-    name = 'NaCl_lattice'
-    n=7
-    for i in range(0,n):
-        fig = plt.figure(0,figsize=[8,8])
-        fig.clear()
-        ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
-        prim = NaCl(ax)
+    # # nacl lattice
+    # delete_all_frames()
+    # name = 'NaCl_lattice'
+    # n=7
+    # for i in range(0,n):
+    #     fig = plt.figure(0,figsize=[8,8])
+    #     fig.clear()
+    #     ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
+    #     prim = NaCl(ax)
 
-        fig = plt.figure(0,figsize=[8,8])
-        fig.clear()
-        ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
-        make_lattice_3d(ax,prim,depth = i)
+    #     fig = plt.figure(0,figsize=[8,8])
+    #     fig.clear()
+    #     ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
+    #     make_lattice_3d(ax,prim,depth = i)
 
-        filename = save_frame(frame,num_of_frames)
+    #     filename = save_frame(frame,num_of_frames)
 
-    frames_to_gif(filename,name)
+    # frames_to_gif(filename,name)
 
-    #triangle sud div diag
-    delete_all_frames()
-    name = 'triangle_subdivision_diag'
-    n=7
-    for i in range(0,n):
-        fig = plt.figure(0,figsize=[8,8])
-        fig.clear()
-        triangle_subdivision(i,'diag')
+    # #triangle sud div diag
+    # delete_all_frames()
+    # name = 'triangle_subdivision_diag'
+    # n=7
+    # for i in range(0,n):
+    #     fig = plt.figure(0,figsize=[8,8])
+    #     fig.clear()
+    #     triangle_subdivision(i,'diag')
 
-        filename = save_frame(frame,num_of_frames)
+    #     filename = save_frame(frame,num_of_frames)
 
-    frames_to_gif(filename,name)
+    # frames_to_gif(filename,name)
 
-#triangle sud div zelda
-    delete_all_frames()
-    name = 'triangle_subdivision_zelda'
-    n=7
-    for i in range(0,n):
-        fig = plt.figure(0,figsize=[8,8])
-        fig.clear()
-        triangle_subdivision(i,'zelda')
+    # #triangle sud div zelda
+    # delete_all_frames()
+    # name = 'triangle_subdivision_zelda'
+    # n=7
+    # for i in range(0,n):
+    #     fig = plt.figure(0,figsize=[8,8])
+    #     fig.clear()
+    #     triangle_subdivision(i,'zelda')
 
-        filename = save_frame(frame,num_of_frames)
+    #     filename = save_frame(frame,num_of_frames)
 
-    frames_to_gif(filename,name)
+    # frames_to_gif(filename,name)
 
-#triangle sud div grid
-    delete_all_frames()
-    name = 'triangle_subdivision_grid'
-    n=7
-    for i in range(0,n):
-        fig = plt.figure(0,figsize=[8,8])
-        fig.clear()
-        triangle_subdivision(i,'grid')
+    # #triangle sud div grid
+    # delete_all_frames()
+    # name = 'triangle_subdivision_grid'
+    # n=7
+    # for i in range(0,n):
+    #     fig = plt.figure(0,figsize=[8,8])
+    #     fig.clear()
+    #     triangle_subdivision(i,'grid')
 
-        filename = save_frame(frame,num_of_frames)
+    #     filename = save_frame(frame,num_of_frames)
 
-    frames_to_gif(filename,name)
+    # frames_to_gif(filename,name)
 
-    # penrose sun gif
-    delete_all_frames()
-    name = 'penrose_tiling_sun'
-    n=7
-    for i in range(0,n):
-        fig = plt.figure(0,figsize=[8,8])
-        fig.clear()
-        Penrose_Tiling(i,'sun')
+    # # penrose sun gif
+    # delete_all_frames()
+    # name = 'penrose_tiling_sun'
+    # n=7
+    # for i in range(0,n):
+    #     fig = plt.figure(0,figsize=[8,8])
+    #     fig.clear()
+    #     Penrose_Tiling(i,'sun')
 
-        filename = save_frame(frame,num_of_frames)
+    #     filename = save_frame(frame,num_of_frames)
 
-    frames_to_gif(filename,name)
+    # frames_to_gif(filename,name)
 
-    # penrose star gif
-    delete_all_frames()
-    name = 'penrose_tiling_star'
-    n=7
-    for i in range(0,n):
-        fig = plt.figure(0,figsize=[8,8])
-        fig.clear()
-        Penrose_Tiling(i,'star')
+    # # penrose star gif
+    # delete_all_frames()
+    # name = 'penrose_tiling_star'
+    # n=7
+    # for i in range(0,n):
+    #     fig = plt.figure(0,figsize=[8,8])
+    #     fig.clear()
+    #     Penrose_Tiling(i,'star')
 
-        filename = save_frame(frame,num_of_frames)
+    #     filename = save_frame(frame,num_of_frames)
 
-    frames_to_gif(filename,name)
+    # frames_to_gif(filename,name)
 
     # square lattice
     delete_all_frames()
@@ -530,31 +489,58 @@ def make_all_packing_gifs():
 def make_all_miller_gifs():
     """
     """
-    indexs = ['<100>','<010>','<001>','<110>','<101>','<011>','<111>']
-    for index in indexs:
-        delete_all_frames()
-        name = 'miller_'+index[1:-1]
 
-        num_of_frames = 36
-        for frame in range(0,num_of_frames):
+    objects = [
+            {'code'    : 'miller_indicies(ax,"<100>")',
+             'name'    : 'miller_100'},
 
-            fig = plt.figure(0,figsize=[8,8])
-            azim = (360/num_of_frames)*frame
-            ax = fig.add_subplot(111,projection='3d',azim=azim,elev=30)
+            {'code'    : 'miller_indicies(ax,"<010>")',
+             'name'    : 'miller_010'},
 
-            miller_indicies(ax,index)
+            {'code'    : 'miller_indicies(ax,"<001>")',
+             'name'    : 'miller_001'},
 
-            filename = save_frame(frame,num_of_frames)
+            {'code'    : 'miller_indicies(ax,"<110>")',
+             'name'    : 'miller_110'},
 
-        frames_to_gif(filename,name)
+            {'code'    : 'miller_indicies(ax,"<101>")',
+             'name'    : 'miller_101'},
+
+            {'code'    : 'miller_indicies(ax,"<011>")',
+             'name'    : 'miller_011'},
+
+            {'code'    : 'miller_indicies(ax,"<111>")',
+             'name'    : 'miller_111'}
+            ]
+
+    objects_to_spin_gif(objects)
+
+    # indexs = ['<100>','<010>','<001>','<110>','<101>','<011>','<111>']
+    # for index in indexs:
+    #     delete_all_frames()
+    #     name = 'miller_'+index[1:-1]
+
+    #     num_of_frames = 36
+    #     for frame in range(0,num_of_frames):
+
+    #         fig = plt.figure(0,figsize=[8,8])
+    #         azim = (360/num_of_frames)*frame
+    #         ax = fig.add_subplot(111,projection='3d',azim=azim,elev=30)
+
+    #         miller_indicies(ax,index)
+
+    #         filename = save_frame(frame,num_of_frames)
+
+    #     frames_to_gif(filename,name)
 
 
 ################################################################################
-#make_all_structure_gifs()
+
+# make_all_structure_gifs()
 # make_all_operations_gifs()
 # make_all_shape_gifs()
 # make_all_face_norm_gifs()
 # make_all_stereos()
 # make_all_stereo_gifs()
-# make_all_packing_gifs()
+make_all_packing_gifs()
 make_all_miller_gifs()

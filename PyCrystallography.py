@@ -84,7 +84,6 @@ def identify_fold_symmetry(n_points,e_points,s_points):
             print('NFOLD = ',nfold_results[0])
 
 
-
 #########################################
 # structures
 #########################################
@@ -251,7 +250,7 @@ def NaCl(ax):
                 bonds.append(make_bond([i,i],[-j,j],[k,k],1,'k'))
                 bonds.append(make_bond([i,i],[j,j],[-k,k],1,'k'))
 
-                if (abs(i)==abs(j)==abs(k)!=0)or(abs(i)+abs(j)+abs(k)==h/2):
+                if (abs(i)==abs(j)==abs(k)!=0) or (abs(i)+abs(j)+abs(k)==h/2):
                     COL ='green'
                     SIZ =50
                 else:
@@ -401,7 +400,6 @@ def plane(ax,h,w,d,plane_axis):
         z =  np.zeros(x.shape)
         ax.plot_surface(x,y,z,alpha=0.5)
 
-
 def rotation(ax,h,w,d):
     """
     """
@@ -416,8 +414,8 @@ def miller_indicies(ax,index):
     w = 1
     d = 1
 
-    a = np.arange(-h,h,0.1)
-    b = np.arange(-w,w,0.1)
+    a = np.arange(-h,h,0.01)
+    b = np.arange(-w,w,0.01)
 
     a,b = np.meshgrid(a,b)
 
@@ -456,18 +454,17 @@ def miller_indicies(ax,index):
     if index == '<111>':
         pass
 
-    #fig =plt.figure()
-    ax.set_title(index)
-    #from PyShapes import cuboid
-    #cuboid(ax,h,w,d,alpha=0.1)
-    ax.plot_surface(x,y,z,alpha=0.5)
+    #ax.set_title(index)
+    from PyShapes import cuboid
+    cuboid(ax,2,2,2,alpha=0.01,show_axis=False)
+    ax.plot([-1, 1],[-1,-1],[-1,-1],c='r',label='V1',linewidth=5)
+    ax.plot([-1,-1],[-1, 1],[-1,-1],c='b',label='V2',linewidth=5)
+    ax.plot([-1,-1],[-1,-1],[-1, 1],c='g',label='V3',linewidth=5)
 
-    ax.plot([-1, 1],[-1,-1],[-1,-1],c='r',label='V1')
-    ax.plot([-1,-1],[-1, 1],[-1,-1],c='b',label='V2')
-    ax.plot([-1,-1],[-1,-1],[-1, 1],c='g',label='V3')
+    ax.plot_surface(x,y,z,alpha=0.5,color='pink')
+    ax.plot([],[],[],c='pink',label=index)
     plt.legend()
     plt.axis('off')
-  #  plt.show()
 
 def cube_reflection(ax):
     """
@@ -477,18 +474,17 @@ def cube_reflection(ax):
     w = 2
     d = 2
 
-  #  plot_axis(ax,max_lim=1.1*max(h,w,d))
     from PyShapes import cuboid
     cuboid(ax,h,w,d,alpha=0.1)
     h=h/2
     w=w/2
     d=d/2
     plane(ax,h,w,d,'x')
-    ax.text(0,w,d,r'$m_{1}$')
+    ax.text(0,w,d,r'$<100>$')
     plane(ax,h,w,d,'y')
-    ax.text(h,0,d,r'$m_{2}$')
+    ax.text(h,0,d,r'$<010>$')
     plane(ax,h,w,d,'z')
-    ax.text(h,w,0,r'$m_{3}$')
+    ax.text(h,w,0,r'$<001>$')
 
 def cube_reflection_diag(ax):
     """
@@ -498,42 +494,40 @@ def cube_reflection_diag(ax):
     w = 2
     d = 2
 
-  #  plot_axis(ax,max_lim=1.1*max(h,w,d))
     from PyShapes import cuboid
     cuboid(ax,h,w,d,alpha=0.1)
     h=h/2
     w=w/2
     d=d/2
     
-    # ax.text(h,w,0,r'm_3')
+    m = -1
+    a = np.arange(-h,h,0.01)
+    b = np.arange(-w,w,0.01)
 
-    i = 4
-    for m in [1,-1]:
-        a = np.arange(-h,h,0.1)
-        b = np.arange(-w,w,0.1)
+    a,b = np.meshgrid(a,b)
 
-        a,b = np.meshgrid(a,b)
+    for axis in ['x','y','z']:
 
-        for axis in ['x','y','z']:
+        if axis == 'x':
+            x,x_ = a,h
+            y,y_ = b,0
+            z,z_ = m * y,m*y_
+            label = '<011>'
 
-            if axis == 'x':
-                x,x_ = a,h
-                y,y_ = b,0
-                z,z_ = m * x,m*x_
+        if axis == 'y':
+            x,x_ = a,0
+            y,y_ = b,w
+            z,z_ = m * x,m*x_
+            label = '<101>'
 
-            if axis == 'y':
-                x,x_ = a,0
-                y,y_ = b,w
-                z,z_ = m * y,m*y_
+        if axis == 'z':
+            y,y_ = a,0
+            z,z_ = b,h
+            x,x_ = m*y,0
+            label = '<110>'
 
-            if axis == 'z':
-                y,y_ = a,w
-                z,z_ = b,d
-                x,x_ = m*z,m*z_
-
-            ax.plot_surface(x,y,z,alpha=0.5)
-            ax.text(x_,y_,z_,r'$m_{'+str(i)+'}$')
-            i = i +1
+        ax.plot_surface(x,y,z,alpha=0.5)
+        ax.text(x_,y_,z_,label)
 
 #########################################
 # stereo projs
@@ -609,11 +603,3 @@ def Stereographic_projection(points,r,name):
 
     plt.savefig('Images/{}.png'.format(name))
     return n_points, e_points, s_points
-
-
-# import matplotlib.pyplot as plt
-# fig = plt.figure(0,figsize=[8,8])
-# azim = 30
-# ax = fig.add_subplot(111,projection='3d',azim=azim,elev=30)
-# miller_indicies(ax,'<001>')
-# plt.show()
