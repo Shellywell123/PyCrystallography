@@ -18,7 +18,8 @@ The features of the package include:
  - [Stereographic Projections](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/stereographic_projections.md)\
  (n-fold roataion detection of stereographic projections)
 
-## Penrose Tiling
+## Some Examples
+### Penrose Tiling
 
 ```py
 Penrose_Tiling(n,'sun')
@@ -33,7 +34,7 @@ Penrose_Tiling(n,'star')
   <img src="Images/penrose_tiling_star.gif" width="400" />
 </p>
 
-## Atomic Structures
+#### Atomic Structures
 More info at [Atomic Structures](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/atomic_structures.md)
 
 ```py
@@ -59,7 +60,7 @@ def Diamond(ax):
 </p>
 
 
-## Operations
+#### Operations
 More info at [Operations](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/operations.md)
 
 ```py
@@ -74,7 +75,7 @@ def reflection(ax,h,w,d):
 </p>
 
 
-### Reflective Planes
+#### Miller Indices
 ```py
 
 def cube_reflection(ax):
@@ -88,7 +89,15 @@ def cube_reflection_diag(ax):
   <img src="Images/cube_reflection_diag.gif" width="400" />
 </p>
 
-## Face normal detection and Stereographic Projections
+#### Shapes
+More info at [Shapes](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/shapes.md)
+
+<p float="left">
+  <img src="Images/cube.gif" width="400" />
+  <img src="Images/bipyramid10.gif" width="400" />
+</p>
+
+#### Face normal detection and Stereographic Projections
 More info at [Stereographic Projections](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/stereographic_projections.md)
 
 <p float="left">
@@ -96,20 +105,5 @@ More info at [Stereographic Projections](https://github.com/Shellywell123/PyCrys
   <img src="Images/stereographic_projection_tetrakis.png" width="400" />
 </p>
 
-
-## Shapes
-More info at [Shapes](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/shapes.md)
-
-<p float="left">
-  <img src="Images/cube.gif" width="400" />
-  <img src="Images/pyramid5.gif" width="400" />
-  <img src="Images/bipyramid10.gif" width="400" />
-  <img src="Images/prism5.gif" width="400" />
-  <img src="Images/prism10.gif" width="400" />
-  <img src="Images/biprismid5.gif" width="400" />
-  <img src="Images/biprismid10.gif" width="400" />
-  <img src="Images/tetrakis.gif" width="400" />
-</p>
-
-## Identifying Symmetries
+#### Identifying Symmetries
 More info at [symmetries](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/idenitfying_symmetries.md)
