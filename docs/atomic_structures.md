@@ -6,13 +6,13 @@
 The miller indices are used to denote the planes in crystal lattices.
 
 <p float="left">
-  <img src="../Images/miller_100.gif" width="400" />
-  <img src="../Images/miller_010.gif" width="400" />
-  <img src="../Images/miller_001.gif" width="400" />
-  <img src="../Images/miller_110.gif" width="400" />
-  <img src="../Images/miller_101.gif" width="400" />
-  <img src="../Images/miller_011.gif" width="400" />
-  <img src="../Images/miller_111.gif" width="400" />
+  <img src="../PyCrystallography/Images/miller_100.gif" width="400" />
+  <img src="../PyCrystallography/Images/miller_010.gif" width="400" />
+  <img src="../PyCrystallography/Images/miller_001.gif" width="400" />
+  <img src="../PyCrystallography/Images/miller_110.gif" width="400" />
+  <img src="../PyCrystallography/Images/miller_101.gif" width="400" />
+  <img src="../PyCrystallography/Images/miller_011.gif" width="400" />
+  <img src="../PyCrystallography/Images/miller_111.gif" width="400" />
 </p>
 
 
@@ -26,8 +26,8 @@ def cube_reflection(ax):
 def cube_reflection_diag(ax):
 ```
 <p float="left">
-  <img src="../Images/cube_reflection.gif" width="400" />
-  <img src="../Images/cube_reflection_diag.gif" width="400" />
+  <img src="../PyCrystallography/Images/cube_reflection.gif" width="400" />
+  <img src="../PyCrystallography/Images/cube_reflection_diag.gif" width="400" />
 </p>
 
 ## Lattices
@@ -46,8 +46,8 @@ plt.show()
 ```
 
 <p float="left">
-  <img src="../Images/square_lattice.gif" width="400" />
-  <img src="../Images/rhombus_lattice.gif" width="400" />
+  <img src="../PyCrystallography/Images/square_lattice.gif" width="400" />
+  <img src="../PyCrystallography/Images/rhombus_lattice.gif" width="400" />
 </p>
 
 ### unit cells
@@ -65,8 +65,8 @@ make_lattice_3d(ax,prim)
 plt.show()
 ```
 <p float="left">
-  <img src="../Images/BCC_unit_cell.gif" width="400" />
-  <img src="../Images/BCC_lattice.gif" width="400" />
+  <img src="../PyCrystallography/Images/BCC_unit_cell.gif" width="400" />
+  <img src="../PyCrystallography/Images/BCC_lattice.gif" width="400" />
 </p>
 
 ```py
@@ -81,8 +81,8 @@ plt.show()
 ```
 
 <p float="left">
-  <img src="../Images/FCC_unit_cell.gif" width="400" />
-  <img src="../Images/FCC_lattice.gif" width="400" />
+  <img src="../PyCrystallography/Images/FCC_unit_cell.gif" width="400" />
+  <img src="../PyCrystallography/Images/FCC_lattice.gif" width="400" />
 </p>
 
 ```py
@@ -97,8 +97,8 @@ plt.show()
 ```
 
 <p float="left">
-  <img src="../Images/NaCl_unit_cell.gif" width="400" />
-  <img src="../Images/NaCl_lattice.gif" width="400" />
+  <img src="../PyCrystallography/Images/NaCl_unit_cell.gif" width="400" />
+  <img src="../PyCrystallography/Images/NaCl_lattice.gif" width="400" />
 </p>
 
 
@@ -114,8 +114,8 @@ plt.show()
 
 ```
 <p float="left">
-  <img src="../Images/diamond_unit_cell.gif" width="400" />
-  <img src="../Images/diamond_lattice.gif" width="400" />
+  <img src="../PyCrystallography/Images/diamond_unit_cell.gif" width="400" />
+  <img src="../PyCrystallography/Images/diamond_lattice.gif" width="400" />
 </p>
 
 # Packings
@@ -131,8 +131,8 @@ triangle_subdivision(n,'grid')
 ```
 
 <p float="left">
-  <img src="../Images/triangle_subdivision_diag.gif" width="400" />
-  <img src="../Images/triangle_subdivision_grid.gif" width="400" />
+  <img src="../PyCrystallography/Images/triangle_subdivision_diag.gif" width="400" />
+  <img src="../PyCrystallography/Images/triangle_subdivision_grid.gif" width="400" />
 </p>
 
 ```py
@@ -140,7 +140,7 @@ triangle_subdivision(n,'zelda')
 ```
 
 <p float="left">
-  <img src="../Images/triangle_subdivision_zelda.gif" width="400" />
+  <img src="../PyCrystallography/Images/triangle_subdivision_zelda.gif" width="400" />
 </p>
 
 ## Penrose Tiling
@@ -154,7 +154,7 @@ Penrose_Tiling(n,'star')
 ```
 
 <p float="left">
-  <img src="../Images/penrose_tiling_sun.gif" width="400" />
-  <img src="../Images/penrose_tiling_star.gif" width="400" />
+  <img src="../PyCrystallography/Images/penrose_tiling_sun.gif" width="400" />
+  <img src="../PyCrystallography/Images/penrose_tiling_star.gif" width="400" />
 </p>
 

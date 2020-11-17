@@ -1,4 +1,5 @@
 # TODO
+
  - neaten gifs
  - neaten rotation/inversion gif using stereographs
  - make symmetry classifier

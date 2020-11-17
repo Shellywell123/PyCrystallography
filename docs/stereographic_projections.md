@@ -3,7 +3,7 @@
 The projections in this package work by projecting points that lie on a sphere on a 2d disc about the equator. Points in the northern hemisphere will be mapped towards the south pole and points in the southern hemisphere will be mapped towards the northpole.
 
 <p float="middle">
-  <img src="../Images/SP_Diagram.png" width="400" />
+  <img src="../PyCrystallography/Images/SP_Diagram.png" width="400" />
 </p>
 
 ```py
@@ -18,8 +18,8 @@ Stereographic_projection(ax,points,r)
 plt.show()
 ```
 <p float="left">
-  <img src="../Images/face_normals_cube.gif" width="400" />
-  <img src="../Images/stereographic_projection_cube.png" width="400" />
+  <img src="../PyCrystallography/Images/face_normals_cube.gif" width="400" />
+  <img src="../PyCrystallography/Images/stereographic_projection_cube.png" width="400" />
 </p>
 
 ```py
@@ -31,8 +31,8 @@ Stereographic_projection(ax,points,1,'stereographic_projection_pyramid')
 plt.show()
 ```
 <p float="left">
-  <img src="../Images/face_normals_pyramid.gif" width="400" />
-  <img src="../Images/stereographic_projection_pyramid.png" width="400" />
+  <img src="../PyCrystallography/Images/face_normals_pyramid.gif" width="400" />
+  <img src="../PyCrystallography/Images/stereographic_projection_pyramid.png" width="400" />
 </p>
 
 ```py
@@ -45,8 +45,8 @@ plt.show()
 ```
 
 <p float="left">
-  <img src="../Images/face_normals_bipyramid.gif" width="400" />
-  <img src="../Images/stereographic_projection_bipyramid.png" width="400" />
+  <img src="../PyCrystallography/Images/face_normals_bipyramid.gif" width="400" />
+  <img src="../PyCrystallography/Images/stereographic_projection_bipyramid.png" width="400" />
 </p>
 
 ```py
@@ -59,8 +59,8 @@ plt.show()
 ```
 
 <p float="left">
-  <img src="../Images/face_normals_prism.gif" width="400" />
-  <img src="../Images/stereographic_projection_prism.png" width="400" />
+  <img src="../PyCrystallography/Images/face_normals_prism.gif" width="400" />
+  <img src="../PyCrystallography/Images/stereographic_projection_prism.png" width="400" />
 </p>
 
 ```py
@@ -73,8 +73,8 @@ plt.show()
 ```
 
 <p float="left">
-  <img src="../Images/face_normals_biprismid.gif" width="400" />
-  <img src="../Images/stereographic_projection_biprismid.png" width="400" />
+  <img src="../PyCrystallography/Images/face_normals_biprismid.gif" width="400" />
+  <img src="../PyCrystallography/Images/stereographic_projection_biprismid.png" width="400" />
 </p>
 
 ```py
@@ -87,6 +87,6 @@ plt.show()
 ```
 
 <p float="left">
-  <img src="../Images/face_normals_tetrakis.gif" width="400" />
-  <img src="../Images/stereographic_projection_tetrakis.png" width="400" />
+  <img src="../PyCrystallography/Images/face_normals_tetrakis.gif" width="400" />
+  <img src="../PyCrystallography/Images/stereographic_projection_tetrakis.png" width="400" />
 </p>

@@ -17,24 +17,10 @@ identify_fold_symmetry(northern_points,southern_points)
 ```
 
 <p float="left">
-  <img src="../Images/face_normals_biprismid.gif" width="400" />
-  <img src="../Images/stereographic_projection_biprismid.png" width="400" />
+  <img src="../PyCrystallography/Images/face_normals_biprismid.gif" width="400" />
+  <img src="../PyCrystallography/Images/stereographic_projection_biprismid.png" width="400" />
 </p>
 
 ```bash
 NFOLD =  5
 ```
-
-#Miller Indices
-
-The miller indices are used to denote the planes in crstallography in a crystal lattice.
-
-<p float="left">
-  <img src="../Images/miller_100.gif" width="400" />
-  <img src="../Images/miller_010.gif" width="400" />
-  <img src="../Images/miller_001.gif" width="400" />
-  <img src="../Images/miller_110.gif" width="400" />
-  <img src="../Images/miller_101.gif" width="400" />
-  <img src="../Images/miller_011.gif" width="400" />
-  <img src="../Images/miller_111.gif" width="400" />
-</p>
