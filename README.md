@@ -37,38 +37,15 @@ Penrose_Tiling(n,'star')
 #### Atomic Structures
 More info at [Atomic Structures](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/atomic_structures.md)
 
-```py
-def BCC(ax):
-```
-```py
-def FCC(ax):
-```
 <p float="left">
-  <img src="Images/BCC_unit_cell.gif" width="400" />
-  <img src="Images/FCC_unit_cell.gif" width="400" />
-</p>
-
-```py
-def NaCl(ax):
-```
-```py
-def Diamond(ax):
-```
-<p float="left">
-  <img src="Images/NaCl_unit_cell.gif" width="400" />
   <img src="Images/diamond_unit_cell.gif" width="400" />
+  <img src="Images/diamond_lattice.gif" width="400" />
 </p>
 
 
 #### Operations
 More info at [Operations](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/operations.md)
 
-```py
-def inversion(ax,h,w,d):
-```
-```py
-def reflection(ax,h,w,d):
-```
 <p float="left">
   <img src="Images/inversion.gif" width="400" />
   <img src="Images/reflection.gif" width="400" />
@@ -76,14 +53,7 @@ def reflection(ax,h,w,d):
 
 
 #### Miller Indices
-```py
 
-def cube_reflection(ax):
-```
-```py
-
-def cube_reflection_diag(ax):
-```
 <p float="left">
   <img src="Images/cube_reflection.gif" width="400" />
   <img src="Images/cube_reflection_diag.gif" width="400" />
