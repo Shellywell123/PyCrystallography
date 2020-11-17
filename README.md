@@ -21,20 +21,12 @@ The features of the package include:
 ## Some Examples
 ### Penrose Tiling
 
-```py
-Penrose_Tiling(n,'sun')
-```
-
-```py
-Penrose_Tiling(n,'star')
-```
-
 <p float="left">
   <img src="Images/penrose_tiling_sun.gif" width="400" />
   <img src="Images/penrose_tiling_star.gif" width="400" />
 </p>
 
-#### Atomic Structures
+### Atomic Structures
 More info at [Atomic Structures](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/atomic_structures.md)
 
 <p float="left">
@@ -43,7 +35,7 @@ More info at [Atomic Structures](https://github.com/Shellywell123/PyCrystallogra
 </p>
 
 
-#### Operations
+### Operations
 More info at [Operations](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/operations.md)
 
 <p float="left">
@@ -52,14 +44,14 @@ More info at [Operations](https://github.com/Shellywell123/PyCrystallography/blo
 </p>
 
 
-#### Miller Indices
+### Miller Indices
 
 <p float="left">
   <img src="Images/cube_reflection.gif" width="400" />
   <img src="Images/cube_reflection_diag.gif" width="400" />
 </p>
 
-#### Shapes
+### Shapes
 More info at [Shapes](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/shapes.md)
 
 <p float="left">
@@ -67,7 +59,7 @@ More info at [Shapes](https://github.com/Shellywell123/PyCrystallography/blob/ma
   <img src="Images/bipyramid10.gif" width="400" />
 </p>
 
-#### Face normal detection and Stereographic Projections
+### Face normal detection and Stereographic Projections
 More info at [Stereographic Projections](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/stereographic_projections.md)
 
 <p float="left">
@@ -75,5 +67,5 @@ More info at [Stereographic Projections](https://github.com/Shellywell123/PyCrys
   <img src="Images/stereographic_projection_tetrakis.png" width="400" />
 </p>
 
-#### Identifying Symmetries
+### Identifying Symmetries
 More info at [symmetries](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/idenitfying_symmetries.md)
