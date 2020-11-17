@@ -1,5 +1,15 @@
 # PyCrystallography
 
+Python 3 package being written to illustrate crystallography.\\
+\\
+The features of the package include:
+ - [Atomic Structures](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/atomic_structures.md)
+ - [Crystal Models](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/shapes.md)
+ - [Stereographic Projections](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/stereographic_projections.md)
+ - [Operations](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/operations.md)
+ - [Stereographic Projections](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/stereographic_projections.md)
+ - [symmetries](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/idenitfying_symmetries.md)
+
 ## Penrose Tiling
 
 ```py
