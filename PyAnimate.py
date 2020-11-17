@@ -109,14 +109,14 @@ def make_all_operations_gifs():
     """
 
     objects = [
-                {'code'    : 'rotation(ax,2,2,2)',
-                 'name'    : 'rotation'},
+                # {'code'    : 'rotation(ax,2,2,2)',
+                #  'name'    : 'rotation'},
 
-                {'code'    : 'inversion(ax,2,2,2)',
-                 'name'    : 'inversion'},
+                # {'code'    : 'inversion(ax,2,2,2)',
+                #  'name'    : 'inversion'},
 
-                {'code'    : 'reflection(ax,2,2,2)',
-                 'name'    : 'reflection'},
+                # {'code'    : 'reflection(ax,2,2,2)',
+                #  'name'    : 'reflection'},
 
                 {'code'    : 'cube_reflection(ax)',
                  'name'    : 'cube_reflection'},
@@ -329,7 +329,7 @@ def make_all_packing_gifs():
     #     ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
     #     make_lattice_3d(ax,prim,depth = i)
 
-    #     filename = save_frame(frame,num_of_frames)
+    #     filename = save_frame(i,n)
 
     # frames_to_gif(filename,name)
 
@@ -348,7 +348,7 @@ def make_all_packing_gifs():
     #     ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
     #     make_lattice_3d(ax,prim,depth = i)
 
-    #     filename = save_frame(frame,num_of_frames)
+    #     filename = save_frame(i,n)
 
     # frames_to_gif(filename,name)
     
@@ -368,7 +368,7 @@ def make_all_packing_gifs():
     #     ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
     #     make_lattice_3d(ax,prim,depth = i)
 
-    #     filename = save_frame(frame,num_of_frames)
+    #     filename = save_frame(i,n)
 
     # frames_to_gif(filename,name)
 
@@ -387,7 +387,7 @@ def make_all_packing_gifs():
     #     ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
     #     make_lattice_3d(ax,prim,depth = i)
 
-    #     filename = save_frame(frame,num_of_frames)
+    #     filename = save_frame(i,n)
 
     # frames_to_gif(filename,name)
 
@@ -400,7 +400,7 @@ def make_all_packing_gifs():
     #     fig.clear()
     #     triangle_subdivision(i,'diag')
 
-    #     filename = save_frame(frame,num_of_frames)
+    #     filename = save_frame(i,n)
 
     # frames_to_gif(filename,name)
 
@@ -413,7 +413,7 @@ def make_all_packing_gifs():
     #     fig.clear()
     #     triangle_subdivision(i,'zelda')
 
-    #     filename = save_frame(frame,num_of_frames)
+    #     filename = save_frame(i,n)
 
     # frames_to_gif(filename,name)
 
@@ -426,7 +426,7 @@ def make_all_packing_gifs():
     #     fig.clear()
     #     triangle_subdivision(i,'grid')
 
-    #     filename = save_frame(frame,num_of_frames)
+    #     filename = save_frame(i,n)
 
     # frames_to_gif(filename,name)
 
@@ -439,7 +439,7 @@ def make_all_packing_gifs():
     #     fig.clear()
     #     Penrose_Tiling(i,'sun')
 
-    #     filename = save_frame(frame,num_of_frames)
+    #     filename = save_frame(i,n)
 
     # frames_to_gif(filename,name)
 
@@ -452,7 +452,7 @@ def make_all_packing_gifs():
     #     fig.clear()
     #     Penrose_Tiling(i,'star')
 
-    #     filename = save_frame(frame,num_of_frames)
+    #     filename = save_frame(i,n)
 
     # frames_to_gif(filename,name)
 
@@ -465,8 +465,7 @@ def make_all_packing_gifs():
         fig.clear()
         prim = primitive_cell_2d('square')
         make_lattice_2d(prim,depth=i)
-
-        filename = save_frame(frame,num_of_frames)
+        filename = save_frame(i,n)
 
     frames_to_gif(filename,name)
 
@@ -480,7 +479,7 @@ def make_all_packing_gifs():
         prim = primitive_cell_2d('rhombus')
         make_lattice_2d(prim,depth=i)
 
-        filename = save_frame(frame,num_of_frames)
+        filename = save_frame(i,n)
 
     frames_to_gif(filename,name)
 
@@ -543,4 +542,4 @@ def make_all_miller_gifs():
 # make_all_stereos()
 # make_all_stereo_gifs()
 make_all_packing_gifs()
-make_all_miller_gifs()
+#make_all_miller_gifs()

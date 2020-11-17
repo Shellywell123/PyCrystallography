@@ -310,7 +310,7 @@ def make_lattice_2d(primitive_cell_2d,depth=5):
         for j in range(0,depth):
             plt.scatter((vector_A_x*i+vector_B_x*j),(vector_A_y*i+vector_B_y*j),c='k')
 
-    plt.legend(loc='top right')
+    plt.legend(loc='upper left')
     plt.axis('off')
 
 def make_lattice_3d(ax,primitive_cell_3d,depth=2):
