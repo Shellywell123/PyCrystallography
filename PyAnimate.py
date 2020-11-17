@@ -127,20 +127,15 @@ def make_all_operations_gifs():
     """
 
     objects = [
-                {'code'    : 'rotation(ax,2,2,2)',
-                 'name'    : 'rotation'},
+                # {'code'    : 'rotation(ax,2,2,2)',
+                #  'name'    : 'rotation'},
 
-                {'code'    : 'inversion(ax,2,2,2)',
-                 'name'    : 'inversion'},
+                # {'code'    : 'inversion(ax,2,2,2)',
+                #  'name'    : 'inversion'},
 
                 {'code'    : 'reflection(ax,2,2,2)',
-                 'name'    : 'reflection'},
+                 'name'    : 'reflection'}
 
-                {'code'    : 'cube_reflection(ax)',
-                 'name'    : 'cube_reflection'},
-
-                {'code'    : 'cube_reflection_diag(ax)',
-                 'name'    : 'cube_reflection_diag'}
                 ]
 
     objects_to_spin_gif(objects)
@@ -396,7 +391,13 @@ def make_all_miller_gifs():
              'name'    : 'miller_011'},
 
             {'code'    : 'miller_indicies(ax,"<111>")',
-             'name'    : 'miller_111'}
+             'name'    : 'miller_111'},
+
+            {'code'    : 'cube_reflection(ax)',
+             'name'    : 'cube_reflection'},
+
+            {'code'    : 'cube_reflection_diag(ax)',
+             'name'    : 'cube_reflection_diag'}
             ]
 
     objects_to_spin_gif(objects)
@@ -409,5 +410,5 @@ def make_all_miller_gifs():
 # make_all_face_norm_gifs()
 # make_all_stereos()
 # make_all_stereo_gifs()
-make_all_packing_gifs()
+# make_all_packing_gifs()
 # make_all_miller_gifs()

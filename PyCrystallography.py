@@ -363,42 +363,11 @@ def reflection(ax,h,w,d):
 
     h = h+3
     w= w+3
-    plane(ax,h,w,d,plane_axis='z')
+
+    plane_verts = [[h,-w,0],[-h,-w,0],[-h,w,0],[h,w,0]]
+    from PyShapes import plot_face
+    plot_face(ax,plane_verts,color='C0')
     ax.text(h,w,0,r'm')
-
-def plane(ax,h,w,d,plane_axis):
-    """
-    plots a plane in x,y or z
-    """
-    if plane_axis =='x':
-
-        z = np.arange(-h,h,0.1)
-        y = np.arange(-w,w,0.1)
-
-        z,y = np.meshgrid(z,y)
-
-        x =  np.zeros(z.shape)
-        ax.plot_surface(x,y,z,alpha=0.5)
-
-    if plane_axis =='y':
-  
-        x = np.arange(-h,h,0.1)
-        z = np.arange(-w,w,0.1)
-
-        x,z = np.meshgrid(x,z)
-
-        y =  np.zeros(x.shape)
-        ax.plot_surface(x,y,z,alpha=0.5)
-
-    if plane_axis =='z':
-
-        x = np.arange(-h,h,0.1)
-        y = np.arange(-w,w,0.1)
-
-        x,y = np.meshgrid(x,y)
-
-        z =  np.zeros(x.shape)
-        ax.plot_surface(x,y,z,alpha=0.5)
 
 def rotation(ax,h,w,d):
     """
@@ -426,7 +395,7 @@ def miller_indicies(ax,index):
         verts = [[-1,-1,1],[-1,1,1],[1,1,-1],[1,-1,-1]]
 
     if index == '<011>':
-        verts = [[-1,-1,1],[-1,1,1],[1,1,-1],[1,-1,-1]]
+        verts = [[-1,-1,1],[1,-1,1],[1,1,-1],[-1,1,-1]]
 
     if index == '<111>':
         verts = [[0,0,1],[0,1,0],[1,0,0]]
@@ -448,64 +417,50 @@ def cube_reflection(ax):
     """
     cube with some internal refelctive planes plotted
     """
-    h = 2
-    w = 2
-    d = 2
 
     from PyShapes import cuboid
-    cuboid(ax,h,w,d,alpha=0.1)
-    h=h/2
-    w=w/2
-    d=d/2
-    plane(ax,h,w,d,'x')
-    ax.text(0,w,d,r'$<100>$')
-    plane(ax,h,w,d,'y')
-    ax.text(h,0,d,r'$<010>$')
-    plane(ax,h,w,d,'z')
-    ax.text(h,w,0,r'$<001>$')
+    cuboid(ax,2,2,2,alpha=0.01)
+
+    verts_100 = [[0,-1,-1],[0,1,-1],[0,1,1],[0,-1,1]]
+    verts_010 = [[-1,0,-1],[1,0,-1],[1,0,1],[-1,0,1]]
+    verts_001 = [[-1,-1,0],[1,-1,0],[1,1,0],[-1,1,0]]
+
+    from PyShapes import plot_face
+
+    plot_face(ax,verts_100,color='red')
+    ax.plot([],[],[],c='red',label='<100>')
+
+    plot_face(ax,verts_010,color='green')
+    ax.plot([],[],[],c='green',label='<010>')
+
+    plot_face(ax,verts_001,color='blue')
+    ax.plot([],[],[],c='blue',label='<001>')
+
+    ax.legend()
 
 def cube_reflection_diag(ax):
     """
     cube with some internal refelctive planes plotted
     """
-    h = 2
-    w = 2
-    d = 2
-
     from PyShapes import cuboid
-    cuboid(ax,h,w,d,alpha=0.1)
-    h=h/2
-    w=w/2
-    d=d/2
-    
-    m = -1
-    a = np.arange(-h,h,0.01)
-    b = np.arange(-w,w,0.01)
+    cuboid(ax,2,2,2,alpha=0.01)
 
-    a,b = np.meshgrid(a,b)
+    verts_110 = [[-1,1,1],[1,-1,1],[1,-1,-1],[-1,1,-1]]
+    verts_101 = [[-1,-1,1],[-1,1,1],[1,1,-1],[1,-1,-1]]
+    verts_011 = [[-1,-1,1],[1,-1,1],[1,1,-1],[-1,1,-1]]
 
-    for axis in ['x','y','z']:
+    from PyShapes import plot_face
 
-        if axis == 'x':
-            x,x_ = a,h
-            y,y_ = b,0
-            z,z_ = m * y,m*y_
-            label = '<011>'
+    plot_face(ax,verts_110,color='yellow')
+    ax.plot([],[],[],c='yellow',label='<110>')
 
-        if axis == 'y':
-            x,x_ = a,0
-            y,y_ = b,w
-            z,z_ = m * x,m*x_
-            label = '<101>'
+    plot_face(ax,verts_101,color='orange')
+    ax.plot([],[],[],c='orange',label='<010>')
 
-        if axis == 'z':
-            y,y_ = a,0
-            z,z_ = b,h
-            x,x_ = m*y,0
-            label = '<110>'
+    plot_face(ax,verts_011,color='purple')
+    ax.plot([],[],[],c='purple',label='<001>')
 
-        ax.plot_surface(x,y,z,alpha=0.5)
-        ax.text(x_,y_,z_,label)
+    ax.legend()
 
 #########################################
 # stereo projs
