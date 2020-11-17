@@ -4,12 +4,20 @@ Python 3 package being written to illustrate crystallography.\\
 \\
 The features of the package include:
  - [Atomic Structures](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/atomic_structures.md)
- - [Crystal Models](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/shapes.md)
- - [Stereographic Projections](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/stereographic_projections.md)
- - [Operations](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/operations.md)
- - [Stereographic Projections](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/stereographic_projections.md)
- - [symmetries](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/idenitfying_symmetries.md)
+ (Miller Indices, Lattices, primitive unit cells, Triangle Subdivision, Penrose Tiling)
 
+ - [3D Crystal Models](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/shapes.md)
+ (Cuboids,Pyramids,Bipyramids,Prisms,Biprismid,Tetrakis)
+
+ - [Stereographic Projections](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/stereographic_projections.md)
+ (Face normal detection of a 3D model, projected normals converted to stereographic projections)
+
+ - [Operations](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/operations.md)
+ (Inversion, Reflection, Rotation)
+
+ - [Stereographic Projections](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/stereographic_projections.md)
+ (n-fold roataion detection of stereographic projections)
+ 
 ## Penrose Tiling
 
 ```py
