@@ -60,8 +60,8 @@ More info at [Operations](https://github.com/Shellywell123/PyCrystallography/blo
   <img src="PyCrystallography/Images/cube_reflection_diag.gif" width="400" />
 </p>
 
-### Shapes
-More info at [Shapes](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/geometry.md)
+### Geometry
+More info at [Geometry](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/geometry.md)
 
 <p float="left">
   <img src="PyCrystallography/Images/cube.gif" width="400" />
@@ -75,6 +75,3 @@ More info at [Stereographic Projections](https://github.com/Shellywell123/PyCrys
   <img src="PyCrystallography/Images/face_normals_tetrakis.gif" width="400" />
   <img src="PyCrystallography/Images/stereographic_projection_tetrakis.png" width="400" />
 </p>
-
-### Identifying Symmetries
-More info at [symmetries](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/idenitfying_symmetries.md)
