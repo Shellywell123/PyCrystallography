@@ -34,14 +34,18 @@ def cube_reflection_diag(ax):
 
 Lattices are used as a way to map the structure of crystals.
 ```py
-prim = primitive_cell_2d('square')
-make_lattice(prim)
+from PyCrystallography import unit_cell
+prim = unit_cell.primitive_cell_2d('square')
+from PyCrystallography import lattice
+lattice.make_lattice(prim)
 plt.show()
 ```
 
 ```py
-prim = primitive_cell_2d('rhombus')
-make_lattice(prim)
+from PyCrystallography import unit_cell
+prim = unit_cell.primitive_cell_2d('rhombus')
+from PyCrystallography import lattice
+lattice.make_lattice(prim)
 plt.show()
 ```
 
@@ -56,12 +60,14 @@ A lattice is made up of cells, the most important being primitive unit cells.
 
 ```py
 fig = plt.figure(0,figsize=[8,8])
-ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
-prim = BCC(ax)
+ax = fig.add_subplot(111,projection='3d')
+from PyCrystallography import unit_cell
+prim = unit_cell.BCC(ax)
 
 fig = plt.figure(1,figsize=[8,8])
-ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
-make_lattice_3d(ax,prim)
+ax = fig.add_subplot(111,projection='3d')
+from PyCrystallography import lattice
+lattice.make_lattice_3d(ax,prim)
 plt.show()
 ```
 <p float="left">
@@ -71,12 +77,14 @@ plt.show()
 
 ```py
 fig = plt.figure(0,figsize=[8,8])
-ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
-prim = FCC(ax)
+ax = fig.add_subplot(111,projection='3d')
+from PyCrystallography import unit_cell
+prim = unit_cell.FCC(ax)
 
 fig = plt.figure(1,figsize=[8,8])
-ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
-make_lattice_3d(ax,prim)
+ax = fig.add_subplot(111,projection='3d')
+from PyCrystallography import lattice
+lattice.make_lattice_3d(ax,prim)
 plt.show()
 ```
 
@@ -87,12 +95,14 @@ plt.show()
 
 ```py
 fig = plt.figure(0,figsize=[8,8])
-ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
-prim = NaCl(ax)
+ax = fig.add_subplot(111,projection='3d')
+from PyCrystallography import unit_cell
+prim = unit_cell.NaCl(ax)
 
 fig = plt.figure(1,figsize=[8,8])
-ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
-make_lattice_3d(ax,prim)
+ax = fig.add_subplot(111,projection='3d')
+from PyCrystallography import lattice
+lattice.make_lattice_3d(ax,prim)
 plt.show()
 ```
 
@@ -104,12 +114,14 @@ plt.show()
 
 ```py
 fig = plt.figure(0,figsize=[8,8])
-ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
-prim = Diamond(ax)
+ax = fig.add_subplot(111,projection='3d')
+from PyCrystallography import unit_cell
+prim = unit_cell.Diamond(ax)
 
 fig = plt.figure(1,figsize=[8,8])
-ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
-make_lattice_3d(ax,prim)
+ax = fig.add_subplot(111,projection='3d')
+from PyCrystallography import lattice
+lattice.make_lattice_3d(ax,prim)
 plt.show()
 
 ```

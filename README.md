@@ -3,9 +3,9 @@
 Python 3 package being written to illustrate crystallography.\
 \
 The features of the package include:
-- [Atomic Structures](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/atomic_structures.md)\
+- [Atomic Structures](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/atomic_structure.md)\
 (Miller Indices, Lattices, primitive unit cells, Triangle Subdivision, Penrose Tiling)
-- [3D Crystal Models](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/shapes.md)\
+- [3D Crystal Models](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/geometry.md)\
 (Cuboids,Pyramids,Bipyramids,Prisms,Biprismid,Tetrakis)
 - [Stereographic Projections](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/stereographic_projections.md)\
 (Face normal detection of a 3D model, projected normals converted to stereographic projections)
@@ -36,7 +36,7 @@ git clone https://github.com/Shellywell123/PyCrystallography/
 
 
 ### Atomic Structures
-More info at [Atomic Structures](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/atomic_structures.md)
+More info at [Atomic Structures](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/atomic_structure.md)
 
 <p float="left">
   <img src="PyCrystallography/Images/diamond_unit_cell.gif" width="400" />
@@ -61,7 +61,7 @@ More info at [Operations](https://github.com/Shellywell123/PyCrystallography/blo
 </p>
 
 ### Shapes
-More info at [Shapes](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/shapes.md)
+More info at [Shapes](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/geometry.md)
 
 <p float="left">
   <img src="PyCrystallography/Images/cube.gif" width="400" />

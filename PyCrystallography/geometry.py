@@ -1,5 +1,6 @@
 import numpy as np
-from PyCrystallography import plot_axis,make_atom,make_bond,plot_bonds,plot_atoms
+from PyCrystallography.structure import *
+
 
 def normal_points(ax,faces,r):
     """
@@ -50,24 +51,6 @@ def normal_points(ax,faces,r):
         ax.scatter(normal[0],normal[1],normal[2],linewidth=3,c=COL)
 
     return sphere_points
-
-def plot_face(ax,verts,alpha=0.5,color='C0'):
-    """
-    """
-
-    x_list = []
-    y_list = []
-    z_list = []
-
-    for vert in verts:
-        x_list.append(vert[0])
-        y_list.append(vert[1])
-        z_list.append(vert[2])
-
-    verts = [list(zip(x_list,y_list,z_list))]
-
-    from mpl_toolkits.mplot3d.art3d import Poly3DCollection
-    ax.add_collection3d(Poly3DCollection(verts,linewidths=1,edgecolor='k',alpha=alpha,color=color))
 
 def cuboid(ax,h,w,d,alpha=0.5,show_axis=True):
     """
@@ -279,3 +262,79 @@ def biprismid(ax,h,dh,r,num_of_side):
         plot_face(ax,face)
 
     return faces
+
+
+#########################################
+# stereo projs
+#########################################
+
+def Stereographic_projection(points,r,name):
+    """
+    takes x,y,z coords that all lie on the surface of a 
+    sphere and outputs a 2d stereograph
+    """
+    x = []
+    y = []
+    z = []
+
+    for vert in points:
+        x.append(vert[0])
+        y.append(vert[1])
+        z.append(vert[2])
+
+    x_ = []
+    y_ = []
+
+    n_points = []
+    e_points = []
+    s_points = []
+
+    import matplotlib.pyplot as plt
+
+    fig = plt.figure(1,figsize=[8,8])
+    fig.clear()
+
+    for i in range(0,len(x)):
+        # x_.append(x[i]/(r-z[i]))
+        # y_.append(y[i]/(r-z[i]))  
+        if z[i] > 0:
+            x_.append(x[i]/(r+z[i]))
+            y_.append(y[i]/(r+z[i])) 
+            n_points.append([x_[i],y_[i]])
+            plt.scatter(x_[i],y_[i],marker='2',label='N',c='blue',s=200)
+        elif z[i] == 0:
+            x_.append(x[i]/(r+z[i]))
+            y_.append(y[i]/(r+z[i])) 
+            e_points.append([x_[i],y_[i]])
+            plt.scatter(x_[i],y_[i],marker='+',label='E',c='green',s=200)
+        else:
+            x_.append(x[i]/(r-z[i]))
+            y_.append(y[i]/(r-z[i]))
+            s_points.append([x_[i],y_[i]])
+            plt.scatter(x_[i],y_[i],marker='1',label='S',c='r',s=200)
+
+     #   print(x_[i])
+    theta = np.linspace(0,2*np.pi,100)
+
+  #  r = np.sqrt(max(x_)**2 + max(y_)**2)
+    pos =0.15*r
+    xc = (r+pos)*np.cos(theta)
+    yc = (r+pos)*np.sin(theta)
+
+    ## sort leg
+    north   = plt.scatter([],[],marker='2',label='Northern Hemisphere',c='blue',s=200)
+    equator = plt.scatter([],[],marker='+',label='Equator',c='green',s=200)
+    south   = plt.scatter([],[],marker='1',label='Southern Hemisphere',c='r',s=200)
+
+    plt.legend(handles=[north,equator,south],bbox_to_anchor=(0., 1.01, 1., .101), loc='lower left',
+         mode="expand")
+    
+    plt.plot(xc,yc,c='k')
+    plt.xlim([-r-pos,r+pos])
+    plt.ylim([-r-pos,r+pos])
+    plt.tight_layout(pad=0, h_pad=0, w_pad=0,rect=[0,0,0.95,0.95])
+    plt.axis('off')
+
+
+    plt.savefig('PyCrystallography/Images/{}.png'.format(name))
+    return n_points, e_points, s_points

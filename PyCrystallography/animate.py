@@ -1,12 +1,23 @@
 import matplotlib
-matplotlib.use('TkAgg')
+try:
+    matplotlib.use('TkAgg')
+except:
+    pass
+    
 import matplotlib.pyplot as plt
 import os
 from mpl_toolkits.mplot3d import Axes3D
 import numpy as np
-from PyShapes import *
-from PyCrystallography import *
-from PyPacking import *
+
+from PyCrystallography.structure import *
+from PyCrystallography.geometry import *
+from PyCrystallography.stereographic_projection import *
+from PyCrystallography.unit_cell import *
+from PyCrystallography.lattice import *
+from PyCrystallography.packing import *
+from PyCrystallography.operations import *
+from PyCrystallography.miller_indices import *
+
 
 ###############################################################################
 # gif making functions
@@ -15,7 +26,7 @@ from PyPacking import *
 def delete_all_frames():
     """
     """
-    os.system('rm Images/frames/*')
+    os.system('rm PyCrystallography/Images/frames/*')
 
 ################################################################################
 
@@ -27,7 +38,7 @@ def save_frame(frame,num_of_frames):
     else:
         frame = str(frame+1)
 
-    filename = 'Images/frames/{}_{}.png'.format(frame,num_of_frames)
+    filename = 'PyCrystallography/Images/frames/{}_{}.png'.format(frame,num_of_frames)
     plt.savefig(filename)
     print(' - Frame ({}/{}) Saved.'.format(frame,num_of_frames))
     return filename
@@ -40,9 +51,9 @@ def frames_to_gif(filename,name):
     # convert all saved images to a single gif
     import imageio
     images = []
-    for filename in os.listdir('Images/frames/'):
-        images.append(imageio.imread('Images/frames/'+filename))
-    imageio.mimsave('Images/{}.gif'.format(name), images) 
+    for filename in os.listdir('PyCrystallography/Images/frames/'):
+        images.append(imageio.imread('PyCrystallography/Images/frames/'+filename))
+    imageio.mimsave('PyCrystallography/Images/{}.gif'.format(name), images) 
     print('{}.gif made'.format(name))
 
 ################################################################################
@@ -63,7 +74,7 @@ def objects_to_spin_gif(objects):
             ###################################################
 
             code = object['code']
-            exec(code)
+            exec(code,globals(),locals())
             name = object['name']
 
             ####################################################
@@ -87,7 +98,7 @@ def objects_to_n_gif(objects,n_max):
             fig = plt.figure(0,figsize=[8,8])
             fig.clear()
 
-            exec(code)
+            exec(code,globals(),locals())
 
             filename = save_frame(n,n_max)
 
@@ -97,7 +108,7 @@ def objects_to_n_gif(objects,n_max):
 # code to gifs
 ################################################################################
 
-def make_all_structure_gifs():
+def make_all_unit_cell_gifs():
     """
     generates screenshots of the program and then compiles them into a gif
     """
@@ -171,10 +182,11 @@ def make_all_face_norm_gifs():
 
 ################################################################################
 
-def make_all_shape_gifs():
+def make_all_geometry_gifs():
     """
     generates screenshots of the program and then compiles them into a gif
     """
+
     objects = [
                 {'code'    : 'cuboid(ax,5,5,5)',
                  'name'    : 'cube'},
@@ -247,6 +259,7 @@ def make_all_shape_gifs():
 def make_all_stereos():
     """
     """
+
     stereos = [
                 {'code': """points = normal_points(ax,cuboid(ax,2,2,2),2);Stereographic_projection(points,2,'stereographic_projection_cube')"""},
        
@@ -273,6 +286,7 @@ def make_all_stereos():
 def make_all_stereo_gifs():
     """
     """
+
     delete_all_frames()
     name = 'stereographic_projection_inversion'
     r=1
@@ -317,13 +331,13 @@ def make_all_stereo_gifs():
         ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
         points.append([r*np.cos(d_theta*i),r*np.sin(d_theta*i),0])
 
-        filename = save_frame(frame,num_of_frames)
+        filename = save_frame(i,n)
 
     frames_to_gif(filename,name)
 
 ################################################################################
 
-def make_all_packing_gifs():
+def make_all_lattice_gifs():
     """
     """
 
@@ -340,26 +354,37 @@ def make_all_packing_gifs():
                 {'code'    : 'ax = fig.add_subplot(111,projection="3d",azim=30,elev=30);prim = NaCl(ax);fig = plt.figure(0,figsize=[8,8]);fig.clear();ax = fig.add_subplot(111,projection="3d",azim=30,elev=30);make_lattice_3d(ax,prim,depth = n)',
                  'name'    : 'NaCl_lattice'},
 
+                {'code'    : 'prim = primitive_cell_2d("square");make_lattice_2d(prim,depth=n)',
+                 'name'    : 'square_lattice'},
+
+                {'code'    : 'prim = primitive_cell_2d("rhombus");make_lattice_2d(prim,depth=n)',
+                 'name'    : 'rhombus_lattice'}
+                 ]
+    objects_to_n_gif(objects,7)
+
+################################################################################
+
+def make_all_packing_gifs():
+    """
+    """
+
+    objects = [
+
                 {'code'    : 'triangle_subdivision(n,"diag")',
                  'name'    : 'triangle_subdivision_diag'},
 
                 {'code'    : 'triangle_subdivision(n,"zelda")',
                  'name'    : 'triangle_subdivision_zelda'},
 
-                {'code'    : 'triangle_subdivision(n."grid")',
+                {'code'    : 'triangle_subdivision(n,"grid")',
                  'name'    : 'triangle_subdivision_grid'},
 
                 {'code'    : 'Penrose_Tiling(n,"sun")',
                  'name'    : 'penrose_tiling_sun'},
 
                 {'code'    : 'Penrose_Tiling(n,"star")',
-                 'name'    : 'penrose_tiling_star'},
+                 'name'    : 'penrose_tiling_star'}
 
-                {'code'    : 'prim = primitive_cell_2d("square");make_lattice_2d(prim,depth=n)',
-                 'name'    : 'square_lattice'},
-
-                {'code'    : 'prim = primitive_cell_2d("rhombus");make_lattice_2d(prim,depth=n)',
-                 'name'    : 'rhombus_lattice'}
                 ]
 
     objects_to_n_gif(objects,7)
@@ -403,11 +428,12 @@ def make_all_miller_gifs():
 
 ################################################################################
 
-make_all_structure_gifs()
-make_all_operations_gifs()
-make_all_shape_gifs()
-make_all_face_norm_gifs()
-make_all_stereos()
-make_all_stereo_gifs()
+# make_all_unit_cell_gifs()
+# make_all_miller_gifs()
+# make_all_lattice_gifs()
+# make_all_operations_gifs()
+# make_all_geometry_gifs()
+# make_all_face_norm_gifs()
+# make_all_stereos()
+# make_all_stereo_gifs()
 make_all_packing_gifs()
-make_all_miller_gifs()

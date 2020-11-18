@@ -1,16 +1,18 @@
 
-## Shapes
+## Geometry
+PyCrystallography contains many 3D geometries that can be loaded and viewed interactively. The models can then have there normals identified and converted to [Stereographic Projections](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/stereographic_projections.md).
 ```py
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
-from PyShapes import *
+from PyCrystallography.geometry import *
 ```
 ```py
 fig = plt.figure()
 ax = fig.add_subplot(111,projection='3d')
-plot_axis(ax)
+######################################
+# which ever 3d model you want to load
 cuboid(ax,5,5,5)
-
+######################################
 plt.show()
 ```
 ### Cuboids

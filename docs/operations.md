@@ -1,4 +1,21 @@
-# Oerations
+# Operations
+In crystallography an object is considered symmetrical if it exhibits the 3 opertions of symmetry.
+
+```py
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+from PyCrystallography.operation import *
+```
+```py
+fig = plt.figure()
+ax = fig.add_subplot(111,projection='3d')
+######################################
+# which ever 3d model you want to load
+inversion(ax)
+######################################
+plt.show()
+```
+
 ## (i) Inversion
 ```py
 def inversion(ax,h,w,d):
@@ -23,6 +40,7 @@ def reflection(ax,h,w,d):
 </p>
 
 ## (iii) Rotation
+requires `PyCrystallography.stereographic_projection`
 <p float="left">
   <img src="../PyCrystallography/Images/stereographic_projection_rotation.gif" width="400" />
 </p>
