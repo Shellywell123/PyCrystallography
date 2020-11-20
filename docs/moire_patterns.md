@@ -3,7 +3,7 @@
 moire pattens can be seen by translating/rotating an indetical lattice/structure over the top of itself.
 
 ```py
-from PyCrystallography.moire import inear_rot_pattern
+from PyCrystallography.moire import linear_rot_pattern
 # n being a angle in degrees
 linear_rot_pattern(n)
 ```
