@@ -78,7 +78,7 @@ More info at [Stereographic Projections](https://github.com/Shellywell123/PyCrys
 
 ### Moire patterns
 
-More info at [Stereographic Projections](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/moire_patterns.md)
+More info at [moire patterns](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/moire_patterns.md)
 
 <p float="middle">
   <img src="PyCrystallography/Images/moire_pattern_linear_roatation.gif" width="400" />
