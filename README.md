@@ -28,6 +28,7 @@ git clone https://github.com/Shellywell123/PyCrystallography/
 
 ## Some Examples
 ### Penrose Tiling
+More info at [Atomic Structures](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/atomic_structure.md)
 
 <p float="left">
   <img src="PyCrystallography/Images/penrose_tiling_sun.gif" width="400" />
@@ -54,6 +55,7 @@ More info at [Operations](https://github.com/Shellywell123/PyCrystallography/blo
 
 
 ### Miller Indices
+More info at [Atomic Structures](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/atomic_structure.md)
 
 <p float="left">
   <img src="PyCrystallography/Images/cube_reflection.gif" width="400" />
