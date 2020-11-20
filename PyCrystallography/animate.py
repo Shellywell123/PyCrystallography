@@ -437,6 +437,9 @@ def make_all_moire_gifs():
             {'code'    : 'linear_rot_pattern(4*n)',
              'name'    : 'moire_pattern_linear_roatation'},
 
+            {'code'    : 'radial_seperation_pattern(n-22.5)',
+             'name'    : 'moire_pattern_radial_seperation'},
+
             ]
 
     objects_to_n_gif(objects,45)

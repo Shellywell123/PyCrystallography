@@ -84,4 +84,5 @@ More info at [moire patterns](https://github.com/Shellywell123/PyCrystallography
 
 <p float="middle">
   <img src="PyCrystallography/Images/moire_pattern_linear_roatation.gif" width="400" />
+  <img src="PyCrystallography/Images/moire_pattern_radial_seperation.gif" width="400" />
 </p>
