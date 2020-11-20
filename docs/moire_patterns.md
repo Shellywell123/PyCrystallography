@@ -8,6 +8,12 @@ from PyCrystallography.moire import linear_rot_pattern
 linear_rot_pattern(n)
 ```
 
+```py
+from PyCrystallography.moire import radial_seperation_pattern
+# d being the seperation
+radial_seperation_pattern(d)
+```
+
 <p float="middle">
   <img src="../PyCrystallography/Images/moire_pattern_linear_roatation.gif" width="400" />
   <img src="../PyCrystallography/Images/moire_pattern_radial_seperation.gif" width="400" />
