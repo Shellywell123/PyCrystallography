@@ -17,6 +17,7 @@ from PyCrystallography.lattice import *
 from PyCrystallography.packing import *
 from PyCrystallography.operations import *
 from PyCrystallography.miller_indices import *
+from PyCrystallography.moire import *
 
 
 ###############################################################################
@@ -426,14 +427,29 @@ def make_all_miller_gifs():
 
     objects_to_spin_gif(objects)
 
+######################################################################
+
+def make_all_moire_gifs():
+    """
+    """
+
+    objects = [
+            {'code'    : 'linear_rot_pattern(4*n)',
+             'name'    : 'moire_pattern_linear_roatation'},
+
+            ]
+
+    objects_to_n_gif(objects,45)
+
 ################################################################################
 
 # make_all_unit_cell_gifs()
 # make_all_miller_gifs()
 # make_all_lattice_gifs()
 # make_all_operations_gifs()
-make_all_geometry_gifs()
+# make_all_geometry_gifs()
 # make_all_face_norm_gifs()
 # make_all_stereos()
 # make_all_stereo_gifs()
 # make_all_packing_gifs()
+make_all_moire_gifs()

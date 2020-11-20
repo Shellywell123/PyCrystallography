@@ -75,3 +75,11 @@ More info at [Stereographic Projections](https://github.com/Shellywell123/PyCrys
   <img src="PyCrystallography/Images/face_normals_tetrakis.gif" width="400" />
   <img src="PyCrystallography/Images/stereographic_projection_tetrakis.png" width="400" />
 </p>
+
+### Moire patterns
+
+More info at [Stereographic Projections](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/moire_patterns.md)
+
+<p float="middle">
+  <img src="../PyCrystallography/Images/moire_pattern_linear_roatation.gif" width="400" />
+</p>

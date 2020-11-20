@@ -1,11 +1,11 @@
 # TODO
 
- - neaten gifs
+ - make moire patterns
+ - check all docstrings
  - neaten rotation/inversion gif using stereographs
  - make symmetry classifier
  - make nice documentaion
- - make pip package
-
+ 
 ## md side by side testing
 
 <table>
