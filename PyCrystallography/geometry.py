@@ -335,6 +335,6 @@ def Stereographic_projection(points,r,name):
     plt.tight_layout(pad=0, h_pad=0, w_pad=0,rect=[0,0,0.95,0.95])
     plt.axis('off')
 
-
-    plt.savefig('PyCrystallography/Images/{}.png'.format(name))
+    if name != 'dont_save':
+        plt.savefig('PyCrystallography/Images/{}.png'.format(name))
     return n_points, e_points, s_points

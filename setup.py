@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='PyCrystallography',
-    version='0.1.1',
+    version='0.1.3',
     description='Python 3 package being written to illustrate crystallography',
     long_description='Python 3 package being written to illustrate crystallography', # fix readme import
     long_description_content_type='text/markdown',
