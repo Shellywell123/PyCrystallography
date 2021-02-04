@@ -79,11 +79,15 @@ for i in range(0,num_of_particles):
     y1 =y_origin
 
     if collisions(lattice_points,i,theta,spread):
-        y2 =collisions(lattice_points,i,theta,spread)        
-        #continue
+        y2 = collisions(lattice_points,i,theta,spread)       
+        x2 = (y2)/np.tan(theta) + (i/num_of_particles)*spread
+        # plot reflected particle
+        plt.plot([x2,x2 + (x2 - x1)],[y2,y1]) 
     else:
         y2 = y_origin + canvas_size
-    x2 = (y2)/np.tan(theta) + (i/num_of_particles)*spread
+        x2 = (y2)/np.tan(theta) + (i/num_of_particles)*spread
+        
+    
 
 
     plt.plot([x1,x2],[y1,y2])
