@@ -28,7 +28,7 @@ theta = 40
 num_of_particles = 10
 
 #cant be zero min = 1
-spread = 10
+spread = 1
 
 #compute angles and collisions
 
@@ -56,10 +56,12 @@ def collisions(lattice_points,particle_num,theta,spread):
 
         #print (c)
 
-        if y_calc -0.2< y < y_calc + 0.2:
+        #detection sensitivity
+        ds = 0.4
+        if (y_calc -ds< y < y_calc + ds):
             print('collision')
             print(y)
-            return y
+            return y_calc
 
     return None
 
@@ -75,22 +77,27 @@ canvas_size = 16
 
 for i in range(0,num_of_particles):
 
-    x1 = x_origin + (i/num_of_particles)*spread
+    x1 = x_origin + (i+1/num_of_particles)*spread
     y1 =y_origin
 
     if collisions(lattice_points,i,theta,spread):
-        y2 = collisions(lattice_points,i,theta,spread)       
-        x2 = (y2)/np.tan(theta) + (i/num_of_particles)*spread
+        y2 = collisions(lattice_points,i,theta,spread)    
+        d_x = (i+1/num_of_particles)*spread
+        c = d_x*np.tan(theta)   
+        x2 = (y2 - c)/np.tan(theta) #+ 
         # plot reflected particle
-        plt.plot([x2,x2 + (x2 - x1)],[y2,y1]) 
+        x3 = x_origin + canvas_size
+        m = (y2-y1)/(x2-x1)
+
+        #need to fgure out c
+        c = 0
+        y3 = -m*x3 + c
+        plt.plot([x1,x2,x3],[y1,y2,y3]) 
     else:
         y2 = y_origin + canvas_size
-        x2 = (y2)/np.tan(theta) + (i/num_of_particles)*spread
+        x2 = (y2)/np.tan(theta) + (i+1/num_of_particles)*spread
         
-    
-
-
-    plt.plot([x1,x2],[y1,y2])
+     #   plt.plot([x1,x2],[y1,y2])
 
 plt.xlim(x_origin,x_origin+canvas_size)
 plt.ylim(y_origin,y_origin+canvas_size)
