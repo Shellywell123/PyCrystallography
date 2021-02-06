@@ -13,7 +13,7 @@ The features of the package include:
 (Inversion, Reflection, Rotation)
 - [Stereographic Projections](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/stereographic_projections.md)\
 (n-fold roataion detection of stereographic projections)
-
+- [Xray-Diffraction](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/xray_diffraction.md)\
 ## Installation
 ```bash
 pip3 install PyCrystallography
