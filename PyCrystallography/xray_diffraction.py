@@ -21,7 +21,7 @@ def genrate_lattice_points(unit_cell_shape='square'):
     from PyCrystallography.unit_cell import primitive_cell_2d
 
     plt.figure('Xray-Diffraction',figsize=(5,5))
-    primitive_cell_2d = primitive_cell_2d('square')
+    primitive_cell_2d = primitive_cell_2d(unit_cell_shape)
     lattice_points = make_lattice_2d(primitive_cell_2d,depth=canvas_size)
 
     return lattice_points
@@ -74,11 +74,11 @@ def collision_checker(lattice_points,m,c,d_x):
     return None
 
 
-def run_simulation(num_of_particles,theta_rad,spread):
+def run_simulation(num_of_particles,theta_rad,spread,lattice_shape='sqaure'):
     """
     runs xray diffraction simulations
     """
-    lattice_points = genrate_lattice_points()
+    lattice_points = genrate_lattice_points(unit_cell_shape=lattice_shape)
 
     theta_rad = np.radians(theta)
 
@@ -144,11 +144,11 @@ theta = 60
 
 # number of particles being fired
 # - can not be zero, min = 1
-num_of_particles = 10
+num_of_particles = 3
 
 # x distance incomving particles are distribued across
 # - can not be zero, min = 1
-spread = 5
+spread = 1
 
 #print experiment summary init conds
 print('Initial Conditions')
@@ -158,4 +158,4 @@ print(' - {} particles spread across {} (x units) at a angle of {} degrees\n'.fo
 # execution
 ################################################################
 
-run_simulation(num_of_particles,theta,spread)
+run_simulation(num_of_particles,theta,spread,lattice_shape='rhombus')
