@@ -78,6 +78,7 @@ def run_simulation(num_of_particles,theta_rad,spread,lattice_shape='sqaure'):
     """
     runs xray diffraction simulations
     """
+    plt.clf()
     lattice_points = genrate_lattice_points(unit_cell_shape=lattice_shape)
 
     theta_rad = np.radians(theta)
@@ -158,4 +159,4 @@ print(' - {} particles spread across {} (x units) at a angle of {} degrees\n'.fo
 # execution
 ################################################################
 
-run_simulation(num_of_particles,theta,spread,lattice_shape='rhombus')
+#run_simulation(num_of_particles,theta,spread,lattice_shape='rhombus')
