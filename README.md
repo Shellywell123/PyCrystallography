@@ -78,3 +78,10 @@ git clone https://github.com/Shellywell123/PyCrystallography/
   <img src="PyCrystallography/Images/moire_pattern_linear_roatation.gif" width="400" />
   <img src="PyCrystallography/Images/moire_pattern_radial_seperation.gif" width="400" />
 </p>
+
+### Xray-Diffraction
+Work in Progress
+<p float="middle">
+  <img src="PyCrystallography/Images/Xray-Diffraction.png" width="400" />
+</p>
+
