@@ -20,7 +20,6 @@ def genrate_lattice_points(unit_cell_shape='square'):
     from PyCrystallography.lattice import make_lattice_2d
     from PyCrystallography.unit_cell import primitive_cell_2d
 
-    plt.figure('Xray-Diffraction',figsize=(5,5))
     primitive_cell_2d = primitive_cell_2d(unit_cell_shape)
     lattice_points = make_lattice_2d(primitive_cell_2d,depth=canvas_size)
 
@@ -50,6 +49,8 @@ def collision_checker(lattice_points,m,c,d_x):
     checks if a lattice point is within a range of y=mx+c
     """
     # iterate through lattic points lowest x0 -> xmax, y0->ymax
+
+
     for lattice_point in lattice_points:
 
         x = lattice_point[0]
@@ -67,8 +68,13 @@ def collision_checker(lattice_points,m,c,d_x):
 
         #see if trajectory in range of lattice point
         # replace with radial checker soon
-        if (x -ds < x_calc < x + ds) and (y - ds < y_calc< y + ds):
+       # if (x -ds < x_calc < x + ds) and (y - ds < y_calc< y + ds):
            # print('collision at ',x,x_calc,y,y_calc)
+        #    return (x_calc, y_calc)
+
+        d_r = np.sqrt((x-x_calc)**2+(y-y_calc)**2) 
+
+        if d_r <= 0.4:
             return (x_calc, y_calc)
 
     return None
@@ -77,7 +83,8 @@ def collision_checker(lattice_points,m,c,d_x):
 def run_simulation(num_of_particles,theta_rad,spread,lattice_shape='sqaure'):
     """
     runs xray diffraction simulations
-    """
+    """    
+    plt.figure('Xray-Diffraction',figsize=(5,5))
     plt.clf()
     lattice_points = genrate_lattice_points(unit_cell_shape=lattice_shape)
 
@@ -135,28 +142,28 @@ x_origin = 0
 y_origin = -10
 canvas_size = 16
 
-################################
-# simulation params
-################################
+# ################################
+# # simulation params
+# ################################
 
-# angle fro surface norm (degrees)
-theta = 60
+# # angle fro surface norm (degrees)
+# theta = 60
 
 
-# number of particles being fired
-# - can not be zero, min = 1
-num_of_particles = 3
+# # number of particles being fired
+# # - can not be zero, min = 1
+# num_of_particles = 3
 
-# x distance incomving particles are distribued across
-# - can not be zero, min = 1
-spread = 1
+# # x distance incomving particles are distribued across
+# # - can not be zero, min = 1
+# spread = 1
 
-#print experiment summary init conds
-print('Initial Conditions')
-print(' - {} particles spread across {} (x units) at a angle of {} degrees\n'.format(num_of_particles,spread,theta))
+# #print experiment summary init conds
+# print('Initial Conditions')
+# print(' - {} particles spread across {} (x units) at a angle of {} degrees\n'.format(num_of_particles,spread,theta))
 
-################################################################
-# execution
-################################################################
+# ################################################################
+# # execution
+# ################################################################
 
-#run_simulation(num_of_particles,theta,spread,lattice_shape='rhombus')
+# run_simulation(num_of_particles,theta,spread,lattice_shape='square')
