@@ -80,10 +80,15 @@ def collision_checker(lattice_points,m,c,d_x):
     return None
 
 
-def run_simulation(num_of_particles,theta_rad,spread,lattice_shape='sqaure'):
+def run_simulation(num_of_particles,theta,spread,lattice_shape='square'):
     """
     runs xray diffraction simulations
     """    
+
+    #print experiment summary init conds
+    print('Initial Conditions')
+    print(' - {} particles spread across {} (x units) at a angle of {} degrees\n'.format(num_of_particles,spread,theta))
+
     plt.figure('Xray-Diffraction',figsize=(5,5))
     plt.clf()
     lattice_points = genrate_lattice_points(unit_cell_shape=lattice_shape)
@@ -157,10 +162,6 @@ canvas_size = 16
 # # x distance incomving particles are distribued across
 # # - can not be zero, min = 1
 # spread = 1
-
-# #print experiment summary init conds
-# print('Initial Conditions')
-# print(' - {} particles spread across {} (x units) at a angle of {} degrees\n'.format(num_of_particles,spread,theta))
 
 # ################################################################
 # # execution

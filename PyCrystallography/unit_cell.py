@@ -11,6 +11,9 @@ def primitive_cell_2d(cell_type):
         x_points = [0,1,0,1]
         y_points = [0,0,1,0]
 
+    else:
+        print('"{}" is not a vaild uncit cell shape"'.format(cell_type))
+
     primitive_cell_2d =(x_points,y_points)
     return primitive_cell_2d
 
