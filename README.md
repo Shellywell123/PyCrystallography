@@ -11,8 +11,7 @@ The features of the package include:
 (Face normal detection of a 3D model, projected normals converted to stereographic projections)
 - [Operations](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/operations.md)\
 (Inversion, Reflection, Rotation)
-- [Stereographic Projections](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/stereographic_projections.md)\
-(n-fold roataion detection of stereographic projections)
+- [Moire Patterns](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/moire_patterns.md)
 - [Xray-Diffraction](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/xray_diffraction.md)
 
 ## Installation
