@@ -214,12 +214,12 @@ canvas_size = 16
 # ################################
 
 # angle fro surface norm (degrees)
-theta = 60
+theta = 55
 
 
 # number of particles being fired
 # - can not be zero, min = 1
-num_of_particles = 3
+num_of_particles = 5
 
 # x distance incomving particles are distribued across
 # - can not be zero, min = 1
@@ -229,4 +229,4 @@ spread = 1
 # # execution
 # ################################################################
 
-run_simulation(num_of_particles,theta,spread,lattice_shape='square')
+run_simulation(num_of_particles,theta,spread,lattice_shape='rhombus')
