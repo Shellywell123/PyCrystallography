@@ -229,4 +229,4 @@ spread = 1
 # # execution
 # ################################################################
 
-run_simulation(num_of_particles,theta,spread,lattice_shape='rhombus')
+# run_simulation(num_of_particles,theta,spread,lattice_shape='rhombus')
