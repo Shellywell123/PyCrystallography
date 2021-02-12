@@ -48,9 +48,8 @@ def collision_checker(lattice_points,m,c,d_x):
     trajectory lattice colision checker
     checks if a lattice point is within a range of y=mx+c
     """
+
     # iterate through lattic points lowest x0 -> xmax, y0->ymax
-
-
     for lattice_point in lattice_points:
 
         x = lattice_point[0]
@@ -59,18 +58,12 @@ def collision_checker(lattice_points,m,c,d_x):
         # calcualte x and y of particle traj given lattic coords
         
         x_calc = (y - c)/m + d_x
-
-        # fix y_calc!!!!!!!!
         y_calc = m*(x - d_x) + c
 
         #detection sensitivity (keep around 0.5 of lattice spacing)
-        ds = 0.2
+        ds = 0.4
 
         #see if trajectory in range of lattice point
-        # replace with radial checker soon
-       # if (x -ds < x_calc < x + ds) and (y - ds < y_calc< y + ds):
-           # print('collision at ',x,x_calc,y,y_calc)
-        #    return (x_calc, y_calc)
 
         d_r = np.sqrt((x-x_calc)**2+(y-y_calc)**2) 
 
@@ -78,6 +71,75 @@ def collision_checker(lattice_points,m,c,d_x):
             return (x_calc, y_calc)
 
     return None
+
+
+def make_wave(x_list,y_list):
+    """
+    """
+
+    def z_anticlockwise(x,y,theta):
+        """
+        rotate around z axis
+        """
+        theta = -theta
+        X =  x*np.cos(theta)+y*np.sin(theta)
+        Y = -x*np.sin(theta)+y*np.cos(theta)
+
+        return X,Y   
+
+    amplitude = 0.1
+    wavelength = 0.1
+
+    #wave resolution
+    N =1000
+
+    try:
+        x1,x2,x3 = x_list
+        y1,y2,y3 = y_list
+
+        theta_1 = np.arctan((y2-y1)/(x2-x1))
+        theta_2 = np.arctan((y3-y2)/(x3-x2))
+
+        length_1 = np.sqrt((y2-y1)**2+(x2-x1)**2)
+        length_2 = np.sqrt((y3-y2)**2+(x3-x2)**2)
+
+        X_1 = np.linspace(0,length_2,N)
+        Y_1 = amplitude*np.sin(X_1/wavelength)
+
+        x_1,y_1 = z_anticlockwise(X_1,Y_1,theta_1)
+
+        x_1 = x_1 + x1
+        y_1 = y_1 + y1
+
+        X_2 = np.linspace(0,length_2,N)
+        Y_2 = amplitude*np.sin(X_2/wavelength)
+
+        x_2,y_2 = z_anticlockwise(X_2,Y_2,theta_2)
+
+        x_2 = x_2 + x2
+        y_2 = y_2 + y2
+
+        x_ = np.concatenate((x_1,x_2))
+        y_ = np.concatenate((y_1,y_2))
+
+        plt.plot(x_,y_)
+
+    except:
+        x1,x2 = x_list
+        y1,y2 = y_list
+
+        theta = np.arctan((y2-y1)/(x2-x1))
+        length_1 = np.sqrt((y2-y1)**2+(x2-x1)**2)
+
+        x = np.linspace(0,length_1,N)
+        y = amplitude*np.sin(x/wavelength)
+
+        x_,y_ = z_anticlockwise(x,y,theta)
+
+        x_ = x_ + x1
+        y_ = y_ + y1
+
+        plt.plot(x_,y_)
 
 
 def run_simulation(num_of_particles,theta,spread,lattice_shape='square'):
@@ -118,14 +180,14 @@ def run_simulation(num_of_particles,theta,spread,lattice_shape='square'):
             x3 = x2+(x2-x1)
             y3 = y1
 
-            plt.plot([x1,x2,x3],[y1,y2,y3]) 
+            make_wave([x1,x2,x3],[y1,y2,y3])
             
         else:
             # if no collision plot til canvas edge
             y2 = y_origin + canvas_size
             x2 = (y2-c)/m + d_x
 
-            plt.plot([x1,x2],[y1,y2])
+            make_wave([x1,x2],[y1,y2])
 
     plt.xlim(x_origin-0.5,x_origin+canvas_size-0.5)
     plt.ylim(y_origin-0.5,y_origin+canvas_size-0.5)
@@ -151,20 +213,20 @@ canvas_size = 16
 # # simulation params
 # ################################
 
-# # angle fro surface norm (degrees)
-# theta = 60
+# angle fro surface norm (degrees)
+theta = 60
 
 
-# # number of particles being fired
-# # - can not be zero, min = 1
-# num_of_particles = 3
+# number of particles being fired
+# - can not be zero, min = 1
+num_of_particles = 3
 
-# # x distance incomving particles are distribued across
-# # - can not be zero, min = 1
-# spread = 1
+# x distance incomving particles are distribued across
+# - can not be zero, min = 1
+spread = 1
 
 # ################################################################
 # # execution
 # ################################################################
 
-# run_simulation(num_of_particles,theta,spread,lattice_shape='square')
+run_simulation(num_of_particles,theta,spread,lattice_shape='square')
