@@ -61,7 +61,7 @@ def collision_checker(lattice_points,m,c,d_x):
         y_calc = m*(x - d_x) + c
 
         #detection sensitivity (keep around 0.5 of lattice spacing)
-        ds = 0.4
+        ds = 0.2
 
         #see if trajectory in range of lattice point
 
@@ -87,7 +87,7 @@ def make_wave(x_list,y_list):
 
         return X,Y   
 
-    amplitude = 0.1
+    amplitude = 0.11
     wavelength = 0.1
 
     #wave resolution
@@ -104,7 +104,7 @@ def make_wave(x_list,y_list):
         length_2 = np.sqrt((y3-y2)**2+(x3-x2)**2)
 
         X_1 = np.linspace(0,length_2,N)
-        Y_1 = amplitude*np.sin(X_1/wavelength)
+        Y_1 = amplitude*np.sin((X_1)/wavelength)
 
         x_1,y_1 = z_anticlockwise(X_1,Y_1,theta_1)
 
@@ -112,17 +112,27 @@ def make_wave(x_list,y_list):
         y_1 = y_1 + y1
 
         X_2 = np.linspace(0,length_2,N)
-        Y_2 = amplitude*np.sin(X_2/wavelength)
-
+        phase_shift = length_1%wavelength
+        Y_2 = amplitude*np.sin((X_2 - phase_shift)/wavelength)
         x_2,y_2 = z_anticlockwise(X_2,Y_2,theta_2)
 
         x_2 = x_2 + x2
         y_2 = y_2 + y2
 
-        x_ = np.concatenate((x_1,x_2))
-        y_ = np.concatenate((y_1,y_2))
+        x_fin = []
+        y_fin = []
 
-        plt.plot(x_,y_)
+        for i in range(0,len(x_1)):
+            if x_1[i] < x2:
+                x_fin.append(x_1[i])
+                y_fin.append(y_1[i])
+
+        for i in range(0,len(x_1)):
+            if x_2[i] > x2:
+                x_fin.append(x_2[i])
+                y_fin.append(y_2[i])
+
+        plt.plot(x_fin,y_fin)
 
     except:
         x1,x2 = x_list
@@ -149,7 +159,7 @@ def run_simulation(num_of_particles,theta,spread,lattice_shape='square'):
 
     #print experiment summary init conds
     print('Initial Conditions')
-    print(' - {} particles spread across {} (x units) at a angle of {} degrees\n'.format(num_of_particles,spread,theta))
+    print(' - {} particles spread across {} (x units) at a angle of {}°\n'.format(num_of_particles,spread,theta))
 
     plt.figure('Xray-Diffraction',figsize=(5,5))
     plt.clf()
@@ -229,4 +239,4 @@ spread = 1
 # # execution
 # ################################################################
 
-# run_simulation(num_of_particles,theta,spread,lattice_shape='rhombus')
+run_simulation(num_of_particles,theta,spread,lattice_shape='rhombus')

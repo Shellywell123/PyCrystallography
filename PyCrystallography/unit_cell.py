@@ -7,7 +7,7 @@ def primitive_cell_2d(cell_type):
         x_points = [0,1,0.5,1.5]
         y_points = [0,0,1,1]
 
-    if cell_type == 'square':
+    elif cell_type == 'square':
         x_points = [0,1,0,1]
         y_points = [0,0,1,0]
 
