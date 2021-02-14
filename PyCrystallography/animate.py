@@ -40,7 +40,7 @@ def save_frame(frame,num_of_frames):
         frame = str(frame+1)
 
     filename = 'PyCrystallography/Images/frames/{}_{}.png'.format(frame,num_of_frames)
-    plt.savefig(filename)
+    plt.savefig(filename,transparent=False)
     print(' - Frame ({}/{}) Saved.'.format(frame,num_of_frames))
     return filename
 
@@ -49,7 +49,7 @@ def save_frame(frame,num_of_frames):
 def frames_to_gif(filename,name):
     """
     """
-    # convert all saved images to a single gif
+    #convert all saved images to a single gif
     import imageio
     images = []
     for filename in os.listdir('PyCrystallography/Images/frames/'):
@@ -57,7 +57,36 @@ def frames_to_gif(filename,name):
     imageio.mimsave('PyCrystallography/Images/{}.gif'.format(name), images) 
     print('{}.gif made'.format(name))
 
-################################################################################
+    # for transparent bgs use this and set ln 43 transparent=True
+    # from PIL import Image
+
+    # def gen_frame(path):
+    #     im = Image.open(path)
+    #     alpha = im.getchannel('A')
+
+    #     # Convert the image into P mode but only use 255 colors in the palette out of 256
+    #     im = im.convert('RGB').convert('P', palette=Image.ADAPTIVE, colors=255)
+
+    #     # Set all pixel values below 128 to 255 , and the rest to 0
+    #     mask = Image.eval(alpha, lambda a: 255 if a <=128 else 0)
+
+    #     # Paste the color of index 255 and use alpha as a mask
+    #     im.paste(255, mask)
+
+    #     # The transparency index is 255
+    #     im.info['transparency'] = 255
+
+    #     return im
+
+    # images = []
+    # for filename in os.listdir('PyCrystallography/Images/frames/'):
+    #      images.append(gen_frame('PyCrystallography/Images/frames/'+filename))
+
+    # im1 = images[0]       
+    # im1.save('PyCrystallography/Images/{}.gif'.format(name), save_all=True, append_images=images[0:],disposal=2)
+    # print('{}.gif made'.format(name))
+
+    ################################################################################
 
 def objects_to_spin_gif(objects):
     """
@@ -69,6 +98,8 @@ def objects_to_spin_gif(objects):
         for frame in range(0,num_of_frames):
 
             fig = plt.figure(0,figsize=[8,8])
+            plt.clf()
+            fig.clear()
             azim = (360/num_of_frames)*frame
             ax = fig.add_subplot(111,projection='3d',azim=azim,elev=30)
 
@@ -450,9 +481,9 @@ def make_all_moire_gifs():
 # make_all_miller_gifs()
 # make_all_lattice_gifs()
 # make_all_operations_gifs()
-# make_all_geometry_gifs()
+make_all_geometry_gifs()
 # make_all_face_norm_gifs()
 # make_all_stereos()
 # make_all_stereo_gifs()
 # make_all_packing_gifs()
-make_all_moire_gifs()
+# make_all_moire_gifs()

@@ -15,27 +15,34 @@ def make_lattice_2d(primitive_cell_2d,depth=5):
     """
     """
 
-    x_points,y_points = primitive_cell_2d
+    #for hexagonal and more complex lattices need new algo
+    if len(primitive_cell_2d[0]) > 4:
+        print('need new algo')
+        return 0
 
-    vector_A_x = abs(x_points[1] - x_points[0])
-    vector_A_y = abs(y_points[1] - y_points[0])
+    #for square and rhobic lattices
+    else:
+        x_points,y_points = primitive_cell_2d
 
-    vector_B_x = abs(x_points[2] - x_points[0])
-    vector_B_y = abs(y_points[2] - y_points[0])    
+        vector_A_x = abs(x_points[1] - x_points[0])
+        vector_A_y = abs(y_points[1] - y_points[0])
 
-    plt.plot((0,vector_A_x),(0,vector_A_y),label='A',c='b')
-    plt.plot((0,vector_B_x),(0,vector_B_y),label='B',c='r')
+        vector_B_x = abs(x_points[2] - x_points[0])
+        vector_B_y = abs(y_points[2] - y_points[0])    
 
-    lattice_points = []
+        plt.plot((0,vector_A_x),(0,vector_A_y),label='A',c='b')
+        plt.plot((0,vector_B_x),(0,vector_B_y),label='B',c='r')
 
-    for i in range(0,depth):
-        for j in range(0,depth):
-            plt.scatter((vector_A_x*i+vector_B_x*j),(vector_A_y*i+vector_B_y*j),c='k')
-            lattice_points.append([(vector_A_x*i+vector_B_x*j),(vector_A_y*i+vector_B_y*j)])
+        lattice_points = []
 
-    plt.legend(loc='upper left')
-    plt.axis('off')
-    return lattice_points
+        for i in range(0,depth):
+            for j in range(0,depth):
+                plt.scatter((vector_A_x*i+vector_B_x*j),(vector_A_y*i+vector_B_y*j),c='k')
+                lattice_points.append([(vector_A_x*i+vector_B_x*j),(vector_A_y*i+vector_B_y*j)])
+
+        plt.legend(loc='upper left')
+        plt.axis('off')
+        return lattice_points
 
 def make_lattice_3d(ax,primitive_cell_3d,depth=2):
     """

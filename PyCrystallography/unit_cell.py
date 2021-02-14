@@ -1,4 +1,5 @@
 from PyCrystallography.structure import *
+import numpy as np
 
 def primitive_cell_2d(cell_type):
     """
@@ -6,6 +7,18 @@ def primitive_cell_2d(cell_type):
     if cell_type == 'rhombus':
         x_points = [0,1,0.5,1.5]
         y_points = [0,0,1,1]
+
+    elif cell_type == 'hexagon':
+        r_uc = 0.5
+
+        x_points = []
+        y_points = []
+
+        dtheta_uc = 2*np.pi/6
+        for i in range(0,6):
+            ang = i*dtheta_uc+dtheta_uc/2
+            x_points.append(r_uc*np.sin(ang)+r_uc)
+            y_points.append(r_uc*np.cos(ang)+r_uc)
 
     elif cell_type == 'square':
         x_points = [0,1,0,1]
