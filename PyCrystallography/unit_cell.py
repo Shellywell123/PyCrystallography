@@ -9,7 +9,7 @@ def primitive_cell_2d(cell_type):
         y_points = [0,0,1,1]
 
     elif cell_type == 'hexagon':
-        r_uc = 0.5
+        r_uc = 1
 
         x_points = []
         y_points = []

@@ -3,7 +3,8 @@ try:
     matplotlib.use('TkAgg')
 except:
     pass
-    
+
+import numpy as np
 import matplotlib.pyplot as plt
 
 #####################################
@@ -16,9 +17,55 @@ def make_lattice_2d(primitive_cell_2d,depth=5):
     """
 
     #for hexagonal and more complex lattices need new algo
-    if len(primitive_cell_2d[0]) > 4:
-        print('need new algo')
-        return 0
+    if len(primitive_cell_2d[0]) == 6:
+        x_points,y_points = primitive_cell_2d
+
+        r = max(max(x_points)-min(x_points),max(y_points)-min(y_points))/2
+
+        vector_A_x = 0
+        vector_A_y = r
+
+        vector_B_x = r*np.cos(-np.pi/3)
+        vector_B_y = r*np.sin(-np.pi/3)
+
+        vector_C_x = -r*np.cos(-np.pi/3)
+        vector_C_y = r*np.sin(-np.pi/3) 
+
+        plt.plot((0,vector_A_x),(0,vector_A_y),label='A',c='b')
+        plt.plot((0,vector_B_x),(0,vector_B_y),label='B',c='r')   
+        plt.plot((0,vector_C_x),(0,vector_C_y),label='C',c='g')   
+        plt.scatter(0,0,c='k')
+
+        lattice_points =[]
+
+        for i in range(0,depth):
+            for j in range(0,depth):
+
+                if (j%2 == 0):
+                    # draws backwards C shape repeated over a grid
+                    # bottom mid (main base origin)
+                    x_lattice_point_1 = (vector_B_x - vector_C_x)*i 
+                    y_lattice_point_1 = (vector_B_y - vector_C_y)*j + (vector_A_y-vector_B_y)*j
+                    plt.scatter(x_lattice_point_1,y_lattice_point_1, c='k')
+                    lattice_points.append([x_lattice_point_1,y_lattice_point_1])
+
+                    # top mid 
+                    x_lattice_point_2 = x_lattice_point_1 + vector_A_x
+                    y_lattice_point_2 = y_lattice_point_1 + vector_A_y
+                    plt.scatter(x_lattice_point_2,y_lattice_point_2, c='k')
+                    lattice_points.append([x_lattice_point_2,y_lattice_point_2])
+
+                    #bottom left
+                    x_lattice_point_3 = x_lattice_point_1 + vector_C_x
+                    y_lattice_point_3 = y_lattice_point_1 + vector_C_y
+                    plt.scatter(x_lattice_point_3,y_lattice_point_3, c='k')
+                    lattice_points.append([x_lattice_point_3,y_lattice_point_3])
+
+                    #top left
+                    x_lattice_point_4 = x_lattice_point_2 - vector_B_x
+                    y_lattice_point_4 = y_lattice_point_2 - vector_B_y
+                    plt.scatter(x_lattice_point_4,y_lattice_point_4, c='k')
+                    lattice_points.append([x_lattice_point_4,y_lattice_point_4])
 
     #for square and rhobic lattices
     else:
@@ -40,9 +87,9 @@ def make_lattice_2d(primitive_cell_2d,depth=5):
                 plt.scatter((vector_A_x*i+vector_B_x*j),(vector_A_y*i+vector_B_y*j),c='k')
                 lattice_points.append([(vector_A_x*i+vector_B_x*j),(vector_A_y*i+vector_B_y*j)])
 
-        plt.legend(loc='upper left')
-        plt.axis('off')
-        return lattice_points
+    plt.legend(loc='upper left')
+    plt.axis('off')
+    return lattice_points
 
 def make_lattice_3d(ax,primitive_cell_3d,depth=2):
     """

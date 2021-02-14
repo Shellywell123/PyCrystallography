@@ -82,6 +82,6 @@ git clone https://github.com/Shellywell123/PyCrystallography/
 ### [Xray-Diffraction](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/xray_diffraction.md)
 <p float="middle">
   <img src="PyCrystallography/Images/Xray-Diffraction.png" width="400" />
-  <img src="PyCrystallography/Images/Xray-Diffraction2.png" width="400" />
+  <img src="PyCrystallography/Images/Xray-Diffraction3.png" width="400" />
 </p>
 

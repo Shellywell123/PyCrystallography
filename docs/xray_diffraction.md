@@ -20,4 +20,5 @@ run_simulation(num_of_particles,theta,spread,lattice_shape='rhombus')
 <p float="middle">
   <img src="../PyCrystallography/Images/Xray-Diffraction.png" width="400" />
   <img src="../PyCrystallography/Images/Xray-Diffraction2.png" width="400" />
+  <img src="../PyCrystallography/Images/Xray-Diffraction3.png" width="400" />
 </p>

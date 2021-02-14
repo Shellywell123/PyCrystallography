@@ -52,6 +52,7 @@ plt.show()
 <p float="left">
   <img src="../PyCrystallography/Images/square_lattice.gif" width="400" />
   <img src="../PyCrystallography/Images/rhombus_lattice.gif" width="400" />
+  <img src="../PyCrystallography/Images/hexagon_lattice.gif" width="400" />
 </p>
 
 ### unit cells

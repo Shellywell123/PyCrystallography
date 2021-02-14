@@ -236,7 +236,7 @@ num_of_particles = 5
 spread = 1
 
 # ################################################################
-# # execution
+# # execution - for dev purposes
 # ################################################################
 
-run_simulation(num_of_particles,theta,spread,lattice_shape='rhombus')
+# run_simulation(num_of_particles,theta,spread,lattice_shape='rhombus')
