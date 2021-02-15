@@ -32,9 +32,9 @@ def primitive_cell_2d(cell_type):
 
         dtheta_uc = 2*np.pi/6
         for i in range(0,6):
-            ang = i*dtheta_uc+dtheta_uc/2
-            x_points.append(r_uc*np.sin(ang)+r_uc)
-            y_points.append(r_uc*np.cos(ang)+r_uc)
+            ang = i*dtheta_uc#+dtheta_uc/2
+            x_points.append(r_uc*np.sin(ang))
+            y_points.append(r_uc*np.cos(ang))
 
 
     else:

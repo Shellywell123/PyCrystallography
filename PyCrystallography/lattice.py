@@ -54,6 +54,17 @@ def make_lattice_2d(primitive_cell_2d,depth=5):
                     plt.scatter(x_lattice_point_2,y_lattice_point_2, c='k')
                     lattice_points.append([x_lattice_point_2,y_lattice_point_2])
 
+                    #lattice bonds
+                    alph = 0.2
+                    lc = 'k'
+                    plt.plot((x_lattice_point_1,x_lattice_point_1+vector_A_x),(y_lattice_point_1,y_lattice_point_1+vector_A_y),alpha=alph,c=lc)
+                    plt.plot((x_lattice_point_1,x_lattice_point_1+vector_B_x),(y_lattice_point_1,y_lattice_point_1+vector_B_y),alpha=alph,c=lc)   
+                    plt.plot((x_lattice_point_1,x_lattice_point_1+vector_C_x),(y_lattice_point_1,y_lattice_point_1+vector_C_y),alpha=alph,c=lc)   
+                    
+                    plt.plot((x_lattice_point_1+vector_A_x,x_lattice_point_1+2*vector_A_x),(y_lattice_point_1+vector_A_y,y_lattice_point_1+2*vector_A_y),alpha=alph,c=lc)
+                    plt.plot((x_lattice_point_1+vector_B_x,x_lattice_point_1+2*vector_B_x),(y_lattice_point_1+vector_B_y,y_lattice_point_1+2*vector_B_y),alpha=alph,c=lc)   
+                    plt.plot((x_lattice_point_1+vector_B_x,x_lattice_point_1+vector_B_x-vector_C_x),(y_lattice_point_1+vector_B_y,y_lattice_point_1+vector_B_y-vector_C_y),alpha=alph,c=lc)   
+                    
 
     #for hexagonal and more complex lattices need new algo
     if len(primitive_cell_2d[0]) == 6:
@@ -64,11 +75,11 @@ def make_lattice_2d(primitive_cell_2d,depth=5):
         vector_A_x = 0
         vector_A_y = r
 
-        vector_B_x = r*np.cos(-np.pi/3)
-        vector_B_y = r*np.sin(-np.pi/3)
+        vector_B_x = r*np.cos(np.pi/6)
+        vector_B_y = -r*np.sin(np.pi/6)
 
-        vector_C_x = -r*np.cos(-np.pi/3)
-        vector_C_y = r*np.sin(-np.pi/3) 
+        vector_C_x = -r*np.cos(np.pi/6)
+        vector_C_y = -r*np.sin(np.pi/6) 
 
         plt.plot((0,vector_A_x),(0,vector_A_y),label='A',c='b')
         plt.plot((0,vector_B_x),(0,vector_B_y),label='B',c='r')   
@@ -106,6 +117,17 @@ def make_lattice_2d(primitive_cell_2d,depth=5):
                     plt.scatter(x_lattice_point_4,y_lattice_point_4, c='k')
                     lattice_points.append([x_lattice_point_4,y_lattice_point_4])
 
+                    #need to draw hex lattic lines still
+                    alph = 0.2
+                    lc = 'k'
+                    plt.plot((x_lattice_point_1,x_lattice_point_1+vector_A_x),(y_lattice_point_1,y_lattice_point_1+vector_A_y),alpha=alph,c=lc)
+                    plt.plot((x_lattice_point_1,x_lattice_point_1+vector_B_x),(y_lattice_point_1,y_lattice_point_1+vector_B_y),alpha=alph,c=lc)
+                    plt.plot((x_lattice_point_1,x_lattice_point_1+vector_C_x),(y_lattice_point_1,y_lattice_point_1+vector_C_y),alpha=alph,c=lc)
+                    plt.plot((x_lattice_point_2,x_lattice_point_2-vector_C_x),(y_lattice_point_2,y_lattice_point_2-vector_C_y),alpha=alph,c=lc)
+                    plt.plot((x_lattice_point_2,x_lattice_point_2-vector_B_x),(y_lattice_point_2,y_lattice_point_2-vector_B_y),alpha=alph,c=lc)
+                    plt.plot((x_lattice_point_2-vector_B_x,x_lattice_point_2-vector_B_x+vector_A_x),(y_lattice_point_2-vector_B_y,y_lattice_point_2-vector_B_y+vector_A_y),alpha=alph,c=lc)
+                    
+
     #for square and rhobic lattices
     if len(primitive_cell_2d[0]) == 4:
         x_points,y_points = primitive_cell_2d
@@ -123,8 +145,16 @@ def make_lattice_2d(primitive_cell_2d,depth=5):
 
         for i in range(0,depth):
             for j in range(0,depth):
-                plt.scatter((vector_A_x*i+vector_B_x*j),(vector_A_y*i+vector_B_y*j),c='k')
-                lattice_points.append([(vector_A_x*i+vector_B_x*j),(vector_A_y*i+vector_B_y*j)])
+                x_lattice_point_1 = (vector_A_x*i+vector_B_x*j)
+                y_lattice_point_1 = (vector_A_y*i+vector_B_y*j)
+                plt.scatter(x_lattice_point_1,y_lattice_point_1,c='k')
+                lattice_points.append([x_lattice_point_1,y_lattice_point_1])
+
+                #lattice bonds
+                alph = 0.2
+                lc = 'k'
+                plt.plot((x_lattice_point_1,x_lattice_point_1+vector_A_x),(y_lattice_point_1,y_lattice_point_1+vector_A_y),alpha=alph,c=lc)
+                plt.plot((x_lattice_point_1,x_lattice_point_1+vector_B_x),(y_lattice_point_1,y_lattice_point_1+vector_B_y),alpha=alph,c=lc)
 
     plt.legend(loc='upper left')
     plt.axis('off')
