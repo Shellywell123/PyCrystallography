@@ -15,6 +15,45 @@ import matplotlib.pyplot as plt
 def make_lattice_2d(primitive_cell_2d,depth=5):
     """
     """
+    #triangle
+    if len(primitive_cell_2d[0]) == 3:
+        x_points,y_points = primitive_cell_2d
+
+        r = max(max(x_points)-min(x_points),max(y_points)-min(y_points))/2
+
+        vector_A_x = r*np.cos(2*np.pi/3)
+        vector_A_y = r*np.sin(2*np.pi/3)
+
+        vector_B_x = -r*np.cos(2*np.pi/3)
+        vector_B_y = r*np.sin(2*np.pi/3)
+
+        vector_C_x = - vector_A_x + vector_B_x
+        vector_C_y = - vector_A_y + vector_B_y
+
+        plt.plot((0,vector_A_x),(0,vector_A_y),label='A',c='b')
+        plt.plot((0,vector_B_x),(0,vector_B_y),label='B',c='r')   
+        plt.plot((0,vector_C_x),(0,vector_C_y),label='C',c='g')   
+        plt.scatter(0,0,c='k')
+
+        lattice_points = []
+
+        for i in range(0,depth):
+            for j in range(0,depth):
+
+                if (j%2 == 0):
+                    # draws \ shape repeated over a grid
+                    # bottom left (main base origin)
+                    x_lattice_point_1 = vector_C_x*i 
+                    y_lattice_point_1 = vector_C_y*j + (vector_A_y)*j
+                    plt.scatter(x_lattice_point_1,y_lattice_point_1, c='k')
+                    lattice_points.append([x_lattice_point_1,y_lattice_point_1])
+
+                    # top left
+                    x_lattice_point_2 = x_lattice_point_1 + vector_A_x
+                    y_lattice_point_2 = y_lattice_point_1 + vector_A_y
+                    plt.scatter(x_lattice_point_2,y_lattice_point_2, c='k')
+                    lattice_points.append([x_lattice_point_2,y_lattice_point_2])
+
 
     #for hexagonal and more complex lattices need new algo
     if len(primitive_cell_2d[0]) == 6:
@@ -68,7 +107,7 @@ def make_lattice_2d(primitive_cell_2d,depth=5):
                     lattice_points.append([x_lattice_point_4,y_lattice_point_4])
 
     #for square and rhobic lattices
-    else:
+    if len(primitive_cell_2d[0]) == 4:
         x_points,y_points = primitive_cell_2d
 
         vector_A_x = abs(x_points[1] - x_points[0])

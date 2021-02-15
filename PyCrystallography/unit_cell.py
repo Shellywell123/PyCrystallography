@@ -4,9 +4,25 @@ import numpy as np
 def primitive_cell_2d(cell_type):
     """
     """
-    if cell_type == 'rhombus':
+    if cell_type == 'triangle':
+        r_uc = 1.2
+
+        x_points = []
+        y_points = []
+
+        dtheta_uc = 2*np.pi/3
+        for i in range(0,3):
+            ang = i*dtheta_uc+dtheta_uc/2
+            x_points.append(r_uc*np.sin(ang)+r_uc)
+            y_points.append(r_uc*np.cos(ang)+r_uc)
+
+    elif cell_type == 'rhombus':
         x_points = [0,1,0.5,1.5]
         y_points = [0,0,1,1]
+
+    elif cell_type == 'square':
+        x_points = [0,1,0,1]
+        y_points = [0,0,1,0]
 
     elif cell_type == 'hexagon':
         r_uc = 1
@@ -20,9 +36,6 @@ def primitive_cell_2d(cell_type):
             x_points.append(r_uc*np.sin(ang)+r_uc)
             y_points.append(r_uc*np.cos(ang)+r_uc)
 
-    elif cell_type == 'square':
-        x_points = [0,1,0,1]
-        y_points = [0,0,1,0]
 
     else:
         print('"{}" is not a vaild uncit cell shape"'.format(cell_type))

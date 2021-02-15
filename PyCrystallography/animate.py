@@ -386,6 +386,9 @@ def make_all_lattice_gifs():
                 # {'code'    : 'ax = fig.add_subplot(111,projection="3d",azim=30,elev=30);prim = NaCl(ax);fig = plt.figure(0,figsize=[8,8]);fig.clear();ax = fig.add_subplot(111,projection="3d",azim=30,elev=30);make_lattice_3d(ax,prim,depth = n)',
                 #  'name'    : 'NaCl_lattice'},
 
+                {'code'    : 'prim = primitive_cell_2d("triangle");make_lattice_2d(prim,depth=n)',
+                 'name'    : 'triangle_lattice'},
+
                 {'code'    : 'prim = primitive_cell_2d("hexagon");make_lattice_2d(prim,depth=n)',
                  'name'    : 'hexagon_lattice'},
 
@@ -482,7 +485,7 @@ def make_all_moire_gifs():
 
 # make_all_unit_cell_gifs()
 # make_all_miller_gifs()
-# make_all_lattice_gifs()
+make_all_lattice_gifs()
 # make_all_operations_gifs()
 # make_all_geometry_gifs()
 # make_all_face_norm_gifs()
