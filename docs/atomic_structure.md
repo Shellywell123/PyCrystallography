@@ -49,6 +49,12 @@ lattice.make_lattice(prim)
 plt.show()
 ```
 
+possible unit cell shapes:\
+ - 'triangle'
+ - 'square'
+ - 'rhombus'
+ - 'hexagon'
+
 <p float="left">
   <img src="../PyCrystallography/Images/triangle_lattice.gif" width="400" />
   <img src="../PyCrystallography/Images/square_lattice.gif" width="400" />
