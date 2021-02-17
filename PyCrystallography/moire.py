@@ -42,6 +42,33 @@ def linear_rot_pattern(rot):
     ax.set_ylim([-h/3,h/32])
     #plt.show()
 
+def grid_rot_pattern(rot):
+    """
+    """
+    fig = plt.figure(figsize=[8,8])
+    ax = fig.add_subplot(111)
+
+    h = 100
+    for i in range(int(-h/2),int(h/2)):
+        x1=x2=i
+        y1=-h/2
+        y2=h/2
+        ax.plot([x1,x2],[y1,y2],c='k')
+        ax.plot([y1,y2],[x1,x2],c='k')
+
+        x1_rot,y1_rot = rotate_coords(x1,y1,rot)
+        x2_rot,y2_rot = rotate_coords(x2,y2,rot)
+        ax.plot([x1_rot,x2_rot],[y1_rot,y2_rot],c='k')
+
+        x1_rot,y1_rot = rotate_coords(x1,y1,rot+90)
+        x2_rot,y2_rot = rotate_coords(x2,y2,rot+90)
+        ax.plot([x1_rot,x2_rot],[y1_rot,y2_rot],c='k')
+
+    ax.axis('off')
+    ax.set_xlim([-h/3,h/3])
+    ax.set_ylim([-h/3,h/3])
+    #plt.show()
+
 def radial_seperation_pattern(sep):
     """
     """
