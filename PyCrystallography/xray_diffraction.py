@@ -151,6 +151,9 @@ def make_wave(x_list,y_list):
 
         plt.plot(x_,y_)
 
+    print('phase shift = ',phase_shift)
+    return(phase_shift)
+
 
 def run_simulation(num_of_particles,theta,spread,lattice_shape='square'):
     """
@@ -202,10 +205,12 @@ def run_simulation(num_of_particles,theta,spread,lattice_shape='square'):
     plt.xlim(x_origin-0.5,x_origin+canvas_size-0.5)
     plt.ylim(y_origin-0.5,y_origin+canvas_size-0.5)
 
-    print('Simulation Outcome')
+    print('\nSimulation Outcome')
     print(' - {} lattice collision/s, {} lattice pass/es'.format(num_of_collisions,num_of_particles -num_of_collisions))
     plt.tight_layout()
     plt.show()
+
+    return ()
 
 ################################################################
 # setting params
@@ -239,4 +244,4 @@ spread = 1
 # # execution - for dev purposes
 # ################################################################
 
-# run_simulation(num_of_particles,theta,spread,lattice_shape='rhombus')
+#run_simulation(num_of_particles,theta,spread,lattice_shape='hexagon')
