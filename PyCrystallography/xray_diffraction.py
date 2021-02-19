@@ -73,7 +73,7 @@ def collision_checker(lattice_points,m,c,d_x):
     return None
 
 
-def make_wave(x_list,y_list):
+def make_wave(wavelength,amplitude,x_list,y_list):
     """
     """
 
@@ -86,9 +86,6 @@ def make_wave(x_list,y_list):
         Y = -x*np.sin(theta)+y*np.cos(theta)
 
         return X,Y   
-
-    amplitude = 0.11
-    wavelength = 0.1
 
     #wave resolution
     N =1000
@@ -151,7 +148,6 @@ def make_wave(x_list,y_list):
 
         plt.plot(x_,y_)
 
-    print('phase shift = ',phase_shift)
     return(phase_shift)
 
 
@@ -159,10 +155,17 @@ def run_simulation(num_of_particles,theta,spread,lattice_shape='square'):
     """
     runs xray diffraction simulations
     """    
+    print('#'*35)
+    print('RUNNING Xray-Diffraction SIMULATION')
+    print('#'*35)
+
+    amplitude = 0.11
+    wavelength = 0.1
 
     #print experiment summary init conds
-    print('Initial Conditions')
-    print(' - {} particles spread across {} (x units) at a angle of {}°\n'.format(num_of_particles,spread,theta))
+    print('\nInitial Conditions')
+    print(' ┣ lattice_shape = {}'.format(lattice_shape))
+    print(' ┣ {} particles spread across {} (x units) at a angle of {}°\n ┣ wavelength = {}\n ┣ Amplitude = {}'.format(num_of_particles,spread,theta,wavelength,amplitude))
 
     plt.figure('Xray-Diffraction',figsize=(5,5))
     plt.clf()
@@ -171,6 +174,8 @@ def run_simulation(num_of_particles,theta,spread,lattice_shape='square'):
     theta_rad = np.radians(theta)
 
     num_of_collisions = 0
+
+    phase_shifts = []
 
     for i in range(0,num_of_particles):
 
@@ -193,20 +198,26 @@ def run_simulation(num_of_particles,theta,spread,lattice_shape='square'):
             x3 = x2+(x2-x1)
             y3 = y1
 
-            make_wave([x1,x2,x3],[y1,y2,y3])
+            phase_shift = make_wave(wavelength,amplitude,[x1,x2,x3],[y1,y2,y3])
+            phase_shifts.append(phase_shift)
             
         else:
             # if no collision plot til canvas edge
             y2 = y_origin + canvas_size
             x2 = (y2-c)/m + d_x
 
-            make_wave([x1,x2],[y1,y2])
+            phase_shift = make_wave(wavelength,amplitude,[x1,x2],[y1,y2])
+            phase_shifts.append(phase_shift)
 
     plt.xlim(x_origin-0.5,x_origin+canvas_size-0.5)
     plt.ylim(y_origin-0.5,y_origin+canvas_size-0.5)
 
     print('\nSimulation Outcome')
-    print(' - {} lattice collision/s, {} lattice pass/es'.format(num_of_collisions,num_of_particles -num_of_collisions))
+    print(' ┣ {} lattice collision/s, {} lattice pass/es'.format(num_of_collisions,num_of_particles -num_of_collisions))
+
+    print(' ┣ resultant phase shifts')
+    for i in range(0,num_of_particles):
+        print('   ┣ particle {} phase shifted {}'.format(i,phase_shifts[i]))
     plt.tight_layout()
     plt.show()
 
@@ -244,4 +255,4 @@ spread = 1
 # # execution - for dev purposes
 # ################################################################
 
-#run_simulation(num_of_particles,theta,spread,lattice_shape='hexagon')
+run_simulation(num_of_particles,theta,spread,lattice_shape='hexagon')
