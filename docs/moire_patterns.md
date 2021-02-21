@@ -9,7 +9,7 @@ linear_rot_pattern(n)
 ```
 
 ```py
-from PyCrystallography.moire import linear_rot_pattern
+from PyCrystallography.moire import grid_rot_pattern
 # n being a angle in degrees
 grid_rot_pattern(n)
 ```
