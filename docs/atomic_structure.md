@@ -15,6 +15,9 @@ The miller indices are used to denote the planes in crystal lattices.
   <img src="../PyCrystallography/Images/miller_111.gif" width="400" />
 </p>
 
+<br />
+<br />
+<br />
 
 ## Planes of reflections in a Cube
 ```py
@@ -30,7 +33,12 @@ def cube_reflection_diag(ax):
   <img src="../PyCrystallography/Images/cube_reflection_diag.gif" width="400" />
 </p>
 
-## Lattices
+<br />
+<br />
+<br />
+
+## Lattice - Types
+### Bravais
 
 Lattices are used as a way to map the structure of crystals. A Bravais Lattice is on that is constructed from an infinite array of discrete points by a set of discrete translation operations (primitive vectors, `A`,`B`,`C` in the below figures.)
 ```py
@@ -62,7 +70,11 @@ possible unit cell shapes:
   <img src="../PyCrystallography/Images/hexagon_lattice.gif" width="400" />
 </p>
 
-### Unit Cells
+<br />
+<br />
+<br />
+
+## Lattice  - Construction
 
 A lattice is made up of cells, the most important being primitive unit cells.
 
