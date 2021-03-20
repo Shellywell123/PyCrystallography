@@ -32,7 +32,7 @@ def cube_reflection_diag(ax):
 
 ## Lattices
 
-Lattices are used as a way to map the structure of crystals.
+Lattices are used as a way to map the structure of crystals. A Bravais Lattice is on that is constructed from an infinite array of discrete points by a set of discrete translation operations (primitive vectors, `A`,`B`,`C` in the below figures.)
 ```py
 from PyCrystallography import unit_cell
 prim = unit_cell.primitive_cell_2d('square')
@@ -49,11 +49,11 @@ lattice.make_lattice(prim)
 plt.show()
 ```
 
-possible unit cell shapes:\
- - 'triangle'
- - 'square'
- - 'rhombus'
- - 'hexagon'
+possible unit cell shapes:
+ - `triangle`
+ - `square`
+ - `rhombus`
+ - `hexagon`
 
 <p float="left">
   <img src="../PyCrystallography/Images/triangle_lattice.gif" width="400" />
@@ -62,7 +62,7 @@ possible unit cell shapes:\
   <img src="../PyCrystallography/Images/hexagon_lattice.gif" width="400" />
 </p>
 
-### unit cells
+### Unit Cells
 
 A lattice is made up of cells, the most important being primitive unit cells.
 
