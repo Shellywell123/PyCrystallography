@@ -1,6 +1,9 @@
 
 # Atomic Structures of crystals
 
+### Page Contents
+TODO
+
 ## Miller Indices
 
 The miller indices are used to denote the planes in crystal lattices.
@@ -70,6 +73,8 @@ possible unit cell shapes:
   <img src="../PyCrystallography/Images/hexagon_lattice.gif" width="400" />
 </p>
 
+### Reciprocal 
+TODO
 <br />
 <br />
 <br />

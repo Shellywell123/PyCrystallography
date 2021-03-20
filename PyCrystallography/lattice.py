@@ -11,6 +11,30 @@ import matplotlib.pyplot as plt
 # lattices
 #####################################
 
+def make_vectors_reciprocal(vectors):
+    """
+    TODO
+    converts a list of primitve vector into their corresponing reciprcal versions
+    vectors = list of vectors to convert (in order ax,ay,bx,by etc)
+    """    
+
+    #90 deg rotation matrix 
+    rot_theta = np.radians(90)
+    Q = [[np.cos(rot_theta), -np.sin(rot_theta)],
+         [np.sin(rot_theta),  np.cos(rot_theta)]]
+    # if 3 vectors (x&y) len = 6 
+
+    if len vectors == 6:
+        pass
+
+    #if 2 vectors (x&y) len = 4
+
+    if len vectors == 4:
+        # A_x_r = 
+        # A_y_r =
+
+        # B_x_r =  
+        # B_y_r =
 
 def make_lattice_2d(primitive_cell_2d,depth=5):
     """
