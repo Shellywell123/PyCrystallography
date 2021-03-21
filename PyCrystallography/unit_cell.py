@@ -43,6 +43,36 @@ def primitive_cell_2d(cell_type):
     primitive_cell_2d =(x_points,y_points)
     return primitive_cell_2d
 
+def Cubic(ax):
+    """
+    plot the cubic primitive cell
+    """
+
+    h =2
+    w =2
+    d =2
+    bonds = []
+    atoms = []
+
+    plot_axis(ax,max_lim=0.5*max(h,w,d))
+    for i in [-h/2,h/2]:
+        for j in [-w/2,w/2]:
+            for k in [-d/2,d/2]:
+                bonds.append(make_bond([-i,i],[j,j],[k,k],1,'k'))
+                bonds.append(make_bond([i,i],[-j,j],[k,k],1,'k'))
+                bonds.append(make_bond([i,i],[j,j],[-k,k],1,'k'))
+
+                COL ='red'
+                SIZ =50
+
+                atoms.append(make_atom([i,i],[j,j],[k,k],SIZ,COL))
+
+    plot_atoms(ax,atoms)
+    plot_bonds(ax,bonds)
+
+    primitive_cell = (atoms,bonds)
+    return primitive_cell
+
 def BCC(ax):
     """
     plot the body centered cubic primitive cell
