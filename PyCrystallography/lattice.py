@@ -30,13 +30,22 @@ def make_vectors_reciprocal(vectors):
         B = vectors[1]
         C = vectors[2]
 
-        A_r = np.cross(B,C)
-        B_r = np.cross(C,A)
-        C_r = np.cross(A,B)
-V
-         = np.dot(A,np.cross(B,C))
+        V = np.dot(A,np.cross(B,C))
 
-        print(A_r,B_r,C_r,V)
+        A_r = 2*np.pi*np.cross(B,C)/V
+        B_r = 2*np.pi*np.cross(C,A)/V
+        C_r = 2*np.pi*np.cross(A,B)/V
+        
+
+        print('\nunit cell volume =',V)
+
+        print('\nreciporocal primitive vectors')
+        print('A_r = ',A_r)
+        print('B_r = ',B_r)
+        print('C_r = ',C_r)
+
+        vectors = [A_r,B_r,C_r]
+        return vectors
 
     #if 2 vectors (x&y) len = 4
 
@@ -242,16 +251,34 @@ def make_lattice_3d(ax,primitive_cell_3d,depth=2):
     vector_C_z = abs(max(z_points) - min(z_points))
 
     #print(vector_A_x,vector_B_x,vector_C_x)
-
+    # considering making all unit cells be saved as unit vectors
+    #pack vectrs
     A = [vector_A_x,
-             vector_A_y]
+        vector_A_y,
+        vector_A_z]
 
-    B = [vector_B_x,vector_B_y]
-    
-    C = [vector_C_x         ,vector_C_y]
+    B = [vector_B_x,
+        vector_B_y,
+        vector_B_z]
+
+    C = [vector_C_x,
+        vector_C_y,
+        vector_C_z]
+
+    print('\nprimitive vectors')
+    print('A = ',A)
+    print('B = ',B)
+    print('C = ',C)
 
     vectors = [A,B,C]
-    make_vectors_reciprocal(vectors)
+    vectors_r=make_vectors_reciprocal(vectors)
+
+    # unpack recipvects
+    A_r,B_r,C_r = vectors_r
+
+    vector_A_x,vector_A_y,vector_A_z = A
+    vector_B_x,vector_B_y,vector_B_z = B
+    vector_C_x,vector_C_y,vector_C_z = C
 
     ax.plot(
         (min(x_points),min(x_points)+vector_A_x),
