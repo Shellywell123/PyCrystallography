@@ -50,11 +50,13 @@ def Cubic(ax):
 
     h =2
     w =2
-    d =2
+    d =10
+
+    dim = max(h,w,d)
     bonds = []
     atoms = []
 
-    plot_axis(ax,max_lim=0.5*max(h,w,d))
+    plot_axis(ax,max_lim=0.5*dim)
     for i in [-h/2,h/2]:
         for j in [-w/2,w/2]:
             for k in [-d/2,d/2]:

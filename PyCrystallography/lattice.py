@@ -250,20 +250,113 @@ def make_lattice_3d(ax,primitive_cell_3d,depth=2):
     vector_C_y = 0    
     vector_C_z = abs(max(z_points) - min(z_points))
 
+    tag =''
+
+    ax.plot(
+        (min(x_points),min(x_points)+vector_A_x),
+        (min(y_points),min(y_points)+vector_A_y),
+        (min(z_points),min(z_points)+vector_A_z), 
+        label='A'+tag,c='b')
+
+    ax.plot(
+        (min(x_points),min(x_points)+vector_B_x),
+        (min(y_points),min(y_points)+vector_B_y),
+        (min(z_points),min(z_points)+vector_B_z),
+        label='B'+tag,c='r')
+
+    ax.plot(
+        (min(x_points),min(x_points)+vector_C_x),
+        (min(y_points),min(y_points)+vector_C_y),
+        (min(z_points),min(z_points)+vector_C_z),
+        label='C'+tag,c='g')
+
+    for atom in atoms:
+        x   = atom['x'][0]
+        y   = atom['y'][0]
+        z   = atom['z'][0]
+        col = atom['color']
+        siz = atom['size']/(depth+1) #so that you get persp on gif
+        for i in range(0,depth):
+            for j in range(0,depth):
+                for k in range(0,depth):
+                    ax.scatter(
+                        x+(vector_A_x*i+vector_B_x*j+vector_C_x*k),
+                        y+(vector_A_y*i+vector_B_y*j+vector_C_y*k),
+                        z+(vector_A_z*i+vector_B_z*j+vector_C_z*k),
+                        c=col,
+                        s=siz)
+
+    for bond in bonds:
+        x1,x2 = bond['x']
+        y1,y2 = bond['y']
+        z1,z2 = bond['z']
+        col   = bond['color']
+        siz   = bond['size']/(depth+1) #so that you get persp on gif
+        for i in range(0,depth):
+            for j in range(0,depth):
+                for k in range(0,depth):
+
+                    x_plot = [x1+(vector_A_x*i+vector_B_x*j+vector_C_x*k),
+                              x2+(vector_A_x*i+vector_B_x*j+vector_C_x*k)]
+                    y_plot = [y1+(vector_A_y*i+vector_B_y*j+vector_C_y*k),
+                              y2+(vector_A_y*i+vector_B_y*j+vector_C_y*k)]
+                    z_plot = [z1+(vector_A_z*i+vector_B_z*j+vector_C_z*k),
+                              z2+(vector_A_z*i+vector_B_z*j+vector_C_z*k)]
+                    ax.plot(x_plot,y_plot,z_plot,c=col,linewidth=siz)
+
+    ax.legend()
+    ax.axis('off')
+
+def make_lattice_3d_reciprocal(ax,primitive_cell_3d,depth=2):
+    """
+    """
+
+    atoms,bonds = primitive_cell_3d
+
+    x_points = []
+    y_points = []
+    z_points = []
+
+    for atom in atoms:
+        x   = atom['x']
+        y   = atom['y']
+        z   = atom['z']
+
+        x_points.append(x[0])
+        y_points.append(y[0])
+        z_points.append(z[0])
+
+        col = atom['color']
+        siz = atom['size']
+
+    # maybe get vectors from bonds 
+    vector_A_x_ = abs(max(x_points) - min(x_points))
+    vector_A_y_ = 0
+    vector_A_z_ = 0
+
+    vector_B_x_ = 0
+    vector_B_y_ = abs(max(y_points) - min(y_points))  
+    vector_B_z_ = 0 
+
+    vector_C_x_ = 0
+    vector_C_y_ = 0    
+    vector_C_z_ = abs(max(z_points) - min(z_points))
+
     #print(vector_A_x,vector_B_x,vector_C_x)
     # considering making all unit cells be saved as unit vectors
+    tag ='_r'
     #pack vectrs
-    A = [vector_A_x,
-        vector_A_y,
-        vector_A_z]
+    A = [vector_A_x_,
+        vector_A_y_,
+        vector_A_z_]
 
-    B = [vector_B_x,
-        vector_B_y,
-        vector_B_z]
+    B = [vector_B_x_,
+        vector_B_y_,
+        vector_B_z_]
 
-    C = [vector_C_x,
-        vector_C_y,
-        vector_C_z]
+    C = [vector_C_x_,
+        vector_C_y_,
+        vector_C_z_]
 
     print('\nprimitive vectors')
     print('A = ',A)
@@ -280,23 +373,23 @@ def make_lattice_3d(ax,primitive_cell_3d,depth=2):
     vector_B_x,vector_B_y,vector_B_z = B
     vector_C_x,vector_C_y,vector_C_z = C
 
-    ax.plot(
-        (min(x_points),min(x_points)+vector_A_x),
-        (min(y_points),min(y_points)+vector_A_y),
-        (min(z_points),min(z_points)+vector_A_z), 
-        label='A',c='b')
+    # ax.plot(
+    #     (-1,1+vector_A_x),
+    #     (-1,1+vector_A_y),
+    #     (-1,1+vector_A_z), 
+    #     label='A'+tag,c='b')
 
-    ax.plot(
-        (min(x_points),min(x_points)+vector_B_x),
-        (min(y_points),min(y_points)+vector_B_y),
-        (min(z_points),min(z_points)+vector_B_z),
-        label='B',c='r')
+    # ax.plot(
+    #     (-1,1+vector_B_x),
+    #     (-1,1+vector_B_y),
+    #     (-1,1+vector_B_z),
+    #     label='B'+tag,c='r')
 
-    ax.plot(
-        (min(x_points),min(x_points)+vector_C_x),
-        (min(y_points),min(y_points)+vector_C_y),
-        (min(z_points),min(z_points)+vector_C_z),
-        label='C',c='g')
+    # ax.plot(
+    #     (-1,1+vector_C_x),
+    #     (-1,1+vector_C_y),
+    #     (-1,1+vector_C_z),
+    #     label='C'+tag,c='g')
 
     for atom in atoms:
         x   = atom['x'][0]
@@ -311,7 +404,7 @@ def make_lattice_3d(ax,primitive_cell_3d,depth=2):
                         x+(vector_A_x*i+vector_B_x*j+vector_C_x*k),
                         y+(vector_A_y*i+vector_B_y*j+vector_C_y*k),
                         z+(vector_A_z*i+vector_B_z*j+vector_C_z*k),
-                        c=col,
+                        c=k,
                         s=siz)
 
     for bond in bonds:
