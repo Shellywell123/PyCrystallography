@@ -69,8 +69,8 @@ def Cubic(ax):
 
                 atoms.append(make_atom([i,i],[j,j],[k,k],SIZ,COL))
 
-    plot_atoms(ax,atoms)
-    plot_bonds(ax,bonds)
+    #plot_atoms(ax,atoms)
+    #plot_bonds(ax,bonds)
 
     primitive_cell = (atoms,bonds)
     return primitive_cell

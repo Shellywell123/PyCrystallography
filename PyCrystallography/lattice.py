@@ -290,6 +290,9 @@ def make_lattice_3d(ax,primitive_cell_3d,depth=2):
         x1,x2 = bond['x']
         y1,y2 = bond['y']
         z1,z2 = bond['z']
+
+        print(bond)
+        print(z1,z2)
         col   = bond['color']
         siz   = bond['size']/(depth+1) #so that you get persp on gif
         for i in range(0,depth):
@@ -307,7 +310,7 @@ def make_lattice_3d(ax,primitive_cell_3d,depth=2):
     ax.legend()
     ax.axis('off')
 
-def make_lattice_3d_reciprocal(ax,primitive_cell_3d,depth=2):
+def make_lattice_3d_reciprocal(ax,primitive_cell_3d,depth=1):
     """
     """
 
@@ -369,32 +372,36 @@ def make_lattice_3d_reciprocal(ax,primitive_cell_3d,depth=2):
     # unpack recipvects
     A_r,B_r,C_r = vectors_r
 
-    vector_A_x,vector_A_y,vector_A_z = A
-    vector_B_x,vector_B_y,vector_B_z = B
-    vector_C_x,vector_C_y,vector_C_z = C
+    vector_A_x,vector_A_y,vector_A_z = A_r
+    vector_B_x,vector_B_y,vector_B_z = B_r
+    vector_C_x,vector_C_y,vector_C_z = C_r
 
-    # ax.plot(
-    #     (-1,1+vector_A_x),
-    #     (-1,1+vector_A_y),
-    #     (-1,1+vector_A_z), 
-    #     label='A'+tag,c='b')
+    #########################################
+    # plot primitive vectors
+    x   = -vector_A_x/2
+    y   = -vector_B_y/2
+    z   = -vector_C_z/2
 
-    # ax.plot(
-    #     (-1,1+vector_B_x),
-    #     (-1,1+vector_B_y),
-    #     (-1,1+vector_B_z),
-    #     label='B'+tag,c='r')
+    ax.plot(
+        (x,x+vector_A_x),
+        (y,y+vector_A_y),
+        (z,z+vector_A_z), 
+        label='A'+tag,c='b')
 
-    # ax.plot(
-    #     (-1,1+vector_C_x),
-    #     (-1,1+vector_C_y),
-    #     (-1,1+vector_C_z),
-    #     label='C'+tag,c='g')
+    ax.plot(
+        (x,x+vector_B_x),
+        (y,y+vector_B_y),
+        (z,z+vector_B_z),
+        label='B'+tag,c='r')
+
+    ax.plot(
+        (x,x+vector_C_x),
+        (y,y+vector_C_y),
+        (z,z+vector_C_z),
+        label='C'+tag,c='g')
+    #########################################
 
     for atom in atoms:
-        x   = atom['x'][0]
-        y   = atom['y'][0]
-        z   = atom['z'][0]
         col = atom['color']
         siz = atom['size']/(depth+1) #so that you get persp on gif
         for i in range(0,depth):
@@ -408,9 +415,12 @@ def make_lattice_3d_reciprocal(ax,primitive_cell_3d,depth=2):
                         s=siz)
 
     for bond in bonds:
-        x1,x2 = bond['x']
-        y1,y2 = bond['y']
-        z1,z2 = bond['z']
+        #problem is these shouldnt not be static
+        x1,x2 = -vector_A_x/2,vector_A_x/2
+        y1,y2 = -vector_B_y/2,vector_B_y/2
+        z1,z2 = -vector_C_z/2,vector_C_z/2
+
+        print (z1,z2)
         col   = bond['color']
         siz   = bond['size']/(depth+1) #so that you get persp on gif
         for i in range(0,depth):
