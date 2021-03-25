@@ -43,6 +43,41 @@ def primitive_cell_2d(cell_type):
     primitive_cell_2d =(x_points,y_points)
     return primitive_cell_2d
 
+def custom_unit_cell(ax,vectors):
+    """
+    create unit cell atom and bonds from primitive vectors
+    """
+
+    A,B,C = vectors
+    vector_A_x,vector_A_y,vector_A_z = A
+    vector_B_x,vector_B_y,vector_B_z = B
+    vector_C_x,vector_C_y,vector_C_z = C
+
+    x_d =max(vector_A_x,vector_B_x,vector_C_x)+min(vector_A_x,vector_B_x,vector_C_x)
+    y_d =max(vector_B_y,vector_B_y,vector_C_y)+min(vector_B_y,vector_B_y,vector_C_y)
+    z_d =max(vector_A_z,vector_B_z,vector_C_z)+min(vector_A_z,vector_B_z,vector_C_z)
+
+    dim = max(x_d,y_d,z_d)
+    bonds = []
+    atoms = []
+
+    plot_axis(ax,max_lim=0.5*dim)
+    for i in [-x_d/2,x_d/2]:
+        for j in [-y_d/2,y_d/2]:
+            for k in [-z_d/2,z_d/2]:
+                bonds.append(make_bond([-i,i],[j,j],[k,k],1,'k'))
+                bonds.append(make_bond([i,i],[-j,j],[k,k],1,'k'))
+                bonds.append(make_bond([i,i],[j,j],[-k,k],1,'k'))
+
+                COL ='red'
+                SIZ =50
+
+                atoms.append(make_atom([i,i],[j,j],[k,k],SIZ,COL))
+
+    primitive_cell = (atoms,bonds)
+    return primitive_cell
+
+
 def Cubic(ax):
     """
     plot the cubic primitive cell
@@ -50,7 +85,7 @@ def Cubic(ax):
 
     h =2
     w =2
-    d =10
+    d =2
 
     dim = max(h,w,d)
     bonds = []

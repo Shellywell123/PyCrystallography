@@ -23,7 +23,14 @@ def make_vectors_reciprocal(vectors):
     Q = [[np.cos(rot_theta), -np.sin(rot_theta)],
          [np.sin(rot_theta),  np.cos(rot_theta)]]
     # if 3 vectors (x&y) len = 6 
-    print(vectors)
+    
+    A,B,C = vectors
+
+    print('\nPrimitive Vectors')
+    print('   A = ',A)
+    print('   B = ',B)
+    print('   C = ',C)
+
 
     if len (vectors) == 3:
         A = vectors[0]
@@ -37,14 +44,17 @@ def make_vectors_reciprocal(vectors):
         C_r = 2*np.pi*np.cross(A,B)/V
         
 
-        print('\nunit cell volume =',V)
+        print('\nUnit Cell Volume =',V)
 
-        print('\nreciporocal primitive vectors')
-        print('A_r = ',A_r)
-        print('B_r = ',B_r)
-        print('C_r = ',C_r)
+        print('\nReciporocal Primitive Vectors')
+        print('   A_r = ',A_r)
+        print('   B_r = ',B_r)
+        print('   C_r = ',C_r)
 
         vectors = [A_r,B_r,C_r]
+
+        V_r = np.dot(A_r,np.cross(B_r,C_r))
+        print('\nReciprocal Unit Cell Volume =',V_r)
         return vectors
 
     #if 2 vectors (x&y) len = 4
@@ -190,9 +200,6 @@ def make_lattice_2d(primitive_cell_2d,depth=5):
         B = [[0,vector_B_x],
              [0,vector_B_y]]
         
-        #C = [[0,vector_C_x],
-        #     [0,vector_C_y]]
-
         vectors = [A,B]
         make_vectors_reciprocal(vectors)
 
@@ -215,7 +222,41 @@ def make_lattice_2d(primitive_cell_2d,depth=5):
     plt.axis('off')
     return lattice_points
 
-def make_lattice_3d(ax,primitive_cell_3d,depth=2):
+def plot_primitive_vectors(ax,vectors,tag=''):
+    """
+    """
+    A,B,C = vectors
+
+    vector_A_x,vector_A_y,vector_A_z = A
+    vector_B_x,vector_B_y,vector_B_z = B
+    vector_C_x,vector_C_y,vector_C_z = C
+
+    #########################################
+    # plot primitive vectors
+    x   = -vector_A_x/2
+    y   = -vector_B_y/2
+    z   = -vector_C_z/2
+
+    ax.plot(
+        (x,x+vector_A_x),
+        (y,y+vector_A_y),
+        (z,z+vector_A_z), 
+        label='A'+tag,c='b')
+
+    ax.plot(
+        (x,x+vector_B_x),
+        (y,y+vector_B_y),
+        (z,z+vector_B_z),
+        label='B'+tag,c='r')
+
+    ax.plot(
+        (x,x+vector_C_x),
+        (y,y+vector_C_y),
+        (z,z+vector_C_z),
+        label='C'+tag,c='g')
+    #########################################
+
+def make_lattice_3d(ax,primitive_cell_3d,depth=2,tag=''):
     """
     """
 
@@ -250,25 +291,21 @@ def make_lattice_3d(ax,primitive_cell_3d,depth=2):
     vector_C_y = 0    
     vector_C_z = abs(max(z_points) - min(z_points))
 
-    tag =''
+    #pack vectrs
+    A = [vector_A_x,
+        vector_A_y,
+        vector_A_z]
 
-    ax.plot(
-        (min(x_points),min(x_points)+vector_A_x),
-        (min(y_points),min(y_points)+vector_A_y),
-        (min(z_points),min(z_points)+vector_A_z), 
-        label='A'+tag,c='b')
+    B = [vector_B_x,
+        vector_B_y,
+        vector_B_z]
 
-    ax.plot(
-        (min(x_points),min(x_points)+vector_B_x),
-        (min(y_points),min(y_points)+vector_B_y),
-        (min(z_points),min(z_points)+vector_B_z),
-        label='B'+tag,c='r')
+    C = [vector_C_x,
+        vector_C_y,
+        vector_C_z]
 
-    ax.plot(
-        (min(x_points),min(x_points)+vector_C_x),
-        (min(y_points),min(y_points)+vector_C_y),
-        (min(z_points),min(z_points)+vector_C_z),
-        label='C'+tag,c='g')
+    vectors = [A,B,C]
+    plot_primitive_vectors(ax,vectors,tag=tag)
 
     for atom in atoms:
         x   = atom['x'][0]
@@ -291,8 +328,8 @@ def make_lattice_3d(ax,primitive_cell_3d,depth=2):
         y1,y2 = bond['y']
         z1,z2 = bond['z']
 
-        print(bond)
-        print(z1,z2)
+        #print(bond)
+       # print(z1,z2)
         col   = bond['color']
         siz   = bond['size']/(depth+1) #so that you get persp on gif
         for i in range(0,depth):
@@ -310,130 +347,107 @@ def make_lattice_3d(ax,primitive_cell_3d,depth=2):
     ax.legend()
     ax.axis('off')
 
-def make_lattice_3d_reciprocal(ax,primitive_cell_3d,depth=1):
-    """
-    """
+# def make_lattice_3d_reciprocal(ax,primitive_cell_3d,depth=1):
+#     """
+#     """
 
-    atoms,bonds = primitive_cell_3d
+#     atoms,bonds = primitive_cell_3d
 
-    x_points = []
-    y_points = []
-    z_points = []
+#     x_points = []
+#     y_points = []
+#     z_points = []
 
-    for atom in atoms:
-        x   = atom['x']
-        y   = atom['y']
-        z   = atom['z']
+#     for atom in atoms:
+#         x   = atom['x']
+#         y   = atom['y']
+#         z   = atom['z']
 
-        x_points.append(x[0])
-        y_points.append(y[0])
-        z_points.append(z[0])
+#         x_points.append(x[0])
+#         y_points.append(y[0])
+#         z_points.append(z[0])
 
-        col = atom['color']
-        siz = atom['size']
+#         col = atom['color']
+#         siz = atom['size']
 
-    # maybe get vectors from bonds 
-    vector_A_x_ = abs(max(x_points) - min(x_points))
-    vector_A_y_ = 0
-    vector_A_z_ = 0
+#     # maybe get vectors from bonds 
+#     vector_A_x_ = abs(max(x_points) - min(x_points))
+#     vector_A_y_ = 0
+#     vector_A_z_ = 0
 
-    vector_B_x_ = 0
-    vector_B_y_ = abs(max(y_points) - min(y_points))  
-    vector_B_z_ = 0 
+#     vector_B_x_ = 0
+#     vector_B_y_ = abs(max(y_points) - min(y_points))  
+#     vector_B_z_ = 0 
 
-    vector_C_x_ = 0
-    vector_C_y_ = 0    
-    vector_C_z_ = abs(max(z_points) - min(z_points))
+#     vector_C_x_ = 0
+#     vector_C_y_ = 0    
+#     vector_C_z_ = abs(max(z_points) - min(z_points))
 
-    #print(vector_A_x,vector_B_x,vector_C_x)
-    # considering making all unit cells be saved as unit vectors
-    tag ='_r'
-    #pack vectrs
-    A = [vector_A_x_,
-        vector_A_y_,
-        vector_A_z_]
+#     #print(vector_A_x,vector_B_x,vector_C_x)
+#     # considering making all unit cells be saved as unit vectors
+#     tag ='_r'
+#     #pack vectrs
+#     A = [vector_A_x_,
+#         vector_A_y_,
+#         vector_A_z_]
 
-    B = [vector_B_x_,
-        vector_B_y_,
-        vector_B_z_]
+#     B = [vector_B_x_,
+#         vector_B_y_,
+#         vector_B_z_]
 
-    C = [vector_C_x_,
-        vector_C_y_,
-        vector_C_z_]
+#     C = [vector_C_x_,
+#         vector_C_y_,
+#         vector_C_z_]
 
-    print('\nprimitive vectors')
-    print('A = ',A)
-    print('B = ',B)
-    print('C = ',C)
+#     print('\nprimitive vectors')
+#     print('A = ',A)
+#     print('B = ',B)
+#     print('C = ',C)
 
-    vectors = [A,B,C]
-    vectors_r=make_vectors_reciprocal(vectors)
+#     vectors = [A,B,C]
+#     vectors_r=make_vectors_reciprocal(vectors)
 
-    # unpack recipvects
-    A_r,B_r,C_r = vectors_r
+#     # unpack recipvects
+#     A_r,B_r,C_r = vectors_r
 
-    vector_A_x,vector_A_y,vector_A_z = A_r
-    vector_B_x,vector_B_y,vector_B_z = B_r
-    vector_C_x,vector_C_y,vector_C_z = C_r
+#     vector_A_x,vector_A_y,vector_A_z = A_r
+#     vector_B_x,vector_B_y,vector_B_z = B_r
+#     vector_C_x,vector_C_y,vector_C_z = C_r
 
-    #########################################
-    # plot primitive vectors
-    x   = -vector_A_x/2
-    y   = -vector_B_y/2
-    z   = -vector_C_z/2
+#     plot_primitive_vectors(ax,vectors_r,tag='_r')
 
-    ax.plot(
-        (x,x+vector_A_x),
-        (y,y+vector_A_y),
-        (z,z+vector_A_z), 
-        label='A'+tag,c='b')
+#     for atom in atoms:
+#         x   = atom['x']
+#         y   = atom['y']
+#         z   = atom['z']
+#         col = atom['color']
+#         siz = atom['size']/(depth+1) #so that you get persp on gif
+#         for i in range(0,depth):
+#             for j in range(0,depth):
+#                 for k in range(0,depth):
+#                     ax.scatter(
+#                         x+(vector_A_x*i+vector_B_x*j+vector_C_x*k),
+#                         y+(vector_A_y*i+vector_B_y*j+vector_C_y*k),
+#                         z+(vector_A_z*i+vector_B_z*j+vector_C_z*k),
+#                         c=col,
+#                         s=siz)
 
-    ax.plot(
-        (x,x+vector_B_x),
-        (y,y+vector_B_y),
-        (z,z+vector_B_z),
-        label='B'+tag,c='r')
+#     for bond in bonds:
+#         x1,x2 = bond['x']
+#         y1,y2 = bond['y']
+#         z1,z2 = bond['z']
+#         col   = bond['color']
+#         siz   = bond['size']/(depth+1) #so that you get persp on gif
+#         for i in range(0,depth):
+#             for j in range(0,depth):
+#                 for k in range(0,depth):
 
-    ax.plot(
-        (x,x+vector_C_x),
-        (y,y+vector_C_y),
-        (z,z+vector_C_z),
-        label='C'+tag,c='g')
-    #########################################
+#                     x_plot = [x1+(vector_A_x*i+vector_B_x*j+vector_C_x*k),
+#                               x2+(vector_A_x*i+vector_B_x*j+vector_C_x*k)]
+#                     y_plot = [y1+(vector_A_y*i+vector_B_y*j+vector_C_y*k),
+#                               y2+(vector_A_y*i+vector_B_y*j+vector_C_y*k)]
+#                     z_plot = [z1+(vector_A_z*i+vector_B_z*j+vector_C_z*k),
+#                               z2+(vector_A_z*i+vector_B_z*j+vector_C_z*k)]
+#                     ax.plot(x_plot,y_plot,z_plot,c=col,linewidth=siz)
 
-    for atom in atoms:
-        col = atom['color']
-        siz = atom['size']/(depth+1) #so that you get persp on gif
-        for i in range(0,depth):
-            for j in range(0,depth):
-                for k in range(0,depth):
-                    ax.scatter(
-                        x+(vector_A_x*i+vector_B_x*j+vector_C_x*k),
-                        y+(vector_A_y*i+vector_B_y*j+vector_C_y*k),
-                        z+(vector_A_z*i+vector_B_z*j+vector_C_z*k),
-                        c=k,
-                        s=siz)
-
-    for bond in bonds:
-        #problem is these shouldnt not be static
-        x1,x2 = -vector_A_x/2,vector_A_x/2
-        y1,y2 = -vector_B_y/2,vector_B_y/2
-        z1,z2 = -vector_C_z/2,vector_C_z/2
-
-        print (z1,z2)
-        col   = bond['color']
-        siz   = bond['size']/(depth+1) #so that you get persp on gif
-        for i in range(0,depth):
-            for j in range(0,depth):
-                for k in range(0,depth):
-
-                    x_plot = [x1+(vector_A_x*i+vector_B_x*j+vector_C_x*k),
-                              x2+(vector_A_x*i+vector_B_x*j+vector_C_x*k)]
-                    y_plot = [y1+(vector_A_y*i+vector_B_y*j+vector_C_y*k),
-                              y2+(vector_A_y*i+vector_B_y*j+vector_C_y*k)]
-                    z_plot = [z1+(vector_A_z*i+vector_B_z*j+vector_C_z*k),
-                              z2+(vector_A_z*i+vector_B_z*j+vector_C_z*k)]
-                    ax.plot(x_plot,y_plot,z_plot,c=col,linewidth=siz)
-
-    ax.legend()
-    ax.axis('off')
+#     ax.legend()
+#     ax.axis('off')

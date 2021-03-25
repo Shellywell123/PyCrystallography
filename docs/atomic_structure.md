@@ -74,7 +74,60 @@ possible unit cell shapes:
 </p>
 
 ### Reciprocal 
-TODO
+
+```py
+from PyCrystallography import unit_cell
+from PyCrystallography import lattice
+
+import matplotlib .pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+#set lattice depths
+d = 3
+
+#set primitive vectors
+A = [1,0,0]
+B = [0,1,0]
+C = [0,0,10]
+
+vectors = [A,B,C]
+
+fig = plt.figure('Latiices',figsize=[8,4])
+ax1 = fig.add_subplot(121,projection='3d')
+ax1.set_title('Bravais')
+prim = unit_cell.custom_unit_cell(ax1,vectors)
+lattice.make_lattice_3d(ax1,prim,depth=d)
+
+vectors_r = lattice.make_vectors_reciprocal(vectors)
+
+ax2 = fig.add_subplot(122,projection='3d')
+ax2.set_title('Reciprocal')
+prim = unit_cell.custom_unit_cell(ax2,vectors_r)
+lattice.make_lattice_3d(ax2,prim,depth=d,tag='_r')
+
+plt.show()
+```
+
+```bash
+Primitive Vectors
+   A =  [1, 0, 0]
+   B =  [0, 1, 0]
+   C =  [0, 0, 10]
+
+Unit Cell Volume = 10
+
+Reciporocal Primitive Vectors
+   A_r =  [6.28318531 0.         0.        ]
+   B_r =  [0.         6.28318531 0.        ]
+   C_r =  [0.         0.         0.62831853]
+
+Reciprocal Unit Cell Volume = 24.805021344239854
+```
+
+<p float="left">
+  <img src="../PyCrystallography/Images/Reciprocal.png" width="800" />
+</p>
+
 <br />
 <br />
 <br />
