@@ -1,4 +1,6 @@
-# PyCrystallography
+<p float="middle">
+  <img src="PyCrystallography/Images/Logo.png" width="800" />
+</p>
 
 Python 3 package being written to illustrate crystallography.\
 \
@@ -12,10 +14,14 @@ The features of the package include:
    - Penrose Tiling
 
 - [3D Crystal Models](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/geometry.md)
-   - Cuboids,Pyramids
-   - Bipyramids,Prisms
+   - Cuboids
+   - Pyramids
+   - Bipyramids
+   - Prisms
    - Biprismid
    - Tetrakis
+   - Diamond
+   - NaC
 
 - [Stereographic Projections](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/stereographic_projections.md)
    - Face normal detection of a 3D model
