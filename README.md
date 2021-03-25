@@ -21,7 +21,7 @@ The features of the package include:
    - Biprismid
    - Tetrakis
    - Diamond
-   - NaC
+   - NaCl
 
 - [Stereographic Projections](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/stereographic_projections.md)
    - Face normal detection of a 3D model
