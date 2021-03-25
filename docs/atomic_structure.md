@@ -8,8 +8,7 @@
  - (Lattice - Construction)[#Lattice---Construction]
  - (Packings)[#Packings]
 
-{: id="Miller-Indices"}
-### Miller Indices
+### Miller Indices <a name="Miller-Indices"></a>
 The miller indices are used to denote the planes in crystal lattices.
 
 <p float="left">
