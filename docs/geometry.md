@@ -1,5 +1,14 @@
 
 ## Geometry
+
+### Page Contents
+ - [Cuboids](#Cuboids)
+ - [Pyramids](#Pyramids)
+ - [Bipyramids](#Bipyramids)
+ - [Prisms](#Prisms)
+ - [Biprismids](#Biprismids)
+ - [Tetrakis](#Tetrakis)
+
 PyCrystallography contains many 3D geometries that can be loaded and viewed interactively. The models can then have there normals identified and converted to [Stereographic Projections](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/stereographic_projections.md).
 ```py
 import matplotlib.pyplot as plt
@@ -59,7 +68,8 @@ def prism(ax,h,num_of_side):
   <img src="../PyCrystallography/Images/prism10.gif" width="400" />
 </p>
 
-### Biprismid (not sure what its proper name is)
+### Biprismid 
+(not sure what its proper name is)
 ```py
 def biprismid(ax,h,num_of_side):
 ```

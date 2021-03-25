@@ -1,4 +1,11 @@
 # Operations
+
+### Page Contents
+ - [(i) Inversion](#i)
+ - [(ii) Reflection](#ii)
+ - [(iii) Rotation](#iii)
+
+
 In crystallography an object is considered symmetrical if it exhibits the 3 opertions of symmetry.
 
 ```py
@@ -16,7 +23,7 @@ inversion(ax)
 plt.show()
 ```
 
-## (i) Inversion
+## (i) Inversion <a name="i"></a>
 ```py
 def inversion(ax,h,w,d):
 ```
@@ -29,7 +36,7 @@ def inversion(ax,h,w,d):
   <img src="../PyCrystallography/Images/stereographic_projection_inversion.gif" width="400" />
 </p>
 
-## (ii) Reflection
+## (ii) Reflection <a name="ii"></a>
 
 ```py
 def reflection(ax,h,w,d):
@@ -39,7 +46,7 @@ def reflection(ax,h,w,d):
   <img src="../PyCrystallography/Images/reflection.gif" width="400" />
 </p>
 
-## (iii) Rotation
+## (iii) Rotation <a name="iii"></a>
 requires `PyCrystallography.stereographic_projection`
 <p float="left">
   <img src="../PyCrystallography/Images/stereographic_projection_rotation.gif" width="400" />
