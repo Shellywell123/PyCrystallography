@@ -74,7 +74,7 @@ possible unit cell shapes:
 </p>
 
 ### Reciprocal 
-
+CODE:
 ```py
 from PyCrystallography import unit_cell
 from PyCrystallography import lattice
@@ -107,7 +107,7 @@ lattice.make_lattice_3d(ax2,prim,depth=d,tag='_r')
 
 plt.show()
 ```
-
+OUTPUT:
 ```bash
 Primitive Vectors
    A =  [1, 0, 0]
