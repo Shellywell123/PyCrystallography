@@ -32,6 +32,9 @@ The features of the package include:
    -  Reflection
    -  Rotation
 
+- [Symmetry](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/symmetry.md)
+   - Planes of symmetry in a cube
+
 - [Moire Patterns](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/moire_patterns.md)
 
 - [Xray-Diffraction](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/xray_diffraction.md)
