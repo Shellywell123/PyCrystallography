@@ -4,7 +4,7 @@
 ### Page Contents
  - [Miller Indices](#Miller-Indices)
  - [Planes of reflections in a Cube](#Planes-of-reflections-in-a-Cube)
- - [Lattice - Types](#Lattice-/-Types)
+ - [Lattice - Types](#Lattice-/--Types)
  - [Lattice - Construction](#Lattice-\--Construction)
  - [Packings](#Packings)
 
