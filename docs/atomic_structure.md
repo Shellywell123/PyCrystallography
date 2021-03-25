@@ -4,8 +4,8 @@
 ### Page Contents
  - [Miller Indices](#Miller-Indices)
  - [Planes of reflections in a Cube](#Planes-of-reflections-in-a-Cube)
- - [Lattice - Types](#Lattice-/--Types)
- - [Lattice - Construction](#Lattice-\--Construction)
+ - [Lattice - Types](#types)
+ - [Lattice - Construction](#construction)
  - [Packings](#Packings)
 
 ### Miller Indices
@@ -43,7 +43,7 @@ def cube_reflection_diag(ax):
 <br />
 <br />
 
-## Lattice - Types
+## Lattice - Types <a name="types"></a>
 ### Bravais
 
 Lattices are used as a way to map the structure of crystals. A Bravais Lattice is on that is constructed from an infinite array of discrete points by a set of discrete translation operations (primitive vectors, `A`,`B`,`C` in the below figures.)
@@ -135,7 +135,7 @@ Reciprocal Unit Cell Volume = 24.805021344239854
 <br />
 <br />
 
-## Lattice  - Construction
+## Lattice  - Construction <a name="construction"></a>
 
 A lattice is made up of cells, the most important being primitive unit cells.
 
