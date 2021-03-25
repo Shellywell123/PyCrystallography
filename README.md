@@ -4,7 +4,13 @@ Python 3 package being written to illustrate crystallography.\
 \
 The features of the package include:
 - [Atomic Structures](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/atomic_structure.md)\
-(Miller Indices, Lattices, Primitive Vectors, unit cells, Triangle Subdivision, Penrose Tiling)
+   - Miller Indices
+   - Lattices
+   - Primitive Vectors
+   - unit cells
+   - Triangle Subdivision
+   - Penrose Tiling
+   
 - [3D Crystal Models](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/geometry.md)\
 (Cuboids,Pyramids,Bipyramids,Prisms,Biprismid,Tetrakis)
 - [Stereographic Projections](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/stereographic_projections.md)\
