@@ -24,12 +24,12 @@ The features of the package include:
    - projected normals converted to stereographic projections
 
 - [Operations](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/operations.md)
-   -  Inversion
+   -  [Inversion](#i)
    -  Reflection
    -  Rotation
 
 - [Symmetry](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/symmetry.md)
-   - [Planes of reflections in a Cube](#Planes-of-reflections-in-a-Cube) 
+   - [Planes of reflections in a Cube (fix)](#Planes-of-reflections-in-a-Cube) 
 
 - [Moire Patterns](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/moire_patterns.md)
 
