@@ -2,7 +2,8 @@
   <img src="PyCrystallography/Images/Logo.png" width="800" />
 </p>
 
-Python 3 package being written to illustrate crystallography.\
+Python 3 package being written to illustrate crystallography.
+[github pages - under dev](https://shellywell123.github.io/PyCrystallography/)
 ### [List of package features - PyCrystallography Contents](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/contents.md)
 
 
