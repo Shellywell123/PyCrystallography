@@ -1,7 +1,7 @@
 # Operations
 
 ### Page Contents
- - [(i) Inversion](#i)
+ - [Inversion](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/operations.md#i)
  - [(ii) Reflection](#ii)
  - [(iii) Rotation](#iii)
 
