@@ -24,7 +24,7 @@ The features of the package include:
    - projected normals converted to stereographic projections
 
 - [Operations](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/operations.md)
-   -  [Inversion](#i)
+   -  [Inversion](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/operations.md#i)
    -  Reflection
    -  Rotation
 
