@@ -1,12 +1,12 @@
 # Stereographic Projections
 
 ### Page Contents
- - [Face normal detection and Stereographic Projection](#Face-normal-detection-and-Stereographic-Projection)
- - [Identifying object symmetries](#Identifying-object-symmetries)
- - [n-fold roational symmetry](#nfold)
- - [Prisms](#Prisms)
- - [Biprismids](#Biprismids)
- - [Tetrakis](#Tetrakis)
+ - [Face normal detection and Stereographic Projection](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/stereographic_projections.md#Face-normal-detection-and-Stereographic-Projection)
+ - [Identifying object symmetries](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/stereographic_projections.md#Identifying-object-symmetries)
+ - [n-fold roational symmetry](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/stereographic_projections.md#nfold)
+ - [Prisms](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/stereographic_projections.md#Prisms)
+ - [Biprismids](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/stereographic_projections.md#Biprismids)
+ - [Tetrakis](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/stereographic_projections.md#Tetrakis)
 
 ## Face normal detection and Stereographic Projection
 The projections in this package work by projecting points that lie on a sphere on a 2d disc about the equator. Points in the northern hemisphere will be mapped towards the south pole and points in the southern hemisphere will be mapped towards the northpole.

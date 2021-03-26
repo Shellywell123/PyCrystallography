@@ -1,7 +1,7 @@
 # Symmetry
 
 ### Page Contents
- - [Planes of reflections in a Cube](#Planes-of-reflections-in-a-Cube)
+ - [Planes of reflections in a Cube](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/symmetry.md#Planes-of-reflections-in-a-Cube)
 
 ## Planes of reflections in a Cube
 ```py

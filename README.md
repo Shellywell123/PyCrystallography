@@ -3,8 +3,7 @@
 </p>
 
 Python 3 package being written to illustrate crystallography.\
-[List of package features](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/contents.md)
-
+### [List of package features - PyCrystallography Contents](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/contents.md)
 
 
 ## Installation

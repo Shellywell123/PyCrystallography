@@ -2,11 +2,11 @@
 # Atomic Structures of crystals
 
 ### Page Contents
- - [Miller Indices](#Miller-Indices)
- - [Planes of reflections in a Cube](#Planes-of-reflections-in-a-Cube)
- - [Lattice - Types](#types)
- - [Lattice - Construction](#construction)
- - [Packings](#Packings)
+ - [Miller Indices](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/atomic_structure.md#Miller-Indices)
+ - [Planes of reflections in a Cube](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/atomic_structure.md#Planes-of-reflections-in-a-Cube)
+ - [Lattice - Types](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/atomic_structure.md#types)
+ - [Lattice - Construction](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/atomic_structure.md#construction)
+ - [Packings](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/atomic_structure.md#Packings)
 
 ### Miller Indices
 The miller indices are used to denote the planes in crystal lattices.

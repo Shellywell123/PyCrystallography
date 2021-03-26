@@ -1,9 +1,9 @@
 # Operations
 
 ### Page Contents
- - [Inversion](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/operations.md#i)
- - [(ii) Reflection](#ii)
- - [(iii) Rotation](#iii)
+ - [(i) Inversion](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/operations.md#i)
+ - [(ii) Reflection](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/operations.m#ii)
+ - [(iii) Rotation](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/operations.m#iii)
 
 
 In crystallography an object is considered symmetrical if it exhibits the 3 opertions of symmetry.
