@@ -1,37 +1,80 @@
-## Welcome to GitHub Pages
+<p float="middle">
+  <img src="PyCrystallography/Images/Logo.png" width="800" />
+</p>
 
-You can use the [editor on GitHub](https://github.com/Shellywell123/PyCrystallography/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Python 3 package being written to illustrate crystallography.\
+[github pages - under dev](https://shellywell123.github.io/PyCrystallography/)
+### [List of package features - PyCrystallography Contents](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/contents.md)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+## Installation
+```bash
+pip3 install PyCrystallography
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+or
 
-### Jekyll Themes
+```bash
+git clone https://github.com/Shellywell123/PyCrystallography/
+```
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Shellywell123/PyCrystallography/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
-### Support or Contact
+## Some Examples
+### [Penrose Tiling](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/atomic_structure.md)
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+<p float="left">
+  <img src="PyCrystallography/Images/penrose_tiling_sun.gif" width="400" />
+  <img src="PyCrystallography/Images/penrose_tiling_star.gif" width="400" />
+</p>
+
+
+### [Atomic Structures](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/atomic_structure.md)
+
+<p float="left">
+  <img src="PyCrystallography/Images/diamond_unit_cell.gif" width="400" />
+  <img src="PyCrystallography/Images/diamond_lattice.gif" width="400" />
+</p>
+
+
+### [Operations](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/operations.md)
+
+<p float="left">
+  <img src="PyCrystallography/Images/inversion.gif" width="400" />
+  <img src="PyCrystallography/Images/reflection.gif" width="400" />
+</p>
+
+
+### [Miller Indices](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/atomic_structure.md)
+
+<p float="left">
+  <img src="PyCrystallography/Images/cube_reflection.gif" width="400" />
+  <img src="PyCrystallography/Images/cube_reflection_diag.gif" width="400" />
+</p>
+
+### [Geometry](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/geometry.md)
+
+<p float="left">
+  <img src="PyCrystallography/Images/cube.gif" width="400" />
+  <img src="PyCrystallography/Images/bipyramid10.gif" width="400" />
+</p>
+
+### [Face normal detection and Stereographic Projections](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/stereographic_projections.md)
+
+<p float="left">
+  <img src="PyCrystallography/Images/face_normals_tetrakis.gif" width="400" />
+  <img src="PyCrystallography/Images/stereographic_projection_tetrakis.png" width="400" />
+</p>
+
+### [Moire Patterns](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/moire_patterns.md)
+
+<p float="middle">
+  <img src="PyCrystallography/Images/moire_pattern_linear_roatation.gif" width="400" />
+  <img src="PyCrystallography/Images/moire_pattern_radial_seperation.gif" width="400" />
+</p>
+
+### [Xray-Diffraction](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/xray_diffraction.md)
+<p float="middle">
+  <img src="PyCrystallography/Images/Xray-Diffraction_square.png" width="400" />
+  <img src="PyCrystallography/Images/Xray-Diffraction_hexagon.png" width="400" />
+</p>
+
