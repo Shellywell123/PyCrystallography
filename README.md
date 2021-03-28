@@ -1,5 +1,10 @@
+---
+title: PAGE TITLE HERE
+layout: template
+filename: NAME OF THIS .md FILE HERE
+--- 
 <p float="middle">
-  <img src="PyCrystallography/Images/face_normals_tetrakis-transparent.gif" width="100" />
+  <img src="PyCrystallography/Images/face_normals_tetrakis-transparent.gif" width="150" />
   <img src="PyCrystallography/Images/Logo.png" width="700" />
 </p>
 
