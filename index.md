@@ -6,7 +6,7 @@
 </p>
 
 Python 3 package being written to illustrate crystallography.
-### [List of package features - PyCrystallography Contents](/docs/contents.md)
+### [Documentation](/docs/contents.md)
 
 
 ## Installation

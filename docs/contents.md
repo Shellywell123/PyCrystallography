@@ -2,6 +2,9 @@
 
 This page contains a detailed list of links to all the documented features that the PyCrstallography package offers.
 
+Setup:
+- [Atomic Structures](../index.md)
+<div>
 The features of the package include:
 - [Atomic Structures](atomic_structure.md)
    - [Miller Indices](atomic_structure.md#Miller-Indices)
