@@ -1,7 +1,7 @@
 
 <link rel="shortcut icon" type="image/x-icon" href="https://github.com/Shellywell123/PyCrystallography/blob/main/PyCrystallography/Images/favicon.ico">
 <p float="middle">
-  <img src="https://github.com/Shellywell123/PyCrystallography/blob/main/PyCrystallography/Images/Logo.png" width="800" />
+  <img src="PyCrystallography/Images/Logo.png" width="800" />
 </p>
 
 Python 3 package being written to illustrate crystallography.
@@ -24,8 +24,8 @@ git clone https://github.com/Shellywell123/PyCrystallography/
 ### [Penrose Tiling](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/atomic_structure.md)
 
 <p float="left">
-  <img src="https://github.com/Shellywell123/PyCrystallography/blob/main/PyCrystallography/Images/penrose_tiling_sun.gif" width="400" />
-  <img src="https://github.com/Shellywell123/PyCrystallography/blob/main/PyCrystallography/Images/penrose_tiling_star.gif" width="400" />
+  <img src="PyCrystallography/Images/penrose_tiling_sun.gif" width="400" />
+  <img src="PyCrystallography/Images/penrose_tiling_star.gif" width="400" />
 </p>
 
 
@@ -70,7 +70,7 @@ git clone https://github.com/Shellywell123/PyCrystallography/
 
 <p float="middle">
   <img src="PyCrystallography/Images/moire_pattern_linear_roatation.gif" width="400" />
-  <img src="PyCrystallography/Images/moire_pattern_radial_seperation.GIF" width="400" />
+  <img src="PyCrystallography/Images/moire_pattern_radial_seperation.gif" width="400" />
 </p>
 
 ### [Xray-Diffraction](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/xray_diffraction.md)
