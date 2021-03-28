@@ -5,9 +5,9 @@ from setuptools import setup, find_packages
 
 setup(
     name='PyCrystallography',
-    version='0.2.0',
+    version='0.2.1',
     description='Python 3 package being written to illustrate crystallography',
-    long_description='Python 3 package being written to illustrate crystallography', # fix readme import
+    long_description='Python 3 package being written to illustrate crystallography. For more information and documentation see [PyCrystallography - website](https://shellywell123.github.io/PyCrystallography/index.html)', # fix readme import
     long_description_content_type='text/markdown',
     author='Shellywell123',
     url='https://github.com/Shellywell123/PyCrystallography',
