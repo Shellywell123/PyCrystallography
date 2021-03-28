@@ -1,9 +1,3 @@
----
-title: PAGE TITLE HERE
-layout: template
-filename: NAME OF THIS .md FILE HERE
---- 
-
 <link rel="shortcut icon" type="image/x-icon" href="https://github.com/Shellywell123/PyCrystallography/blob/main/PyCrystallography/Images/favicon.ico">
 <p float="middle">
   <img src="https://github.com/Shellywell123/PyCrystallography/blob/main/PyCrystallography/Images/Logo.png" width="800" />
@@ -81,6 +75,6 @@ git clone https://github.com/Shellywell123/PyCrystallography/
 ### [Xray-Diffraction](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/xray_diffraction.md)
 <p float="middle">
   <img src="https://github.com/Shellywell123/PyCrystallography/blob/main/PyCrystallography/Images/Xray-Diffraction_square.png" width="400" />
-  <img src="https://github.com/Shellywell123/PyCrystallography/blob/main/PyCrystallography/Images/Xray-Diffraction_hexagon.png" width="400" />
+  <img src="https://github.com/Shellywell123/PyCrystallography/blob/main/PyCrystallography/Images/Xray-Diffraction_hexagon.png" />
 </p>
 
