@@ -1,3 +1,8 @@
 theme: jekyll-theme-cayman
 title: PyCrystallography
-logo_url: https://github.com/Shellywell123/PyCrystallography/blob/gh-pages/PyCrystallography/Images/Logo.png
+logo_url: https://github.com/Shellywell123/PyCrystallography/blob/gh-pages/PyCrystallography/Images/favicon.ico
+logo: https://github.com/Shellywell123/PyCrystallography/blob/gh-pages/PyCrystallography/Images/Logo.png
+sidebar_categories:
+  null:
+    - index
+    - formatting
