@@ -70,12 +70,12 @@ git clone https://github.com/Shellywell123/PyCrystallography/
 
 <p float="middle">
   <img src="https://github.com/Shellywell123/PyCrystallography/blob/main/PyCrystallography/Images/moire_pattern_linear_roatation.gif" width="400" />
-  <img src="https://github.com/Shellywell123/PyCrystallography/blob/main/PyCrystallography/Images/moire_pattern_radial_seperation.gif" width="400" />
+  <img src="https://github.com/Shellywell123/PyCrystallography/blob/main/PyCrystallography/Images/moire_pattern_radial_seperation.GIF" width="400" />
 </p>
 
 ### [Xray-Diffraction](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/xray_diffraction.md)
 <p float="middle">
-  <img src="https://github.com/Shellywell123/PyCrystallography/blob/gh-pages/PyCrystallography/Images/Xray-Diffraction_square.png" width="400" />
+  <img src="https://github.com/Shellywell123/PyCrystallography/blob/gh-pages/PyCrystallography/Images/Xray-Diffraction_square.PNG" width="400" />
   <img src="PyCrystallography/Images/Xray-Diffraction_hexagon.png" />
 </p>
 
