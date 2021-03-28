@@ -1,6 +1,3 @@
-### [Documentation](/docs/contents.md)
-
-
 ## Installation
 ```bash
 pip3 install PyCrystallography
