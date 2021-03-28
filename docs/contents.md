@@ -4,7 +4,9 @@ This page contains a detailed list of links to all the documented features that 
 
 Setup:
 - [Atomic Structures](../index.md)
-<div>
+
+<br />
+
 The features of the package include:
 - [Atomic Structures](atomic_structure.md)
    - [Miller Indices](atomic_structure.md#Miller-Indices)
