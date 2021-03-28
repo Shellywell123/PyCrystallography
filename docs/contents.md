@@ -3,7 +3,7 @@
 This page contains a detailed list of links to all the documented features that the PyCrstallography package offers.
 
 Setup:
-- [Atomic Structures](../index.md)
+- [Installation](../index.md)
 
 <br />
 
