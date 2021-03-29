@@ -5,10 +5,7 @@
 
 @mixin large {
   @media screen and (min-width: #{$large-breakpoint}) {
-    div.wrapper {
-    width:auto;
-    margin:0;
-  }
+    @content
   }
 }
 
