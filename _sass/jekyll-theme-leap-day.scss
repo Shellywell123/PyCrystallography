@@ -148,7 +148,7 @@ dt {
 }
 
 header {
-  padding: 25px 20px 40px 200px;
+  padding: 25px 20px 40px 20px;
   margin: 0;
   position: fixed;
   top: 0;
@@ -190,7 +190,7 @@ header {
   margin-right:-382px;
   position: fixed;
   top: 115px;
-  background: #ffcc00;
+  background: #54637a;
   border: 1px solid #f0b500;
   box-shadow: 0px 1px 3px rgba(0,0,0,.25);
   border-radius: 0px 2px 2px 0px;
@@ -201,7 +201,7 @@ header {
     background: linear-gradient(rgb(255, 231, 136), rgb(255, 206, 56));
     border-radius: 2px;
     box-shadow: inset 0px 1px 0px rgba(255,255,255,.4), 0px 1px 1px rgba(0,0,0,.1);
-    background-color: #FFE788;
+    background-color: #78808c;
     margin-left: 5px;
     padding: 10px 12px;
     margin-top: 6px;
@@ -247,7 +247,7 @@ header {
     list-style:none;
     height:40px;
     padding:0;
-    float: left;
+    float: middle;
     margin-left:10px;
 
     li {
@@ -271,7 +271,7 @@ header {
 }
 
 section {
-  width:800px;
+  width:850px;
   padding: 30px 30px 50px 30px;
   margin: 20px 0;
   margin-top: 190px;
@@ -292,7 +292,7 @@ nav {
   top: 220px;
   left:50%;
   margin-left:-580px;
-  text-align: right;
+  text-align: left;
 
   ul {
     list-style: none;
