@@ -185,16 +185,16 @@ header {
 #banner {
   z-index: 100;
   left:0;
-  width:100%;
+  right:50%;
   height: 50px;
-  margin-right:0px;
+  margin-right:0;
   position: fixed;
   top: 115px;
-  background: #54637a;
-  border: 1px solid #8AE655;
+  background: #ffcc00;
+  border: 1px solid #f0b500;
   box-shadow: 0px 1px 3px rgba(0,0,0,.25);
   border-radius: 0px 2px 2px 0px;
-  padding-right: 0px;
+  padding-right: 10px;
 
   .button {
     border: 1px solid #dba500;
