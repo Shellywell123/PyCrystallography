@@ -184,10 +184,10 @@ header {
 
 #banner {
   z-index: 100;
-  left:230px;
+  left:0;
   right:0;
   height: 50px;
-  margin: 20px 0;
+  margin: 230px 0;
   width: 1000px;
   position: fixed;
   top: 115px;
@@ -214,8 +214,8 @@ header {
     text-align:center;
 
     &:hover {
-      background: linear-gradient(rgb(255, 231, 136), rgb(255, 231, 136));
-      background-color: #ffeca0;
+      background: #0e3d70;
+      background-color: #0e3d70;
     }
   }
 
