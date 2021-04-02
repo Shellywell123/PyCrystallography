@@ -1,5 +1,7 @@
 # Symmetry
 
+<hr />
+
 ## Planes of reflections in a Cube
 ```py
 
