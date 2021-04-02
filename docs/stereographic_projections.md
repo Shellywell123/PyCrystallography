@@ -1,5 +1,7 @@
 # Stereographic Projections
 
+<hr />
+
 ## Face normal detection and Stereographic Projection
 The projections in this package work by projecting points that lie on a sphere on a 2d disc about the equator. Points in the northern hemisphere will be mapped towards the south pole and points in the southern hemisphere will be mapped towards the northpole.
 
@@ -100,12 +102,16 @@ plt.show()
   <img src="../PyCrystallography/Images/stereographic_projection_tetrakis.png" width="400" />
 </p>
 
+<hr />
+
 ## Identifying object symmetries
 
 There are 32 point group classifications for symmetries in crystallography. They are classified by:
  - mirror planes
  - rotational axes (nfold)
  - rotoinversion axes
+
+<hr />
 
 ## n-fold roational symmetry <a name="nfold"></a>
 ```py
