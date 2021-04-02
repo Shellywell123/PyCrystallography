@@ -1,5 +1,5 @@
 
-## Geometry
+# Geometry
 
 PyCrystallography contains many 3D geometries that can be loaded and viewed interactively. The models can then have there normals identified and converted to [Stereographic Projections](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/stereographic_projections.md).
 ```py
