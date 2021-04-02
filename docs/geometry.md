@@ -16,6 +16,9 @@ cuboid(ax,5,5,5)
 ######################################
 plt.show()
 ```
+
+<hr />
+
 ### Cuboids
 ```py
 def cuboid(ax,h,w,d):
@@ -26,6 +29,8 @@ def cuboid(ax,h,w,d):
   <img src="../PyCrystallography/Images/cuboid_y.gif" width="400" />
   <img src="../PyCrystallography/Images/cuboid_z.gif" width="400" />
 </p>
+
+<hr />
 
 ### Pyramids
 ```py
@@ -38,6 +43,8 @@ def pryamid(ax,h,num_of_side):
   <img src="../PyCrystallography/Images/pyramid10.gif" width="400" />
 </p>
 
+<hr />
+
 ### Bipyramids
 ```py
 def bipryamid(ax,h,num_of_side):
@@ -48,6 +55,8 @@ def bipryamid(ax,h,num_of_side):
   <img src="../PyCrystallography/Images/bipyramid5.gif" width="400" />
   <img src="../PyCrystallography/Images/bipyramid10.gif" width="400" />
 </p>
+
+<hr />
 
 ### Prisms
 ```py
@@ -60,6 +69,8 @@ def prism(ax,h,num_of_side):
   <img src="../PyCrystallography/Images/prism10.gif" width="400" />
 </p>
 
+<hr />
+
 ### Biprismid 
 (not sure what its proper name is)
 ```py
@@ -71,6 +82,8 @@ def biprismid(ax,h,num_of_side):
   <img src="../PyCrystallography/Images/biprismid5.gif" width="400" />
   <img src="../PyCrystallography/Images/biprismid10.gif" width="400" />
 </p>
+
+<hr />
 
 ### Tetrakis
 ```py
