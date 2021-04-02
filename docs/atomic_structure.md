@@ -1,6 +1,8 @@
 
 # Atomic Structures of crystals
 
+<hr />
+
 ### Miller Indices
 The miller indices are used to denote the planes in crystal lattices.
 
@@ -18,6 +20,8 @@ The miller indices are used to denote the planes in crystal lattices.
 <br />
 <br />
 
+
+<hr />
 
 ## Lattice - Types <a name="types"></a>
 ### Bravais
