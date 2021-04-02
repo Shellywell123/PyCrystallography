@@ -17,6 +17,8 @@ inversion(ax)
 plt.show()
 ```
 
+<hr />
+
 ## (i) Inversion <a name="i"></a>
 ```py
 def inversion(ax,h,w,d):
@@ -30,6 +32,8 @@ def inversion(ax,h,w,d):
   <img src="../PyCrystallography/Images/stereographic_projection_inversion.gif" width="400" />
 </p>
 
+<hr />
+
 ## (ii) Reflection <a name="ii"></a>
 
 ```py
@@ -39,6 +43,8 @@ def reflection(ax,h,w,d):
 <p float="left">
   <img src="../PyCrystallography/Images/reflection.gif" width="400" />
 </p>
+
+<hr />
 
 ## (iii) Rotation <a name="iii"></a>
 requires `PyCrystallography.stereographic_projection`
