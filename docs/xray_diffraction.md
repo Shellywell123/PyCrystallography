@@ -1,4 +1,4 @@
-### Xray-Diffraction
+# X-ray Diffraction
 currently work in progress
 
 ```py
