@@ -1,14 +1,6 @@
 
 ## Geometry
 
-### Page Contents
- - [Cuboids](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/geometry.md#Cuboids)
- - [Pyramids](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/geometry.md#Pyramids)
- - [Bipyramids](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/geometry.md#Bipyramids)
- - [Prisms](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/geometry.md#Prisms)
- - [Biprismids](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/geometry.md#Biprismids)
- - [Tetrakis](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/geometry.md#Tetrakis)
-
 PyCrystallography contains many 3D geometries that can be loaded and viewed interactively. The models can then have there normals identified and converted to [Stereographic Projections](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/stereographic_projections.md).
 ```py
 import matplotlib.pyplot as plt
