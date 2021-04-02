@@ -1,5 +1,5 @@
 # Welcome
-PyCrystallography is a Python 3 package for illustrating and simulating crystallography exercises. Using interactive 2D and 3D models to activily help you visualise concepts.
+PyCrystallography is a Python 3 package for illustrating and simulating crystallography exercises. Using interactive 2D and 3D models to activily help you visualise concepts.\ Note - this site is best viewed on a Desktop
 
 <hr />
 
