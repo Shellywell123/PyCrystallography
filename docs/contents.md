@@ -41,4 +41,4 @@ The features of the package include:
 
 - [Moire Patterns](moire_patterns.md)
 
-- [Xray-Diffraction](xray_diffraction.md)
+- [X-ray Diffraction](xray_diffraction.md)
