@@ -74,7 +74,7 @@ git clone https://github.com/Shellywell123/PyCrystallography/
   <img src="PyCrystallography/Images/moire_pattern_radial_seperation.gif" width="400" />
 </p>
 
-### [Xray-Diffraction](docs/xray_diffraction.md)
+### [X-ray Diffraction](docs/xray_diffraction.md)
 <p float="middle">
   <img src="PyCrystallography/Images/Xray-Diffraction_square.png" width="400" />
   <img src="PyCrystallography/Images/Xray-Diffraction_hexagon.png" width="400" />
