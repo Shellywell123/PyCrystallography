@@ -15,7 +15,7 @@ Clone the source repository:
 git clone https://github.com/Shellywell123/PyCrystallography/
 ```
 
-
+<hr />
 ## Some Examples
 ### [Penrose Tiling](docs/atomic_structure.md)
 
