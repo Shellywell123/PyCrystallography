@@ -1,4 +1,4 @@
-## Moire patterns
+# Moire patterns
 
 moire pattens can be seen by translating/rotating an indetical lattice/structure over the top of itself.
 
