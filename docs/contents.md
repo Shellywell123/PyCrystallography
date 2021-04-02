@@ -19,7 +19,7 @@ The features of the package include:
    - [Cuboids](geometry.md#Cuboids)
    - [Pyramids](geometry.md#Pyramids)
    - [Bipyramids](geometry.md#Bipyramids)
-   - [Prisms](geometry.md#Prisms)
+   - [Prisms](geometry.md#prisms)
    - [Biprismids](geometry.md#Biprismids)
    - [Tetrakis](geometry.md#Tetrakis)
 
