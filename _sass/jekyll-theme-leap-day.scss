@@ -183,8 +183,11 @@ header {
 }
 
 #banner {
+  z-index: 100;
+  left:200;
+  right:0;
+  height: 50px;
   width:820px;
-  padding: 30px 30px 50px 100px;
   margin-right:0px;
   position: fixed;
   top: 115px;
