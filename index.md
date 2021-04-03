@@ -24,47 +24,47 @@ git clone https://github.com/Shellywell123/PyCrystallography/
 ## Some Examples
 ### [Penrose Tiling](docs/atomic_structure.md)
 
-<p float="left">
-  <img src="PyCrystallography/Images/penrose_tiling_sun.gif" style="width: 25vw; margin: auto;" />
-  <img src="PyCrystallography/Images/penrose_tiling_star.gif" style="width: 25vw; margin: auto;" />
+<p float="middle">
+  <img src="PyCrystallography/Images/penrose_tiling_sun.gif" style="width: 25vw" />
+  <img src="PyCrystallography/Images/penrose_tiling_star.gif" style="width: 25vw" />
 </p>
 
 
 ### [Atomic Structures](docs/atomic_structure.md)
 
-<p float="left">
-  <img src="PyCrystallography/Images/diamond_unit_cell.gif" width="400" />
-  <img src="PyCrystallography/Images/diamond_lattice.gif" width="400" />
+<p float="middle">
+  <img src="PyCrystallography/Images/diamond_unit_cell.gif" style="width: 25vw"  />
+  <img src="PyCrystallography/Images/diamond_lattice.gif" style="width: 25vw"  />
 </p>
 
 
 ### [Operations](docs/operations.md)
 
-<p float="left">
-  <img src="PyCrystallography/Images/inversion.gif" width="400" />
-  <img src="PyCrystallography/Images/reflection.gif" width="400" />
+<p float="middle">
+  <img src="PyCrystallography/Images/inversion.gif" style="width: 25vw"  />
+  <img src="PyCrystallography/Images/reflection.gif" style="width: 25vw"  />
 </p>
 
 
 ### [Miller Indices](docs/atomic_structure.md)
 
-<p float="left">
-  <img src="PyCrystallography/Images/cube_reflection.gif" width="400" />
-  <img src="PyCrystallography/Images/cube_reflection_diag.gif" width="400" />
+<p float="middle">
+  <img src="PyCrystallography/Images/cube_reflection.gif" style="width: 25vw"  />
+  <img src="PyCrystallography/Images/cube_reflection_diag.gif"style="width: 25vw"  />
 </p>
 
 ### [Geometry](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/geometry.md)
 
-<p float="left">
-  <img src="PyCrystallography/Images/cube.gif" width="400" />
-  <img src="PyCrystallography/Images/bipyramid10.gif" width="400" />
+<p float="middle">
+  <img src="PyCrystallography/Images/cube.gif" style="width: 25vw" />
+  <img src="PyCrystallography/Images/bipyramid10.gif" style="width: 25vw"  />
 </p>
 
 ### [Face normal detection and Stereographic Projections](docs/stereographic_projections.md)
 
-<p float="left">
-  <img src="PyCrystallography/Images/face_normals_tetrakis.gif" width="400" />
-  <img src="PyCrystallography/Images/stereographic_projection_tetrakis.png" width="400" />
+<p float="middle">
+  <img src="PyCrystallography/Images/face_normals_tetrakis.gif" style="width: 25vw"  />
+  <img src="PyCrystallography/Images/stereographic_projection_tetrakis.png"style="width: 25vw"  />
 </p>
 
 ### [Moire Patterns](docs/moire_patterns.md)
