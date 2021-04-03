@@ -108,7 +108,7 @@ Reciprocal Unit Cell Volume = 24.805021344239854
 ```
 
 <p float="left">
-  <img src="../PyCrystallography/Images/Reciprocal.png" style="width: 25vw;" />
+  <img src="../PyCrystallography/Images/Reciprocal.png" style="width: 50vw;" />
 </p>
 
 <br />
