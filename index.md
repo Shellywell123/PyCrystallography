@@ -32,7 +32,7 @@ git clone https://github.com/Shellywell123/PyCrystallography/
 ## Some Examples
 ### [Penrose Tiling](docs/atomic_structure.md)
 
-<p float="middle">
+<p float="middle" style="margin: auto;">
   <img src="PyCrystallography/Images/penrose_tiling_sun.gif" style="width: 25vw" />
   <img src="PyCrystallography/Images/penrose_tiling_star.gif" style="width: 25vw" />
 </p>
