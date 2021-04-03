@@ -24,10 +24,10 @@ plt.show()
 def cuboid(ax,h,w,d):
 ```
 <p float="left">
-  <img src="../PyCrystallography/Images/cube.gif" width="400" />
-  <img src="../PyCrystallography/Images/cuboid_x.gif" width="400" />
-  <img src="../PyCrystallography/Images/cuboid_y.gif" width="400" />
-  <img src="../PyCrystallography/Images/cuboid_z.gif" width="400" />
+  <img src="../PyCrystallography/Images/cube.gif" style="width: 25vw;" />
+  <img src="../PyCrystallography/Images/cuboid_x.gif" style="width: 25vw;" />
+  <img src="../PyCrystallography/Images/cuboid_y.gif" style="width: 25vw;" />
+  <img src="../PyCrystallography/Images/cuboid_z.gif" style="width: 25vw;" />
 </p>
 
 <hr />
@@ -37,10 +37,10 @@ def cuboid(ax,h,w,d):
 def pryamid(ax,h,num_of_side):
 ```
 <p float="left">
-  <img src="../PyCrystallography/Images/pyramid3.gif" width="400" />
-  <img src="../PyCrystallography/Images/pyramid4.gif" width="400" />
-  <img src="../PyCrystallography/Images/pyramid5.gif" width="400" />
-  <img src="../PyCrystallography/Images/pyramid10.gif" width="400" />
+  <img src="../PyCrystallography/Images/pyramid3.gif" style="width: 25vw;" />
+  <img src="../PyCrystallography/Images/pyramid4.gif" style="width: 25vw;" />
+  <img src="../PyCrystallography/Images/pyramid5.gif" style="width: 25vw;" />
+  <img src="../PyCrystallography/Images/pyramid10.gif" style="width: 25vw;" />
 </p>
 
 <hr />
@@ -50,10 +50,10 @@ def pryamid(ax,h,num_of_side):
 def bipryamid(ax,h,num_of_side):
 ```
 <p float="left">
-  <img src="../PyCrystallography/Images/bipyramid3.gif" width="400" />
-  <img src="../PyCrystallography/Images/bipyramid4.gif" width="400" />
-  <img src="../PyCrystallography/Images/bipyramid5.gif" width="400" />
-  <img src="../PyCrystallography/Images/bipyramid10.gif" width="400" />
+  <img src="../PyCrystallography/Images/bipyramid3.gif" style="width: 25vw;" />
+  <img src="../PyCrystallography/Images/bipyramid4.gif" style="width: 25vw;" />
+  <img src="../PyCrystallography/Images/bipyramid5.gif" style="width: 25vw;" />
+  <img src="../PyCrystallography/Images/bipyramid10.gif" style="width: 25vw;" />
 </p>
 
 <hr />
@@ -63,10 +63,10 @@ def bipryamid(ax,h,num_of_side):
 def prism(ax,h,num_of_side):
 ```
 <p float="left">
-  <img src="../PyCrystallography/Images/prism3.gif" width="400" />
-  <img src="../PyCrystallography/Images/prism4.gif" width="400" />
-  <img src="../PyCrystallography/Images/prism5.gif" width="400" />
-  <img src="../PyCrystallography/Images/prism10.gif" width="400" />
+  <img src="../PyCrystallography/Images/prism3.gif" style="width: 25vw;" />
+  <img src="../PyCrystallography/Images/prism4.gif" style="width: 25vw;" />
+  <img src="../PyCrystallography/Images/prism5.gif" style="width: 25vw;" />
+  <img src="../PyCrystallography/Images/prism10.gif" style="width: 25vw;" />
 </p>
 
 <hr />
@@ -77,10 +77,10 @@ def prism(ax,h,num_of_side):
 def biprismid(ax,h,num_of_side):
 ```
 <p float="left">
-  <img src="../PyCrystallography/Images/biprismid3.gif" width="400" />
-  <img src="../PyCrystallography/Images/biprismid4.gif" width="400" />
-  <img src="../PyCrystallography/Images/biprismid5.gif" width="400" />
-  <img src="../PyCrystallography/Images/biprismid10.gif" width="400" />
+  <img src="../PyCrystallography/Images/biprismid3.gif" style="width: 25vw;" />
+  <img src="../PyCrystallography/Images/biprismid4.gif" style="width: 25vw;" />
+  <img src="../PyCrystallography/Images/biprismid5.gif" style="width: 25vw;" />
+  <img src="../PyCrystallography/Images/biprismid10.gif" style="width: 25vw;" />
 </p>
 
 <hr />
@@ -90,5 +90,5 @@ def biprismid(ax,h,num_of_side):
 def tetrakis(ax,h,dh):
 ```
 <p float="left">
-  <img src="../PyCrystallography/Images/tetrakis.gif" width="400" />
+  <img src="../PyCrystallography/Images/tetrakis.gif" style="width: 25vw;" />
 </p>
