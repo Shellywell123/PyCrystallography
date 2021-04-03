@@ -25,11 +25,11 @@ def inversion(ax,h,w,d):
 ```
 
 <p float="left">
-  <img src="../PyCrystallography/Images/inversion.gif" width="400" />
+  <img src="../PyCrystallography/Images/inversion.gif" style="width: 25vw;" />
 </p>
 
 <p float="left">
-  <img src="../PyCrystallography/Images/stereographic_projection_inversion.gif" width="400" />
+  <img src="../PyCrystallography/Images/stereographic_projection_inversion.gif" style="width: 25vw;" />
 </p>
 
 <hr />
@@ -41,7 +41,7 @@ def reflection(ax,h,w,d):
 ```
 
 <p float="left">
-  <img src="../PyCrystallography/Images/reflection.gif" width="400" />
+  <img src="../PyCrystallography/Images/reflection.gif" style="width: 25vw;" />
 </p>
 
 <hr />
@@ -49,5 +49,5 @@ def reflection(ax,h,w,d):
 ## (iii) Rotation <a name="iii"></a>
 requires `PyCrystallography.stereographic_projection`
 <p float="left">
-  <img src="../PyCrystallography/Images/stereographic_projection_rotation.gif" width="400" />
+  <img src="../PyCrystallography/Images/stereographic_projection_rotation.gif" style="width: 25vw;" />
 </p>
