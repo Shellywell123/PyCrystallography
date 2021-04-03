@@ -5,7 +5,11 @@ PyCrystallography is a Python 3 package for illustrating and simulating crystall
 
 Note - this site is best viewed on a Desktop
 
+<br>
+
 <hr />
+
+<br>
 
 ## Installation
 pip installable - to see release versions see [PyPi - PyCrystallography](https://pypi.org/project/PyCrystallography/):
@@ -19,7 +23,11 @@ Clone the source repository:
 git clone https://github.com/Shellywell123/PyCrystallography/
 ```
 
+<br>
+
 <hr />
+
+<br>
 
 ## Some Examples
 ### [Penrose Tiling](docs/atomic_structure.md)
