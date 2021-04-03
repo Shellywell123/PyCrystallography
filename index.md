@@ -58,7 +58,7 @@ git clone https://github.com/Shellywell123/PyCrystallography/
 
 <p float="middle">
   <img src="PyCrystallography/Images/cube_reflection.gif" style="width: 25vw"  />
-  <img src="PyCrystallography/Images/cube_reflection_diag.gif"style="width: 25vw"  />
+  <img src="PyCrystallography/Images/cube_reflection_diag.gif" style="width: 25vw"  />
 </p>
 
 ### [Geometry](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/geometry.md)
@@ -72,19 +72,19 @@ git clone https://github.com/Shellywell123/PyCrystallography/
 
 <p float="middle">
   <img src="PyCrystallography/Images/face_normals_tetrakis.gif" style="width: 25vw"  />
-  <img src="PyCrystallography/Images/stereographic_projection_tetrakis.png"style="width: 25vw"  />
+  <img src="PyCrystallography/Images/stereographic_projection_tetrakis.png" style="width: 25vw"  />
 </p>
 
 ### [Moire Patterns](docs/moire_patterns.md)
 
 <p float="middle">
-  <img src="PyCrystallography/Images/moire_pattern_linear_roatation.gif" width="400" />
-  <img src="PyCrystallography/Images/moire_pattern_radial_seperation.gif" width="400" />
+  <img src="PyCrystallography/Images/moire_pattern_linear_roatation.gif" style="width: 25vw" />
+  <img src="PyCrystallography/Images/moire_pattern_radial_seperation.gif" style="width: 25vw" />
 </p>
 
 ### [X-ray Diffraction](docs/xray_diffraction.md)
 <p float="middle">
-  <img src="PyCrystallography/Images/Xray-Diffraction_square.png" width="400" />
-  <img src="PyCrystallography/Images/Xray-Diffraction_hexagon.png" width="400" />
+  <img src="PyCrystallography/Images/Xray-Diffraction_square.png" style="width: 25vw" />
+  <img src="PyCrystallography/Images/Xray-Diffraction_hexagon.png" style="width: 25vw" />
 </p>
 
