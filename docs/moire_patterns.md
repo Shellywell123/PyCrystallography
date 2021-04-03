@@ -21,8 +21,8 @@ radial_seperation_pattern(d)
 ```
 
 <p float="middle">
-  <img src="../PyCrystallography/Images/moire_pattern_linear_roatation.gif" width="400" />
-  <img src="../PyCrystallography/Images/moire_pattern_radial_seperation.gif" width="400" />
-  <img src="../PyCrystallography/Images/moire_grid_rotation.gif" width="400" />
+  <img src="../PyCrystallography/Images/moire_pattern_linear_roatation.gif" style="width: 25vw;" />
+  <img src="../PyCrystallography/Images/moire_pattern_radial_seperation.gif" style="width: 25vw;" />
+  <img src="../PyCrystallography/Images/moire_grid_rotation.gif" style="width: 25vw;" />
 </p>
 
