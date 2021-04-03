@@ -18,8 +18,8 @@ spread = 1
 run_simulation(num_of_particles,theta,spread,lattice_shape='rhombus')
 ```
 <p float="middle">
-  <img src="../PyCrystallography/Images/Xray-Diffraction_triangle.png" width="400" />
-  <img src="../PyCrystallography/Images/Xray-Diffraction_square.png" width="400" />
-  <img src="../PyCrystallography/Images/Xray-Diffraction_rhombus.png" width="400" />
-  <img src="../PyCrystallography/Images/Xray-Diffraction_hexagon.png" width="400" />
+  <img src="../PyCrystallography/Images/Xray-Diffraction_triangle.png" style="width: 25vw;" />
+  <img src="../PyCrystallography/Images/Xray-Diffraction_square.png" style="width: 25vw;" />
+  <img src="../PyCrystallography/Images/Xray-Diffraction_rhombus.png" style="width: 25vw;" />
+  <img src="../PyCrystallography/Images/Xray-Diffraction_hexagon.png" style="width: 25vw;" />
 </p>
