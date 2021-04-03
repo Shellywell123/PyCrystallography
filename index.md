@@ -25,8 +25,8 @@ git clone https://github.com/Shellywell123/PyCrystallography/
 ### [Penrose Tiling](docs/atomic_structure.md)
 
 <p float="left">
-  <img src="PyCrystallography/Images/penrose_tiling_sun.gif" style="width: 30vw;" />
-  <img src="PyCrystallography/Images/penrose_tiling_star.gif" style="width: 30vw;" />
+  <img src="PyCrystallography/Images/penrose_tiling_sun.gif" style="width: 40vw;" />
+  <img src="PyCrystallography/Images/penrose_tiling_star.gif" style="width: 40vw;" />
 </p>
 
 
