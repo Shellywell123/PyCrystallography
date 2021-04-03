@@ -68,7 +68,7 @@ git clone https://github.com/Shellywell123/PyCrystallography/
   <img src="PyCrystallography/Images/bipyramid10.gif" style="width: 25vw"  />
 </p>
 
-### [Face normal detection and Stereographic Projections](docs/stereographic_projections.md)
+### [Stereographic Projections](docs/stereographic_projections.md)
 
 <p float="middle">
   <img src="PyCrystallography/Images/face_normals_tetrakis.gif" style="width: 25vw"  />
