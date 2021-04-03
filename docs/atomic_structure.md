@@ -7,13 +7,13 @@
 The miller indices are used to denote the planes in crystal lattices.
 
 <p float="left">
-  <img src="../PyCrystallography/Images/miller_100.gif" width="400" />
-  <img src="../PyCrystallography/Images/miller_010.gif" width="400" />
-  <img src="../PyCrystallography/Images/miller_001.gif" width="400" />
-  <img src="../PyCrystallography/Images/miller_110.gif" width="400" />
-  <img src="../PyCrystallography/Images/miller_101.gif" width="400" />
-  <img src="../PyCrystallography/Images/miller_011.gif" width="400" />
-  <img src="../PyCrystallography/Images/miller_111.gif" width="400" />
+  <img src="../PyCrystallography/Images/miller_100.gif" style="width: 25vw;" />
+  <img src="../PyCrystallography/Images/miller_010.gif" style="width: 25vw;" />
+  <img src="../PyCrystallography/Images/miller_001.gif" style="width: 25vw;" />
+  <img src="../PyCrystallography/Images/miller_110.gif" style="width: 25vw;" />
+  <img src="../PyCrystallography/Images/miller_101.gif" style="width: 25vw;" />
+  <img src="../PyCrystallography/Images/miller_011.gif" style="width: 25vw;" />
+  <img src="../PyCrystallography/Images/miller_111.gif" style="width: 25vw;" />
 </p>
 
 <br />
@@ -50,10 +50,10 @@ possible unit cell shapes:
  - `hexagon`
 
 <p float="left">
-  <img src="../PyCrystallography/Images/triangle_lattice.gif" width="400" />
-  <img src="../PyCrystallography/Images/square_lattice.gif" width="400" />
-  <img src="../PyCrystallography/Images/rhombus_lattice.gif" width="400" />
-  <img src="../PyCrystallography/Images/hexagon_lattice.gif" width="400" />
+  <img src="../PyCrystallography/Images/triangle_lattice.gif" style="width: 25vw;" />
+  <img src="../PyCrystallography/Images/square_lattice.gif" style="width: 25vw;" />
+  <img src="../PyCrystallography/Images/rhombus_lattice.gif" style="width: 25vw;" />
+  <img src="../PyCrystallography/Images/hexagon_lattice.gif" style="width: 25vw;" />
 </p>
 
 ### Reciprocal 
@@ -108,7 +108,7 @@ Reciprocal Unit Cell Volume = 24.805021344239854
 ```
 
 <p float="left">
-  <img src="../PyCrystallography/Images/Reciprocal.png" width="800" />
+  <img src="../PyCrystallography/Images/Reciprocal.png" style="width: 25vw;" />
 </p>
 
 <br />
@@ -132,8 +132,8 @@ lattice.make_lattice_3d(ax,prim)
 plt.show()
 ```
 <p float="left">
-  <img src="../PyCrystallography/Images/BCC_unit_cell.gif" width="400" />
-  <img src="../PyCrystallography/Images/BCC_lattice.gif" width="400" />
+  <img src="../PyCrystallography/Images/BCC_unit_cell.gif" style="width: 25vw;" />
+  <img src="../PyCrystallography/Images/BCC_lattice.gif" style="width: 25vw;" />
 </p>
 
 ```py
@@ -150,8 +150,8 @@ plt.show()
 ```
 
 <p float="left">
-  <img src="../PyCrystallography/Images/FCC_unit_cell.gif" width="400" />
-  <img src="../PyCrystallography/Images/FCC_lattice.gif" width="400" />
+  <img src="../PyCrystallography/Images/FCC_unit_cell.gif" style="width: 25vw;" />
+  <img src="../PyCrystallography/Images/FCC_lattice.gif" style="width: 25vw;" />
 </p>
 
 ```py
@@ -168,8 +168,8 @@ plt.show()
 ```
 
 <p float="left">
-  <img src="../PyCrystallography/Images/NaCl_unit_cell.gif" width="400" />
-  <img src="../PyCrystallography/Images/NaCl_lattice.gif" width="400" />
+  <img src="../PyCrystallography/Images/NaCl_unit_cell.gif" style="width: 25vw;" />
+  <img src="../PyCrystallography/Images/NaCl_lattice.gif" style="width: 25vw;" />
 </p>
 
 
@@ -187,8 +187,8 @@ plt.show()
 
 ```
 <p float="left">
-  <img src="../PyCrystallography/Images/diamond_unit_cell.gif" width="400" />
-  <img src="../PyCrystallography/Images/diamond_lattice.gif" width="400" />
+  <img src="../PyCrystallography/Images/diamond_unit_cell.gif" style="width: 25vw;" />
+  <img src="../PyCrystallography/Images/diamond_lattice.gif" style="width: 25vw;" />
 </p>
 
 # Packings
@@ -204,8 +204,8 @@ triangle_subdivision(n,'grid')
 ```
 
 <p float="left">
-  <img src="../PyCrystallography/Images/triangle_subdivision_diag.gif" width="400" />
-  <img src="../PyCrystallography/Images/triangle_subdivision_grid.gif" width="400" />
+  <img src="../PyCrystallography/Images/triangle_subdivision_diag.gif" style="width: 25vw;" />
+  <img src="../PyCrystallography/Images/triangle_subdivision_grid.gif" style="width: 25vw;" />
 </p>
 
 ```py
@@ -213,7 +213,7 @@ triangle_subdivision(n,'zelda')
 ```
 
 <p float="left">
-  <img src="../PyCrystallography/Images/triangle_subdivision_zelda.gif" width="400" />
+  <img src="../PyCrystallography/Images/triangle_subdivision_zelda.gif" style="width: 25vw;" />
 </p>
 
 ## Penrose Tiling
@@ -227,7 +227,7 @@ Penrose_Tiling(n,'star')
 ```
 
 <p float="left">
-  <img src="../PyCrystallography/Images/penrose_tiling_sun.gif" width="400" />
-  <img src="../PyCrystallography/Images/penrose_tiling_star.gif" width="400" />
+  <img src="../PyCrystallography/Images/penrose_tiling_sun.gif" style="width: 25vw;" />
+  <img src="../PyCrystallography/Images/penrose_tiling_star.gif" style="width: 25vw;" />
 </p>
 
