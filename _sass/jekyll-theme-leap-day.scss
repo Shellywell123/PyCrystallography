@@ -459,7 +459,7 @@ footer {
   }
 
   header{
-    position: relative;
+    position: fixed;
     padding: 5px 0px;
     min-height: 10px;
 
@@ -477,7 +477,7 @@ footer {
   }
 
   #banner {
-    top: 60px;
+    top: 55px;
 
     .fork {
       float: left;
