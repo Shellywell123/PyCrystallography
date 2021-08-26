@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-def plot_triangle(triangle):
+def plot_shape(triangle, edgecolor='k', linewidth=0.5):
     """
     plots triangle  = (color,xpoints,ypoints)
     """
@@ -9,7 +9,7 @@ def plot_triangle(triangle):
     x_vals = triangle[1]
     y_vals = triangle[2]
 
-    plt.fill(x_vals,y_vals,color=col, edgecolor='k', linewidth=0.5)
+    plt.fill(x_vals,y_vals,color=col, edgecolor=edgecolor, linewidth=linewidth)
 
 def triangle_subdivision(n,pattern_name):
     """
@@ -36,7 +36,7 @@ def triangle_subdivision(n,pattern_name):
 
     start_triangle = ['red',x_verts,y_verts]
 
-    plot_triangle(start_triangle)
+    plot_shape(start_triangle)
 
     def divide_tri_diag(x_verts,y_verts):
         x_centre = np.mean(x_verts)
@@ -62,7 +62,7 @@ def triangle_subdivision(n,pattern_name):
         sub_triangles = [triangle_1,triangle_2,triangle_3,triangle_4,triangle_5,triangle_6]
         return sub_triangles
 
-    def divide_tri_zelda(x_verts,y_verts):
+    def divide_tri_serpinski(x_verts,y_verts):
         x_centre = np.mean(x_verts)
         y_centre = np.mean(y_verts)
      
@@ -113,20 +113,78 @@ def triangle_subdivision(n,pattern_name):
 
     def n_div(x_verts,y_verts, n):
         if n >= 1:
-            if pattern_name == 'zelda':
-                sub_triangles = divide_tri_zelda(x_verts,y_verts)
+            if pattern_name == 'serpinski':
+                sub_triangles = divide_tri_serpinski(x_verts,y_verts)
             if pattern_name == 'diag':
                 sub_triangles = divide_tri_diag(x_verts,y_verts)
             if pattern_name == 'grid':
                 sub_triangles = divide_tri_grid(x_verts,y_verts)
             for triangle in sub_triangles:
-                plot_triangle(triangle)
+                plot_shape(triangle)
                 x_verts,y_verts = triangle[1],triangle[2]
                 n_div(x_verts,y_verts,n-1)
     n_div(x_verts,y_verts, n)
     plt.xlim([-1,1])
     plt.ylim([-1,1])
     plt.axis('off')
+
+def serpinski_carpet(N):
+    """
+    """
+    
+    def make_square(w,x_pos,y_pos):
+        r=np.sqrt(w**2/2)
+
+        d_theta = 2*np.pi/3
+
+        x_verts = []
+        y_verts = []
+
+        for i in range(0,100):
+
+            theta = i*2*np.pi/4 + np.pi/4
+
+            x = r*np.cos(theta)+x_pos
+            y = r*np.sin(theta)+y_pos
+            x_verts.append(x)
+            y_verts.append(y)
+
+        start_square = x_verts,y_verts
+        return start_square
+
+    x_verts,y_verts=make_square(2,0,0)
+    plot_shape(['black',x_verts,y_verts])
+
+    w = max(x_verts)-min(x_verts)
+    h = max(y_verts)-min(y_verts)
+
+    print('generating sepinski {} layers'.format(N))
+    for i in range(0,N):
+        num_of_coords = 3**i
+
+        # if odd
+        if num_of_coords%2 != 0:
+            positions = [0]
+            for j in range(1,int((num_of_coords+1)/2)):
+              #  print(j*float(w/num_of_coords))
+                positions.append(+j*float(w/num_of_coords))
+                positions.append(-j*float(w/num_of_coords))
+
+     #   print(positions,len(positions),num_of_coords)
+
+        for x_pos in positions:
+            for y_pos in positions:
+                r = w/(num_of_coords*3)
+
+                x,y = make_square(r,x_pos,y_pos)
+                plot_shape(['white',x,y], edgecolor='k', linewidth=0)
+
+        print(' - layer {} generated'.format(i))
+
+    plt.xlim([-1,1])
+    plt.ylim([-1,1])
+    plt.axis('off')
+
 
 def pack(num_of_sides):
     """
@@ -184,6 +242,8 @@ def pack(num_of_sides):
     plt.axis('off')
 
 ######################################################
+
+
 
 def Penrose_Tiling(n,pattern_name):
     """
@@ -258,13 +318,13 @@ def Penrose_Tiling(n,pattern_name):
                 start_triangles.append(['blue',[r*np.cos(i*np.pi/5+rot),np.cos((i+1)*np.pi/5+rot),0],[r*np.sin(i*np.pi/5+rot),np.sin((i+1)*np.pi/5+rot),0]])
 
     for triangle in start_triangles:
-        plot_triangle(triangle)
+        plot_shape(triangle)
     
     def peN_div(triangles, n):
         if n >= 1:
             sub_triangles = subdivide(triangles)
             for triangle in sub_triangles:
-                plot_triangle(triangle)
+                plot_shape(triangle)
             peN_div(sub_triangles,n-1)
 
     peN_div(start_triangles, n)
@@ -286,4 +346,7 @@ def Penrose_Tiling(n,pattern_name):
 # fig = plt.figure(1,figsize=[8,8])
 # ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
 # make_lattice_3d(ax,prim)
+# plt.show()
+# plt.figure(1,figsize=[6,6])
+# serpinski(5)
 # plt.show()

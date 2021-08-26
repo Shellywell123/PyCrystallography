@@ -408,20 +408,23 @@ def make_all_packing_gifs():
 
     objects = [
 
-                {'code'    : 'triangle_subdivision(n,"diag")',
-                 'name'    : 'triangle_subdivision_diag'},
+                # {'code'    : 'triangle_subdivision(n,"diag")',
+                #  'name'    : 'triangle_subdivision_diag'},
 
-                {'code'    : 'triangle_subdivision(n,"zelda")',
-                 'name'    : 'triangle_subdivision_zelda'},
+                {'code'    : 'triangle_subdivision(n,"serpinski")',
+                 'name'    : 'triangle_subdivision_serpinski'},
 
-                {'code'    : 'triangle_subdivision(n,"grid")',
-                 'name'    : 'triangle_subdivision_grid'},
+                # {'code'    : 'triangle_subdivision(n,"grid")',
+                #  'name'    : 'triangle_subdivision_grid'},
 
-                {'code'    : 'Penrose_Tiling(n,"sun")',
-                 'name'    : 'penrose_tiling_sun'},
+                # {'code'    : 'Penrose_Tiling(n,"sun")',
+                #  'name'    : 'penrose_tiling_sun'},
 
-                {'code'    : 'Penrose_Tiling(n,"star")',
-                 'name'    : 'penrose_tiling_star'}
+                # {'code'    : 'Penrose_Tiling(n,"star")',
+                #  'name'    : 'penrose_tiling_star'},
+
+                {'code'    : 'serpinski_carpet(n)',
+                 'name'    : 'serpinski_carpet'}
 
                 ]
 
@@ -494,5 +497,5 @@ def make_all_moire_gifs():
 # make_all_face_norm_gifs()
 # make_all_stereos()
 # make_all_stereo_gifs()
-# make_all_packing_gifs()
-make_all_moire_gifs()
+make_all_packing_gifs()
+# make_all_moire_gifs()
