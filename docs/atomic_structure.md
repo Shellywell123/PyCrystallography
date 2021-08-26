@@ -236,3 +236,13 @@ serpinksi_carpet(n)
   <img src="../PyCrystallography/Images/serpinski_carpet.gif" style="width: 25vw;" />
 </p>
 
+## 3D Fractal Packing
+
+
+```py
+menger_cube(n)
+```
+
+<p float="left">
+  <img src="../PyCrystallography/Images/menger_cube.gif" style="width: 25vw;" />
+</p>
