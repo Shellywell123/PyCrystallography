@@ -193,6 +193,21 @@ plt.show()
 
 # Packings
 
+## Penrose Tiling
+
+```py
+Penrose_Tiling(n,'sun')
+```
+
+```py
+Penrose_Tiling(n,'star')
+```
+
+<p float="left">
+  <img src="../PyCrystallography/Images/penrose_tiling_sun.gif" style="width: 25vw;" />
+  <img src="../PyCrystallography/Images/penrose_tiling_star.gif" style="width: 25vw;" />
+</p>
+
 ## subdivision
 
 ```py
@@ -219,20 +234,5 @@ serpinksi_carpet(n)
 <p float="left">
   <img src="../PyCrystallography/Images/triangle_subdivision_serpinski.gif" style="width: 25vw;" />
   <img src="../PyCrystallography/Images/serpinski_carpet.gif" style="width: 25vw;" />
-</p>
-
-## Penrose Tiling
-
-```py
-Penrose_Tiling(n,'sun')
-```
-
-```py
-Penrose_Tiling(n,'star')
-```
-
-<p float="left">
-  <img src="../PyCrystallography/Images/penrose_tiling_sun.gif" style="width: 25vw;" />
-  <img src="../PyCrystallography/Images/penrose_tiling_star.gif" style="width: 25vw;" />
 </p>
 
