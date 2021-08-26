@@ -2,7 +2,9 @@
   <a href="https://shellywell123.github.io/PyCrystallography/index.html">
    <img src="PyCrystallography/Images/face_normals_tetrakis-transparent.gif" width="150" />
   </a>
-  <img src="PyCrystallography/Images/Logo.png" width="650" />
+  <a href="https://shellywell123.github.io/PyCrystallography/index.html">
+   <img src="PyCrystallography/Images/Logo.png" width="650" />
+  </a>
 </p>
 
 Python 3 package being written to illustrate crystallography.\
