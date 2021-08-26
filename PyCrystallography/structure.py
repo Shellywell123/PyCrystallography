@@ -51,7 +51,8 @@ def plot_atoms(ax,atoms):
         siz = atom['size']
         ax.scatter(x,y,z,s=siz,c=col)
 
-def plot_face(ax,verts,alpha=0.5,color='C0'):
+
+def plot_face(ax,verts,alpha=0.5,color='C0',linewidth=1):
     """
     """
 
@@ -67,7 +68,7 @@ def plot_face(ax,verts,alpha=0.5,color='C0'):
     verts = [list(zip(x_list,y_list,z_list))]
 
     from mpl_toolkits.mplot3d.art3d import Poly3DCollection
-    ax.add_collection3d(Poly3DCollection(verts,linewidths=1,color=color,edgecolor='k',alpha=alpha))
+    ax.add_collection3d(Poly3DCollection(verts,linewidths=linewidth,color=color,edgecolor='k',alpha=alpha))
 
 
 def plot_axis(ax,max_lim=10):

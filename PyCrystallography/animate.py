@@ -411,8 +411,8 @@ def make_all_packing_gifs():
                 # {'code'    : 'triangle_subdivision(n,"diag")',
                 #  'name'    : 'triangle_subdivision_diag'},
 
-                {'code'    : 'triangle_subdivision(n,"serpinski")',
-                 'name'    : 'triangle_subdivision_serpinski'},
+                # {'code'    : 'triangle_subdivision(n,"serpinski")',
+                #  'name'    : 'triangle_subdivision_serpinski'},
 
                 # {'code'    : 'triangle_subdivision(n,"grid")',
                 #  'name'    : 'triangle_subdivision_grid'},
@@ -423,12 +423,16 @@ def make_all_packing_gifs():
                 # {'code'    : 'Penrose_Tiling(n,"star")',
                 #  'name'    : 'penrose_tiling_star'},
 
-                {'code'    : 'serpinski_carpet(n)',
-                 'name'    : 'serpinski_carpet'}
+                # {'code'    : 'serpinski_carpet(n)',
+                #  'name'    : 'serpinski_carpet'}
+
+                {'code'    : 'menger_cube(n)',
+                 'name'    : 'menger_cube'}
 
                 ]
 
-    objects_to_n_gif(objects,7)
+    objects_to_n_gif(objects,5)
+
 
 ################################################################################
 

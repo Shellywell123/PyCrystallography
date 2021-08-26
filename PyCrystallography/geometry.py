@@ -52,7 +52,7 @@ def normal_points(ax,faces,r):
 
     return sphere_points
 
-def cuboid(ax,h,w,d,alpha=0.5,show_axis=True):
+def cuboid(ax,h,w,d,x_pos=0,y_pos=0,z_pos=0,alpha=0.5,show_axis=True,c='#1f77b4',lw=1):
     """
     """
     if show_axis == True:
@@ -60,33 +60,33 @@ def cuboid(ax,h,w,d,alpha=0.5,show_axis=True):
     faces = []
 
     #+w
-    side_verts1 = [h/2,w/2,-d/2],[-h/2,w/2,-d/2],[-h/2,w/2,d/2],[h/2,w/2,d/2]
+    side_verts1 = [h/2+x_pos,w/2+y_pos,-d/2+z_pos],[-h/2+x_pos,w/2+y_pos,-d/2+z_pos],[-h/2+x_pos,w/2+y_pos,d/2+z_pos],[h/2+x_pos,w/2+y_pos,d/2+z_pos]
     faces.append(side_verts1)
 
     #-w
-    side_verts2 = [h/2,-w/2,d/2],[-h/2,-w/2,d/2],[-h/2,-w/2,-d/2],[h/2,-w/2,-d/2]
+    side_verts2 = [h/2+x_pos,-w/2+y_pos,d/2+z_pos],[-h/2+x_pos,-w/2+y_pos,d/2+z_pos],[-h/2+x_pos,-w/2+y_pos,-d/2+z_pos],[h/2+x_pos,-w/2+y_pos,-d/2+z_pos]
 
     faces.append(side_verts2)
 
     #+h
-    side_verts3 = [h/2,w/2,d/2],[h/2,-w/2,d/2],[h/2,-w/2,-d/2],[h/2,w/2,-d/2]
+    side_verts3 = [h/2+x_pos,w/2+y_pos,d/2+z_pos],[h/2+x_pos,-w/2+y_pos,d/2+z_pos],[h/2+x_pos,-w/2+y_pos,-d/2+z_pos],[h/2+x_pos,w/2+y_pos,-d/2+z_pos]
     faces.append(side_verts3)
 
     #-h
-    side_verts4 = [-h/2,w/2,-d/2],[-h/2,-w/2,-d/2],[-h/2,-w/2,d/2],[-h/2,w/2,d/2]
+    side_verts4 = [-h/2+x_pos,w/2+y_pos,-d/2+z_pos],[-h/2+x_pos,-w/2+y_pos,-d/2+z_pos],[-h/2+x_pos,-w/2+y_pos,d/2+z_pos],[-h/2+x_pos,w/2+y_pos,d/2+z_pos]
     faces.append(side_verts4)
 
     #+d
-    top_verts = [h/2,w/2,d/2],[-h/2,w/2,d/2],[-h/2,-w/2,d/2],[h/2,-w/2,d/2]
+    top_verts = [h/2+x_pos,w/2+y_pos,d/2+z_pos],[-h/2+x_pos,w/2+y_pos,d/2+z_pos],[-h/2+x_pos,-w/2+y_pos,d/2+z_pos],[h/2+x_pos,-w/2+y_pos,d/2+z_pos]
     faces.append(top_verts)
 
     #-d
-    bottom_verts = [h/2,-w/2,-d/2],[-h/2,-w/2,-d/2],[-h/2,w/2,-d/2],[h/2,w/2,-d/2]
+    bottom_verts = [h/2+x_pos,-w/2+y_pos,-d/2+z_pos],[-h/2+x_pos,-w/2+y_pos,-d/2+z_pos],[-h/2+x_pos,w/2+y_pos,-d/2+z_pos],[h/2+x_pos,w/2+y_pos,-d/2+z_pos]
 
     faces.append(bottom_verts)
 
     for face in faces:
-        plot_face(ax,face,alpha=alpha)
+       plot_face(ax,face,alpha=alpha,color=c,linewidth=lw)
 
     return faces
 

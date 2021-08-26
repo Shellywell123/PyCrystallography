@@ -158,7 +158,7 @@ def serpinski_carpet(N):
     w = max(x_verts)-min(x_verts)
     h = max(y_verts)-min(y_verts)
 
-    print('generating sepinski {} layers'.format(N))
+#    print('generating sepinski {} layers'.format(N))
     for i in range(0,N):
         num_of_coords = 3**i
 
@@ -166,11 +166,8 @@ def serpinski_carpet(N):
         if num_of_coords%2 != 0:
             positions = [0]
             for j in range(1,int((num_of_coords+1)/2)):
-              #  print(j*float(w/num_of_coords))
                 positions.append(+j*float(w/num_of_coords))
                 positions.append(-j*float(w/num_of_coords))
-
-     #   print(positions,len(positions),num_of_coords)
 
         for x_pos in positions:
             for y_pos in positions:
@@ -179,7 +176,7 @@ def serpinski_carpet(N):
                 x,y = make_square(r,x_pos,y_pos)
                 plot_shape(['white',x,y], edgecolor='k', linewidth=0)
 
-        print(' - layer {} generated'.format(i))
+     #   print(' - layer {} generated'.format(i))
 
     plt.xlim([-1,1])
     plt.ylim([-1,1])
@@ -333,6 +330,39 @@ def Penrose_Tiling(n,pattern_name):
     plt.ylim([-1,1])
     plt.axis('off')
 
+def menger_cube(N):
+    """
+    currently plots inverse as not found a good solutions for plotting surfaces containg holes
+    """
+    from mpl_toolkits.mplot3d import Axes3D
+    from PyCrystallography.geometry import cuboid
+    from PyCrystallography.structure import plot_axis
+
+    fig = plt.figure(figsize=[8,8])
+    ax = fig.add_subplot(111,projection='3d')
+
+
+    
+    start_width = 4
+    cuboid(ax,start_width,start_width,start_width,show_axis=False,alpha=0.1,c='black')
+    
+    colors = ['red','blue','yellow','green','pink','brown','orange','purple']
+    for i in range(0,N):
+        num_of_coords = 3**i
+
+        positions = [0]
+        for j in range(1,int((num_of_coords+1)/2)):
+            positions.append(+j*float(start_width/num_of_coords))
+            positions.append(-j*float(start_width/num_of_coords))
+
+        for x_pos in positions:
+            for y_pos in positions:
+                for z_pos in positions:
+                    r = start_width/(num_of_coords*3)
+                    cuboid(ax,r,r,r,x_pos=x_pos,y_pos=y_pos,z_pos=z_pos,show_axis=False,alpha=1/(i+1),c=colors[i],lw=1/(i+1))
+
+    plot_axis(ax,max_lim=start_width/2)
+    #plt.show()
 
 # # #pack(5)
 # triangle_subdivision(10,'zelda')
