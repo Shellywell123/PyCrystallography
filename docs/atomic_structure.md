@@ -209,11 +209,16 @@ triangle_subdivision(n,'grid')
 </p>
 
 ```py
-triangle_subdivision(n,'zelda')
+triangle_subdivision(n,'serpinski')
+```
+
+```py
+serpinksi_carpet(n)
 ```
 
 <p float="left">
-  <img src="../PyCrystallography/Images/triangle_subdivision_zelda.gif" style="width: 25vw;" />
+  <img src="../PyCrystallography/Images/triangle_subdivision_serpinski.gif" style="width: 25vw;" />
+  <img src="../PyCrystallography/Images/serpinski_carpet.gif" style="width: 25vw;" />
 </p>
 
 ## Penrose Tiling
