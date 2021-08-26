@@ -364,6 +364,21 @@ def menger_cube(N):
     plot_axis(ax,max_lim=start_width/2)
     #plt.show()
 
+def serpinski_pyramid(N):
+    """
+    """
+    from mpl_toolkits.mplot3d import Axes3D
+    from PyCrystallography.geometry import pyramid
+    from PyCrystallography.structure import plot_axis
+
+    fig = plt.figure(figsize=[8,8])
+    ax = fig.add_subplot(111,projection='3d')
+
+    start_width = 4
+    pyramid(ax,start_width,start_width,3,upside_down=True)
+    plt.show()
+
+
 # # #pack(5)
 # triangle_subdivision(10,'zelda')
 # # Penrose_Tiling(1,'star')
@@ -377,6 +392,5 @@ def menger_cube(N):
 # ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
 # make_lattice_3d(ax,prim)
 # plt.show()
-# plt.figure(1,figsize=[6,6])
-# serpinski(5)
-# plt.show()
+serpinski_pyramid(5)
+plt.show()

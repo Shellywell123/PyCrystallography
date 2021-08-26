@@ -180,13 +180,14 @@ def tetrakis(ax,r,dr):
 
     return faces
 
-def pyramid(ax,h,r,num_of_side):
+def pyramid(ax,h,r,num_of_side,show_axis=True,x_pos=0,y_pos=0,z_pos=0,alpha=0.5,c='#1f77b4',lw=1,upside_down=False):
     """
     will plot a pyramid with num of sides -1
     """
     faces = []
     bottom_verts = []
-    plot_axis(ax,max_lim=1.1*h)
+    if show_axis == True:
+        plot_axis(ax,max_lim=1.1*h)
 
     for n in range(0,num_of_side):
         theta      = (2*n/num_of_side)*np.pi
@@ -197,14 +198,18 @@ def pyramid(ax,h,r,num_of_side):
         x_next = r*np.cos(theta_next)
         y_next = r*np.sin(theta_next)
 
-        side_verts = [0,0,h/2],[x,y,-h/2],[x_next,y_next,-h/2]
+        fix = 1
+        if upside_down == True:
+            fix == -1
+
+        side_verts = [0,0,h/2*fix],[x,y,-h/2*fix],[x_next,y_next,-h/2*fix]
         faces.append(side_verts)
-        bottom_verts.append([x,y,-h/2])
+        bottom_verts.append([x,y,-h/2*fix])
 
     faces.append(bottom_verts[::-1])
 
     for face in faces:
-        plot_face(ax,face)
+        plot_face(ax,face,alpha=alpha,color=c,linewidth=lw)
 
     return faces
 
@@ -338,3 +343,12 @@ def Stereographic_projection(points,r,name):
     if name != 'dont_save':
         plt.savefig('PyCrystallography/Images/{}.png'.format(name))
     return n_points, e_points, s_points
+
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+fig = plt.figure(figsize=[8,8])
+ax = fig.add_subplot(111,projection='3d')
+
+start_width = 4
+pyramid(ax,start_width,start_width,3,upside_down=True)
+plt.show()
