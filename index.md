@@ -33,8 +33,12 @@ git clone https://github.com/Shellywell123/PyCrystallography/
 ### [Penrose Tiling](docs/atomic_structure.md)
 
 <p float="middle" style="margin: auto;">
-  <img src="PyCrystallography/Images/penrose_tiling_sun.gif" style="width: 25vw" />
-  <img src="PyCrystallography/Images/penrose_tiling_star.gif" style="width: 25vw" />
+  <a href="docs/atomic_structure.md">
+    <img src="PyCrystallography/Images/penrose_tiling_sun.gif" style="width: 25vw" />
+  </a>
+  <a href="docs/atomic_structure.md">
+   <img src="PyCrystallography/Images/penrose_tiling_star.gif" style="width: 25vw" />
+  </a>  
 </p>
 
 
@@ -61,7 +65,7 @@ git clone https://github.com/Shellywell123/PyCrystallography/
   <img src="PyCrystallography/Images/cube_reflection_diag.gif" style="width: 25vw"  />
 </p>
 
-### [Geometry](https://github.com/Shellywell123/PyCrystallography/blob/main/docs/geometry.md)
+### [Geometry](docs/geometry.md)
 
 <p float="middle">
   <img src="PyCrystallography/Images/cube.gif" style="width: 25vw" />
