@@ -228,15 +228,18 @@ triangle_subdivision(n,'serpinski')
 ```
 
 ```py
-serpinksi_carpet(n)
+serpinksi_pyramid(n)
 ```
 
 <p float="left">
   <img src="../PyCrystallography/Images/triangle_subdivision_serpinski.gif" style="width: 25vw;" />
-  <img src="../PyCrystallography/Images/serpinski_carpet.gif" style="width: 25vw;" />
+  <img src="../PyCrystallography/Images/serpinski_pyramid.gif" style="width: 25vw;" />
 </p>
 
-## 3D Fractal Packing
+## Fractal Packing
+```py
+serpinksi_carpet(n)
+```
 
 
 ```py
@@ -244,5 +247,6 @@ menger_cube(n)
 ```
 
 <p float="left">
+  <img src="../PyCrystallography/Images/serpinski_carpet.gif" style="width: 25vw;" />
   <img src="../PyCrystallography/Images/menger_cube.gif" style="width: 25vw;" />
 </p>
