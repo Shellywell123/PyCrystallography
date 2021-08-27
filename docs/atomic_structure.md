@@ -226,16 +226,36 @@ triangle_subdivision(n,'grid')
   <img src="../PyCrystallography/Images/triangle_subdivision_grid.gif" style="width: 25vw;" />
 </p>
 
-|```py
-triangle_subdivision(n,'serpinski')```|```py
-serpinksi_pyramid(n)```|
-
-<p float="left">
-  <img src="../PyCrystallography/Images/triangle_subdivision_serpinski.gif" style="width: 25vw;" />
-  <img src="../PyCrystallography/Images/serpinski_pyramid.gif" style="width: 25vw;" />
-</p>
 
 ## Fractal Packing
+
+<table>
+<tr>
+<td>
+
+<p>
+<code>
+triangle_subdivision(n,'serpinski'
+</code>
+</p>
+
+<p float="middle">
+  <img src="../PyCrystallography/Images/triangle_subdivision_serpinski.gif" style="width: 25vw;" />
+</p>
+
+</td>
+<td>
+
+<code>
+serpinksi_pyramid(n)
+</code>
+
+<p float="middle">
+ <img src="../PyCrystallography/Images/serpinski_pyramid.gif" style="width: 25vw;" />
+</p>
+
+</td>
+</tr>
 
 
 <table>
