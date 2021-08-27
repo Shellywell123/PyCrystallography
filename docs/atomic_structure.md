@@ -244,7 +244,7 @@ serpinksi_pyramid(n)
 <td>
 
 <p>
-<code>py
+<code>
 serpinksi_carpet(n)
 </code>
 </p>
@@ -253,12 +253,12 @@ serpinksi_carpet(n)
   <img src="../PyCrystallography/Images/serpinski_carpet.gif" style="width: 25vw;" />
 </p>
 
-</pre>
 </td>
 <td>
 
-
-
+<code>
+menger_cube(n)
+</code>
 
 <p float="middle">
   <img src="../PyCrystallography/Images/menger_cube.gif" style="width: 25vw;" />
