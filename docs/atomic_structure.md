@@ -220,16 +220,13 @@ triangle_subdivision(n,'grid')
 
 <p float="left">
   <img src="../PyCrystallography/Images/triangle_subdivision_diag.gif" style="width: 25vw;" />
+</p>
+
+<p float="left">
   <img src="../PyCrystallography/Images/triangle_subdivision_grid.gif" style="width: 25vw;" />
 </p>
 
-```py
-triangle_subdivision(n,'serpinski')
-```
-
-```py
-serpinksi_pyramid(n)
-```
+|```pytriangle_subdivision(n,'serpinski')```|```pyserpinksi_pyramid(n)```|
 
 <p float="left">
   <img src="../PyCrystallography/Images/triangle_subdivision_serpinski.gif" style="width: 25vw;" />
