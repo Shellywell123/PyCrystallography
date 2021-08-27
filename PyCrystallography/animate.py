@@ -426,12 +426,16 @@ def make_all_packing_gifs():
                 # {'code'    : 'serpinski_carpet(n)',
                 #  'name'    : 'serpinski_carpet'}
 
-                {'code'    : 'menger_cube(n)',
-                 'name'    : 'menger_cube'}
+                # {'code'    : 'menger_cube(n)',
+                #  'name'    : 'menger_cube'}
+
+                {'code'    : 'serpinski_pyramid(n)',
+                 'name'    : 'serpinski_pyramid'}
+
 
                 ]
 
-    objects_to_n_gif(objects,5)
+    objects_to_n_gif(objects,7)
 
 
 ################################################################################

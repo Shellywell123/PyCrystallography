@@ -200,11 +200,11 @@ def pyramid(ax,h,r,num_of_side,show_axis=True,x_pos=0,y_pos=0,z_pos=0,alpha=0.5,
 
         fix = 1
         if upside_down == True:
-            fix == -1
+            fix = -1
 
-        side_verts = [0,0,h/2*fix],[x,y,-h/2*fix],[x_next,y_next,-h/2*fix]
+        side_verts = [0+x_pos,0+y_pos,h/2*fix+z_pos],[x+x_pos,y+y_pos,-h/2*fix+z_pos],[x_next+x_pos,y_next+y_pos,-h/2*fix+z_pos]
         faces.append(side_verts)
-        bottom_verts.append([x,y,-h/2*fix])
+        bottom_verts.append([x+x_pos,y+y_pos,-h/2*fix+z_pos])
 
     faces.append(bottom_verts[::-1])
 
@@ -343,12 +343,3 @@ def Stereographic_projection(points,r,name):
     if name != 'dont_save':
         plt.savefig('PyCrystallography/Images/{}.png'.format(name))
     return n_points, e_points, s_points
-
-import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
-fig = plt.figure(figsize=[8,8])
-ax = fig.add_subplot(111,projection='3d')
-
-start_width = 4
-pyramid(ax,start_width,start_width,3,upside_down=True)
-plt.show()

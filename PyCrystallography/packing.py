@@ -340,8 +340,6 @@ def menger_cube(N):
 
     fig = plt.figure(figsize=[8,8])
     ax = fig.add_subplot(111,projection='3d')
-
-
     
     start_width = 4
     cuboid(ax,start_width,start_width,start_width,show_axis=False,alpha=0.1,c='black')
@@ -374,9 +372,86 @@ def serpinski_pyramid(N):
     fig = plt.figure(figsize=[8,8])
     ax = fig.add_subplot(111,projection='3d')
 
-    start_width = 4
-    pyramid(ax,start_width,start_width,3,upside_down=True)
-    plt.show()
+    # set master triangle params
+    start_r = 1    
+    start_h = np.sqrt(5/2)*start_r
+    x_pos_main,y_pos_main,z_pos_main=0,0,0
+
+    
+    colors = ['red','blue','yellow','green','pink','brown','orange','purple']
+    
+    num_of_sub_tris= 4**N
+
+    
+
+    # else:
+
+    def split_tri(R,H,x_pos_main,y_pos_main,z_pos_main):
+
+        positions = []
+
+        r=R/2
+        h=H/4
+
+        # for top tri section
+        x_pos = 0 + x_pos_main
+        y_pos = 0 + y_pos_main
+        z_pos = h + z_pos_main # keeps getting taller
+
+        positions.append([x_pos,y_pos,z_pos])
+
+        #for bottom 3 tri sections
+        z_pos = -h + z_pos_main
+        for theta in [0,2*np.pi/3,4*np.pi/3]:
+            # radius needs to recursive change to get all positions!,
+            x_pos = r*np.cos(theta) + x_pos_main
+            y_pos = r*np.sin(theta) + y_pos_main
+            positions.append([x_pos,y_pos,z_pos])
+
+        return positions,r,h*2
+
+    def recurr_(R,H,x,y,z,n,final_tris):
+        """
+        """
+
+        colors = ['red','blue','yellow','green','pink','brown','orange','purple']
+        tris,r,h= split_tri(R,H,x,y,z)
+      #  print('rec called',n)
+        if n >= 1:
+            for tri in tris:
+                if n==1:
+                    final_tris.append(tri)
+                x_pos,y_pos,z_pos = tri
+            #    ax.scatter(x_pos,y_pos,z_pos,c=colors[n])
+                recurr_(r,h,x_pos,y_pos,z_pos,n-1,final_tris)
+
+        return final_tris        
+
+
+    r = start_r/(2**N)
+    h = start_h/(2**N)
+
+    # recursively generate sub tri postions1
+    if num_of_sub_tris==1:
+        positions = [[x_pos_main,y_pos_main,z_pos_main]]
+        ax.scatter(0,0,0,alpha=0)
+       
+    else:
+        positions = recurr_(start_r,start_h,x_pos_main,y_pos_main,z_pos_main,N,[])
+   # print(positions)
+
+    # render each subtriangle
+    for position in positions:
+        x_pos,y_pos,z_pos = position
+        pyramid(ax,h,r,3,x_pos=x_pos,y_pos=y_pos,z_pos=z_pos,show_axis=False,alpha=0.1,c=colors[N])
+
+    plot_axis(ax,max_lim=start_r*0.6)
+
+
+
+        
+
+
 
 
 # # #pack(5)
@@ -392,5 +467,7 @@ def serpinski_pyramid(N):
 # ax = fig.add_subplot(111,projection='3d',azim=30,elev=30)
 # make_lattice_3d(ax,prim)
 # plt.show()
-serpinski_pyramid(5)
-plt.show()
+
+
+# serpinski_pyramid(0)
+# plt.show()
