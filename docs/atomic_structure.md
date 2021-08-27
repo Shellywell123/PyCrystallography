@@ -226,7 +226,9 @@ triangle_subdivision(n,'grid')
   <img src="../PyCrystallography/Images/triangle_subdivision_grid.gif" style="width: 25vw;" />
 </p>
 
-|```pytriangle_subdivision(n,'serpinski')```|```pyserpinksi_pyramid(n)```|
+|```py
+triangle_subdivision(n,'serpinski')```|```py
+serpinksi_pyramid(n)```|
 
 <p float="left">
   <img src="../PyCrystallography/Images/triangle_subdivision_serpinski.gif" style="width: 25vw;" />
