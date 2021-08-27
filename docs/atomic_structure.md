@@ -238,13 +238,16 @@ serpinksi_pyramid(n)
 
 ## Fractal Packing
 
+
 <table>
 <tr>
 <td>
 
-```py
+<p>
+<code>py
 serpinksi_carpet(n)
-```
+</code>
+</p>
 
 <p float="middle">
   <img src="../PyCrystallography/Images/serpinski_carpet.gif" style="width: 25vw;" />
@@ -255,9 +258,7 @@ serpinksi_carpet(n)
 <td>
 
 
-```py
-menger_cube(n)
-```
+
 
 <p float="middle">
   <img src="../PyCrystallography/Images/menger_cube.gif" style="width: 25vw;" />
